@@ -82,7 +82,7 @@ export function Hero() {
 
   return (
     <section className="relative w-full min-h-[85vh] overflow-hidden">
-      <AnimatePresence initial={false} custom={direction} mode="sync">
+      <AnimatePresence initial={false} mode="sync" custom={direction}>
         <motion.div
           key={currentSlide}
           custom={direction}
@@ -91,8 +91,8 @@ export function Hero() {
           animate="center"
           exit="exit"
           transition={{
-            x: { type: 'spring', stiffness: 300, damping: 30 },
-            opacity: { duration: 0.3 },
+            x: { type: 'tween', ease: 'easeInOut', duration: 0.8 },
+            opacity: { duration: 0.6 },
           }}
           className="absolute inset-0"
         >
@@ -137,7 +137,7 @@ export function Hero() {
           </div>
         </motion.div>
       </AnimatePresence>
-
+      
       {/* Navigation Arrows */}
       <button
         onClick={goToPrevious}
