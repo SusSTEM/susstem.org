@@ -1,37 +1,14 @@
 import { Users, BookOpen, Globe } from "lucide-react";
 import CountUp from "react-countup";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 
 export function ImpactStats() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [key, setKey] = useState(0);
-  const sectionRef = useRef<HTMLElement>(null);
+  const [startCount, setStartCount] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            setKey((prevKey) => prevKey + 1);
-          } else {
-            setIsVisible(false);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  // Trigger count-up animation once on component mount
+  useState(() => {
+    setStartCount(true);
+  });
 
   const stats = [
     {
@@ -55,7 +32,7 @@ export function ImpactStats() {
   ];
 
   return (
-    <section ref={sectionRef} className="bg-[#e1e4d8] py-12 md:py-24" id="impact">
+    <section className="bg-[#e1e4d8] py-12 md:py-24" id="impact">
       <div className="max-w-7xl mx-auto px-6">
         <h2
           className="text-[#000000] text-3xl md:text-4xl text-center mb-12"
@@ -72,8 +49,8 @@ export function ImpactStats() {
                 <Icon className="w-12 h-12 mx-auto mb-4 text-[#000000]" />
                 <div className="text-4xl font-bold text-[#000000] mb-2">
                   {stat.prefix}
-                  {isVisible && (
-                    <CountUp key={key} end={stat.number} duration={2} />
+                  {startCount && (
+                    <CountUp end={stat.number} duration={2} />
                   )}
                 </div>
                 <p className="text-[#000000] text-lg">{stat.label}</p>
