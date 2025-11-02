@@ -1,7 +1,28 @@
 import { Users, BookOpen, Globe } from "lucide-react";
 import CountUp from "react-countup";
+import { useState, useEffect, useRef } from "react";
 
 export function ImpactStats() {
+  const [startCount, setStartCount] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStartCount(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const stats = [
     {
       icon: Users,
@@ -24,7 +45,11 @@ export function ImpactStats() {
   ];
 
   return (
-    <section className="bg-[#e1e4d8] py-12 md:py-24" id="impact">
+    <section
+      ref={sectionRef}
+      className="bg-[#e1e4d8] py-12 md:py-24"
+      id="impact"
+    >
       <div className="max-w-7xl mx-auto px-6">
         <h2
           className="text-[#000000] text-3xl md:text-4xl text-center mb-12"
@@ -39,25 +64,22 @@ export function ImpactStats() {
             return (
               <div
                 key={index}
-                className="bg-white rounded-3xl p-8 text-center space-y-4 shadow-md hover:shadow-xl transition-shadow"
+                className="bg-white rounded-lg p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="w-24 h-24 rounded-full bg-[#a2bb65] flex items-center justify-center mx-auto">
-                  <Icon className="w-12 h-12 text-white" />
+                <div className="flex justify-center mb-4">
+                  <div className="bg-[#a2bb65] w-16 h-16 rounded-full flex items-center justify-center">
+                    <Icon className="w-8 h-8 text-white" />
+                  </div>
                 </div>
-                <h3
-                  className="text-[#000000] text-4xl md:text-5xl"
-                  style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700 }}
-                >
+                <div className="text-4xl font-bold text-[#000000] mb-2 text-center">
                   {stat.prefix}
-                  <CountUp
-                    end={stat.number}
-                    duration={2.5}
-                    separator=","
-                  />
-                </h3>
-                <p className="text-[#858E80] text-lg">
-                  {stat.label}
-                </p>
+                  {startCount ? (
+                    <CountUp end={stat.number} duration={2} />
+                  ) : (
+                    stat.number
+                  )}
+                </div>
+                <p className="text-[#000000] text-lg text-center">{stat.label}</p>
               </div>
             );
           })}
