@@ -1,14 +1,27 @@
 import { Users, BookOpen, Globe } from "lucide-react";
 import CountUp from "react-countup";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export function ImpactStats() {
   const [startCount, setStartCount] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
-  // Trigger count-up animation once on component mount
-  useState(() => {
-    setStartCount(true);
-  });
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStartCount(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const stats = [
     {
@@ -32,29 +45,36 @@ export function ImpactStats() {
   ];
 
   return (
-    <section className="bg-[#e1e4d8] py-12 md:py-24" id="impact">
+    <section
+      ref={sectionRef}
+      className="bg-[#e1e4d8] py-12 md:py-24"
+      id="impact"
+    >
       <div className="max-w-7xl mx-auto px-6">
-        <h2
-          className="text-[#000000] text-3xl md:text-4xl text-center mb-12"
-          style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
-        >
+        <h2 className="text-[#000000] text-3xl md:text-4xl text-center mb-12 font-semibold">
           Our Impact
         </h2>
-        
+
         <div className="grid md:grid-cols-3 gap-8">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <div key={index} className="text-center">
+              <button
+                key={index}
+                className="bg-[#bec6ae] hover:bg-[#a8b198] transition-all duration-300 rounded-lg p-8 shadow-md hover:shadow-xl transform hover:-translate-y-1 cursor-pointer border-none w-full"
+                onClick={() => {}}
+              >
                 <Icon className="w-12 h-12 mx-auto mb-4 text-[#000000]" />
                 <div className="text-4xl font-bold text-[#000000] mb-2">
                   {stat.prefix}
-                  {startCount && (
+                  {startCount ? (
                     <CountUp end={stat.number} duration={2} />
+                  ) : (
+                    stat.number
                   )}
                 </div>
                 <p className="text-[#000000] text-lg">{stat.label}</p>
-              </div>
+              </button>
             );
           })}
         </div>
