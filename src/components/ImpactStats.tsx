@@ -1,7 +1,38 @@
 import { Users, BookOpen, Globe } from "lucide-react";
 import CountUp from "react-countup";
+import { useState, useEffect, useRef } from "react";
 
 export function ImpactStats() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [key, setKey] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            setKey((prevKey) => prevKey + 1);
+          } else {
+            setIsVisible(false);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const stats = [
     {
       icon: Users,
@@ -24,7 +55,7 @@ export function ImpactStats() {
   ];
 
   return (
-    <section className="bg-[#e1e4d8] py-12 md:py-24" id="impact">
+    <section ref={sectionRef} className="bg-[#e1e4d8] py-12 md:py-24" id="impact">
       <div className="max-w-7xl mx-auto px-6">
         <h2
           className="text-[#000000] text-3xl md:text-4xl text-center mb-12"
@@ -37,27 +68,15 @@ export function ImpactStats() {
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <div
-                key={index}
-                className="bg-white rounded-3xl p-8 text-center space-y-4 shadow-md hover:shadow-xl transition-shadow"
-              >
-                <div className="w-24 h-24 rounded-full bg-[#a2bb65] flex items-center justify-center mx-auto">
-                  <Icon className="w-12 h-12 text-white" />
-                </div>
-                <h3
-                  className="text-[#000000] text-4xl md:text-5xl"
-                  style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700 }}
-                >
+              <div key={index} className="text-center">
+                <Icon className="w-12 h-12 mx-auto mb-4 text-[#000000]" />
+                <div className="text-4xl font-bold text-[#000000] mb-2">
                   {stat.prefix}
-                  <CountUp
-                    end={stat.number}
-                    duration={2.5}
-                    separator=","
-                  />
-                </h3>
-                <p className="text-[#858E80] text-lg">
-                  {stat.label}
-                </p>
+                  {isVisible && (
+                    <CountUp key={key} end={stat.number} duration={2} />
+                  )}
+                </div>
+                <p className="text-[#000000] text-lg">{stat.label}</p>
               </div>
             );
           })}
