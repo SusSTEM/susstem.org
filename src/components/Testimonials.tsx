@@ -1,0 +1,95 @@
+import { Quote } from "lucide-react";
+
+export function Testimonials() {
+  const testimonials = [
+    {
+      quote: "SusSTEM has transformed how my students think about technology and the environment. They're now solving real problems in our community!",
+      author: "Maria Rodriguez",
+      role: "Science Teacher, São Paulo",
+    },
+    {
+      quote: "My daughter built a water conservation system for our garden. I'm amazed at what these kids can achieve with the right guidance.",
+      author: "James Chen",
+      role: "Parent, Singapore",
+    },
+    {
+      quote: "The hands-on approach and focus on sustainability makes learning exciting. Our students are more engaged than ever before.",
+      author: "Amina Okonkwo",
+      role: "Education Director, Lagos",
+    },
+  ];
+
+  const partners = [
+    "UNESCO",
+    "Arduino",
+    "Code.org",
+    "MIT Media Lab",
+    "UNICEF",
+    "Green Tech Alliance",
+  ];
+
+  return (
+    <section className="bg-[#e1e4d8] py-12 md:py-24">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Testimonials */}
+        <div className="mb-16">
+          <h2 
+            className="text-[#000000] text-3xl md:text-4xl text-center mb-12"
+            style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
+          >
+            What People Are Saying
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl transition-shadow relative"
+              >
+                <Quote className="w-12 h-12 text-[#a4ff7b] mb-4 opacity-50" />
+                <p className="text-[#858E80] mb-6 leading-relaxed">
+                  "{testimonial.quote}"
+                </p>
+                <div className="border-t border-gray-200 pt-4">
+                  <p 
+                    className="text-[#000000]"
+                    style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
+                  >
+                    {testimonial.author}
+                  </p>
+                  <p className="text-[#858E80] text-sm">
+                    {testimonial.role}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Partner Logos */}
+        <div>
+          <h3 
+            className="text-[#000000] text-2xl md:text-3xl text-center mb-8"
+            style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
+          >
+            Our Partners
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+            {partners.map((partner, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-6 flex items-center justify-center h-24 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <span 
+                  className="text-gray-400 text-center"
+                  style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
+                >
+                  {partner}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
