@@ -54,18 +54,20 @@ export function ImpactStats() {
         <h2 className="text-[#000000] text-3xl md:text-4xl text-center mb-12 font-semibold">
           Our Impact
         </h2>
-
         <div className="grid md:grid-cols-3 gap-8">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <button
+              <div
                 key={index}
-                className="bg-[#bec6ae] hover:bg-[#a8b198] transition-all duration-300 rounded-lg p-8 shadow-md hover:shadow-xl transform hover:-translate-y-1 cursor-pointer border-none w-full"
-                onClick={() => {}}
+                className="bg-white rounded-lg p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
-                <Icon className="w-12 h-12 mx-auto mb-4 text-[#000000]" />
-                <div className="text-4xl font-bold text-[#000000] mb-2">
+                <div className="flex justify-center mb-4">
+                  <div className="bg-[#a2bb65] w-16 h-16 rounded-full flex items-center justify-center">
+                    <Icon className="w-8 h-8 text-white" />
+                  </div>
+                </div>
+                <div className="text-4xl font-bold text-[#000000] mb-2 text-center">
                   {stat.prefix}
                   {startCount ? (
                     <CountUp end={stat.number} duration={2} />
@@ -73,8 +75,8 @@ export function ImpactStats() {
                     stat.number
                   )}
                 </div>
-                <p className="text-[#000000] text-lg">{stat.label}</p>
-              </button>
+                <p className="text-[#000000] text-lg text-center">{stat.label}</p>
+              </div>
             );
           })}
         </div>
