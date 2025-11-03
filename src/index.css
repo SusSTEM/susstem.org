@@ -853,6 +853,10 @@
     background-color: #e1e4d8;
   }
 
+  .bg-\[\#e1e4d9\] {
+    background-color: #e1e4d9;
+  }
+
   .bg-background {
     background-color: var(--background);
   }
@@ -1228,12 +1232,6 @@
   }
 
   @media (hover: hover) {
-    .hover\:bg-\[\#8fa355\]:hover {
-      background-color: #8fa355;
-    }
-  }
-
-  @media (hover: hover) {
     .hover\:bg-\[\#8fe066\]:hover {
       background-color: #8fe066;
     }
@@ -1326,6 +1324,12 @@
       .hover\:bg-white\/70:hover {
         background-color: color-mix(in oklab, var(--color-white) 70%, transparent);
       }
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:text-\[\#072D2D\]:hover {
+      color: #072d2d;
     }
   }
 

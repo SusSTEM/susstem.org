@@ -27,7 +27,7 @@ export function Navbar() {
               About
             </a>
             <a href="#projects" className="text-[#000000] hover:text-[#a2bb65] transition-colors">
-              Projects
+              The Programme
             </a>
             <a href="#impact" className="text-[#000000] hover:text-[#a2bb65] transition-colors">
               Impact
@@ -65,7 +65,7 @@ export function Navbar() {
               About
             </a>
             <a href="#projects" className="text-[#000000] hover:text-[#a2bb65] transition-colors">
-              Projects
+              The Programme
             </a>
             <a href="#impact" className="text-[#000000] hover:text-[#a2bb65] transition-colors">
               Impact
