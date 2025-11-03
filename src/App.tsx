@@ -2,6 +2,7 @@ import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { WhatIsSusSTEM } from "./components/WhatIsSusSTEM";
 import { ImpactStats } from "./components/ImpactStats";
+import { GetInvolved } from "./components/GetInvolved";
 import { FeaturedProjects } from "./components/FeaturedProjects";
 import { CTASection } from "./components/CTASection";
 import { Testimonials } from "./components/Testimonials";
@@ -15,6 +16,7 @@ export default function App() {
       <Hero />
       <WhatIsSusSTEM />
       <ImpactStats />
+      <GetInvolved />
       <FeaturedProjects />
       <CTASection />
       <Testimonials />

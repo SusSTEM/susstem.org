@@ -38,12 +38,10 @@ const slides = [
 
 export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [direction, setDirection] = useState(0);
 
   // Auto-rotate slides every 5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
-      setDirection(1);
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
 
@@ -51,49 +49,26 @@ export function Hero() {
   }, []);
 
   const goToPrevious = () => {
-    setDirection(-1);
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
   const goToNext = () => {
-    setDirection(1);
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
   const goToSlide = (index: number) => {
-    setDirection(index > currentSlide ? 1 : -1);
     setCurrentSlide(index);
-  };
-
-  const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? '100%' : '-100%',
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: number) => ({
-      x: direction > 0 ? '-100%' : '100%',
-      opacity: 0,
-    }),
   };
 
   return (
     <section className="relative w-full min-h-[85vh] overflow-hidden">
-      <AnimatePresence initial={false} mode="sync" custom={direction}>
+      <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
-          custom={direction}
-          variants={slideVariants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{
-            x: { type: 'tween', ease: 'easeInOut', duration: 0.8 },
-            opacity: { duration: 0.6 },
-          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.7, ease: "easeInOut" }}
           className="absolute inset-0"
         >
           {/* Background Image */}
@@ -103,6 +78,7 @@ export function Hero() {
               backgroundImage: `url(${slides[currentSlide].image})`,
             }}
           />
+
           {/* Gradient Overlay */}
           <div
             className="absolute inset-0"
@@ -124,6 +100,7 @@ export function Hero() {
               >
                 {slides[currentSlide].title}
               </motion.h1>
+
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -137,7 +114,7 @@ export function Hero() {
           </div>
         </motion.div>
       </AnimatePresence>
-      
+
       {/* Navigation Arrows */}
       <button
         onClick={goToPrevious}
@@ -146,6 +123,7 @@ export function Hero() {
       >
         <ChevronLeft className="w-6 h-6 text-white" />
       </button>
+
       <button
         onClick={goToNext}
         className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition-all"
