@@ -16,8 +16,8 @@ export default function App() {
       <Hero />
       <WhatIsSusSTEM />
       <ImpactStats />
-      <GetInvolved />
       <FeaturedProjects />
+      <GetInvolved />
       <CTASection />
       <Testimonials />
       <ContactPreview />

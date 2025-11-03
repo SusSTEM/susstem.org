@@ -821,8 +821,16 @@
     border-color: var(--color-gray-200);
   }
 
+  .bg-\[\#072D2D\] {
+    background-color: #072d2d;
+  }
+
   .bg-\[\#20593A\] {
     background-color: #20593a;
+  }
+
+  .bg-\[\#EFF2E7\] {
+    background-color: #eff2e7;
   }
 
   .bg-\[\#a2bb65\] {
@@ -835,6 +843,10 @@
 
   .bg-\[\#a4ff7b\] {
     background-color: #a4ff7b;
+  }
+
+  .bg-\[\#a4ff7b\]\/20 {
+    background-color: oklab(91.4465% -.137738 .129011 / .2);
   }
 
   .bg-\[\#e1e4d8\] {
@@ -1065,7 +1077,7 @@
     color: #000;
   }
 
-  .text-\[\#072d2d\] {
+  .text-\[\#072D2D\], .text-\[\#072d2d\] {
     color: #072d2d;
   }
 
@@ -1218,6 +1230,12 @@
   @media (hover: hover) {
     .hover\:bg-\[\#8fa355\]:hover {
       background-color: #8fa355;
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:bg-\[\#8fe066\]:hover {
+      background-color: #8fe066;
     }
   }
 
