@@ -15,7 +15,7 @@ export function GetInvolved() {
       icon: Heart,
       title: "Donate",
       description: "Your contribution makes a real difference in a child's life. Your donations will fund STEM kits, teacher training, local and global outreach.",
-      buttonText: "Donate Today",
+      buttonText: "Make a Difference",
       link: "/donate",
       isDonate: true,
     },
