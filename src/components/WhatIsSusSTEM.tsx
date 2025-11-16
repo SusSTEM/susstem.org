@@ -2,7 +2,7 @@ import { Lightbulb, Leaf, Cpu } from "lucide-react";
 
 export function WhatIsSusSTEM() {
   return (
-    <section className="bg-white py-12 md:py-24" id="about">
+    <section className="bg-white py-12 md:py-24" id="what-is-susstem">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left - Text Content */}

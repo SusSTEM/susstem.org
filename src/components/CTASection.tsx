@@ -1,6 +1,17 @@
 import { Button } from "./ui/button";
 
-export function CTASection() {
+interface CTASectionProps {
+  onNavigate?: (page: string) => void;
+}
+
+export function CTASection({ onNavigate }: CTASectionProps) {
+  const scrollToGetInvolved = () => {
+    const element = document.getElementById('get-involved');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="bg-[#20593A] py-16 md:py-24" id="get-involved">
       <div className="max-w-7xl mx-auto px-6 text-center">
@@ -16,12 +27,19 @@ export function CTASection() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button 
             className="bg-[#a2bb65] hover:bg-[#a2bb65]/90 text-white px-10 py-6 rounded-xl transition-colors text-lg"
+            onClick={scrollToGetInvolved}
           >
             Get Involved
           </Button>
           <Button 
             variant="outline"
             className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-6 rounded-xl transition-colors text-lg bg-white"
+            onClick={() => {
+              const element = document.getElementById('what-is-susstem');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
           >
             Learn More
           </Button>

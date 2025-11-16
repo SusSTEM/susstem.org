@@ -199,3 +199,17 @@
 html {
   font-size: var(--font-size);
 }
+
+.heartbeat {
+  animation: beat 1.7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: center;
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.18); }
+  35% { transform: scale(1.12); }
+  45% { transform: scale(1.18); }
+  60% { transform: scale(1.03); }
+  80% { transform: scale(1); }
+}

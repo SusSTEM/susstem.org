@@ -6,33 +6,33 @@ import { motion, AnimatePresence } from "motion/react";
 const slides = [
   {
     id: 1,
-    title: "Inspiring the next generation of sustainable innovators.",
+    title: "Inspiring the next generation of sustainable innovators",
     cta: "Learn More",
-    image: "https://images.unsplash.com/photo-1603354350266-a8de3496163b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlsZHJlbiUyMGxlYXJuaW5nJTIwU1RFTXxlbnwxfHx8fDE3NjIwNzM2MzV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: "https://lh3.googleusercontent.com/d/1LRARvsxKH6kVPlTnjaHwXC-otHiIu_p9",
   },
   {
     id: 2,
-    title: "Building the future, one project at a time.",
+    title: "STEM-Powered Minds for a Sustainable Tomorrow",
     cta: "See Our Projects",
-    image: "https://images.unsplash.com/photo-1646579220245-525b3d074a89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxraWRzJTIwYnVpbGRpbmclMjBwcm9qZWN0fGVufDF8fHx8MTc2MjA3MzYzNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: "https://lh3.googleusercontent.com/d/1e_0so0mnYUPoTk97sFBzgUmDkjHezzSj"
   },
   {
     id: 3,
-    title: "STEM for every child, everywhere.",
+    title: "SusSTEM = ",
     cta: "Join the Movement",
-    image: "https://images.unsplash.com/photo-1636772523547-5577d04e8dc1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwY2hpbGRyZW4lMjBjbGFzc3Jvb218ZW58MXx8fHwxNzYyMDE5OTEyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: "https://lh3.googleusercontent.com/d/1WSwVVQKl4pHsYT64a33g_V93NSTR4ZUA",
   },
   {
     id: 4,
-    title: "Turning ideas into sustainable solutions.",
+    title: "STEM for every child, everywhere",
     cta: "Explore Impact",
-    image: "https://images.unsplash.com/photo-1758685733987-54952cd1c8c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3VuZyUyMHN0dWRlbnRzJTIwc2NpZW5jZXxlbnwxfHx8fDE3NjIwNzM2MzZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: "https://lh3.googleusercontent.com/d/1VGbyFCCFytb9dA-p6XZI00N1uB7lmnQT",
   },
   {
     id: 5,
-    title: "A global movement for local change.",
+    title: "Solving global sustainability challenges with STEM",
     cta: "Partner With Us",
-    image: "https://images.unsplash.com/photo-1609741200064-2ef87d5eb200?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlsZHJlbiUyMHRlYW13b3JrJTIwbGVhcm5pbmd8ZW58MXx8fHwxNzYyMDczNjM2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: "https://lh3.googleusercontent.com/d/1mEw31noBCxE5c0d5JYs9rbutjZPc7rAj",
   },
 ];
 
@@ -45,7 +45,7 @@ export function Hero() {
     const timer = setInterval(() => {
       setDirection(1);
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 7000);
 
     return () => clearInterval(timer);
   }, []);
@@ -115,15 +115,31 @@ export function Hero() {
           {/* Content */}
           <div className="relative z-10 h-full flex items-center justify-center px-6">
             <div className="max-w-4xl text-center space-y-8">
-              <motion.h1
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                className="text-white text-4xl md:text-5xl lg:text-6xl leading-tight"
-                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
-              >
-                {slides[currentSlide].title}
-              </motion.h1>
+              {slides[currentSlide].id === 3 ? (
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.6 }}
+                  className="flex flex-col items-center space-y-2"
+                >
+                  <h1 className="text-white text-4xl md:text-5xl lg:text-6xl leading-tight" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
+                    {slides[currentSlide].title}
+                  </h1>
+                  <span className="text-white text-4xl md:text-5xl lg:text-6xl" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
+                    Sustainability + STEM
+                  </span>
+                </motion.div>
+              ) : (
+                <motion.h1
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.6 }}
+                  className="text-white text-4xl md:text-5xl lg:text-6xl leading-tight"
+                  style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+                >
+                  {slides[currentSlide].title}
+                </motion.h1>
+              )}
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}

@@ -1,7 +1,11 @@
 import { Users, Handshake, Heart } from "lucide-react";
 import { Button } from "./ui/button";
 
-export function GetInvolved() {
+interface GetInvolvedProps {
+  onNavigate?: (page: string) => void;
+}
+
+export function GetInvolved({ onNavigate }: GetInvolvedProps) {
   const cards = [
     {
       icon: Users,
@@ -9,7 +13,7 @@ export function GetInvolved() {
       description:
         "Help young learners discover the power of STEM. Join our workshops, mentor students, or assist with events in your community.",
       buttonText: "Sign Up",
-      link: "/volunteer",
+      link: "volunteer",
       isDonate: false,
     },
     {
@@ -18,7 +22,7 @@ export function GetInvolved() {
       description:
         "Your contribution will make a real difference in a child's life. Your donations will fund STEM kits, teacher training, local and global outreach.",
       buttonText: "Make a Difference",
-      link: "/donate",
+      link: "donate",
       isDonate: true,
     },
     {
@@ -27,7 +31,7 @@ export function GetInvolved() {
       description:
         "Collaborate to bring SusSTEM programs to more schools worldwide. Ideal for NGOs, schools, and sustainability-focused organizations.",
       buttonText: "Collaborate",
-      link: "/partner",
+      link: "partner",
       isDonate: false,
     },
   ];
@@ -49,8 +53,7 @@ export function GetInvolved() {
             Join the Movement
           </h2>
           <p className="text-[#858E80] text-lg md:text-xl max-w-2xl mx-auto">
-            Join us in shaping a sustainable future through
-            STEM.
+            Join us in shaping a sustainable future through STEM.
           </p>
         </div>
 
@@ -78,7 +81,7 @@ export function GetInvolved() {
                   <Icon
                     className={`w-10 h-10 ${
                       isDonate
-                        ? "text-[#a4ff7b]"
+                        ? "text-[#a4ff7b] heartbeat"
                         : "text-[#072d2d]"
                     }`}
                     strokeWidth={1.5}
@@ -109,16 +112,14 @@ export function GetInvolved() {
                 >
                   {card.description}
                 </p>
-
                 <Button
+                  size="sm"
                   className={`${
                     isDonate
                       ? "bg-[#a4ff7b] text-[#072D2D] hover:bg-[#8fe066] hover:text-[#072D2D]"
                       : "bg-[#20593A] text-white hover:bg-[#a2bb65] hover:text-white"
-                  } px-8 py-6 rounded-xl transition-colors w-full`}
-                  onClick={() =>
-                    (window.location.href = card.link)
-                  }
+                  } px-3 py-6 rounded-xl transition-colors w-45 mx-auto`}
+                  onClick={() => onNavigate?.(card.link)}
                 >
                   {card.buttonText}
                 </Button>

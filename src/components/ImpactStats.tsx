@@ -2,6 +2,11 @@ import { Users, BookOpen, Globe } from "lucide-react";
 import CountUp from "react-countup";
 import { useState, useEffect, useRef } from "react";
 
+const iconBgClasses = {
+  default: "bg-[#a2bb65]",        // light green default
+  darkgreen: "bg-[#20593A]",      // dark green
+};
+
 export function ImpactStats() {
   const [isVisible, setIsVisible] = useState(false);
   const [key, setKey] = useState(0);
@@ -33,32 +38,39 @@ export function ImpactStats() {
     };
   }, []);
 
+  // Assign iconColor: "default" or "darkgreen"
   const stats = [
     {
       icon: Users,
       number: 500,
       label: "Students Reached",
       prefix: "+",
+      bgColor: "#bcb0fa",
+      iconColor: "default"
     },
     {
       icon: BookOpen,
       number: 40,
       label: "Projects Completed",
       prefix: "+",
+      bgColor: "#ff9b69",
+      iconColor: "darkgreen"
     },
     {
       icon: Globe,
       number: 5,
       label: "Countries Impacted",
       prefix: "",
+      bgColor: "#ffd459",
+      iconColor: "default"
     },
   ];
 
   return (
-    <section className="bg-[#e1e4d8] py-12 md:py-24" id="impact" ref={sectionRef}>
+    <section className="bg-[#20593A] py-12 md:py-24" id="impact" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-6">
         <h2
-          className="text-[#000000] text-3xl md:text-4xl text-center mb-12"
+          className="text-[#FFFFFF] text-3xl md:text-4xl text-center mb-12"
           style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
         >
           Our Impact
@@ -70,9 +82,17 @@ export function ImpactStats() {
             return (
               <div
                 key={index}
-                className="bg-white rounded-3xl p-8 text-center space-y-4 shadow-md hover:shadow-xl transition-shadow"
+                style={{
+                  background: stat.bgColor,
+                  borderRadius: '1.5rem',
+                  padding: '2rem',
+                  textAlign: 'center',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.10)',
+                  transition: 'box-shadow .2s',
+                }}
+                className="space-y-4 hover:shadow-xl"
               >
-                <div className="w-24 h-24 rounded-full bg-[#a2bb65] flex items-center justify-center mx-auto">
+                <div className={`w-24 h-24 rounded-full flex items-center justify-center mx-auto ${iconBgClasses[stat.iconColor] || iconBgClasses.default}`}>
                   <Icon className="w-12 h-12 text-white" />
                 </div>
                 <h3
@@ -89,7 +109,7 @@ export function ImpactStats() {
                     />
                   )}
                 </h3>
-                <p className="text-[#858E80] text-lg">
+                <p className="text-[#34495E] text-lg" style={{ color: "#34495E" }}>
                   {stat.label}
                 </p>
               </div>
