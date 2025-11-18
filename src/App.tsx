@@ -6,6 +6,7 @@ import { ImpactStats } from "./components/ImpactStats";
 import { GetInvolved } from "./components/GetInvolved";
 import { FeaturedProjects } from "./components/FeaturedProjects";
 import { CTASection } from "./components/CTASection";
+import { AboutUs } from "./components/AboutUs";
 import { Testimonials } from "./components/Testimonials";
 import { ContactPreview } from "./components/ContactPreview";
 import { Footer } from "./components/Footer";
@@ -62,6 +63,7 @@ export default function App() {
       <FeaturedProjects />
       <GetInvolved onNavigate={handleNavigate} />
       <CTASection />
+      <AboutUs />
       <Testimonials />
       <ContactPreview />
       <Footer />

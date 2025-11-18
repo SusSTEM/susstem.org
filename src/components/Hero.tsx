@@ -145,7 +145,7 @@ export function Hero() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
-                <Button className="bg-[#a2bb65] hover:bg-[#20593A] text-white px-10 py-7 rounded-xl transition-colors text-lg shadow-xl">
+                <Button className="bg-[#20593A] hover:bg-[#a2bb65] text-white px-10 py-7 rounded-xl transition-colors text-lg shadow-xl">
                   {slides[currentSlide].cta}
                 </Button>
               </motion.div>

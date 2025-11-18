@@ -45,7 +45,7 @@ export function ImpactStats() {
       number: 500,
       label: "Students Reached",
       prefix: "+",
-      bgColor: "#bcb0fa",
+      bgColor: "#e1e4d9",
       iconColor: "default"
     },
     {
@@ -53,7 +53,7 @@ export function ImpactStats() {
       number: 40,
       label: "Projects Completed",
       prefix: "+",
-      bgColor: "#ff9b69",
+      bgColor: "#e1e4d9",
       iconColor: "darkgreen"
     },
     {
@@ -61,7 +61,7 @@ export function ImpactStats() {
       number: 5,
       label: "Countries Impacted",
       prefix: "",
-      bgColor: "#ffd459",
+      bgColor: "#e1e4d9",
       iconColor: "default"
     },
   ];
