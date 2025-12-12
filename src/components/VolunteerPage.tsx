@@ -64,7 +64,7 @@ export function VolunteerPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f6faf8]">
+    <div className="min-h-screen bg-[#eff2e7]">
       {/* Hero Banner */}
       <div 
         className="text-white py-20 px-6"

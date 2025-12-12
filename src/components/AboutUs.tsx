@@ -43,18 +43,19 @@ export function AboutUs() {
               </h1>
 
               {/* Body Text as Heading */}
-              <h3 
-                className="flex-grow"
-                style={{ 
-                  fontFamily: 'Poppins, sans-serif',
-                  fontWeight: 400,
-                  fontSize: '25px',
-                  lineHeight: '1.7',
-                  color: '#333333'
-                }}
-              >
-                "To empower students aged 11–18 with hands-on STEM education rooted in sustainability, by providing accessible, project-based learning experiences and tools that spark innovation and environmental action."
-              </h3>
+           <h3
+  className="flex-grow"
+  style={{
+    fontFamily: 'Poppins, sans-serif',
+    fontWeight: 400,
+    fontSize: '25px',
+    lineHeight: '1.7',
+    color: '#333333'
+  }}
+>
+  "To empower students aged 11–18 with <strong>hands-on STEM education</strong> rooted in <strong>sustainability</strong>, by providing <strong>accessible, project-based</strong> learning experiences and tools that spark <strong>innovation</strong> and <strong>environmental action</strong>."
+</h3>
+
             </div>
           </div>
 
@@ -93,18 +94,19 @@ export function AboutUs() {
               </h1>
 
               {/* Body Text as Heading */}
-              <h3 
-                className="flex-grow"
-                style={{ 
-                  fontFamily: 'Poppins, sans-serif',
-                  fontWeight: 400,
-                  fontSize: '25px',
-                  lineHeight: '1.7',
-                  color: '#333333'
-                }}
-              >
-                "A world where every young mind, regardless of geography or background, has the tools, confidence, and education to solve global sustainability challenges through technology."
-              </h3>
+              <h3
+  className="flex-grow"
+  style={{ 
+    fontFamily: 'Poppins, sans-serif',
+    fontWeight: 400,
+    fontSize: '25px',
+    lineHeight: '1.7',
+    color: '#333333'
+  }}
+>
+  "A world where <strong>every young mind</strong>, regardless of geography or background, has the <strong>tools</strong>, <strong>confidence</strong>, and <strong>education</strong> to solve <strong>global sustainability challenges</strong> through <strong>technology</strong>."
+</h3>
+
             </div>
           </div>
         </div>

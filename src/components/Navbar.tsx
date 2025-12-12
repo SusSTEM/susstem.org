@@ -41,7 +41,7 @@ export function Navbar({ onNavigate }: NavbarProps) {
   ];
 
   return (
-    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <nav className="bg-[#eff2e7] border-b border-gray-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -63,7 +63,7 @@ export function Navbar({ onNavigate }: NavbarProps) {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             <a href="#about" className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif]">
-              About
+              About Us
             </a>
             <a href="#projects" className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif]">
               The Programme
@@ -88,7 +88,7 @@ export function Navbar({ onNavigate }: NavbarProps) {
               </button>
               {isDropdownOpen && (
                 <div
-                  className="absolute top-full left-0 mt-2 w-[280px] bg-white border border-[#eff2e7] rounded-2xl shadow-lg overflow-hidden"
+                  className="absolute top-full left-0 mt-2 w-[280px] bg-[#eff2e7] border border-[#eff2e7] rounded-2xl shadow-lg overflow-hidden"
                   style={{ borderRadius: '1rem' }}
                 >
                   <div className="py-4 px-6">

@@ -4,30 +4,46 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
-export function FeaturedProjects() {
+interface FeaturedProjectsProps {
+  onNavigate?: (page: string) => void;
+}
+
+export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const projects = [
     {
       level: "Level 1",
-      title: "LEDs & Buzzers",
-      description: "Learn the basics of circuits by creating light displays and sound alarms. Perfect for beginners to understand electrical flow and simple coding.",
-      image: "https://images.unsplash.com/photo-1553408226-42ecf81a214c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmR1aW5vJTIwY2lyY3VpdCUyMGJvYXJkJTIwZWxlY3Ryb25pY3N8ZW58MXx8fHwxNzYyMDA2MDA3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      title: "Explorer: Ages 11 to 14",
+      description:
+        "Introduction to SusSTEM and our approach of STEM for Sustainability. Students will learn the basics of circuits like LED's buzzers and sensors, and will apply their knowledge to a real-world situation.",
+      image:
+        "https://lh3.googleusercontent.com/d/1FuFYH9o3u5O1sUy0gyau60yOXf4l9Y0z",
+      link: "air-alert",
     },
     {
       level: "Level 2",
-      title: "Motors & Sensors",
-      description: "Build interactive projects using motors, distance sensors, and temperature monitors. Create moving robots and environmental monitoring systems.",
-      image: "https://images.unsplash.com/photo-1758685734153-132c8620c1bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxraWRzJTIwc2NpZW5jZSUyMGV4cGVyaW1lbnQlMjBoYW5kc3xlbnwxfHx8fDE3NjIwMDYwMDd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      title: "Innovator: Ages 11 to 18",
+      description:
+        "Level 2 is where students will use what they've learned about sensors, circuits, and Arduino to build devices that solve real sustainability problems that affect their community.",
+      image:
+        "https://lh3.googleusercontent.com/d/1GOEnNE2YiL2iBzhWl547RwW6u_w_dsiy",
+      link: "innovator",
     },
     {
       level: "Level 3",
-      title: "Full Systems",
-      description: "Design complete sustainable solutions like smart water savers, automated composting systems, and energy monitoring devices for real-world impact.",
-      image: "https://images.unsplash.com/photo-1758524057756-7dc8ce53d88c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdXN0YWluYWJsZSUyMHRlY2hub2xvZ3klMjBwbGFudHxlbnwxfHx8fDE3NjIwMDYwMDd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      title: "Changemaker: Ages 14 to 18 ",
+      description:
+        "Design complete sustainable solutions like smart water savers, automated composting systems, and energy monitoring devices for real-world impact.",
+      image:
+        "https://lh3.googleusercontent.com/d/1_HCKAXKWWnv0W9sYrwnqz69CekWFXnin",
+      link: "changemaker",
     },
   ];
 
+  // per-card background colors
+  const cardBgClasses = ["bg-[#a2bb65CC]", "bg-[#ffd459CC]", "bg-[#ff9b69CC]"]; // L1, L2, L3 [web:0]
+  
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % projects.length);
   };
@@ -36,52 +52,66 @@ export function FeaturedProjects() {
     setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
+  const handleProjectClick = (link?: string) => {
+    if (link && onNavigate) {
+      onNavigate(link);
+    }
+  };
+
   return (
     <section className="bg-white py-12 md:py-24" id="projects">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 
+          <h2
             className="text-[#000000] text-3xl md:text-4xl mb-4"
-            style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
+            style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
           >
-            Featured Projects
+            The Programme
           </h2>
-          <p className="text-[#858E80] text-lg max-w-2xl mx-auto">
-            Our curriculum is designed in three progressive levels, each building essential skills for sustainable innovation.
+          <p className="text-[#072d2d] text-lg max-w-2xl mx-auto">
+            Our curriculum is designed in three progressive levels for all secondary school students aged 11 to 18, each
+            building essential skills for STEM-powered, sustainable innovation.
           </p>
         </div>
 
         {/* Desktop Grid View */}
         <div className="hidden md:grid md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-shadow border-none">
-              <div className="h-64 overflow-hidden">
+            <Card
+              key={index}
+              className={`overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-shadow border-none ${cardBgClasses[index]} flex flex-col`}
+            >
+              <div className="h-64 overflow-hidden flex-shrink-0">
                 <ImageWithFallback
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-6 space-y-4">
-                <div className="inline-block px-4 py-2 bg-[#e1e4d8] text-[#20593A] rounded-full">
-                  <span style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}>
+              <div className="p-6 flex flex-col flex-grow">
+                <div className="inline-block px-4 py-2 bg-[#e1e4d8] text-[#20593A] rounded-full transition-colors duration-200 hover:bg-[#072d2d] hover:text-[#a4ff7b] self-start mb-4">
+                  <span
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontWeight: 600,
+                    }}
+                  >
                     {project.level}
                   </span>
                 </div>
-                <h3 
-                  className="text-[#000000] text-2xl"
-                  style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
+                <h3
+                  className="text-[#000000] text-2xl mb-4"
+                  style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
                 >
                   {project.title}
                 </h3>
-                <p className="text-[#858E80]">
-                  {project.description}
-                </p>
-                <Button 
+                <p className="text-[#072d2d] mb-4 flex-grow">{project.description}</p>
+                <Button
                   variant="outline"
-                  className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white rounded-xl transition-colors w-full"
+                  className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white rounded-xl transition-colors w-full mt-auto"
+                  onClick={() => handleProjectClick(project.link)}
                 >
-                  View Project
+                  Learn More
                 </Button>
               </div>
             </Card>
@@ -100,24 +130,30 @@ export function FeaturedProjects() {
             </div>
             <div className="p-6 space-y-4">
               <div className="inline-block px-4 py-2 bg-[#e1e4d8] text-[#20593A] rounded-full">
-                <span style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}>
+                <span
+                  style={{
+                    fontFamily: "Poppins, sans-serif",
+                    fontWeight: 600,
+                  }}
+                >
                   {projects[currentIndex].level}
                 </span>
               </div>
-              <h3 
+              <h3
                 className="text-[#000000] text-2xl"
-                style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
+                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
               >
                 {projects[currentIndex].title}
               </h3>
               <p className="text-[#858E80]">
                 {projects[currentIndex].description}
               </p>
-              <Button 
+              <Button
                 variant="outline"
                 className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white rounded-xl transition-colors w-full"
+                onClick={() => handleProjectClick(projects[currentIndex].link)}
               >
-                View Project
+                Learn More
               </Button>
             </div>
           </Card>
@@ -135,7 +171,7 @@ export function FeaturedProjects() {
                 <div
                   key={index}
                   className={`w-2 h-2 rounded-full transition-colors ${
-                    index === currentIndex ? 'bg-[#a2bb65]' : 'bg-gray-300'
+                    index === currentIndex ? "bg-[#a2bb65]" : "bg-gray-300"
                   }`}
                 />
               ))}

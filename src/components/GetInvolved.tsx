@@ -107,7 +107,7 @@ export function GetInvolved({ onNavigate }: GetInvolvedProps) {
                   className={`${
                     isDonate
                       ? "text-white/90"
-                      : "text-[#858E80]"
+                      : "text-[#072d2d]"
                   } leading-relaxed flex-grow`}
                 >
                   {card.description}
@@ -116,7 +116,7 @@ export function GetInvolved({ onNavigate }: GetInvolvedProps) {
                   size="sm"
                   className={`${
                     isDonate
-                      ? "bg-[#a4ff7b] text-[#072D2D] hover:bg-[#8fe066] hover:text-[#072D2D]"
+                      ? "bg-[#a4ff7b] text-[#072D2D] hover:bg-[#20593A] hover:text-[#a4ff7b]"
                       : "bg-[#20593A] text-white hover:bg-[#a2bb65] hover:text-white"
                   } px-3 py-6 rounded-xl transition-colors w-45 mx-auto`}
                   onClick={() => onNavigate?.(card.link)}

@@ -14,7 +14,7 @@ export function ContactPreview() {
         >
           Want to partner, donate, or volunteer?
         </h2>
-        <p className="text-[#858E80] text-lg mb-8 max-w-2xl mx-auto">
+        <p className="text-[#072d2d] text-lg mb-8 max-w-2xl mx-auto">
           We'd love to hear from you! Get in touch to learn how you can support SusSTEM's mission and help empower the next generation of sustainable innovators.
         </p>
         <Button 

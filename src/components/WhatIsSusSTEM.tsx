@@ -13,10 +13,10 @@ export function WhatIsSusSTEM() {
             >
               What is SusSTEM?
             </h2>
-            <p className="text-[#858E80] text-lg leading-relaxed">
-              SusSTEM combines Science, Technology, Engineering, and Math to teach children how to protect the planet through innovation. We believe that every young mind has the potential to create sustainable solutions for tomorrow's challenges.
+            <p className="text-[#072d2d] text-lg leading-relaxed">
+              SusSTEM combines Sustainable, Environmental practices with Science, Technology, Engineering, and Math to teach children how to protect the planet through innovation. We believe that every young mind has the potential to create sustainable solutions for tomorrow's challenges.
             </p>
-            <p className="text-[#858E80] text-lg leading-relaxed">
+            <p className="text-[#072d2d] text-lg leading-relaxed">
               Through hands-on projects using Arduino, sensors, and coding, students aged 8-18 learn to build real-world solutions that make a difference in their communities and beyond.
             </p>
           </div>

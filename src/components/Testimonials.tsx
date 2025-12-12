@@ -45,8 +45,8 @@ export function Testimonials() {
                 key={index}
                 className="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl transition-shadow relative"
               >
-                <Quote className="w-12 h-12 text-[#a4ff7b] mb-4 opacity-50" />
-                <p className="text-[#858E80] mb-6 leading-relaxed">
+                <Quote className="w-12 h-12 text-[#a4ff7b] mb-4 opacity-70" />
+                <p className="text-[#072d2d] mb-6 leading-relaxed">
                   "{testimonial.quote}"
                 </p>
                 <div className="border-t border-gray-200 pt-4">
@@ -56,7 +56,7 @@ export function Testimonials() {
                   >
                     {testimonial.author}
                   </p>
-                  <p className="text-[#858E80] text-sm">
+                  <p className="text-[#072d2d] text-sm">
                     {testimonial.role}
                   </p>
                 </div>
@@ -80,7 +80,7 @@ export function Testimonials() {
                 className="bg-white rounded-2xl p-6 flex items-center justify-center h-24 shadow-sm hover:shadow-md transition-shadow"
               >
                 <span 
-                  className="text-gray-400 text-center"
+                  className="text-[#072d2d]-400 text-center"
                   style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
                 >
                   {partner}

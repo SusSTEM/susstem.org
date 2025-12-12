@@ -13,6 +13,8 @@ import { Footer } from "./components/Footer";
 import { VolunteerPage } from "./components/VolunteerPage";
 import { DonatePage } from "./components/DonatePage";
 import { PartnerPage } from "./components/PartnerPage";
+import { AirAlertPage } from "./components/AirAlertPage";
+import { InnovatorPage } from "./components/InnovatorPage";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -53,6 +55,26 @@ export default function App() {
     );
   }
 
+  if (currentPage === "air-alert") {
+    return (
+      <div className="min-h-screen bg-white">
+        <Navbar onNavigate={handleNavigate} />
+        <AirAlertPage onNavigate={handleNavigate} />
+        <Footer />
+      </div>
+    );
+  }
+
+  if (currentPage === "innovator") {
+    return (
+      <div className="min-h-screen bg-white">
+        <Navbar onNavigate={handleNavigate} />
+        <InnovatorPage onNavigate={handleNavigate} />
+        <Footer />
+      </div>
+    );
+  }
+
   // Render homepage
   return (
     <div className="min-h-screen bg-white">
@@ -60,7 +82,7 @@ export default function App() {
       <Hero />
       <WhatIsSusSTEM />
       <ImpactStats />
-      <FeaturedProjects />
+      <FeaturedProjects onNavigate={handleNavigate} />
       <GetInvolved onNavigate={handleNavigate} />
       <CTASection />
       <AboutUs />
