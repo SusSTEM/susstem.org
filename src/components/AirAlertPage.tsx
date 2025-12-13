@@ -202,7 +202,7 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
         
         <div className="bg-[#a2bb65CC] max-w-4xl mx-auto text-center mx-auto px-6 p-8 md:p-12 rounded-3xl shadow-md mt-8 ">
                   <h2 className="text-[#000000] mb-6" style={{ fontSize: '36px', fontWeight: 700, lineHeight: 1.3 }}>
-                    <span className="text-[#072d2d]">The Problem</span>
+                    <span className="text-[#072d2d]">The Problem?</span>
                   </h2>
                   <p className="text-[#000000] text-lg leading-relaxed">
                     In recent years, forest fires in South India and around the world have shown how quickly

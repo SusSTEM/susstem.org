@@ -175,7 +175,7 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
                 className="bg-[#eff2e7] p-6 rounded-2xl hover:shadow-lg transition-all group hover:scale-105"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#ffd459]/80 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#ffd459] transition-colors">
+                  <div className="w-12 h-12 bg-[#ffd459]/80 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#ff9b69] transition-colors">
                     <outcome.icon className="w-6 h-6 text-[#000000]" />
                   </div>
                   <p className="text-[#000000] font-medium text-lg">
@@ -196,7 +196,7 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
                 className="text-[#000000] mb-6"
                 style={{ fontSize: "36px", fontWeight: 700, lineHeight: 1.3 }}
               >
-                <span className="text-[#072d2d]">The Problem</span>
+                <span className="text-[#072d2d]">The Problem?</span>
               </h2>
               <p className="text-[#000000] text-lg leading-relaxed mb-8">
                 Rivers, lakes, and groundwater in many parts of South Asia and around the world are under

@@ -1673,8 +1673,8 @@
   }
 
   @media (hover: hover) {
-    .group-hover\:bg-\[\#ffd459\]:is(:where(.group):hover *) {
-      background-color: #ffd459;
+    .group-hover\:bg-\[\#ff9b69\]:is(:where(.group):hover *) {
+      background-color: #ff9b69;
     }
   }
 
