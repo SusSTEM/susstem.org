@@ -212,8 +212,17 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
                     risks for entire communities, especially children and older people. Yet many families
                     have no simple way to know when the air around them has become unsafe.
                   </p> 
-        </div>
         
+             <div className="mt-8 flex justify-center">
+                <div className="w-full rounded-3xl overflow-hidden shadow-lg">
+                  <ImageWithFallback
+                    src="https://lh3.googleusercontent.com/d/1Q2kbe5qYh8FhsYTQH8d3JovPMktCAyDD"
+                    alt="Forest Fires"
+                    className="w-full h-64 md:h-80 object-cover"
+                  />
+                </div>
+              </div>
+        </div>
         <div className="max-w-7xl mx-auto px-6 p-8 md:p-12">
           <div className="text-center mb-12">
             <h2 className="text-[#000000] mb-4" style={{ fontSize: '36px', fontWeight: 700, lineHeight: 1.3 }}>
@@ -253,7 +262,7 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
                 {/* Yellow LED - Caution */}
                 <div className="bg-[#ffd459] p-6 rounded-2xl shadow-md hover:shadow-lg transition-all flex items-start gap-4">
                   <div className="w-12 h-12 bg-transparent rounded-full flex items-center justify-center flex-shrink-0">
-                    <AlertTriangle className="w-8 h-8 text-white" />
+                    <AlertTriangle className="8-7 8-7 text-white" />
                   </div>
                   <div>
                     <h4 className="text-[#000000] mb-2" style={{ fontSize: '20px', fontWeight: 600 }}>
@@ -266,9 +275,9 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
                 </div>
       
                 {/* Red LED - Dangerous */}
-                <div className="bg-[#ff9b69] p-6 rounded-2xl shadow-md hover:shadow-lg transition-all flex items-start gap-4">
+                <div className="bg-[#ff9b69e7] p-6 rounded-2xl shadow-md hover:shadow-lg transition-all flex items-start gap-4">
                   <div className="w-12 h-12 bg-transparent rounded-full flex items-center justify-center flex-shrink-0">
-                    <X className="w-8 h-8 text-white" />
+                    <X className="8-7 8-7 text-white" />
                   </div>
                   <div>
                     <h4 className="text-[#000000] mb-2" style={{ fontSize: '20px', fontWeight: 600 }}>
