@@ -24,11 +24,11 @@ import {
 
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
-interface InnovatorPageProps {
+interface ChangemakerPageProps {
   onNavigate?: (page: string) => void;
 }
 
-export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
+export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
   const handleNavigate = (page: string) => {
     if (onNavigate) {
       onNavigate(page);
@@ -38,7 +38,7 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
   return (
     <div className="min-h-screen bg-white">
       {/* Breadcrumb */}
-      <div className="bg-[#ffd459] border-b border-gray-200">
+      <div className="bg-[#ff9b69] border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <Breadcrumb>
             <BreadcrumbList>
@@ -66,7 +66,7 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbPage className="text-[#20593a]">
-                  Innovator Level
+                  Changemaker Level
                 </BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
@@ -78,14 +78,14 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
       <section className="bg-[#eff2e7] py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="bg-[#072d2d] text-[#a4ff7b] hover:bg-[#ffd459]/80 hover:text-[#072d2d] mb-6 px-6 py-2 rounded-full text-base">
-              Level 2
+            <Badge className="bg-[#072d2d] text-[#a4ff7b] hover:bg-[#ff9b69]/80 hover:text-[#072d2d] mb-6 px-6 py-2 rounded-full text-base">
+              Level 3
             </Badge>
             <h1
               className="text-[#000000] mb-6"
               style={{ fontSize: "48px", fontWeight: 700, lineHeight: 1.2 }}
             >
-              Innovator: For Ages 11-18
+              Changemaker: For Ages 14-18
             </h1>
             <p className="text-[#072d2d] text-xl md:text-2xl mb-12">
               Building solutions for real-world sustainability challenges in
@@ -93,15 +93,15 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
             </p>
 
             {/* Level Overview Card */}
-            <div className="bg-[#ffd459CC] p-8 md:p-12 rounded-3xl shadow-md mt-8">
+            <div className="bg-[#ff9b69CC] p-8 md:p-12 rounded-3xl shadow-md mt-8">
               <h2
                 className="text-[#000000] mb-6"
                 style={{ fontSize: "36px", fontWeight: 700, lineHeight: 1.3 }}
               >
-                <span className="text-[#072d2d]">Level 2</span> Overview
+                <span className="text-[#072d2d]">Level 3</span> Overview
               </h2>
               <p className="text-[#000000] text-lg leading-relaxed mb-8">
-                Level 2 is where students will use what they've learned about
+                Level 3 is where students will use what they've learned about
                 sensors, circuits, and Arduino to build devices that solve real
                 sustainability problems that affect their community. Students
                 develop their problem-solving skills by turning ideas into
@@ -117,7 +117,7 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
                   style={{ fontSize: "18px", fontWeight: 600 }}
                 >
                   <Download className="w-6 h-6 mr-3" />
-                  Download Level 2 Course
+                  Download Level 3 Course
                 </Button>
                 <Button 
                   variant="outline"
@@ -125,7 +125,7 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
                   style={{ fontSize: "18px", fontWeight: 600 }}
                 >
                   <Mail className="w-6 h-6 mr-3" />
-                  Book a Level 2 Workshop
+                  Book a Level 3 Workshop
                 </Button>
               </div>
             </div>
@@ -175,7 +175,7 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
                 className="bg-[#eff2e7] p-6 rounded-2xl hover:shadow-lg transition-all group hover:scale-105"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#ffd459]/80 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#ff9b69] transition-colors">
+                  <div className="w-12 h-12 bg-[#ff9b69]/80 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#ff9b69] transition-colors">
                     <outcome.icon className="w-6 h-6 text-[#000000]" />
                   </div>
                   <p className="text-[#000000] font-medium text-lg">
@@ -191,7 +191,7 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
       {/* Project Overview Section */}
       <section className="py-16 md:py-24 bg-[#eff2e7]">
         
-            <div className="bg-[#ffd459]/80 max-w-4xl mx-auto text-center px-6 p-8 md:p-12 rounded-3xl shadow-md mt-8">
+            <div className="bg-[#ff9b69]/80 max-w-4xl mx-auto text-center px-6 p-8 md:p-12 rounded-3xl shadow-md mt-8">
               <h2
                 className="text-[#000000] mb-6"
                 style={{ fontSize: "36px", fontWeight: 700, lineHeight: 1.3 }}
@@ -209,7 +209,7 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
                 when it may pose a risk.
               </p>
             
-              {/* Rounded image inside yellow block */}
+              {/* Rounded image inside orange block */}
               <div className="mt-8 flex justify-center">
                 <div className="w-full rounded-3xl overflow-hidden shadow-lg">
                   <ImageWithFallback
@@ -263,7 +263,7 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
                 </div>
 
                 {/* Monitor Level */}
-                <div className="bg-[#ffd459] p-6 rounded-2xl shadow-md hover:shadow-lg transition-all flex items-start gap-4">
+                <div className="bg-[#ffd459]/80 p-6 rounded-2xl shadow-md hover:shadow-lg transition-all flex items-start gap-4">
                   <div className="w-12 h-12 bg-transparent rounded-full flex items-center justify-center flex-shrink-0">
                     <TrendingUp className="w-7 h-7 text-white" />
                   </div>

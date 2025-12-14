@@ -15,6 +15,7 @@ import { DonatePage } from "./components/DonatePage";
 import { PartnerPage } from "./components/PartnerPage";
 import { AirAlertPage } from "./components/AirAlertPage";
 import { InnovatorPage } from "./components/InnovatorPage";
+import { ChangemakerPage } from "./components/ChangemakerPage";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -75,17 +76,27 @@ export default function App() {
     );
   }
 
+  if (currentPage === "changemaker") {
+    return (
+      <div className="min-h-screen bg-white">
+        <Navbar onNavigate={handleNavigate} />
+        <ChangemakerPage onNavigate={handleNavigate} />
+        <Footer />
+      </div>
+    );
+  }
+
   // Render homepage
   return (
     <div className="min-h-screen bg-white">
       <Navbar onNavigate={handleNavigate} />
       <Hero />
       <WhatIsSusSTEM />
-      <ImpactStats />
       <FeaturedProjects onNavigate={handleNavigate} />
+      <ImpactStats />
       <GetInvolved onNavigate={handleNavigate} />
-      <CTASection />
       <AboutUs />
+      <CTASection />
       <Testimonials />
       <ContactPreview />
       <Footer />

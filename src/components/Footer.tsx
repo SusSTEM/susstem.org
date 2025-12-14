@@ -1,4 +1,5 @@
 import { Linkedin, Youtube, Instagram, Heart } from "lucide-react";
+import { FaXTwitter } from 'react-icons/fa6';
 
 export function Footer() {
   return (
@@ -69,7 +70,7 @@ export function Footer() {
             <p className="text-white/80 mb-4">
               Follow us on social media to see our latest projects and student success stories.
             </p>
-            <div className="flex gap-4">
+              <div className="flex gap-4">
               <a 
                 href="#linkedin" 
                 className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
@@ -87,6 +88,12 @@ export function Footer() {
                 className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
               >
                 <Instagram className="w-6 h-6 text-[#a4ff7b]" />
+              </a>
+              <a 
+                href="#x" 
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
+              >
+                <FaXTwitter className="w-6 h-6 text-[#a4ff7b]" />
               </a>
             </div>
             <div className="pt-4">

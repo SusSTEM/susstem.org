@@ -59,7 +59,7 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
   };
 
   return (
-    <section className="bg-white py-12 md:py-24" id="projects">
+    <section className="bg-[#eff2e7] py-12 md:py-24" id="projects">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2
@@ -159,7 +159,7 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
               </p>
               <Button
                 variant="outline"
-                className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white rounded-xl transition-colors w-full"
+                className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white rounded-xl transition-colors w-full hover:shadow-2xl hover:scale-105"
                 onClick={() => handleProjectClick(projects[currentIndex].link)}
               >
                 Learn More

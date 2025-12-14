@@ -225,23 +225,25 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
         </div>
         <div className="max-w-7xl mx-auto px-6 p-8 md:p-12">
           <div className="text-center mb-12">
-            <h2 className="text-[#000000] mb-4" style={{ fontSize: '36px', fontWeight: 700, lineHeight: 1.3 }}>
-              Featured Project
+            <h2
+              className="mb-4"
+              style={{ fontSize: '36px', fontWeight: 700, lineHeight: 1.3, color: '#000000' }}
+            >
+              Featured <span style={{ color: '#20593a' }}>SusSTEM</span> Solution
             </h2>
-            <h3 className="text-[#20593A] mb-3" style={{ fontSize: '28px', fontWeight: 600, lineHeight: 1.4 }}>
+
+            <h3 className="text-black mb-3" style={{ fontSize: '28px', fontWeight: 600, lineHeight: 1.4 }}>
               Air Alert - Environmental Monitoring System
             </h3>
-            <p className="text-[#072d2d] text-xl max-w-3xl mx-auto">
-              Students create a visual air quality alert system using sensors and LEDs
-            </p>
+            <p className="text-[#072d2d] text-lg mb-8 p-8 md:p-10">
+                The MQ2 gas sensor detects harmful or unusual gases in the air and sends this information to the circuit. As gas levels rise or fall, different colored LEDs light up to show what is happening: green for safe conditions, yellow when caution is needed, and red when the air may be unsafe. This turns complex sensor readings into an easy, at-a-glance warning system that anyone can understand.
+              </p>
+              
           </div>
                 
           <div className="grid lg:grid-cols-2 gap-12 items-center mt-12">
             {/* Left: How It Works with LED indicators */}
             <div className="space-y-4">
-              <p className="text-[#072d2d] text-lg mb-8">
-                The MQ2 gas sensor detects harmful gases in the air. Based on the gas concentration levels, different colored LEDs light up:
-              </p>
               
               <div className="space-y-4">
                 {/* Green LED - Safe */}
@@ -289,17 +291,13 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
                   </div>
                 </div>
               </div>
-      
-              <p className="text-[#072d2d] text-base mt-6 italic">
-                This visual alert system helps people understand air quality at a glance and teaches students about environmental monitoring.
-              </p>
             </div>
       
             {/* Right: Project Image */}
             <div className="rounded-3xl overflow-hidden shadow-2xl">
               <ImageWithFallback
                 src="https://lh3.googleusercontent.com/d/1AZ1ybv4_kiCsbqpZHrka9xsH6twAHG2F"
-                className="w-full h-full object-cover"
+                className="w-full h-92 object-cover"
               />
             </div>
           </div>

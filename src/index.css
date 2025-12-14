@@ -72,6 +72,7 @@
     --color-gray-100: oklch(.967 .003 264.542);
     --color-gray-200: oklch(.928 .006 264.531);
     --color-gray-300: oklch(.872 .01 258.338);
+    --color-black: #000;
     --color-white: #fff;
     --spacing: .25rem;
     --container-2xl: 42rem;
@@ -693,6 +694,10 @@
     height: calc(var(--spacing) * 64);
   }
 
+  .h-92 {
+    height: calc(var(--spacing) * 92);
+  }
+
   .h-full {
     height: 100%;
   }
@@ -1112,6 +1117,10 @@
     background-color: #ff9b69;
   }
 
+  .bg-\[\#ff9b69\]\/80 {
+    background-color: oklab(78.2651% .0937113 .099285 / .8);
+  }
+
   .bg-\[\#ff9b69e7\] {
     background-color: #ff9b69e7;
   }
@@ -1466,16 +1475,16 @@
     color: #34495e;
   }
 
-  .text-\[\#F4C430\] {
-    color: #f4c430;
-  }
-
   .text-\[\#FFFFFF\] {
     color: #fff;
   }
 
   .text-\[\#a4ff7b\] {
     color: #a4ff7b;
+  }
+
+  .text-black {
+    color: var(--color-black);
   }
 
   .text-card-foreground {
@@ -1538,10 +1547,6 @@
     .text-white\/90 {
       color: color-mix(in oklab, var(--color-white) 90%, transparent);
     }
-  }
-
-  .italic {
-    font-style: italic;
   }
 
   .underline-offset-4 {
@@ -1779,6 +1784,12 @@
   @media (hover: hover) {
     .hover\:bg-\[\#a2bb65\]\/90:hover {
       background-color: oklab(75.375% -.0622121 .0976486 / .9);
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:bg-\[\#ff9b69\]\/80:hover {
+      background-color: oklab(78.2651% .0937113 .099285 / .8);
     }
   }
 
