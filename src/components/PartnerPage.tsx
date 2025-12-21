@@ -209,7 +209,7 @@ export function PartnerPage() {
               <Label 
                 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
               >
-                I would to partner with SusSTEM as...
+                I want to partner with SusSTEM as...
               </Label>
               <div className="flex flex-col gap-3">
                 {applicantTypes.map((type) => (

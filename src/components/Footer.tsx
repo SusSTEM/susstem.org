@@ -32,27 +32,27 @@ export function Footer() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <a href="#partner" className="text-white/80 hover:text-[#a2bb65] transition-colors">
+                <a href="#partner" className="text-white/80 hover:text-[#a4ff7b] transition-colors">
                   Partner With Us
                 </a>
               </li>
               <li>
-                <a href="#volunteer" className="text-white/80 hover:text-[#a2bb65] transition-colors">
+                <a href="#volunteer" className="text-white/80 hover:text-[#a4ff7b] transition-colors">
                   Volunteer
                 </a>
               </li>
               <li>
-                <a href="#donate" className="text-white/80 hover:text-[#a2bb65] transition-colors">
+                <a href="#donate" className="text-white/80 hover:text-[#a4ff7b] transition-colors">
                   Donate
                 </a>
               </li>
               <li>
-                <a href="#educators" className="text-white/80 hover:text-[#a2bb65] transition-colors">
+                <a href="#educators" className="text-white/80 hover:text-[#a4ff7b] transition-colors">
                   For Educators
                 </a>
               </li>
               <li>
-                <a href="#curriculum" className="text-white/80 hover:text-[#a2bb65] transition-colors">
+                <a href="#curriculum" className="text-white/80 hover:text-[#a4ff7b] transition-colors">
                   Access Curriculum
                 </a>
               </li>

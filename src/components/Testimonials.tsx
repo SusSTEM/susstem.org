@@ -20,12 +20,12 @@ export function Testimonials() {
   ];
 
   const partners = [
-    "UNESCO",
+    "WASTEless",
     "Arduino",
     "Code.org",
     "MIT Media Lab",
-    "UNICEF",
-    "Green Tech Alliance",
+    "Roboarmy",
+    "robu.in",
   ];
 
   return (
@@ -77,10 +77,10 @@ export function Testimonials() {
             {partners.map((partner, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-6 flex items-center justify-center h-24 shadow-sm hover:shadow-md transition-shadow"
+                className="group bg-white rounded-2xl p-6 flex items-center justify-center h-24 shadow-sm hover:shadow-md hover:bg-[#20593a] transition-colors"
               >
-                <span 
-                  className="text-[#072d2d]-400 text-center"
+                <span
+                  className="text-[#072d2d] text-center group-hover:text-[#a4ff7b] transition-colors"
                   style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
                 >
                   {partner}

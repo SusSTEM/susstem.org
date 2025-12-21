@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
-import { WhatIsSusSTEM } from "./components/WhatIsSusSTEM";
+import WhatIsSusSTEM from "./components/WhatIsSusSTEM";
 import { ImpactStats } from "./components/ImpactStats";
 import { GetInvolved } from "./components/GetInvolved";
 import { FeaturedProjects } from "./components/FeaturedProjects";
 import { CTASection } from "./components/CTASection";
-import { AboutUs } from "./components/AboutUs";
+import { AboutUs } from "./components/MissionVision";
 import { Testimonials } from "./components/Testimonials";
 import { ContactPreview } from "./components/ContactPreview";
 import { Footer } from "./components/Footer";

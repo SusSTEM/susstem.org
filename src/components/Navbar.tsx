@@ -62,7 +62,7 @@ export function Navbar({ onNavigate }: NavbarProps) {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#about" className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif]">
+            <a href="#what-is-susstem" className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif]">
               About Us
             </a>
             <a href="#projects" className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif]">
@@ -70,6 +70,9 @@ export function Navbar({ onNavigate }: NavbarProps) {
             </a>
             <a href="#impact" className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif]">
               Impact
+            </a>
+            <a href="#about-us" className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif]">
+              Our Purpose
             </a>
 
             {/* Get Involved Dropdown - sticky version */}
@@ -140,14 +143,17 @@ export function Navbar({ onNavigate }: NavbarProps) {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 flex flex-col gap-4">
-            <a href="#about" className="text-[#000000] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif]">
-              About
+            <a href="#what-is-susstem" className="text-[#000000] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif]">
+              What is SusSTEM?
             </a>
             <a href="#projects" className="text-[#000000] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif]">
               The Programme
             </a>
             <a href="#impact" className="text-[#000000] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif]">
               Impact
+            </a>
+            <a href="#about-us" className="text-[#000000] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif]">
+              Our Purpose
             </a>
             
             {/* Mobile Get Involved Submenu */}

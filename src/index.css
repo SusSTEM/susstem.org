@@ -75,6 +75,7 @@
     --color-black: #000;
     --color-white: #fff;
     --spacing: .25rem;
+    --container-xl: 36rem;
     --container-2xl: 42rem;
     --container-3xl: 48rem;
     --container-4xl: 56rem;
@@ -101,6 +102,7 @@
     --text-6xl--line-height: 1;
     --font-weight-normal: 400;
     --font-weight-medium: 500;
+    --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --leading-tight: 1.25;
     --leading-relaxed: 1.625;
@@ -810,6 +812,10 @@
     max-width: 1200px;
   }
 
+  .max-w-xl {
+    max-width: var(--container-xl);
+  }
+
   .min-w-0 {
     min-width: calc(var(--spacing) * 0);
   }
@@ -1117,6 +1123,10 @@
     background-color: #ff9b69;
   }
 
+  .bg-\[\#ff9b69\]\/75 {
+    background-color: oklab(78.2651% .0937113 .099285 / .75);
+  }
+
   .bg-\[\#ff9b69\]\/80 {
     background-color: oklab(78.2651% .0937113 .099285 / .8);
   }
@@ -1204,6 +1214,16 @@
   @supports (color: color-mix(in lab, red, red)) {
     .bg-white\/50 {
       background-color: color-mix(in oklab, var(--color-white) 50%, transparent);
+    }
+  }
+
+  .bg-white\/90 {
+    background-color: #ffffffe6;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-white\/90 {
+      background-color: color-mix(in oklab, var(--color-white) 90%, transparent);
     }
   }
 
@@ -1310,6 +1330,10 @@
 
   .py-7 {
     padding-block: calc(var(--spacing) * 7);
+  }
+
+  .py-8 {
+    padding-block: calc(var(--spacing) * 8);
   }
 
   .py-12 {
@@ -1447,6 +1471,11 @@
     font-weight: var(--font-weight-normal);
   }
 
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+
   .break-words {
     overflow-wrap: break-word;
   }
@@ -1467,6 +1496,10 @@
     color: #858e80;
   }
 
+  .text-\[\#5978ff\] {
+    color: #5978ff;
+  }
+
   .text-\[\#20593A\], .text-\[\#20593a\] {
     color: #20593a;
   }
@@ -1479,8 +1512,20 @@
     color: #fff;
   }
 
+  .text-\[\#a2bb65\] {
+    color: #a2bb65;
+  }
+
   .text-\[\#a4ff7b\] {
     color: #a4ff7b;
+  }
+
+  .text-\[\#f5b400\] {
+    color: #f5b400;
+  }
+
+  .text-\[\#ff9b69\] {
+    color: #ff9b69;
   }
 
   .text-black {
@@ -1547,6 +1592,10 @@
     .text-white\/90 {
       color: color-mix(in oklab, var(--color-white) 90%, transparent);
     }
+  }
+
+  .italic {
+    font-style: italic;
   }
 
   .underline-offset-4 {
@@ -1678,8 +1727,20 @@
   }
 
   @media (hover: hover) {
+    .group-hover\:bg-\[\#bcb0fa\]\/80:is(:where(.group):hover *) {
+      background-color: oklab(79.3998% .0378328 -.0972054 / .8);
+    }
+  }
+
+  @media (hover: hover) {
     .group-hover\:bg-\[\#ff9b69\]:is(:where(.group):hover *) {
       background-color: #ff9b69;
+    }
+  }
+
+  @media (hover: hover) {
+    .group-hover\:text-\[\#a4ff7b\]:is(:where(.group):hover *) {
+      color: #a4ff7b;
     }
   }
 
@@ -1758,6 +1819,15 @@
   }
 
   @media (hover: hover) {
+    .hover\:scale-120:hover {
+      --tw-scale-x: 120%;
+      --tw-scale-y: 120%;
+      --tw-scale-z: 120%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+  }
+
+  @media (hover: hover) {
     .hover\:bg-\[\#072d2d\]:hover {
       background-color: #072d2d;
     }
@@ -1765,6 +1835,12 @@
 
   @media (hover: hover) {
     .hover\:bg-\[\#20593A\]:hover {
+      background-color: #20593a;
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:bg-\[\#20593a\]:hover {
       background-color: #20593a;
     }
   }
