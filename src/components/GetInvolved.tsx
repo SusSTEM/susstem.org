@@ -66,7 +66,7 @@ export function GetInvolved({ onNavigate }: GetInvolvedProps) {
               <div
                 key={index}
                 className={`${
-                  isDonate ? "bg-[#072D2D]" : "bg-white"
+                  isDonate ? "bg-[#072D2D]" : "bg-white hover:bg-[#a2bb65]/80 transition-colors"
                 } rounded-3xl p-8 text-center space-y-6 shadow-md hover:shadow-xl transition-shadow flex flex-col`}
               >
                 <div
