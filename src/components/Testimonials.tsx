@@ -45,7 +45,7 @@ export function Testimonials() {
                 key={index}
                 className="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl transition-shadow relative"
               >
-                <Quote className="w-12 h-12 text-[#a4ff7b] mb-4 opacity-70" />
+                <Quote className="w-12 h-12 text-[#20593a] mb-4 " />
                 <p className="text-[#072d2d] mb-6 leading-relaxed">
                   "{testimonial.quote}"
                 </p>

@@ -15,10 +15,7 @@ export function Footer() {
               About SusSTEM
             </h3>
             <p className="text-white/80 leading-relaxed">
-              SusSTEM is a global initiative dedicated to teaching sustainability through hands-on STEM education for children aged 8-18.
-            </p>
-            <p className="text-white/80 leading-relaxed">
-              We empower young minds to create eco-friendly solutions using Arduino, coding, and creativity.
+              'SusSTEM' is a youth‑led initiative that uses hands‑on STEM projects to teach sustainability to students, especially in under‑resourced or rural communities with your support and donations. 
             </p>
           </div>
 

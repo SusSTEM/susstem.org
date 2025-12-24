@@ -1,7 +1,7 @@
 
-  # Nonprofit Homepage Design
+  # SusSTEM Website
 
-  This is a code bundle for Nonprofit Homepage Design. The original project is available at https://www.figma.com/design/9ywdspnwlIPWVpNJslCgE1/Nonprofit-Homepage-Design.
+  This is a code bundle for SusSTEM Website. The original project is available at https://www.figma.com/design/9ywdspnwlIPWVpNJslCgE1/SusSTEM-Website.
 
   ## Running the code
 
