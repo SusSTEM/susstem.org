@@ -5,6 +5,16 @@ interface GetInvolvedProps {
   onNavigate?: (page: string) => void;
 }
 
+/**
+ * Get Involved Section
+ * 
+ * Navigation Behavior:
+ * - "Sign Up" (Volunteer) → Opens Volunteer form page (state change, same tab)
+ * - "Make a Difference" (Donate) → Opens Donate form page (state change, same tab)
+ * - "Collaborate" (Partner) → Opens Partner form page (state change, same tab)
+ * 
+ * Each card represents a primary action users can take to support SusSTEM.
+ */
 export function GetInvolved({ onNavigate }: GetInvolvedProps) {
   const cards = [
     {

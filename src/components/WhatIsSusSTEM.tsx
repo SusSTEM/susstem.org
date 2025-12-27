@@ -85,10 +85,10 @@ export default function WhatIsSusSTEM() {
         </div>
 
         {/* Founder quote section under entire block */}
-        <div className="mt-16 max-w-5xl mx-auto rounded-2xl bg-[#a2bb65] px-6 md:px-10 py-8 md:py-10 shadow-sm">
+        <div className="mt-16 max-w-5xl mx-auto rounded-2xl bg-[#a2bb65] px-6 md:px-10 py-8 md:py-10 shadow-[6px_6px_20px_rgba(0,0,0,0.15)] hover:shadow-[8px_8px_24px_rgba(0,0,0,0.5)]  hover:scale-105 transition-all duration-300 ease-out">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10">
             {/* Left: your photo */}
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 mt-8">
               <img
                 src="https://lh3.googleusercontent.com/d/1Mr8hAre5_rArRCbwYH-HSByRGlRKG7HD" // update path if needed
                 alt="Daivik Anand Datwani"

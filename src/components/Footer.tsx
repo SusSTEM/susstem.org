@@ -29,27 +29,42 @@ export function Footer() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <a href="#partner" className="text-white/80 hover:text-[#a4ff7b] transition-colors">
+                <a 
+                  href="#get-involved" 
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors"
+                >
                   Partner With Us
                 </a>
               </li>
               <li>
-                <a href="#volunteer" className="text-white/80 hover:text-[#a4ff7b] transition-colors">
+                <a 
+                  href="#get-involved" 
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors"
+                >
                   Volunteer
                 </a>
               </li>
               <li>
-                <a href="#donate" className="text-white/80 hover:text-[#a4ff7b] transition-colors">
+                <a 
+                  href="#get-involved" 
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors"
+                >
                   Donate
                 </a>
               </li>
               <li>
-                <a href="#educators" className="text-white/80 hover:text-[#a4ff7b] transition-colors">
+                <a 
+                  href="#projects" 
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors"
+                >
                   For Educators
                 </a>
               </li>
               <li>
-                <a href="#curriculum" className="text-white/80 hover:text-[#a4ff7b] transition-colors">
+                <a 
+                  href="#projects" 
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors"
+                >
                   Access Curriculum
                 </a>
               </li>
@@ -69,33 +84,51 @@ export function Footer() {
             </p>
               <div className="flex gap-4">
               <a 
-                href="#linkedin" 
+                href="https://www.linkedin.com/company/susstem" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
+                aria-label="Visit our LinkedIn page (opens in new tab)"
               >
                 <Linkedin className="w-6 h-6 text-[#a4ff7b]" />
               </a>
               <a 
-                href="#youtube" 
+                href="https://www.youtube.com/@SusSTEM" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
+                aria-label="Visit our YouTube channel (opens in new tab)"
               >
                 <Youtube className="w-6 h-6 text-[#a4ff7b]" />
               </a>
               <a 
-                href="#instagram" 
+                href="https://www.instagram.com/susstem.org" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
+                aria-label="Visit our Instagram page (opens in new tab)"
               >
                 <Instagram className="w-6 h-6 text-[#a4ff7b]" />
               </a>
               <a 
-                href="#x" 
+                href="https://twitter.com/susstem_org" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
+                aria-label="Visit our X/Twitter page (opens in new tab)"
               >
                 <FaXTwitter className="w-6 h-6 text-[#a4ff7b]" />
               </a>
             </div>
             <div className="pt-4">
               <p className="text-white/80 text-sm">
-                Email: hello@susstem.org
+                Email:{" "}
+                <a 
+                  href="mailto:hello@susstem.org"
+                  className="hover:text-[#a4ff7b] transition-colors"
+                >
+                  hello@susstem.org
+                </a>
               </p>
             </div>
           </div>

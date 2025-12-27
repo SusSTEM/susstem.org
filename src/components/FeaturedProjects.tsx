@@ -8,6 +8,17 @@ interface FeaturedProjectsProps {
   onNavigate?: (page: string) => void;
 }
 
+/**
+ * Featured Projects Section (The Programme)
+ * 
+ * Navigation Behavior:
+ * - "Learn More" buttons → Navigate to project detail pages (state change, same tab)
+ *   - Level 1: Explorer → Air Alert project page
+ *   - Level 2: Innovator → Innovator page
+ *   - Level 3: Changemaker → Changemaker page
+ * 
+ * Displays three progressive curriculum levels with responsive carousel on mobile.
+ */
 export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 

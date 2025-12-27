@@ -81,17 +81,18 @@ export function PartnerPage() {
               letterSpacing: '0.01em'
             }}
           >
-            Are you a secondary school looking to add the SusSTEM programme to your curriculum?
+            Are you a secondary school ready to bring the SusSTEM programme into your curriculum and champion sustainability?
           </h2>
           <p 
             className="text-xl md:text-2xl opacity-95"
             style={{ 
-              fontFamily: 'Inter, sans-serif',
+              fontFamily: 'Poppins, sans-serif',
               maxWidth: '540px',
               margin: '0 auto'
             }}
           >
-            Partner with us!
+            Partner with us 🤝 to co-create engaging, real-world STEM learning for your learners.
+
           </p>
         </div>
       </div>
@@ -322,7 +323,7 @@ export function PartnerPage() {
                   </div>
                   {formData.interests.length === 0 && (
                     <p 
-                      className="text-sm text-[#858E80]"
+                      className="text-sm text-red-500"
                       style={{ fontFamily: 'Poppins, sans-serif' }}
                     >
                       Please select at least one option

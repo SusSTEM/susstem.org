@@ -8,30 +8,35 @@ const slides = [
     id: 1,
     title: "Inspiring the next generation of sustainable innovators",
     cta: "Learn More",
+    link: "#what-is-susstem",
     image: "https://lh3.googleusercontent.com/d/1LRARvsxKH6kVPlTnjaHwXC-otHiIu_p9",
   },
   {
     id: 2,
     title: "STEM-Powered Minds for a Sustainable Tomorrow",
     cta: "See Our Projects",
+    link: "#projects",
     image: "https://lh3.googleusercontent.com/d/1e_0so0mnYUPoTk97sFBzgUmDkjHezzSj"
   },
   {
     id: 3,
     title: "SusSTEM = ",
     cta: "Join the Movement",
+    link: "#get-involved",
     image: "https://lh3.googleusercontent.com/d/1WSwVVQKl4pHsYT64a33g_V93NSTR4ZUA",
   },
   {
     id: 4,
     title: "STEM for every child, everywhere",
     cta: "Explore Impact",
+    link: "#impact",
     image: "https://lh3.googleusercontent.com/d/1VGbyFCCFytb9dA-p6XZI00N1uB7lmnQT",
   },
   {
     id: 5,
     title: "Solving global sustainability challenges with STEM",
     cta: "Partner With Us",
+    link: "#get-involved",
     image: "https://lh3.googleusercontent.com/d/1mEw31noBCxE5c0d5JYs9rbutjZPc7rAj",
   },
 ];
@@ -63,6 +68,13 @@ export function Hero() {
   const goToSlide = (index: number) => {
     setDirection(index > currentSlide ? 1 : -1);
     setCurrentSlide(index);
+  };
+
+  const handleCTAClick = (link: string) => {
+    const element = document.querySelector(link);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const slideVariants = {
@@ -145,7 +157,7 @@ export function Hero() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
-                <Button className="bg-[#20593A] hover:bg-[#a2bb65] text-white px-10 py-7 rounded-xl transition-colors text-lg shadow-xl">
+                <Button className="bg-[#20593A] hover:bg-[#a2bb65] text-white px-10 py-7 rounded-xl transition-colors text-lg shadow-xl" onClick={() => handleCTAClick(slides[currentSlide].link)}>
                   {slides[currentSlide].cta}
                 </Button>
               </motion.div>
