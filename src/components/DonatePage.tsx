@@ -76,7 +76,7 @@ export function DonatePage() {
                 letterSpacing: "0.01em",
               }}
             >
-              Your commitment drives our mission forward. With your support, we create a meaningful impact.
+              Your donations drive our mission forward. With your support, we create a meaningful impact.
             </h2>
             <p
               className="text-xl md:text-2xl opacity-95"
@@ -86,7 +86,7 @@ export function DonatePage() {
                 margin: "0 auto",
               }}
             >
-              Your gift 🎁 reaches communities that are too often overlooked.
+              Your gift 🎁 reaches a child that is too often overlooked.
             </p>
           </div>
         </div>

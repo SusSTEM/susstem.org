@@ -5,16 +5,6 @@ interface GetInvolvedProps {
   onNavigate?: (page: string) => void;
 }
 
-/**
- * Get Involved Section
- * 
- * Navigation Behavior:
- * - "Sign Up" (Volunteer) → Opens Volunteer form page (state change, same tab)
- * - "Make a Difference" (Donate) → Opens Donate form page (state change, same tab)
- * - "Collaborate" (Partner) → Opens Partner form page (state change, same tab)
- * 
- * Each card represents a primary action users can take to support SusSTEM.
- */
 export function GetInvolved({ onNavigate }: GetInvolvedProps) {
   const cards = [
     {
@@ -47,18 +37,12 @@ export function GetInvolved({ onNavigate }: GetInvolvedProps) {
   ];
 
   return (
-    <section
-      className="bg-[#EFF2E7] py-12 md:py-24"
-      id="get-involved"
-    >
+    <section className="bg-[#EFF2E7] py-12 md:py-24" id="get-involved">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2
             className="text-[#000000] text-3xl md:text-4xl mb-4"
-            style={{
-              fontFamily: "Poppins, sans-serif",
-              fontWeight: 600,
-            }}
+            style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
           >
             Join the Movement
           </h2>
@@ -71,68 +55,70 @@ export function GetInvolved({ onNavigate }: GetInvolvedProps) {
           {cards.map((card, index) => {
             const Icon = card.icon;
             const isDonate = card.isDonate;
+            const isPrimary = !isDonate; // Volunteer & Partner
 
             return (
               <div
                 key={index}
-                className={`${
-                  isDonate ? "bg-[#072D2D]" : "bg-white hover:bg-[#a2bb65]/80 transition-colors"
-                } rounded-3xl p-8 text-center space-y-6 shadow-md hover:shadow-xl transition-shadow flex flex-col`}
+                className="relative transition-transform duration-300 ease-out hover:scale-105"
               >
                 <div
-                  className={`w-20 h-20 rounded-full flex items-center justify-center mx-auto ${
-                    isDonate
-                      ? "bg-[#a4ff7b]/20"
-                      : (card.title === "Volunteer" || card.title === "Partner"
-                          ? "bg-[#e1e4d9]"
-                          : "bg-[#a2bb65]/10")
-                  }`}
+                  className={`rounded-3xl p-8 text-center space-y-6 shadow-md transition-all duration-300
+                    hover:shadow-[12px_12px_30px_rgba(7,45,45,0.35)] flex flex-col
+                    ${isDonate ? "bg-[#072D2D]" : "bg-white hover:bg-[#a2bb65]/80"}`}
                 >
-                  <Icon
-                    className={`w-10 h-10 ${
+                  <div
+                    className={`w-20 h-20 rounded-full flex items-center justify-center mx-auto ${
                       isDonate
-                        ? "text-[#a4ff7b] heartbeat"
-                        : "text-[#072d2d]"
+                        ? "bg-[#a4ff7b]/20"
+                        : "bg-[#e1e4d9]"
                     }`}
-                    strokeWidth={1.5}
-                  />
+                  >
+                    <Icon
+                      className={`w-10 h-10 ${
+                        isDonate ? "text-[#a4ff7b] heartbeat" : "text-[#072d2d]"
+                      }`}
+                      strokeWidth={1.5}
+                    />
+                  </div>
+
+                  <h3
+                    className="text-xl md:text-2xl"
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontWeight: 600,
+                      color: isDonate ? "white" : "#072d2d",
+                    }}
+                  >
+                    {card.title}
+                  </h3>
+
+                  <p
+                    className={`leading-relaxed flex-grow ${
+                      isDonate ? "text-white/90" : "text-[#072d2d]"
+                    }`}
+                  >
+                    {card.description}
+                  </p>
+
+                  <Button
+                    size="sm"
+                    className={`
+                      px-3 py-6 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 w-45 mx-auto
+                      text-sm font-semibold
+                      ${isDonate
+                        ? "bg-[#a4ff7b] text-[#072D2D] hover:bg-[#20593A] hover:text-[#a4ff7b]"
+                        : "bg-[#20593A] text-white hover:border-2 hover:border-[#072d2d] hover:bg-white hover:text-[#072d2d]"
+                      }
+                    `}
+                    style={{ fontSize: '16px', fontWeight: 600 }}
+                    onClick={() => onNavigate?.(card.link)}
+                  >
+                    {card.buttonText}
+                  </Button>
+
+
                 </div>
-                <h3
-                  className="text-xl md:text-2xl"
-                  style={{
-                    fontFamily: "Poppins, sans-serif",
-                    fontWeight: 600,
-                    color:
-                      card.title === "Volunteer" ||
-                      card.title === "Partner"
-                        ? "#072d2d"
-                        : isDonate
-                          ? "white"
-                          : "#000000",
-                  }}
-                >
-                  {card.title}
-                </h3>
-                <p
-                  className={`${
-                    isDonate
-                      ? "text-white/90"
-                      : "text-[#072d2d]"
-                  } leading-relaxed flex-grow`}
-                >
-                  {card.description}
-                </p>
-                <Button
-                  size="sm"
-                  className={`${
-                    isDonate
-                      ? "bg-[#a4ff7b] text-[#072D2D] hover:bg-[#20593A] hover:text-[#a4ff7b]"
-                      : "bg-[#20593A] text-white hover:bg-[#a2bb65] hover:text-white"
-                  } px-3 py-6 rounded-xl transition-colors w-45 mx-auto`}
-                  onClick={() => onNavigate?.(card.link)}
-                >
-                  {card.buttonText}
-                </Button>
               </div>
             );
           })}

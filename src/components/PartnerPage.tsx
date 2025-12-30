@@ -81,7 +81,7 @@ export function PartnerPage() {
               letterSpacing: '0.01em'
             }}
           >
-            Are you a secondary school ready to bring the SusSTEM programme into your curriculum and champion sustainability?
+            Are you a Secondary School ready to bring the SusSTEM programme into your curriculum?
           </h2>
           <p 
             className="text-xl md:text-2xl opacity-95"
@@ -91,7 +91,7 @@ export function PartnerPage() {
               margin: '0 auto'
             }}
           >
-            Partner with us 🤝 to co-create engaging, real-world STEM learning for your learners.
+            Partner with us 🤝 to bring SusSTEM and its volunteers to your school.
 
           </p>
         </div>

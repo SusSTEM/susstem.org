@@ -108,7 +108,7 @@ export function VolunteerPage() {
                 letterSpacing: "0.01em",
               }}
             >
-             Youth everywhere deserve equal chances to tackle global sustainability challenges — your support makes that possible.
+             Your time and passion can empower the next generation of sustainability leaders.
             </h2>
             <p
               className="text-xl md:text-2xl opacity-95"
@@ -118,7 +118,7 @@ export function VolunteerPage() {
                 margin: "0 auto",
               }}
             >
-              Join us as a volunteer 🙋🏻‍♀️ and help turn this vision into reality
+              Volunteer 🙋🏻‍♀️ with us at SusSTEM
             </p>
           </div>
         </div>
@@ -140,43 +140,55 @@ export function VolunteerPage() {
                 
                 <p
                   className="text-[#072d2d] text-lg leading-relaxed"
-                  style={{ fontFamily: 'Inter, sans-serif' }}
+                  style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
-                  Right now, young people aged 11–18 are watching environmental challenges unfold in real time. Rising temperatures. Pollution in their neighborhoods. Waste overwhelming their cities. They see the problems clearly — but they need the tools, mentorship, and confidence to solve them.
+                  Right now, young people aged 11–18 are watching environmental challenges unfold in real time. Rising temperatures. Pollution in their neighborhoods. Waste overwhelming their cities. They see the problems clearly — <strong>but they need the tools, mentorship, and confidence to solve them.</strong>
                 </p>
           
                 <p
-                  className="text-[#072d2d] text-lg leading-relaxed"
+                  className="text-[#072d2d] text-xl leading-relaxed"
                   style={{ 
-                    fontFamily: 'Inter, sans-serif',
-                    fontWeight: 400    
-                  }}
+                    fontFamily: 'Poppins, sans-serif'}}
                 >
-                  That's where you come in
+                  <strong>That's where you come in</strong>
                 </p> 
                 
                 <p
                   className="text-[#072d2d] text-lg leading-relaxed"
-                  style={{ fontFamily: 'Inter, sans-serif' }}
+                  style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
-                  Our hands-on STEM projects—from air quality monitoring systems to smart waste management—teach critical thinking, problem-solving, and environmental stewardship. When you volunteer with SusSTEM, you're not just giving your time; you're directly shaping the next generation of innovators and changemakers who will create a more sustainable world.
+                 When you volunteer with SusSTEM, you're not just giving your time. <strong>You're equipping students with hands-on STEM skills through real projects</strong> — air quality monitors, smart waste systems, sustainable tech prototypes — that tackle actual environmental problems in their communities. You're showing them that they don't have to wait to make a difference. <strong>They can build solutions today.</strong>
                 </p>
           
                 <p
                   className="text-[#072d2d] text-lg leading-relaxed"
-                  style={{ fontFamily: 'Inter, sans-serif' }}
+                  style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
-                  Whether you're a STEM professional eager to mentor young minds, an environmental enthusiast looking to share your passion, or simply someone who wants to make a tangible impact, we'd love to have you on our team. Together, we can inspire students to turn ideas into action and drive real change in their communities.
+                 <strong>The need is urgent.</strong> Climate challenges aren't slowing down, and neither can we. Students are ready to step up — <strong>they just need advocates like you to guide them.</strong> Whether you're a STEM professional, environmental enthusiast, or someone who believes young people deserve every opportunity to lead change, <strong>your impact will be immediate and tangible.</strong>
                 </p>
           
+                <p
+                  className="text-[#072d2d] text-lg leading-relaxed"
+                  style={{ fontFamily: 'Poppins, sans-serif' }}
+                >
+                 In the past year, SusSTEM volunteers have helped students design functioning prototypes, present solutions to local leaders, and launch sustainability initiatives in their schools. <strong> These aren't just classroom exercises — they're real projects creating real impact.</strong>
+                </p>
+                <p
+                  className="text-[#072d2d] text-xl leading-relaxed"
+                  style={{ fontFamily: 'Poppins, sans-serif' }}
+                >
+                 <strong>Your time matters. Your expertise matters. And together, we can turn student ideas into community action.</strong>
+                </p>
+                
                 <div className="pt-4">
                   <div className="bg-[#e1e4d8] rounded-2xl p-6">
                     <p
                       className="text-[#072d2d] italic"
-                      style={{ fontFamily: 'Inter, sans-serif' }}
+                      style={{ fontFamily: 'Poppins, sans-serif' }}
                     >
                       "Volunteering with SusSTEM has been incredibly rewarding. Seeing students light up as they build solutions to environmental problems reminds me why this work matters."
                     </p>
+                    
                     <p
                       className="text-[#072d2d] mt-3"
                       style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
@@ -185,6 +197,14 @@ export function VolunteerPage() {
                     </p>
                   </div>
                 </div>
+
+                <p
+                  className="text-[#072d2d] text-xl leading-relaxed"
+                  style={{ fontFamily: 'Poppins, sans-serif' }}
+                >
+                 <strong>Join us. Mentor the next generation. Build a sustainable future together.</strong>
+                </p>
+                
               </div>
 
             {/* Right Column - Form */}

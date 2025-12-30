@@ -1119,10 +1119,6 @@
     background-color: #a2bb65;
   }
 
-  .bg-\[\#a2bb65\]\/10 {
-    background-color: oklab(75.375% -.0622121 .0976486 / .1);
-  }
-
   .bg-\[\#a2bb65\]\/80 {
     background-color: oklab(75.375% -.0622121 .0976486 / .8);
   }
@@ -1827,6 +1823,19 @@
   }
 
   @media (hover: hover) {
+    .hover\:border-2:hover {
+      border-style: var(--tw-border-style);
+      border-width: 2px;
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:border-\[\#072d2d\]:hover {
+      border-color: #072d2d;
+    }
+  }
+
+  @media (hover: hover) {
     .hover\:bg-\[\#072d2d\]:hover {
       background-color: #072d2d;
     }
@@ -1929,6 +1938,12 @@
   }
 
   @media (hover: hover) {
+    .hover\:bg-white:hover {
+      background-color: var(--color-white);
+    }
+  }
+
+  @media (hover: hover) {
     .hover\:bg-white\/30:hover {
       background-color: #ffffff4d;
     }
@@ -2010,6 +2025,13 @@
   @media (hover: hover) {
     .hover\:shadow-\[8px_8px_24px_rgba\(0\,0\,0\,0\.5\)\]:hover {
       --tw-shadow: 8px 8px 24px var(--tw-shadow-color, #00000080);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:shadow-\[12px_12px_30px_rgba\(7\,45\,45\,0\.35\)\]:hover {
+      --tw-shadow: 12px 12px 30px var(--tw-shadow-color, #072d2d59);
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
