@@ -10,13 +10,13 @@ interface FeaturedProjectsProps {
 
 /**
  * Featured Projects Section (The Programme)
- * 
+ *
  * Navigation Behavior:
  * - "Learn More" buttons → Navigate to project detail pages (state change, same tab)
  *   - Level 1: Explorer → Air Alert project page
  *   - Level 2: Innovator → Innovator page
  *   - Level 3: Changemaker → Changemaker page
- * 
+ *
  * Displays three progressive curriculum levels with responsive carousel on mobile.
  */
 export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
@@ -45,7 +45,7 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
       level: "Level 3",
       title: "Changemaker: Ages 14-18 ",
       description:
-        "Design complete sustainable solutions like smart water savers, automated composting systems, and energy monitoring devices for real-world impact.",
+        "Level 3 is where students form teams of five, choose one of four environmental challenges, and use their SusSTEM skills to design and build STEM-powered solutions with real community impact.",
       image:
         "https://lh3.googleusercontent.com/d/1_HCKAXKWWnv0W9sYrwnqz69CekWFXnin",
       link: "changemaker",
@@ -72,6 +72,7 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
   return (
     <section className="bg-[#eff2e7] py-12 md:py-24" id="projects">
       <div className="max-w-7xl mx-auto px-6">
+        {/* Heading */}
         <div className="text-center mb-12">
           <h2
             className="text-[#000000] text-3xl md:text-4xl mb-4"
@@ -91,7 +92,13 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className={`overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-shadow border-none ${cardBgClasses[index]} flex flex-col`}
+              className={`overflow-hidden rounded-3xl shadow-lg transform
+                    transition
+                    duration-300
+                    ease-out
+                    hover:-translate-y-1
+                    hover:scale-[1.02]
+                    hover:shadow-[0_14px_30px_rgba(0,0,0,0.5)] border-none ${cardBgClasses[index]} flex flex-col`}
             >
               <div className="h-64 overflow-hidden flex-shrink-0">
                 <ImageWithFallback
@@ -101,18 +108,40 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
                 />
               </div>
               <div className="p-6 flex flex-col flex-grow">
+                {/* Level pill – Explorer-style animated white pill */}
                 <div
-                  className={`inline-block px-4 py-2 bg-[#eff2e7] text-[#072d2d] hover:bg-[#072d2d] hover:text-[#a4ff7b] rounded-full transition-colors duration-200 hover:bg-[#072d2d] hover:text-[#a4ff7b] self-start mb-4`}
+                  className="
+                    inline-block
+                    px-4
+                    py-2
+                    bg-[#eff2e7]
+                    text-[#072d2d]
+                    rounded-full
+                    shadow-sm
+                    transform
+                    transition
+                    duration-300
+                    ease-out
+                    hover:-translate-y-1
+                    hover:scale-[1.02]
+                    hover:shadow-[0_14px_30px_rgba(0,0,0,0.16)]
+                    hover:bg-[#072d2d]
+                    hover:text-[#a4ff7b]
+                    self-start
+                    mb-4
+                  "
                 >
                   <span
                     style={{
                       fontFamily: "Poppins, sans-serif",
                       fontWeight: 600,
                     }}
+                    className="text-sm md:text-base"
                   >
                     {project.level}
                   </span>
                 </div>
+
                 <h3
                   className="text-[#000000] text-2xl mb-4"
                   style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
@@ -122,12 +151,40 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
                 <p className="text-[#072d2d] mb-4 flex-grow">
                   {project.description}
                 </p>
+
+                {/* Desktop Learn More – white CTA, slightly larger text */}
                 <Button
                   variant="outline"
-                  className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white rounded-xl transition-colors w-full mt-auto"
+                  className="
+                    border-2
+                    border-[#072d2d]
+                    text-[#072d2d]
+                    rounded-xl
+                    w-full
+                    mt-auto
+                    bg-white
+                    shadow-sm
+                    transform
+                    transition
+                    duration-300
+                    ease-out
+                    hover:-translate-y-1
+                    hover:scale-[1.02]
+                    hover:bg-[#072d2d]
+                    hover:text-white
+                    hover:shadow-[0_16px_35px_rgba(0,0,0,0.18)]
+                  "
                   onClick={() => handleProjectClick(project.link)}
                 >
-                  Learn More
+                  <span
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontWeight: 600,
+                    }}
+                    className="text-base md:text-lg"
+                  >
+                    Learn More
+                  </span>
                 </Button>
               </div>
             </Card>
@@ -147,18 +204,38 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
               />
             </div>
             <div className="p-6 space-y-4">
+              {/* Level pill – same animated style */}
               <div
-                className={`inline-block px-4 py-2 bg-[#eff2e7] text-[#072d2d] hover:bg-[#072d2d] hover:text-[#a4ff7b] rounded-full`}
+                className="
+                  inline-block
+                  px-4
+                  py-2
+                  bg-[#eff2e7]
+                  text-[#072d2d]
+                  rounded-full
+                  shadow-sm
+                  transform
+                  transition
+                  duration-300
+                  ease-out
+                  hover:-translate-y-1
+                  hover:scale-[1.02]
+                  hover:shadow-[0_14px_30px_rgba(0,0,0,0.16)]
+                  hover:bg-[#072d2d]
+                  hover:text-[#a4ff7b]
+                "
               >
                 <span
                   style={{
                     fontFamily: "Poppins, sans-serif",
                     fontWeight: 600,
                   }}
+                  className="text-sm"
                 >
                   {projects[currentIndex].level}
                 </span>
               </div>
+
               <h3
                 className="text-[#000000] text-2xl"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
@@ -168,12 +245,41 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
               <p className="text-[#072d2d]">
                 {projects[currentIndex].description}
               </p>
+
+              {/* Mobile Learn More – same look/feel as desktop */}
               <Button
                 variant="outline"
-                className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white rounded-xl transition-colors w-full hover:shadow-2xl hover:scale-105"
-                onClick={() => handleProjectClick(projects[currentIndex].link)}
+                className="
+                  border-2
+                  border-[#072d2d]
+                  text-[#072d2d]
+                  rounded-xl
+                  w-full
+                  bg-white
+                  shadow-sm
+                  transform
+                  transition
+                  duration-300
+                  ease-out
+                  hover:-translate-y-1
+                  hover:scale-[1.02]
+                  hover:bg-[#072d2d]
+                  hover:text-white
+                  hover:shadow-[0_16px_35px_rgba(0,0,0,0.18)]
+                "
+                onClick={() =>
+                  handleProjectClick(projects[currentIndex].link)
+                }
               >
-                Learn More
+                <span
+                  style={{
+                    fontFamily: "Poppins, sans-serif",
+                    fontWeight: 600,
+                  }}
+                  className="text-base"
+                >
+                  Learn More
+                </span>
               </Button>
             </div>
           </Card>

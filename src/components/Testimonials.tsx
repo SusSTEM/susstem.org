@@ -3,17 +3,20 @@ import { Quote } from "lucide-react";
 export function Testimonials() {
   const testimonials = [
     {
-      quote: "SusSTEM has transformed how my students think about technology and the environment. They're now solving real problems in our community!",
+      quote:
+        "SusSTEM has transformed how my students think about technology and the environment. They're now solving real problems in our community!",
       author: "Maria Rodriguez",
       role: "Science Teacher, São Paulo",
     },
     {
-      quote: "My daughter built a water conservation system for our garden. I'm amazed at what these kids can achieve with the right guidance.",
+      quote:
+        "My daughter built a water conservation system for our garden. I'm amazed at what these kids can achieve with the right guidance.",
       author: "James Chen",
       role: "Parent, Singapore",
     },
     {
-      quote: "The hands-on approach and focus on sustainability makes learning exciting. Our students are more engaged than ever before.",
+      quote:
+        "The hands-on approach and focus on sustainability makes learning exciting. Our students are more engaged than ever before.",
       author: "Amina Okonkwo",
       role: "Education Director, Lagos",
     },
@@ -33,9 +36,9 @@ export function Testimonials() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Testimonials */}
         <div className="mb-16">
-          <h2 
+          <h2
             className="text-[#000000] text-3xl md:text-4xl text-center mb-12"
-            style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
+            style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
           >
             What People Are Saying
           </h2>
@@ -43,16 +46,21 @@ export function Testimonials() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white rounded-3xl p-8 shadow-md hover:shadow-xl transition-shadow relative"
+                className="bg-white rounded-3xl p-8 shadow-md hover:shadow-[0_16px_35px_rgba(0,0,0,0.18)] hover:-translate-y-2 hover:scale-[1.03] transform transition    transition-all
+    duration-300
+    ease-out"
               >
                 <Quote className="w-12 h-12 text-[#20593a] mb-4 " />
                 <p className="text-[#072d2d] mb-6 leading-relaxed">
                   "{testimonial.quote}"
                 </p>
                 <div className="border-t border-gray-200 pt-4">
-                  <p 
+                  <p
                     className="text-[#000000]"
-                    style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontWeight: 600,
+                    }}
                   >
                     {testimonial.author}
                   </p>
@@ -67,9 +75,9 @@ export function Testimonials() {
 
         {/* Partner Logos */}
         <div>
-          <h3 
+          <h3
             className="text-[#000000] text-2xl md:text-3xl text-center mb-8"
-            style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
+            style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
           >
             Our Partners
           </h3>
@@ -77,11 +85,36 @@ export function Testimonials() {
             {partners.map((partner, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-2xl p-6 flex items-center justify-center h-24 shadow-sm hover:shadow-md hover:bg-[#20593a] transition-colors"
+                className="
+                  group
+                  bg-white
+                  rounded-2xl
+                  p-6
+                  flex
+                  items-center
+                  justify-center
+                  h-24
+                  shadow-sm
+                  transform
+                  transition                  duration-300
+                  ease-out
+                  hover:-translate-y-2
+                  hover:scale-[1.03]
+                  hover:shadow-[0_16px_35px_rgba(0,0,0,0.18)]
+                  hover:bg-[#20593a]
+                "
               >
                 <span
-                  className="text-[#072d2d] text-center group-hover:text-[#a4ff7b] transition-colors"
-                  style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
+                  className="
+                    text-[#072d2d]
+                    text-center
+                    group-hover:text-[#a4ff7b]
+                    transition-colors
+                  "
+                  style={{
+                    fontFamily: "Poppins, sans-serif",
+                    fontWeight: 600,
+                  }}
                 >
                   {partner}
                 </span>

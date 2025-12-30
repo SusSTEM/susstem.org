@@ -10,7 +10,7 @@ const iconBgClasses = {
 export function ImpactStats() {
   const [isVisible, setIsVisible] = useState(false);
   const [key, setKey] = useState(0);
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,18 +27,13 @@ export function ImpactStats() {
       { threshold: 0.3 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    if (sectionRef.current) observer.observe(sectionRef.current);
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
     };
   }, []);
 
-  // Assign iconColor: "default" or "darkgreen"
   const stats = [
     {
       icon: Users,
@@ -46,7 +41,7 @@ export function ImpactStats() {
       label: "Students Reached",
       prefix: "+",
       bgColor: "#e1e4d9",
-      iconColor: "default"
+      iconColor: "default",
     },
     {
       icon: BookOpen,
@@ -54,7 +49,7 @@ export function ImpactStats() {
       label: "Projects Completed",
       prefix: "+",
       bgColor: "#e1e4d9",
-      iconColor: "darkgreen"
+      iconColor: "darkgreen",
     },
     {
       icon: Globe,
@@ -62,56 +57,74 @@ export function ImpactStats() {
       label: "Countries Impacted",
       prefix: "",
       bgColor: "#e1e4d9",
-      iconColor: "default"
+      iconColor: "default",
     },
   ];
 
   return (
-    <section className="bg-[#20593A] py-12 md:py-24" id="impact" ref={sectionRef}>
+    <section
+      className="bg-[#20593A] py-12 md:py-24"
+      id="impact"
+      ref={sectionRef}
+    >
       <div className="max-w-7xl mx-auto px-6">
         <h2
           className="text-[#FFFFFF] text-3xl md:text-4xl text-center mb-12"
-          style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
+          style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
         >
           Our Impact
         </h2>
-        
+
         <div className="grid md:grid-cols-3 gap-8">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
               <div
                 key={index}
-                style={{
-                  background: stat.bgColor,
-                  borderRadius: '1.5rem',
-                  padding: '2rem',
-                  textAlign: 'center',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.10)',
-                  transition: 'box-shadow .2s',
-                }}
-                className="space-y-4 hover:shadow-xl"
-              >
-                <div className={`w-24 h-24 rounded-full flex items-center justify-center mx-auto ${iconBgClasses[stat.iconColor] || iconBgClasses.default}`}>
+                className="group relative transform transition duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03]"              >
+                <div
+                  style={{
+                    background: stat.bgColor,
+                    borderRadius: "1.5rem",
+                    padding: "2rem",
+                    textAlign: "center",
+                  }}
+                  className="
+                    space-y-4
+                    shadow-md
+                  transition                    duration-300
+                    ease-out
+                    group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.28)]
+                  "
+                >
+                  <div
+                    className={`w-24 h-24 rounded-full flex items-center justify-center mx-auto ${
+                      iconBgClasses[stat.iconColor] || iconBgClasses.default
+                } transition duration-300 ease-out group-hover:scale-105`}
+                                    >
                   <Icon className="w-12 h-12 text-white" />
                 </div>
-                <h3
-                  className="text-[#000000] text-4xl md:text-5xl"
-                  style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700 }}
-                >
-                  {stat.prefix}
-                  {isVisible && (
-                    <CountUp
-                      key={key}
-                      end={stat.number}
-                      duration={2.5}
-                      separator=","
-                    />
-                  )}
-                </h3>
-                <p className="text-[#34495E] text-lg" style={{ color: "#34495E" }}>
-                  {stat.label}
-                </p>
+                  <h3
+                    className="text-[#000000] text-4xl md:text-5xl"
+                    style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+                  >
+                    {stat.prefix}
+                    {isVisible && (
+                      <CountUp
+                        key={key}
+                        end={stat.number}
+                        duration={2.5}
+                        separator=","
+                      />
+                    )}
+                  </h3>
+                  <p
+                    className="text-[#34495E] text-lg"
+                    style={{ color: "#34495E" }}
+                  >
+                    {stat.label}
+                  </p>
+                </div>
               </div>
             );
           })}
