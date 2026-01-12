@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
 
-@custom-variant dark (&:is(.dark *));
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');@custom-variant dark (&:is(.dark *));
 
 :root {
   /* SusSTEM Brand Colors */
@@ -212,4 +212,10 @@ html {
   45% { transform: scale(1.18); }
   60% { transform: scale(1.03); }
   80% { transform: scale(1); }
+}
+
+
+/* Google Sans Font */
+button, .nav-item, h1, h2, h3 {
+  font-family: 'Google Sans', 'Poppins', sans-serif;
 }

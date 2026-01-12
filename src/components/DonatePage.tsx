@@ -103,7 +103,7 @@ export function DonatePage() {
                   fontWeight: 700
                 }}
               >
-                Invest in the Next Generation of Changemakers
+                Every donation you make writes a new story...
               </h2>
               
               <p
@@ -139,7 +139,39 @@ export function DonatePage() {
                     className="text-[#072d2d] mt-3"
                     style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
                   >
-                    — SusSTEM Donor & Supporter
+                    — Dr. Kaustubh Rajendara Singh
+                  </p>
+                </div>
+              </div>
+              <div className="pt-4">
+                <div className="bg-[#e1e4d8] rounded-2xl p-6">
+                  <p
+                    className="text-[#072d2d] italic"
+                    style={{ fontFamily: 'Inter, sans-serif' }}
+                  >
+                    "I chose to support SusSTEM because they empower students to be part of the solution, not just observers of the problem. Seeing how my donation provides the tools for these young people to tackle real environmental issues is truly inspiring. They aren't just the leaders of tomorrow; they are making a difference today."
+                  </p>
+                  <p
+                    className="text-[#072d2d] mt-3"
+                    style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
+                  >
+                    — Anonymous Donor
+                  </p>
+                </div>
+              </div>
+              <div className="pt-4">
+                <div className="bg-[#e1e4d8] rounded-2xl p-6">
+                  <p
+                    className="text-[#072d2d] italic"
+                    style={{ fontFamily: 'Inter, sans-serif' }}
+                  >
+                    "What I love about SusSTEM is that it bridges the gap between 'learning' and 'doing.' Your donation doesn't just sit in a classroom; it puts tools into the hands of students who are ready to build a better planet. It’s a powerful feeling to know your support is directly launching the next generation of environmental innovators."
+                  </p>
+                  <p
+                    className="text-[#072d2d] mt-3"
+                    style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
+                  >
+                    — Hindh Al Mubarak
                   </p>
                 </div>
               </div>

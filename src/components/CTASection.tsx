@@ -37,26 +37,9 @@ export function CTASection({ onNavigate }: CTASectionProps) {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           {/* Primary CTA */}
           <Button
-            className="
-              bg-[#a2bb65]/80
-              text-white
-              px-10
-              py-6
-              rounded-xl
-              text-lg
-              shadow-md
-              transform
-              transition
-              duration-300
-              ease-out
-              hover:text-[#072d2d]
-              hover:bg-[#ffffff]
-              hover:border-3
-              hover:border-[#072d2d]
-              hover:-translate-y-1
-              hover:scale-[1.02]
-              hover:shadow-[0_16px_35px_rgba(0,0,0,0.25)]
-            "
+            variant='outline'
+                  className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition shadow-xl hover:shadow-2xl hover:scale-105"
+                  style={{ fontSize: '18px', fontWeight: 600 }}
             onClick={scrollToGetInvolved}
           >
             <span
@@ -73,37 +56,12 @@ export function CTASection({ onNavigate }: CTASectionProps) {
           {/* Secondary CTA (white pill style) */}
           <Button
             variant="outline"
-            className="
-              border-3
-              border-[#072d2d]
-              text-[#072d2d]
-              bg-white
-              px-10
-              py-6
-              rounded-xl
-              text-lg
-              shadow-sm
-              transform
-              transition
-              duration-300
-              ease-out
-              hover:-translate-y-1
-              hover:scale-[1.02]
-              hover:bg-[#072d2d]
-              hover:text-white
-              hover:shadow-[0_16px_35px_rgba(0,0,0,0.2)]
-            "
+            className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition shadow-xl hover:shadow-2xl hover:scale-105"
+            style={{ fontSize: '18px', fontWeight: 600 }}
+      
             onClick={scrollToWhatIsSusSTEM}
-          >
-            <span
-              style={{
-                fontFamily: "Poppins, sans-serif",
-                fontWeight: 600,
-              }}
-              className="text-base md:text-lg"
-            >
-              Learn More
-            </span>
+          >             
+            Learn More
           </Button>
         </div>
       </div>

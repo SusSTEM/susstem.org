@@ -98,7 +98,7 @@ export function Navbar({ onNavigate }: NavbarProps) {
           <div className="hidden md:flex items-center gap-8">
             <button
               onClick={() => handleNavClick("#what-is-susstem")}
-              className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif] bg-transparent border-none cursor-pointer"
+              className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font:weight-600 font-[Poppins,sans-serif] bg-transparent border-none cursor-pointer"
             >
               About Us
             </button>

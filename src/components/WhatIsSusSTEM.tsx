@@ -24,13 +24,15 @@ export default function WhatIsSusSTEM() {
             </p>
 
             <p className="text-[#072d2d] text-lg leading-relaxed">
-              SusSTEM is a <strong>Not-For-Profit Organisation</strong> empowered to offer{" "}
+              <strong>SusSTEM</strong> is a Not-For-Profit Organisation empowered to offer{" "}
               <strong>free STEM education</strong> to students in under-resourced communities. 
-              Through <strong>3 levels</strong> of hands-on projects, <strong>secondary school students aged 11-18</strong> learn to build
+            </p>
+            <p className="text-[#072d2d] text-lg leading-relaxed">
+              Through 3 levels of hands-on projects, <strong>secondary school students aged 11-18</strong> learn to build
               real-world solutions that make a difference in their communities and beyond.
             </p>
              <p className="text-[#072d2d] text-lg leading-relaxed">
-                'SusSTEM inspires the next generation of sustainable innovators through S.T.E.M'
+                '<strong>SusSTEM</strong> inspires the next generation of sustainable innovators through S.T.E.M'
             </p>
           </div>
 

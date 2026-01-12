@@ -81,7 +81,7 @@ export function PartnerPage() {
               letterSpacing: '0.01em'
             }}
           >
-            Are you a Secondary School ready to bring the SusSTEM programme into your curriculum?
+            Are you a Secondary School ready to integrate the SusSTEM programme into your curriculum?
           </h2>
           <p 
             className="text-xl md:text-2xl opacity-95"
