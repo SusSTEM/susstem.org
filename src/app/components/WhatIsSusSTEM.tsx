@@ -80,8 +80,8 @@ export default function WhatIsSusSTEM() {
             <p className="text-[#072d2d] text-lg leading-relaxed text-center md:text-left">
               Your contributions fuel our mission at <strong>SusSTEM</strong> to combine Sustainable,
               Environmental practices with{" "}
-              <strong>Science, Technology, Engineering, and Math (S.T.E.M)</strong> to inspire
-              students to protect the planet through STEM-powered, sustainable innovation.
+              <strong>Science, Technology, Engineering, and Math (S.T.E.M)</strong> in order to inspire
+              students to  build STEM-powered, sustainable and innovative solutions to protect the planet.
             </p>
           </div>
         </div>

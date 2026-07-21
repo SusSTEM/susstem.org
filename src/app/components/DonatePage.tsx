@@ -3,12 +3,28 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Checkbox } from "./ui/checkbox";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 
 export function DonatePage() {
-  const [currency, setCurrency] = useState("USD");
+  const [currency, setCurrency] = useState("AED");
   const [frequency, setFrequency] = useState("one-time");
-  const [selectedAmount, setSelectedAmount] = useState(50);
+  const [selectedAmount, setSelectedAmount] = useState(200);
   const [customAmount, setCustomAmount] = useState("");
+  
+  // Kit quantities
+  const [explorerKitQty, setExplorerKitQty] = useState(1);
+  const [innovatorKitQty, setInnovatorKitQty] = useState(1);
+  const [changemakerKitQty, setChangemakerKitQty] = useState(1);
+  const [volunteerQty, setVolunteerQty] = useState(1);
+  
+  // Kit prices in AED
+  const kitPrices = {
+    explorer: 100,
+    innovator: 200,
+    changemaker: 600,
+    volunteer: 400
+  };
+  
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -54,7 +70,12 @@ export function DonatePage() {
     });
   };
 
-  const amountOptions = [15, 20, 30, 50, 100];
+  const amountOptions = [50, 100, 150, 200, 400];
+  
+  // Calculate total impact
+  const calculateStudentsImpacted = () => {
+    return (explorerKitQty * 1) + (innovatorKitQty * 1) + (changemakerKitQty * 5);
+  };
 
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
@@ -94,8 +115,8 @@ export function DonatePage() {
         {/* Form Card */}
         <div className="max-w-[1200px] mx-auto px-6 py-16">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* Left Column */}
-            <div className="space-y-6">
+            {/* Left Column (order-2 on mobile, order-1 on desktop) */}
+            <div className="order-2 md:order-1 space-y-6">
               <h2
                 className="text-[#000000] text-3xl md:text-4xl"
                 style={{
@@ -165,7 +186,7 @@ export function DonatePage() {
                     className="text-[#072d2d] italic"
                     style={{ fontFamily: 'Inter, sans-serif' }}
                   >
-                    "What I love about SusSTEM is that it bridges the gap between 'learning' and 'doing.' Your donation doesn't just sit in a classroom; it puts tools into the hands of students who are ready to build a better planet. It’s a powerful feeling to know your support is directly launching the next generation of environmental innovators."
+                    "What I love about SusSTEM is that it bridges the gap between 'learning' and 'doing.' Your donation doesn't just sit in a classroom; it puts tools into the hands of students who are ready to build a better planet. It's a powerful feeling to know your support is directly launching the next generation of environmental innovators."
                   </p>
                   <p
                     className="text-[#072d2d] mt-3"
@@ -177,94 +198,366 @@ export function DonatePage() {
               </div>
             </div>
 
-            {/* Right Column - Donation Form */}
-            <div>
+            {/* Right Column - Donation Form (order-1 on mobile, order-2 on desktop) */}
+            <div className="order-1 md:order-2">
               <div 
                 className="bg-white shadow-lg border border-gray-200"
                 style={{ borderRadius: '16px', padding: '32px' }}
               >
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Currency Selector */}
-                  <div className="space-y-2">
-                    <Label 
+
+                  {/* Donation Kits Section */}
+                  <div>
+                    <div 
+                      className="mb-3 text-xs tracking-wider"
                       style={{ 
-                        fontFamily: 'Poppins, sans-serif', 
-                        fontWeight: 600,
-                        fontSize: '12px',
+                        fontFamily: 'Inter, sans-serif',
+                        fontWeight: 500,
+                        color: '#64748B',
                         textTransform: 'uppercase',
-                        letterSpacing: '0.5px',
-                        color: '#6B7280'
+                        letterSpacing: '0.05em'
                       }}
                     >
-                      Currency
-                    </Label>
-                    <div className="flex gap-2">
-                      <button
-                        type="button"
-                        onClick={() => setCurrency("USD")}
-                        className={`flex-1 py-2 px-4 rounded-lg font-medium transition-all ${
-                          currency === "USD"
-                            ? "bg-[#20593A] text-white"
-                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                        }`}
-                        style={{ fontFamily: 'Poppins, sans-serif' }}
-                      >
-                        USD
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setCurrency("GBP")}
-                        className={`flex-1 py-2 px-4 rounded-lg font-medium transition-all ${
-                          currency === "GBP"
-                            ? "bg-[#20593A] text-white"
-                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                        }`}
-                        style={{ fontFamily: 'Poppins, sans-serif' }}
-                      >
-                        GBP
-                      </button>
+                      DONATE LEARNING KITS
+                    </div>
+                    
+                    <div className="space-y-4">
+                      {/* Explorer Kit */}
+                      <div className="bg-[#a2bb65]/80 rounded-xl p-5 space-y-3">
+                        <div className="flex justify-between items-start">
+                          <div className="flex-1">
+                            <h4 
+                              className="text-[#000000] mb-1"
+                              style={{ 
+                                fontFamily: 'Poppins, sans-serif', 
+                                fontWeight: 600,
+                                fontSize: '16px'
+                              }}
+                            >
+                              Explorer Kit (Level 1)
+                            </h4>
+                            <p 
+                              className="text-[#072d2d] text-sm"
+                              style={{ fontFamily: 'Inter, sans-serif' }}
+                            >
+                              Introductory kit for beginners learning basic electronics and environmental sensors
+                            </p>
+                          </div>
+                          <div 
+                            className="text-[#20593A] ml-4"
+                            style={{ 
+                              fontFamily: 'Poppins, sans-serif', 
+                              fontWeight: 700,
+                              fontSize: '18px'
+                            }}
+                          >
+                            د.إ{kitPrices.explorer}
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Label 
+                            htmlFor="explorerKitQty"
+                            className="text-sm"
+                            style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 500 }}
+                          >
+                            Number of kits:
+                          </Label>
+                          <Select 
+                            value={explorerKitQty.toString()} 
+                            onValueChange={(value) => setExplorerKitQty(parseInt(value))}
+                          >
+                            <SelectTrigger 
+                              id="explorerKitQty" 
+                              className="w-32 border-[#20593A] focus:ring-[#a4ff7b]"
+                              style={{ borderRadius: '10px', fontFamily: 'Poppins, sans-serif' }}
+                            >
+                              <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {[...Array(50)].map((_, i) => (
+                                <SelectItem key={i + 1} value={(i + 1).toString()}>
+                                  {i + 1}
+                                </SelectItem>
+                              ))}
+                              <SelectItem value="50+">50+</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <div 
+                            className="ml-auto text-[#20593A]"
+                            style={{ 
+                              fontFamily: 'Poppins, sans-serif', 
+                              fontWeight: 600
+                            }}
+                          >
+                            Total: د.إ{kitPrices.explorer * explorerKitQty}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Innovator Kit */}
+                      <div className="bg-[#ffd459]/80 rounded-xl p-5 space-y-3">
+                        <div className="flex justify-between items-start">
+                          <div className="flex-1">
+                            <h4 
+                              className="text-[#000000] mb-1"
+                              style={{ 
+                                fontFamily: 'Poppins, sans-serif', 
+                                fontWeight: 600,
+                                fontSize: '16px'
+                              }}
+                            >
+                              Innovator Kit (Level 2)
+                            </h4>
+                            <p 
+                              className="text-[#072d2d] text-sm"
+                              style={{ fontFamily: 'Inter, sans-serif' }}
+                            >
+                              Individual student kit for building DIY solutions to community sustainability problems
+                            </p>
+                          </div>
+                          <div 
+                            className="text-[#20593A] ml-4"
+                            style={{ 
+                              fontFamily: 'Poppins, sans-serif', 
+                              fontWeight: 700,
+                              fontSize: '18px'
+                            }}
+                          >
+                            د.إ{kitPrices.innovator}
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Label 
+                            htmlFor="innovatorKitQty"
+                            className="text-sm"
+                            style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 500 }}
+                          >
+                            Number of kits:
+                          </Label>
+                          <Select 
+                            value={innovatorKitQty.toString()} 
+                            onValueChange={(value) => setInnovatorKitQty(parseInt(value))}
+                          >
+                            <SelectTrigger 
+                              id="innovatorKitQty" 
+                              className="w-32 border-[#20593A] focus:ring-[#a4ff7b]"
+                              style={{ borderRadius: '10px', fontFamily: 'Poppins, sans-serif' }}
+                            >
+                              <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {[...Array(50)].map((_, i) => (
+                                <SelectItem key={i + 1} value={(i + 1).toString()}>
+                                  {i + 1}
+                                </SelectItem>
+                              ))}
+                              <SelectItem value="50+">50+</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <div 
+                            className="ml-auto text-[#20593A]"
+                            style={{ 
+                              fontFamily: 'Poppins, sans-serif', 
+                              fontWeight: 600
+                            }}
+                          >
+                            Total: د.إ{kitPrices.innovator * innovatorKitQty}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Changemaker Kit */}
+                      <div className="bg-[#ff9b69] rounded-xl p-5 space-y-3">
+                        <div className="flex justify-between items-start">
+                          <div className="flex-1">
+                            <h4 
+                              className="text-[#000000] mb-1"
+                              style={{ 
+                                fontFamily: 'Poppins, sans-serif', 
+                                fontWeight: 600,
+                                fontSize: '16px'
+                              }}
+                            >
+                              Changemaker Kit (Level 3)
+                            </h4>
+                            <p 
+                              className="text-[#072d2d] text-sm"
+                              style={{ fontFamily: 'Inter, sans-serif' }}
+                            >
+                              Advanced team kit (serves 5 students) for creating real-world environmental prototypes
+                            </p>
+                          </div>
+                          <div 
+                            className="text-[#20593A] ml-4"
+                            style={{ 
+                              fontFamily: 'Poppins, sans-serif', 
+                              fontWeight: 700,
+                              fontSize: '18px'
+                            }}
+                          >
+                            د.إ{kitPrices.changemaker}
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Label 
+                            htmlFor="changemakerKitQty"
+                            className="text-sm"
+                            style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 500 }}
+                          >
+                            Number of kits:
+                          </Label>
+                          <Select 
+                            value={changemakerKitQty.toString()} 
+                            onValueChange={(value) => setChangemakerKitQty(parseInt(value))}
+                          >
+                            <SelectTrigger 
+                              id="changemakerKitQty" 
+                              className="w-32 border-[#20593A] focus:ring-[#a4ff7b]"
+                              style={{ borderRadius: '10px', fontFamily: 'Poppins, sans-serif' }}
+                            >
+                              <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {[...Array(20)].map((_, i) => (
+                                <SelectItem key={i + 1} value={(i + 1).toString()}>
+                                  {i + 1}
+                                </SelectItem>
+                              ))}
+                              <SelectItem value="20+">20+</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <div 
+                            className="ml-auto text-[#20593A]"
+                            style={{ 
+                              fontFamily: 'Poppins, sans-serif', 
+                              fontWeight: 600
+                            }}
+                          >
+                            Total: د.إ{kitPrices.changemaker * changemakerKitQty}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Frequency Toggle */}
-                  <div className="space-y-2">
-                    <Label 
+                  {/* Sponsor Volunteers Section */}
+                  <div>
+                    <div 
+                      className="mb-3 text-xs tracking-wider"
                       style={{ 
-                        fontFamily: 'Poppins, sans-serif', 
-                        fontWeight: 600,
-                        fontSize: '12px',
+                        fontFamily: 'Inter, sans-serif',
+                        fontWeight: 500,
+                        color: '#64748B',
                         textTransform: 'uppercase',
-                        letterSpacing: '0.5px',
-                        color: '#6B7280'
+                        letterSpacing: '0.05em'
                       }}
                     >
-                      Frequency
-                    </Label>
-                    <div className="flex gap-2">
-                      <button
-                        type="button"
-                        onClick={() => setFrequency("one-time")}
-                        className={`flex-1 py-2 px-4 rounded-lg font-medium transition-all ${
-                          frequency === "one-time"
-                            ? "bg-[#20593A] text-white"
-                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                        }`}
-                        style={{ fontFamily: 'Poppins, sans-serif' }}
-                      >
-                        One Time
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setFrequency("monthly")}
-                        className={`flex-1 py-2 px-4 rounded-lg font-medium transition-all ${
-                          frequency === "monthly"
-                            ? "bg-[#20593A] text-white"
-                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                        }`}
-                        style={{ fontFamily: 'Poppins, sans-serif' }}
-                      >
-                        Monthly
-                      </button>
+                      SPONSOR VOLUNTEERS
+                    </div>
+                    
+                    <div className="bg-[#bcb0fa] rounded-xl p-5 space-y-3">
+                      <div className="flex justify-between items-start">
+                        <div className="flex-1">
+                          <h4 
+                            className="text-[#000000] mb-1"
+                            style={{ 
+                              fontFamily: 'Poppins, sans-serif', 
+                              fontWeight: 600,
+                              fontSize: '16px'
+                            }}
+                          >
+                            Sponsor a Volunteer/Educator
+                          </h4>
+                          <p 
+                            className="text-[#072d2d] text-sm"
+                            style={{ fontFamily: 'Inter, sans-serif' }}
+                          >
+                            Support trained volunteers who mentor students, teach workshops, and guide teams through their sustainability projects
+                          </p>
+                        </div>
+                        <div 
+                          className="text-[#20593A] ml-4"
+                          style={{ 
+                            fontFamily: 'Poppins, sans-serif', 
+                            fontWeight: 700,
+                            fontSize: '18px'
+                          }}
+                        >
+                          د.إ{kitPrices.volunteer}
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Label 
+                          htmlFor="volunteerQty"
+                          className="text-sm"
+                          style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 500 }}
+                        >
+                          Number of volunteers to sponsor:
+                        </Label>
+                        <Select 
+                          value={volunteerQty.toString()} 
+                          onValueChange={(value) => setVolunteerQty(parseInt(value))}
+                        >
+                          <SelectTrigger 
+                            id="volunteerQty" 
+                            className="w-32 border-[#20593A] focus:ring-[#a4ff7b]"
+                            style={{ borderRadius: '10px', fontFamily: 'Poppins, sans-serif' }}
+                          >
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {[...Array(10)].map((_, i) => (
+                              <SelectItem key={i + 1} value={(i + 1).toString()}>
+                                {i + 1}
+                              </SelectItem>
+                            ))}
+                            <SelectItem value="10+">10+</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <div 
+                          className="ml-auto text-[#20593A]"
+                          style={{ 
+                            fontFamily: 'Poppins, sans-serif', 
+                            fontWeight: 600
+                          }}
+                        >
+                          Total: د.إ{kitPrices.volunteer * volunteerQty}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Impact Counter */}
+                  <div>
+                    <div className="bg-[#a4ff7b]/20 border-2 border-[#a4ff7b] rounded-xl p-4">
+                      <div className="text-center">
+                        <p 
+                          className="text-[#072d2d] mb-1"
+                          style={{ 
+                            fontFamily: 'Poppins, sans-serif', 
+                            fontWeight: 600,
+                            fontSize: '14px'
+                          }}
+                        >
+                          Your Impact
+                        </p>
+                        <p 
+                          className="text-[#20593A]"
+                          style={{ 
+                            fontFamily: 'Poppins, sans-serif', 
+                            fontWeight: 700,
+                            fontSize: '32px'
+                          }}
+                        >
+                          {calculateStudentsImpacted()}
+                        </p>
+                        <p 
+                          className="text-[#072d2d] text-sm"
+                          style={{ fontFamily: 'Inter, sans-serif' }}
+                        >
+                          students empowered with STEM education
+                        </p>
+                      </div>
                     </div>
                   </div>
 
@@ -272,15 +565,15 @@ export function DonatePage() {
                   <div className="space-y-3">
                     <Label 
                       style={{ 
-                        fontFamily: 'Poppins, sans-serif', 
-                        fontWeight: 600,
+                        fontFamily: 'Inter, sans-serif', 
+                        fontWeight: 500,
                         fontSize: '12px',
                         textTransform: 'uppercase',
-                        letterSpacing: '0.5px',
-                        color: '#6B7280'
+                        letterSpacing: '0.05em',
+                        color: '#64748B'
                       }}
                     >
-                      Choose Amount
+                      CHOOSE AMOUNT
                     </Label>
                     <div className="grid grid-cols-3 gap-3">
                       {amountOptions.map((amount) => (
@@ -295,7 +588,7 @@ export function DonatePage() {
                           }`}
                           style={{ fontFamily: 'Poppins, sans-serif' }}
                         >
-                          ${amount}
+                          د.إ{amount}
                         </button>
                       ))}
                       <button

@@ -23,12 +23,12 @@ export function Testimonials() {
   ];
 
   const partners = [
+    "Propeller Technologies",
+    "ZenKids",
     "WASTEless",
     "Arduino",
     "Code.org",
-    "MIT Media Lab",
     "Roboarmy",
-    "robu.in",
   ];
 
   return (

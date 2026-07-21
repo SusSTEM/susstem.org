@@ -44,7 +44,9 @@ export function Navbar({ onNavigate }: NavbarProps) {
   const handleNavClick = (hash: string) => {
     // If hash is just "#", scroll to top
     if (hash === "#" || hash === "") {
-    if (onNavigate) onNavigate('home');      setIsDropdownOpen(false);
+      if (onNavigate) onNavigate('home');
+      setIsMenuOpen(false);
+      setIsDropdownOpen(false);
       return;
     }
 
@@ -78,45 +80,47 @@ export function Navbar({ onNavigate }: NavbarProps) {
   ];
 
   return (
-    <nav className="bg-[#eff2e7] border-b border-gray-200 sticky top-0 z-50">
+    <nav className="bg-[#ffffff] border-b border-gray-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center flex-shrink-0">
             <button
               onClick={() => handleNavClick("#")}
-              className="flex items-center gap-2 cursor-pointer bg-transparent border-none"
+              className="flex items-center gap-2 cursor-pointer bg-transparent border-none p-0"
               aria-label="Go to homepage"
             >
-              <span className="text-3xl text-[#072d2d] font-bold font-[Poppins,sans-serif]" style={{ fontWeight: 700 }}>
-                SusSTEM
-              </span>
+              <img 
+                src="https://lh3.googleusercontent.com/d/1FosZ8BaMpKpSQS-m_YLVaqBQzmeEQaMF" 
+                alt="SusSTEM Logo" 
+                className="h-10 w-auto object-contain" 
+              />
             </button>
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-8 flex-1 justify-center">
             <button
               onClick={() => handleNavClick("#what-is-susstem")}
-              className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font:weight-600 font-[Poppins,sans-serif] bg-transparent border-none cursor-pointer"
+              className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif] bg-transparent border-none cursor-pointer whitespace-nowrap"
             >
               About Us
             </button>
             <button
               onClick={() => handleNavClick("#projects")}
-              className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif] bg-transparent border-none cursor-pointer"
+              className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif] bg-transparent border-none cursor-pointer whitespace-nowrap"
             >
               The Programme
             </button>
             <button
               onClick={() => handleNavClick("#impact")}
-              className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif] bg-transparent border-none cursor-pointer"
+              className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif] bg-transparent border-none cursor-pointer whitespace-nowrap"
             >
               Impact
             </button>
             <button
               onClick={() => handleNavClick("#about-us")}
-              className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif] bg-transparent border-none cursor-pointer"
+              className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif] bg-transparent border-none cursor-pointer whitespace-nowrap"
             >
               Our Purpose
             </button>
@@ -128,7 +132,7 @@ export function Navbar({ onNavigate }: NavbarProps) {
               onMouseEnter={() => setIsDropdownOpen(true)}
             >
               <button
-                className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif] flex items-center gap-1"
+                className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif] flex items-center gap-1 whitespace-nowrap"
                 onClick={() => setIsDropdownOpen((open) => !open)}
                 aria-expanded={isDropdownOpen}
               >
@@ -137,7 +141,7 @@ export function Navbar({ onNavigate }: NavbarProps) {
               </button>
               {isDropdownOpen && (
                 <div
-                  className="absolute top-full left-0 mt-2 w-[280px] bg-[#eff2e7] border border-[#eff2e7] rounded-2xl shadow-lg overflow-hidden"
+                  className="absolute top-full left-0 mt-2 w-[280px] bg-[#ffffff] border border-[#e1e4d9] rounded-2xl shadow-lg overflow-hidden"
                   style={{ borderRadius: '1rem' }}
                 >
                   <div className="py-4 px-6">
@@ -145,7 +149,7 @@ export function Navbar({ onNavigate }: NavbarProps) {
                       <button
                         key={item.page}
                         onClick={() => handleNavigate(item.page)}
-                        className="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-[#a2bb65] hover:text-white transition-all group"
+                        className="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-[#20593a] hover:text-white transition-all group"
                         style={{ marginBottom: index < dropdownItems.length - 1 ? '12px' : '0' }}
                       >
                         <div className="flex items-center gap-3">
@@ -164,14 +168,14 @@ export function Navbar({ onNavigate }: NavbarProps) {
 
             <button
               onClick={() => handleNavClick("#contact")}
-              className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif] bg-transparent border-none cursor-pointer"
+              className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif] bg-transparent border-none cursor-pointer whitespace-nowrap"
             >
               Contact
             </button>
           </div>
 
           {/* Donate Button */}
-          <div className="hidden md:block">
+          <div className="hidden md:block flex-shrink-0">
             <Button 
               className="bg-[#a4ff7b] hover:bg-[#072d2d] text-[#072d2d] hover:text-white px-10 py-4 rounded-2xl transition-colors font-bold font-[Poppins,sans-serif] text-lg"
               onClick={() => handleNavigate('donate')}
@@ -256,7 +260,7 @@ export function Navbar({ onNavigate }: NavbarProps) {
               Contact
             </button>
             <Button 
-              className="bg-[#a4ff7b] hover:bg-[#072d2d] text-[#000000] hover:text-white rounded-xl transition-colors w-full font-bold font-[Poppins,sans-serif] text-lg px-10 py-3"
+              className="bg-[#a4ff7b] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition shadow-xl hover:shadow-2xl hover:scale-105"
               onClick={() => handleNavigate('donate')}
             >
               Donate

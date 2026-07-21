@@ -9,14 +9,14 @@ const slides = [
     title: "Inspiring the next generation of sustainable innovators",
     cta: "Learn More",
     link: "#what-is-susstem",
-    image: "https://lh3.googleusercontent.com/d/1LRARvsxKH6kVPlTnjaHwXC-otHiIu_p9",
+    image: "https://lh3.googleusercontent.com/d/1e_0so0mnYUPoTk97sFBzgUmDkjHezzSj",
   },
   {
     id: 2,
     title: "STEM-Powered Minds for a Sustainable Tomorrow",
     cta: "See Our Projects",
     link: "#projects",
-    image: "https://lh3.googleusercontent.com/d/1e_0so0mnYUPoTk97sFBzgUmDkjHezzSj"
+    image: "https://lh3.googleusercontent.com/d/1LRARvsxKH6kVPlTnjaHwXC-otHiIu_p9"
   },
   {
     id: 3,
