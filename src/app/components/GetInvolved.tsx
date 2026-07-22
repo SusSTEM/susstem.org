@@ -18,11 +18,11 @@ export function GetInvolved({ onNavigate }: GetInvolvedProps) {
     },
     {
       icon: Heart,
-      title: "Donate",
+      title: "Contribute",
       description:
-        "Your contribution will make a real difference in a child's life. Your donations will fund STEM kits, teacher training, local and global outreach.",
+        "Your contribution will make a real difference in a child's life. Your contributions fund STEM kits, teacher training, local and global outreach.",
       buttonText: "Make a Difference",
-      link: "donate",
+      link: "contribute",
       isDonate: true,
     },
     {

@@ -15,7 +15,7 @@ export function Footer() {
               About SusSTEM
             </h3>
             <p className="text-white/80 leading-relaxed">
-              'SusSTEM' is a youth‑led initiative that uses hands‑on STEM projects to teach sustainability to students, especially in under‑resourced or rural communities with the support of volunteers and your donations. 
+              'SusSTEM' is a youth‑led initiative that uses hands‑on STEM projects to teach sustainability to students, especially in under‑resourced or rural communities with the support of volunteers and your contributions. 
             </p>
           </div>
 
@@ -45,11 +45,11 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a 
-                  href="#get-involved" 
+                <a
+                  href="#get-involved"
                   className="text-white/80 hover:text-[#a4ff7b] transition-colors"
                 >
-                  Donate
+                  Contribute
                 </a>
               </li>
               <li>

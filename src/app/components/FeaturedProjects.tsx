@@ -25,35 +25,35 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
   const projects = [
     {
       level: "Level 1",
-      title: "Explorer: Ages 11-14",
+      title: "Level 1: Ages 11-14",
       description:
-        "Introduction to SusSTEM and our approach of STEM for Sustainability. Students will learn the basics of circuits like LED's buzzers and sensors, and will apply their knowledge to a real-world situation.",
+        "Introduction to SusSTEM and our approach to integrating STEM with sustainability and science. Students will learn the fundamentals of electronics using Arduino, along with Python programming and AI, and apply their knowledge to real-world sustainability challenges.",
       image:
         "https://lh3.googleusercontent.com/d/1FuFYH9o3u5O1sUy0gyau60yOXf4l9Y0z",
       link: "air-alert",
     },
+    // INNOVATOR_REMOVED: uncomment to restore Level 2
+    // {
+    //   level: "Level 2",
+    //   title: "Innovator: Ages 11-18",
+    //   description:
+    //     "Level 2 is where students will use what they've learned about sensors, circuits, and Arduino to build devices that solve real sustainability problems that affect their community.",
+    //   image:
+    //     "https://lh3.googleusercontent.com/d/1GOEnNE2YiL2iBzhWl547RwW6u_w_dsiy",
+    //   link: "innovator",
+    // },
     {
       level: "Level 2",
-      title: "Innovator: Ages 11-18",
+      title: "Level 2: Ages 14-18",
       description:
-        "Level 2 is where students will use what they've learned about sensors, circuits, and Arduino to build devices that solve real sustainability problems that affect their community.",
-      image:
-        "https://lh3.googleusercontent.com/d/1GOEnNE2YiL2iBzhWl547RwW6u_w_dsiy",
-      link: "innovator",
-    },
-    {
-      level: "Level 3",
-      title: "Changemaker: Ages 14-18 ",
-      description:
-        "Level 3 is where students form teams of five, choose one of four environmental challenges, and use their SusSTEM skills to design and build STEM-powered solutions with real community impact.",
+        "Level 2 is where students form teams of three and choose one of four environmental challenges. Building on the fundamentals from Level 1, they advance their STEM skills to research, design and work together as a team to build creative, practical solutions for real, meaningful community impact.",
       image:
         "https://lh3.googleusercontent.com/d/1_HCKAXKWWnv0W9sYrwnqz69CekWFXnin",
       link: "changemaker",
     },
   ];
 
-  // per-card background colors
-  const cardBgClasses = ["bg-[#a2bb65CC]", "bg-[#ffd459CC]", "bg-[#ff9b69CC]"]; // L1, L2, L3
+  const cardBgClasses = ["bg-[#a2bb65CC]", "bg-[#ff9b69CC]"];
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % projects.length);
@@ -72,7 +72,6 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
   return (
     <section className="bg-[#eff2e7] py-12 md:py-24" id="projects">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Heading */}
         <div className="text-center mb-12">
           <h2
             className="text-[#000000] text-3xl md:text-4xl mb-4"
@@ -87,18 +86,11 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
           </p>
         </div>
 
-        {/* Desktop Grid View */}
-        <div className="hidden md:grid md:grid-cols-3 gap-8">
+        <div className="hidden md:grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           {projects.map((project, index) => (
             <Card
               key={index}
-              className={`overflow-hidden rounded-3xl shadow-lg transform
-                    transition
-                    duration-300
-                    ease-out
-                    hover:-translate-y-1
-                    hover:scale-[1.02]
-                    hover:shadow-[0_14px_30px_rgba(0,0,0,0.5)] border-none ${cardBgClasses[index]} flex flex-col`}
+              className={`overflow-hidden rounded-3xl shadow-lg transform transition duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_14px_30px_rgba(0,0,0,0.5)] border-none ${cardBgClasses[index]} flex flex-col`}
             >
               <div className="h-64 overflow-hidden flex-shrink-0">
                 <ImageWithFallback
@@ -108,27 +100,13 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
                 />
               </div>
               <div className="p-6 flex flex-col flex-grow">
-                {/* Level pill – Explorer-style animated white pill */}
                 <div
                   className="
-                    inline-block
-                    px-4
-                    py-2
-                    bg-[#eff2e7]
-                    text-[#072d2d]
-                    rounded-full
-                    shadow-sm
-                    transform
-                    transition
-                    duration-300
-                    ease-out
-                    hover:-translate-y-1
-                    hover:scale-[1.02]
+                    inline-block px-4 py-2 bg-[#eff2e7] text-[#072d2d]
+                    rounded-full shadow-sm transform transition duration-300 ease-out
+                    hover:-translate-y-1 hover:scale-[1.02]
                     hover:shadow-[0_14px_30px_rgba(0,0,0,0.16)]
-                    hover:bg-[#072d2d]
-                    hover:text-[#a4ff7b]
-                    self-start
-                    mb-4
+                    hover:bg-[#072d2d] hover:text-[#a4ff7b] self-start mb-4
                   "
                 >
                   <span
@@ -148,30 +126,18 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
                 >
                   {project.title}
                 </h3>
+
                 <p className="text-[#072d2d] mb-4 flex-grow">
                   {project.description}
                 </p>
 
-                {/* Desktop Learn More – white CTA, slightly larger text */}
                 <Button
                   variant="outline"
                   className="
-                    border-2
-                    border-[#072d2d]
-                    text-[#072d2d]
-                    rounded-xl
-                    w-full
-                    mt-auto
-                    bg-white
-                    shadow-sm
-                    transform
-                    transition
-                    duration-300
-                    ease-out
-                    hover:-translate-y-1
-                    hover:scale-[1.02]
-                    hover:bg-[#072d2d]
-                    hover:text-white
+                    border-2 border-[#072d2d] text-[#072d2d] rounded-xl w-full mt-auto
+                    bg-white shadow-sm transform transition duration-300 ease-out
+                    hover:-translate-y-1 hover:scale-[1.02]
+                    hover:bg-[#072d2d] hover:text-white
                     hover:shadow-[0_16px_35px_rgba(0,0,0,0.18)]
                   "
                   onClick={() => handleProjectClick(project.link)}
@@ -191,7 +157,6 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
           ))}
         </div>
 
-        {/* Mobile Carousel View */}
         <div className="md:hidden relative">
           <Card
             className={`overflow-hidden rounded-3xl shadow-lg border-none ${cardBgClasses[currentIndex]}`}
@@ -204,25 +169,13 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
               />
             </div>
             <div className="p-6 space-y-4">
-              {/* Level pill – same animated style */}
               <div
                 className="
-                  inline-block
-                  px-4
-                  py-2
-                  bg-[#eff2e7]
-                  text-[#072d2d]
-                  rounded-full
-                  shadow-sm
-                  transform
-                  transition
-                  duration-300
-                  ease-out
-                  hover:-translate-y-1
-                  hover:scale-[1.02]
+                  inline-block px-4 py-2 bg-[#eff2e7] text-[#072d2d]
+                  rounded-full shadow-sm transform transition duration-300 ease-out
+                  hover:-translate-y-1 hover:scale-[1.02]
                   hover:shadow-[0_14px_30px_rgba(0,0,0,0.16)]
-                  hover:bg-[#072d2d]
-                  hover:text-[#a4ff7b]
+                  hover:bg-[#072d2d] hover:text-[#a4ff7b]
                 "
               >
                 <span
@@ -242,34 +195,21 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
               >
                 {projects[currentIndex].title}
               </h3>
+
               <p className="text-[#072d2d]">
                 {projects[currentIndex].description}
               </p>
 
-              {/* Mobile Learn More – same look/feel as desktop */}
               <Button
                 variant="outline"
                 className="
-                  border-2
-                  border-[#072d2d]
-                  text-[#072d2d]
-                  rounded-xl
-                  w-full
-                  bg-white
-                  shadow-sm
-                  transform
-                  transition
-                  duration-300
-                  ease-out
-                  hover:-translate-y-1
-                  hover:scale-[1.02]
-                  hover:bg-[#072d2d]
-                  hover:text-white
+                  border-2 border-[#072d2d] text-[#072d2d] rounded-xl w-full
+                  bg-white shadow-sm transform transition duration-300 ease-out
+                  hover:-translate-y-1 hover:scale-[1.02]
+                  hover:bg-[#072d2d] hover:text-white
                   hover:shadow-[0_16px_35px_rgba(0,0,0,0.18)]
                 "
-                onClick={() =>
-                  handleProjectClick(projects[currentIndex].link)
-                }
+                onClick={() => handleProjectClick(projects[currentIndex].link)}
               >
                 <span
                   style={{
@@ -284,7 +224,6 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
             </div>
           </Card>
 
-          {/* Navigation Arrows */}
           <div className="flex justify-center items-center gap-4 mt-6">
             <button
               onClick={prevSlide}

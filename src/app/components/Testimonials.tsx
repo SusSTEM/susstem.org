@@ -46,9 +46,7 @@ export function Testimonials() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white rounded-3xl p-8 shadow-md hover:shadow-[0_16px_35px_rgba(0,0,0,0.18)] hover:-translate-y-2 hover:scale-[1.03] transform transition    transition-all
-    duration-300
-    ease-out"
+                className="bg-white rounded-3xl p-8 shadow-md hover:shadow-[0_16px_35px_rgba(0,0,0,0.18)] hover:-translate-y-2 hover:scale-[1.02] transform transition-all duration-500 ease-out"
               >
                 <Quote className="w-12 h-12 text-[#20593a] mb-4 " />
                 <p className="text-[#072d2d] mb-6 leading-relaxed">
@@ -85,24 +83,7 @@ export function Testimonials() {
             {partners.map((partner, index) => (
               <div
                 key={index}
-                className="
-                  group
-                  bg-white
-                  rounded-2xl
-                  p-6
-                  flex
-                  items-center
-                  justify-center
-                  h-24
-                  shadow-sm
-                  transform
-                  transition                  duration-300
-                  ease-out
-                  hover:-translate-y-2
-                  hover:scale-[1.03]
-                  hover:shadow-[0_16px_35px_rgba(0,0,0,0.18)]
-                  hover:bg-[#20593a]
-                "
+                className="group bg-white rounded-2xl p-6 flex items-center justify-center h-24 shadow-sm transform transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_16px_35px_rgba(0,0,0,0.18)] hover:bg-[#20593a]"
               >
                 <span
                   className="

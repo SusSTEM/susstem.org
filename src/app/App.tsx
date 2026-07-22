@@ -10,22 +10,21 @@ import { AboutUs } from "./components/MissionVision";
 import { Testimonials } from "./components/Testimonials";
 import { ContactPreview } from "./components/ContactPreview";
 import { Footer } from "./components/Footer";
-import { VolunteerPage } from "./components/VolunteerPage";
-import { DonatePage } from "./components/DonatePage";
-import { PartnerPage } from "./components/PartnerPage";
-import { AirAlertPage } from "./components/AirAlertPage";
-import { InnovatorPage } from "./components/InnovatorPage";
-import { ChangemakerPage } from "./components/ChangemakerPage";
+import { VolunteerPage } from "./pages/VolunteerPage";
+import { ContributePage } from "./pages/ContributePage";
+import { PartnerPage } from "./pages/PartnerPage";
+import { AirAlertPage } from "./pages/AirAlertPage";
+// INNOVATOR_REMOVED: import { InnovatorPage } from "./pages/InnovatorPage";
+import { ChangemakerPage } from "./pages/ChangemakerPage";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
 
   const handleNavigate = (page: string) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Render form pages
   if (currentPage === "volunteer") {
     return (
       <div className="min-h-screen bg-[#eff2e7]">
@@ -36,11 +35,11 @@ export default function App() {
     );
   }
 
-  if (currentPage === "donate") {
+  if (currentPage === "contribute") {
     return (
       <div className="min-h-screen bg-[#eff2e7]">
         <Navbar onNavigate={handleNavigate} />
-        <DonatePage />
+        <ContributePage />
         <Footer />
       </div>
     );
@@ -66,15 +65,16 @@ export default function App() {
     );
   }
 
-  if (currentPage === "innovator") {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar onNavigate={handleNavigate} />
-        <InnovatorPage onNavigate={handleNavigate} />
-        <Footer />
-      </div>
-    );
-  }
+  // INNOVATOR_REMOVED: uncomment to restore Level 2 Innovator page
+  // if (currentPage === "innovator") {
+  //   return (
+  //     <div className="min-h-screen bg-white">
+  //       <Navbar onNavigate={handleNavigate} />
+  //       <InnovatorPage onNavigate={handleNavigate} />
+  //       <Footer />
+  //     </div>
+  //   );
+  // }
 
   if (currentPage === "changemaker") {
     return (
@@ -86,7 +86,6 @@ export default function App() {
     );
   }
 
-  // Render homepage
   return (
     <div className="min-h-screen bg-white">
       <Navbar onNavigate={handleNavigate} />

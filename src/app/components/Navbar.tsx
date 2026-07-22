@@ -75,7 +75,7 @@ export function Navbar({ onNavigate }: NavbarProps) {
 
   const dropdownItems = [
     { icon: HandHeart, label: "Volunteer", page: "volunteer" },
-    { icon: DollarSign, label: "Donate", page: "donate" },
+    { icon: DollarSign, label: "Contribute", page: "contribute" },
     { icon: Handshake, label: "Partner", page: "partner" },
   ];
 
@@ -178,9 +178,9 @@ export function Navbar({ onNavigate }: NavbarProps) {
           <div className="hidden md:block flex-shrink-0">
             <Button 
               className="bg-[#a4ff7b] hover:bg-[#072d2d] text-[#072d2d] hover:text-white px-10 py-4 rounded-2xl transition-colors font-bold font-[Poppins,sans-serif] text-lg"
-              onClick={() => handleNavigate('donate')}
+              onClick={() => handleNavigate('contribute')}
             >
-              Donate
+              Contribute
             </Button>
           </div>
 
@@ -261,9 +261,9 @@ export function Navbar({ onNavigate }: NavbarProps) {
             </button>
             <Button 
               className="bg-[#a4ff7b] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition shadow-xl hover:shadow-2xl hover:scale-105"
-              onClick={() => handleNavigate('donate')}
+              onClick={() => handleNavigate('contribute')}
             >
-              Donate
+              Contribute
             </Button>
           </div>
         )}

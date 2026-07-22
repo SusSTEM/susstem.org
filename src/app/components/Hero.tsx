@@ -16,7 +16,7 @@ const slides = [
     title: "STEM-Powered Minds for a Sustainable Tomorrow",
     cta: "See Our Projects",
     link: "#projects",
-    image: "https://lh3.googleusercontent.com/d/1LRARvsxKH6kVPlTnjaHwXC-otHiIu_p9"
+    image: "https://lh3.googleusercontent.com/d/1LRARvsxKH6kVPlTnjaHwXC-otHiIu_p9",
   },
   {
     id: 3,
@@ -43,85 +43,43 @@ const slides = [
 
 export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [direction, setDirection] = useState(0);
 
-  // Auto-rotate slides every 5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
-      setDirection(1);
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 7000);
-
     return () => clearInterval(timer);
   }, []);
 
-  const goToPrevious = () => {
-    setDirection(-1);
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const goToNext = () => {
-    setDirection(1);
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const goToSlide = (index: number) => {
-    setDirection(index > currentSlide ? 1 : -1);
-    setCurrentSlide(index);
-  };
+  const goToPrevious = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const goToNext = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const goToSlide = (index: number) => setCurrentSlide(index);
 
   const handleCTAClick = (link: string) => {
     const element = document.querySelector(link);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? '100%' : '-100%',
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: number) => ({
-      x: direction > 0 ? '-100%' : '100%',
-      opacity: 0,
-    }),
+    if (element) element.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section className="relative w-full min-h-[85vh] overflow-hidden">
-      <AnimatePresence initial={false} mode="sync" custom={direction}>
+      <AnimatePresence mode="sync">
         <motion.div
           key={currentSlide}
-          custom={direction}
-          variants={slideVariants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{
-            x: { type: 'tween', ease: 'easeInOut', duration: 0.8 },
-            opacity: { duration: 0.6 },
-          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.7, ease: "easeInOut" }}
           className="absolute inset-0"
         >
           {/* Background Image */}
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: `url(${slides[currentSlide].image})`,
-            }}
+            style={{ backgroundImage: `url(${slides[currentSlide].image})` }}
           />
           {/* Gradient Overlay */}
           <div
             className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(75,96,67,0.3) 0%, rgba(75,96,67,0.6) 100%)",
-            }}
+            style={{ background: "linear-gradient(180deg, rgba(75,96,67,0.3) 0%, rgba(75,96,67,0.6) 100%)" }}
           />
 
           {/* Content */}
@@ -129,9 +87,9 @@ export function Hero() {
             <div className="max-w-4xl text-center space-y-8">
               {slides[currentSlide].id === 3 ? (
                 <motion.div
-                  initial={{ y: 20, opacity: 0 }}
+                  initial={{ y: 12, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 0.6 }}
+                  transition={{ delay: 0.15, duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
                   className="flex flex-col items-center space-y-2"
                 >
                   <h1 className="text-white text-4xl md:text-5xl lg:text-6xl leading-tight" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
@@ -143,9 +101,9 @@ export function Hero() {
                 </motion.div>
               ) : (
                 <motion.h1
-                  initial={{ y: 20, opacity: 0 }}
+                  initial={{ y: 12, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 0.6 }}
+                  transition={{ delay: 0.15, duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
                   className="text-white text-4xl md:text-5xl lg:text-6xl leading-tight"
                   style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
                 >
@@ -153,11 +111,14 @@ export function Hero() {
                 </motion.h1>
               )}
               <motion.div
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 12, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
+                transition={{ delay: 0.3, duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                <Button className="bg-[#20593A] hover:bg-[#a2bb65] text-white px-10 py-7 rounded-xl transition-colors text-lg shadow-xl" onClick={() => handleCTAClick(slides[currentSlide].link)}>
+                <Button
+                  className="bg-[#20593A] hover:bg-[#a2bb65] text-white px-10 py-7 rounded-xl transition-colors duration-300 text-lg shadow-xl"
+                  onClick={() => handleCTAClick(slides[currentSlide].link)}
+                >
                   {slides[currentSlide].cta}
                 </Button>
               </motion.div>
@@ -165,22 +126,22 @@ export function Hero() {
           </div>
         </motion.div>
       </AnimatePresence>
-      
-        <button
-          onClick={goToPrevious}
-          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 bg-[#a2bb65]/50 hover:bg-[#a2bb65]/60 backdrop-blur-sm p-3 rounded-full transition-all"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="w-6 h-6 text-white" />
-        </button>
-        <button
-          onClick={goToNext}
-          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 bg-[#a2bb65]/50 hover:bg-[#a2bb65]/60 backdrop-blur-sm p-3 rounded-full transition-all"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="w-6 h-6 text-white" />
-        </button>
-        
+
+      {/* Prev / Next arrows */}
+      <button
+        onClick={goToPrevious}
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 bg-[#a2bb65]/50 hover:bg-[#a2bb65]/70 backdrop-blur-sm p-3 rounded-full transition-all duration-300"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="w-6 h-6 text-white" />
+      </button>
+      <button
+        onClick={goToNext}
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 bg-[#a2bb65]/50 hover:bg-[#a2bb65]/70 backdrop-blur-sm p-3 rounded-full transition-all duration-300"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="w-6 h-6 text-white" />
+      </button>
 
       {/* Dot Indicators */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
@@ -188,10 +149,8 @@ export function Hero() {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`transition-all rounded-full ${
-              index === currentSlide
-                ? "w-10 h-3 bg-white"
-                : "w-3 h-3 bg-white/50 hover:bg-white/70"
+            className={`transition-all duration-500 ease-out rounded-full ${
+              index === currentSlide ? "w-10 h-3 bg-white" : "w-3 h-3 bg-white/50 hover:bg-white/70"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
