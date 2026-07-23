@@ -87,7 +87,7 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="bg-[#072d2d] text-[#a4ff7b] hover:bg-[#ff9b69]/80 hover:text-[#072d2d] hover:scale-120 mb-6 px-6 py-2 rounded-full text-base">
-              Level 2
+              Level 3
             </Badge>
             <h1
               className="text-[#000000] mb-6"

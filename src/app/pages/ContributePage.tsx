@@ -117,13 +117,13 @@ export function ContributePage() {
               <div className="space-y-3">
 
                 {/* Explorer Kit */}
-                <div className="rounded-2xl border border-gray-100 bg-[#a2bb65]/15 p-5">
+                <div className="rounded-2xl border border-gray-100 bg-[#a2bb65]/80 p-5">
                   <div className="flex justify-between items-start mb-3">
                     <div>
                       <h4 className="text-[#000000] font-semibold text-base" style={{ fontFamily: "Poppins, sans-serif" }}>
                         Explorer Kit — Level 1
                       </h4>
-                      <p className="text-[#858E80] text-sm mt-0.5" style={{ fontFamily: "Inter, sans-serif" }}>
+                      <p className="text-[#072d2d] text-sm mt-0.5" style={{ fontFamily: "Inter, sans-serif" }}>
                         Introductory electronics & environmental sensors
                       </p>
                     </div>
@@ -182,13 +182,13 @@ export function ContributePage() {
                 */}
 
                 {/* Changemaker Kit */}
-                <div className="rounded-2xl border border-gray-100 bg-[#ff9b69]/15 p-5">
+                <div className="rounded-2xl border border-gray-100 bg-[#ff9b69]/80 p-5">
                   <div className="flex justify-between items-start mb-3">
                     <div>
                       <h4 className="text-[#000000] font-semibold text-base" style={{ fontFamily: "Poppins, sans-serif" }}>
                         Changemaker Kit — Level 3
                       </h4>
-                      <p className="text-[#858E80] text-sm mt-0.5" style={{ fontFamily: "Inter, sans-serif" }}>
+                      <p className="text-[#072d2d] text-sm mt-0.5" style={{ fontFamily: "Inter, sans-serif" }}>
                         Advanced team kit — serves 5 students on real-world prototypes
                       </p>
                     </div>
@@ -215,42 +215,6 @@ export function ContributePage() {
               </div>
             </div>
 
-            {/* SPONSOR VOLUNTEERS */}
-            <div>
-              <p className="text-xs font-semibold text-[#858E80] uppercase tracking-widest mb-4" style={{ fontFamily: "Inter, sans-serif" }}>
-                Sponsor Volunteers
-              </p>
-              <div className="rounded-2xl border border-gray-100 bg-[#bcb0fa]/15 p-5">
-                <div className="flex justify-between items-start mb-3">
-                  <div>
-                    <h4 className="text-[#000000] font-semibold text-base" style={{ fontFamily: "Poppins, sans-serif" }}>
-                      Sponsor a Volunteer / Educator
-                    </h4>
-                    <p className="text-[#858E80] text-sm mt-0.5" style={{ fontFamily: "Inter, sans-serif" }}>
-                      Fund a trained mentor who guides students through their projects
-                    </p>
-                  </div>
-                  <span className="text-[#20593A] font-bold text-lg ml-4" style={{ fontFamily: "Poppins, sans-serif" }}>
-                    د.إ{kitPrices.volunteer}
-                  </span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Label className="text-sm text-[#072d2d]" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 500 }}>Volunteers:</Label>
-                  <Select value={volunteerQty.toString()} onValueChange={(v) => setVolunteerQty(parseInt(v))}>
-                    <SelectTrigger className="w-24 border-gray-200 rounded-xl" style={{ fontFamily: "Poppins, sans-serif" }}>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {[...Array(10)].map((_, i) => <SelectItem key={i + 1} value={(i + 1).toString()}>{i + 1}</SelectItem>)}
-                      <SelectItem value="10+">10+</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <span className="ml-auto text-[#20593A] font-semibold text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
-                    Total: د.إ{kitPrices.volunteer * volunteerQty}
-                  </span>
-                </div>
-              </div>
-            </div>
 
             {/* Impact Counter */}
             <div className="bg-[#a4ff7b]/20 border border-[#a4ff7b] rounded-2xl p-5 text-center">

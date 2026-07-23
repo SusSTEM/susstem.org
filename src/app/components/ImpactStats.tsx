@@ -1,4 +1,4 @@
-import { Users, BookOpen, Globe } from "lucide-react";
+import { Users, BookOpen, School } from "lucide-react";
 import CountUp from "react-countup";
 import { useState, useEffect, useRef } from "react";
 
@@ -52,9 +52,9 @@ export function ImpactStats() {
       iconColor: "darkgreen",
     },
     {
-      icon: Globe,
+      icon: School,
       number: 5,
-      label: "Countries Impacted",
+      label: "Schools Impacted",
       prefix: "",
       bgColor: "#e1e4d9",
       iconColor: "default",
