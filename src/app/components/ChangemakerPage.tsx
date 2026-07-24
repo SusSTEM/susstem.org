@@ -210,28 +210,28 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
               {/* Rounded image inside orange block */}{/* Grid of 4 images */}
               <div className="grid grid-cols-2 gap-4 mt-8">
                 <div className="w-full h-64 rounded-3xl overflow-hidden shadow-lg">
-                  <img
+                  <ImageWithFallback
                     src="https://lh3.googleusercontent.com/d/1XGQSYffwCV5O3qZWiHZgkecqDYN0rgpw"
                     alt="Delhi Air Pollution"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="w-full h-64 rounded-3xl overflow-hidden shadow-lg">
-                  <img
+                  <ImageWithFallback
                     src="https://lh3.googleusercontent.com/d/1KA6CnlY_Uk9gX7PcrSOOpj2rVSsi9wYU"
                     alt="Flooding"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="w-full h-64 rounded-3xl overflow-hidden shadow-lg">
-                  <img
+                  <ImageWithFallback
                     src="https://lh3.googleusercontent.com/d/1L7rXsr7hLig6X8V1tn7b8DQkIfIS8GDA"
                     alt="Solid Waste Accumulation"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="w-full h-64 rounded-3xl overflow-hidden shadow-lg">
-                  <img
+                  <ImageWithFallback
                     src="https://lh3.googleusercontent.com/d/1mmdXgCePogDcgkAFwwsIcCz1phHidPaz"
                     alt="Impact of Marine Pollution"
                     className="w-full h-full object-cover"

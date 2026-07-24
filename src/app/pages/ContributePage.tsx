@@ -3,18 +3,17 @@ import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { Checkbox } from "../components/ui/checkbox";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
 import { GraduationCap, Globe, Sprout } from "lucide-react";
 
 export function ContributePage() {
-  const [selectedAmount, setSelectedAmount] = useState<number | "other">(200);
+  const [selectedAmount, setSelectedAmount] = useState<number | "other" | null>(null);
   const [customAmount, setCustomAmount] = useState("");
 
   // Kit quantities
-  const [explorerKitQty, setExplorerKitQty] = useState(1);
-  // INNOVATOR_REMOVED: const [innovatorKitQty, setInnovatorKitQty] = useState(1);
-  const [changemakerKitQty, setChangemakerKitQty] = useState(1);
-  const [volunteerQty, setVolunteerQty] = useState(1);
+  const [explorerKitQty, setExplorerKitQty] = useState(0);
+  // INNOVATOR_REMOVED: const [innovatorKitQty, setInnovatorKitQty] = useState(0);
+  const [changemakerKitQty, setChangemakerKitQty] = useState(0);
+  const [volunteerQty, setVolunteerQty] = useState(0);
 
   const kitPrices = {
     explorer: 100,
@@ -41,13 +40,35 @@ export function ContributePage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const updateKitQuantity = (setter: React.Dispatch<React.SetStateAction<number>>, currentValue: number, delta: number) => {
+    setter(Math.max(0, currentValue + delta));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const amount = selectedAmount === "other" ? customAmount : selectedAmount;
+    const amount = selectedAmount === "other" ? Number(customAmount) : selectedAmount ?? 0;
+
+    if (!amount || amount <= 0) {
+      return;
+    }
+
     console.log("Contribution submitted:", { amount, ...formData });
   };
 
-  const amountOptions = [50, 100, 150, 200, 400];
+  const amountOptions = [50, 100, 200, 500];
+
+  const getDonationAmount = () => {
+    if (selectedAmount === "other") {
+      return Number(customAmount) || 0;
+    }
+
+    return selectedAmount ?? 0;
+  };
+
+  const totalContribution =
+    kitPrices.explorer * explorerKitQty +
+    kitPrices.changemaker * changemakerKitQty +
+    getDonationAmount();
 
   const calculateStudentsImpacted = () =>
     explorerKitQty * 1 +
@@ -104,7 +125,7 @@ export function ContributePage() {
             Choose Your Contribution
           </h2>
           <p className="text-[#858E80] text-sm mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
-            Select the kits or sponsorships you'd like to fund below.
+            Choose one or more learning kits, or skip the kit selection and just give a general contribution.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -131,17 +152,29 @@ export function ContributePage() {
                       د.إ{kitPrices.explorer}
                     </span>
                   </div>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 flex-wrap">
                     <Label className="text-sm text-[#072d2d]" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 500 }}>Kits:</Label>
-                    <Select value={explorerKitQty.toString()} onValueChange={(v) => setExplorerKitQty(parseInt(v))}>
-                      <SelectTrigger className="w-24 border-gray-200 rounded-xl" style={{ fontFamily: "Poppins, sans-serif" }}>
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {[...Array(50)].map((_, i) => <SelectItem key={i + 1} value={(i + 1).toString()}>{i + 1}</SelectItem>)}
-                        <SelectItem value="50+">50+</SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <div className="flex items-center gap-2 rounded-full border border-[#dbe4d3] bg-white p-1">
+                      <button
+                        type="button"
+                        onClick={() => updateKitQuantity(setExplorerKitQty, explorerKitQty, -1)}
+                        className="w-9 h-9 rounded-full bg-[#eff2e7] text-lg font-semibold text-[#20593A]"
+                        aria-label="Decrease Explorer Kit quantity"
+                      >
+                        −
+                      </button>
+                      <div className="min-w-10 text-center text-sm font-semibold text-[#072d2d]" style={{ fontFamily: "Poppins, sans-serif" }}>
+                        {explorerKitQty}
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => updateKitQuantity(setExplorerKitQty, explorerKitQty, 1)}
+                        className="w-9 h-9 rounded-full bg-[#20593A] text-lg font-semibold text-white"
+                        aria-label="Increase Explorer Kit quantity"
+                      >
+                        +
+                      </button>
+                    </div>
                     <span className="ml-auto text-[#20593A] font-semibold text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
                       Total: د.إ{kitPrices.explorer * explorerKitQty}
                     </span>
@@ -196,17 +229,29 @@ export function ContributePage() {
                       د.إ{kitPrices.changemaker}
                     </span>
                   </div>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 flex-wrap">
                     <Label className="text-sm text-[#072d2d]" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 500 }}>Kits:</Label>
-                    <Select value={changemakerKitQty.toString()} onValueChange={(v) => setChangemakerKitQty(parseInt(v))}>
-                      <SelectTrigger className="w-24 border-gray-200 rounded-xl" style={{ fontFamily: "Poppins, sans-serif" }}>
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {[...Array(20)].map((_, i) => <SelectItem key={i + 1} value={(i + 1).toString()}>{i + 1}</SelectItem>)}
-                        <SelectItem value="20+">20+</SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <div className="flex items-center gap-2 rounded-full border border-[#dbe4d3] bg-white p-1">
+                      <button
+                        type="button"
+                        onClick={() => updateKitQuantity(setChangemakerKitQty, changemakerKitQty, -1)}
+                        className="w-9 h-9 rounded-full bg-[#eff2e7] text-lg font-semibold text-[#20593A]"
+                        aria-label="Decrease Changemaker Kit quantity"
+                      >
+                        −
+                      </button>
+                      <div className="min-w-10 text-center text-sm font-semibold text-[#072d2d]" style={{ fontFamily: "Poppins, sans-serif" }}>
+                        {changemakerKitQty}
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => updateKitQuantity(setChangemakerKitQty, changemakerKitQty, 1)}
+                        className="w-9 h-9 rounded-full bg-[#20593A] text-lg font-semibold text-white"
+                        aria-label="Increase Changemaker Kit quantity"
+                      >
+                        +
+                      </button>
+                    </div>
                     <span className="ml-auto text-[#20593A] font-semibold text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
                       Total: د.إ{kitPrices.changemaker * changemakerKitQty}
                     </span>
@@ -226,30 +271,73 @@ export function ContributePage() {
             </div>
 
             {/* Additional Amount */}
-            <div className="space-y-3">
-              <Label className="text-xs font-semibold text-[#858E80] uppercase tracking-widest" style={{ fontFamily: "Inter, sans-serif" }}>
-                Add a General Contribution (Optional)
-              </Label>
-              <div className="grid grid-cols-3 gap-2">
+            <div className="space-y-4 rounded-3xl border border-[#dce5d5] bg-[#f8fbf2] p-5">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <Label className="text-xs font-semibold text-[#858E80] uppercase tracking-widest" style={{ fontFamily: "Inter, sans-serif" }}>
+                    Add a General Contribution
+                  </Label>
+                  <p className="mt-1 text-sm text-[#072d2d]" style={{ fontFamily: "Inter, sans-serif" }}>
+                    Pick a suggested amount or enter your own. This part of the contribution is optional and can be adjusted anytime.
+                  </p>
+                </div>
+                <div className="rounded-2xl bg-white px-4 py-3 text-right shadow-sm border border-gray-100 min-w-[130px]">
+                  <div className="text-[11px] uppercase tracking-[0.2em] text-[#858E80]" style={{ fontFamily: "Inter, sans-serif" }}>Selected</div>
+                  <div className="text-lg font-bold text-[#20593A]" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    {getDonationAmount() ? `د.إ${getDonationAmount()}` : "—"}
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                 {amountOptions.map((amount) => (
-                  <button key={amount} type="button" onClick={() => setSelectedAmount(amount)}
-                    className={`py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
-                      selectedAmount === amount ? "bg-[#20593A] text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                    }`} style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <button
+                    key={amount}
+                    type="button"
+                    onClick={() => {
+                      setSelectedAmount(amount);
+                      setCustomAmount("");
+                    }}
+                    className={`py-4 rounded-2xl text-sm font-semibold transition-all duration-200 border ${
+                      selectedAmount === amount
+                        ? "bg-[#20593A] text-white border-[#20593A] shadow-lg shadow-emerald-900/10"
+                        : "bg-white text-[#072d2d] border-[#dbe4d3] hover:border-[#20593A] hover:bg-[#eff2e7]"
+                    }`}
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
                     د.إ{amount}
                   </button>
                 ))}
-                <button type="button" onClick={() => setSelectedAmount("other")}
-                  className={`col-span-3 py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
-                    selectedAmount === "other" ? "bg-[#20593A] text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`} style={{ fontFamily: "Poppins, sans-serif" }}>
+                <button
+                  type="button"
+                  onClick={() => setSelectedAmount("other")}
+                  className={`col-span-2 md:col-span-4 py-4 rounded-2xl text-sm font-semibold transition-all duration-200 border ${
+                    selectedAmount === "other"
+                      ? "bg-[#20593A] text-white border-[#20593A] shadow-lg shadow-emerald-900/10"
+                      : "bg-white text-[#072d2d] border-[#dbe4d3] hover:border-[#20593A] hover:bg-[#eff2e7]"
+                  }`}
+                  style={{ fontFamily: "Poppins, sans-serif" }}
+                >
                   Other Amount
                 </button>
               </div>
+
               {selectedAmount === "other" && (
-                <Input type="number" placeholder="Enter amount" value={customAmount} onChange={(e) => setCustomAmount(e.target.value)}
-                  className="border-gray-200 focus-visible:ring-[#a4ff7b] focus-visible:ring-2 focus-visible:border-[#20593A]"
-                  style={{ borderRadius: "12px", fontFamily: "Inter, sans-serif" }} required />
+                <div className="rounded-2xl border border-[#dbe4d3] bg-white p-4">
+                  <Label className="mb-2 block text-sm font-semibold text-[#072d2d]" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    Enter your custom amount
+                  </Label>
+                  <Input
+                    type="number"
+                    min="1"
+                    placeholder="Enter amount"
+                    value={customAmount}
+                    onChange={(e) => setCustomAmount(e.target.value)}
+                    className="border-gray-200 focus-visible:ring-[#a4ff7b] focus-visible:ring-2 focus-visible:border-[#20593A]"
+                    style={{ borderRadius: "12px", fontFamily: "Inter, sans-serif" }}
+                    required
+                  />
+                </div>
               )}
             </div>
 
@@ -337,6 +425,15 @@ export function ContributePage() {
                 className="border-gray-200 focus-visible:ring-[#a4ff7b] focus-visible:ring-2 focus-visible:border-[#20593A]"
                 style={{ borderRadius: "12px", fontFamily: "Inter, sans-serif" }} />
             )}
+
+            <div className="rounded-2xl bg-[#eff2e7] p-4 border border-[#dbe4d3]">
+              <div className="flex items-center justify-between text-sm text-[#072d2d]" style={{ fontFamily: "Inter, sans-serif" }}>
+                <span>Estimated total</span>
+                <span className="font-bold text-[#20593A]" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  د.إ{totalContribution}
+                </span>
+              </div>
+            </div>
 
             <Button type="submit"
               className="w-full bg-[#20593A] hover:bg-[#072d2d] text-white text-base font-semibold transition-colors duration-300"

@@ -112,7 +112,7 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
               { src: "https://lh3.googleusercontent.com/d/1mmdXgCePogDcgkAFwwsIcCz1phHidPaz", alt: "Impact of Marine Pollution" },
             ].map(({ src, alt }) => (
               <div key={alt} className="w-full h-64 rounded-3xl overflow-hidden shadow-lg">
-                <img src={src} alt={alt} className="w-full h-full object-cover" />
+                <ImageWithFallback src={src} alt={alt} className="w-full h-full object-cover" />
               </div>
             ))}
           </div>

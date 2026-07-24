@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { Menu, HandHeart, DollarSign, Handshake, ChevronDown, ChevronRight } from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 interface NavbarProps {
   onNavigate?: (page: string) => void;
@@ -90,10 +91,10 @@ export function Navbar({ onNavigate }: NavbarProps) {
               className="flex items-center gap-2 cursor-pointer bg-transparent border-none p-0"
               aria-label="Go to homepage"
             >
-              <img 
-                src="https://lh3.googleusercontent.com/d/1FosZ8BaMpKpSQS-m_YLVaqBQzmeEQaMF" 
-                alt="SusSTEM Logo" 
-                className="h-10 w-auto object-contain" 
+              <ImageWithFallback 
+                src="https://lh3.googleusercontent.com/d/1FosZ8BaMpKpSQS-m_YLVaqBQzmeEQaMF"
+                alt="SusSTEM Logo"
+                className="h-10 w-auto object-contain"
               />
             </button>
           </div>

@@ -1,4 +1,5 @@
 import { Lightbulb, Leaf, Cpu } from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export default function WhatIsSusSTEM() {
   return (
@@ -91,10 +92,11 @@ export default function WhatIsSusSTEM() {
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10">
             {/* Left: your photo */}
             <div className="flex-shrink-0 mt-8">
-              <img
-                src="https://lh3.googleusercontent.com/d/1Mr8hAre5_rArRCbwYH-HSByRGlRKG7HD" // update path if needed
+              <ImageWithFallback
+                src="https://lh3.googleusercontent.com/d/1Mr8hAre5_rArRCbwYH-HSByRGlRKG7HD"
                 alt="Daivik Anand Datwani"
-                className="w-40 h-40 md:w-48 md:h-48 rounded-2xl object-cover"              />
+                className="w-40 h-40 md:w-48 md:h-48 rounded-2xl object-cover"
+              />
             </div>
 
             {/* Middle: longer vertical divider */}
