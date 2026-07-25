@@ -95,10 +95,10 @@ export function ContributePage() {
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl mb-5 leading-tight" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
-            Put STEM tools into the hands of the next generation.
+            Your contributions drive our mission forward. With your support, we create a meaningful impact.
           </h1>
           <p className="text-white/80 text-lg md:text-xl max-w-xl mx-auto" style={{ fontFamily: "Inter, sans-serif" }}>
-            Every kit you fund gives a child the resources to build real solutions to real environmental challenges.
+            Your gift 🎁 reaches a child that is too often overlooked.
           </p>
         </div>
       </div>
