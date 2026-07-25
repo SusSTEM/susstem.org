@@ -8,7 +8,7 @@ import {
   BreadcrumbSeparator,
 } from "../components/ui/breadcrumb";
 import { Badge } from "../components/ui/badge";
-import { Download, Mail, Droplets, AlertCircle, Gauge } from "lucide-react";
+import { Info, Droplets, AlertCircle, Gauge } from "lucide-react";
 import { Target, Users, Wrench, BarChart3, IterationCcw, Presentation } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
@@ -61,10 +61,10 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                 <Button variant="outline" className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105" style={{ fontSize: "18px", fontWeight: 600 }} onClick={() => openInquiry("SusSTEM Level 2 course download request") }>
-                  <Download className="w-6 h-6 mr-3" /> Download Level 2 Course
+                  <Info className="w-6 h-6 mr-3" /> Download Level 2 Course
                 </Button>
                 <Button variant="outline" className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105" style={{ fontSize: "18px", fontWeight: 600 }} onClick={() => openInquiry("SusSTEM Level 2 workshop booking") }>
-                  <Mail className="w-6 h-6 mr-3" /> Book a Level 2 Workshop
+                  <Info className="w-6 h-6 mr-3" /> Book a Level 2 Workshop
                 </Button>
               </div>
             </div>

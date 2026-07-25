@@ -8,7 +8,7 @@ import {
   BreadcrumbSeparator,
 } from "../components/ui/breadcrumb";
 import { Badge } from "../components/ui/badge";
-import { Download, Mail, Zap, Sprout, Microscope, Lightbulb, Code2, Leaf, Check, AlertTriangle, X } from "lucide-react";
+import { Info, Zap, Sprout, Microscope, Lightbulb, Code2, Leaf, Check, AlertTriangle, X } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 interface AirAlertPageProps {
@@ -60,10 +60,10 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-8">
                 <Button variant="outline" className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105" style={{ fontSize: "18px", fontWeight: 600 }} onClick={() => openInquiry("SusSTEM Level 1 course download request") }>
-                  <Download className="w-6 h-6 mr-3" /> Download Level 1 Course
+                  <Info className="w-6 h-6 mr-3" /> Download Level 1 Course
                 </Button>
                 <Button variant="outline" className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105" style={{ fontSize: "18px", fontWeight: 600 }} onClick={() => openInquiry("SusSTEM Level 1 workshop booking") }>
-                  <Mail className="w-6 h-6 mr-3" /> Book a Level 1 Workshop
+                  <Info className="w-6 h-6 mr-3" /> Book a Level 1 Workshop
                 </Button>
               </div>
             </div>

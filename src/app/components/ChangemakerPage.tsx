@@ -9,8 +9,7 @@ import {
 } from "./ui/breadcrumb";
 import { Badge } from "./ui/badge";
 import { 
-  Download,
-  Mail,
+  Info,
   Cpu,
   Code,
   MapPin,
@@ -127,7 +126,7 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
                   style={{ fontSize: "18px", fontWeight: 600 }}
                   onClick={() => openInquiry("SusSTEM Level 3 course download request")}
                 >
-                  <Download className="w-6 h-6 mr-3" />
+                  <Info className="w-6 h-6 mr-3" />
                   Download Level 2 Course
                 </Button>
                 <Button 
@@ -136,7 +135,7 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
                   style={{ fontSize: "18px", fontWeight: 600 }}
                   onClick={() => openInquiry("SusSTEM Level 3 workshop booking")}
                 >
-                  <Mail className="w-6 h-6 mr-3" />
+                  <Info className="w-6 h-6 mr-3" />
                   Book a Level 2 Workshop
                 </Button>
               </div>
