@@ -26,7 +26,7 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
     <div className="min-h-screen bg-white">
       {/* Breadcrumb */}
       <div className="bg-[#ff9b69]/75 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
@@ -46,24 +46,24 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
       </div>
 
       {/* Hero + Level Overview */}
-      <section className="bg-[#eff2e7] py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="bg-[#eff2e7] py-12 sm:py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="bg-[#072d2d] text-[#a4ff7b] hover:bg-[#ff9b69]/80 hover:text-[#072d2d] mb-6 px-6 py-2 rounded-full text-base">Level 2</Badge>
-            <h1 className="text-[#000000] mb-6" style={{ fontSize: "48px", fontWeight: 700, lineHeight: 1.2 }}>Changemaker: For Ages 14-18</h1>
-            <p className="text-[#072d2d] text-xl md:text-2xl mb-12">Building solutions for real-world sustainability challenges in your community</p>
-            <div className="bg-[#ff9b69CC] p-8 md:p-12 rounded-3xl shadow-md mt-8">
-              <h2 className="text-[#000000] mb-6" style={{ fontSize: "36px", fontWeight: 700, lineHeight: 1.3 }}>
+            <Badge className="bg-[#072d2d] text-[#a4ff7b] hover:bg-[#ff9b69]/80 hover:text-[#072d2d] mb-5 sm:mb-6 px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base">Level 2</Badge>
+            <h1 className="text-[#000000] mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl" style={{ fontWeight: 700, lineHeight: 1.2 }}>Changemaker: For Ages 14-18</h1>
+            <p className="text-[#072d2d] text-base sm:text-xl md:text-2xl mb-8 sm:mb-12">Building solutions for real-world sustainability challenges in your community</p>
+            <div className="bg-[#ff9b69CC] p-5 sm:p-8 md:p-12 rounded-3xl shadow-md mt-8">
+              <h2 className="text-[#000000] mb-4 sm:mb-6 text-2xl sm:text-3xl md:text-[36px]" style={{ fontWeight: 700, lineHeight: 1.3 }}>
                 <span className="text-[#072d2d]">Level 2</span> Overview
               </h2>
-              <p className="text-[#000000] text-lg leading-relaxed mb-8">
+              <p className="text-[#000000] text-sm sm:text-base md:text-lg leading-relaxed mb-8">
                 Level 2 is where students form teams of 5 and choose one of four critical environmental challenges: <strong>air pollution, flooding, solid waste, or marine pollution</strong>. Over the course of the programme, teams will apply what they've learnt throughout the SusSTEM programme to design and build STEM-powered solutions that address their chosen problem.
               </p>
               <div className="flex justify-center items-center mt-8">
                 <Button 
                   variant="outline"
-                  className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center cursor-pointer"
-                  style={{ fontSize: '18px', fontWeight: 600 }}
+                  className="w-full sm:w-auto border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-6 sm:px-10 py-5 sm:py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center cursor-pointer"
+                  style={{ fontSize: '16px', fontWeight: 600 }}
                   onClick={() => openInquiry("SusSTEM Level 1 Learn More")}
                 >
                   <Info className="w-6 h-6 mr-3" />
@@ -76,9 +76,9 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
       </section>
 
       {/* Learning Outcomes */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#000000] mb-12 text-center" style={{ fontSize: "36px", fontWeight: 700, lineHeight: 1.3 }}>Learning Outcomes</h2>
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <h2 className="text-[#000000] mb-10 sm:mb-12 text-center text-2xl sm:text-3xl md:text-[36px]" style={{ fontWeight: 700, lineHeight: 1.3 }}>Learning Outcomes</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: Target, title: "Identify a community problem worth solving" },
@@ -102,12 +102,12 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
       </section>
 
       {/* Project Overview */}
-      <section className="py-16 md:py-24 bg-[#eff2e7]">
-        <div className="bg-[#ff9b69]/80 max-w-4xl mx-auto text-center px-6 p-8 md:p-12 rounded-3xl shadow-md mt-8">
-          <h2 className="text-[#000000] mb-6" style={{ fontSize: "36px", fontWeight: 700, lineHeight: 1.3 }}>
+      <section className="py-12 sm:py-16 md:py-24 bg-[#eff2e7]">
+        <div className="bg-[#ff9b69]/80 max-w-4xl mx-auto text-center px-4 sm:px-6 p-6 sm:p-8 md:p-12 rounded-3xl shadow-md mt-8">
+          <h2 className="text-[#000000] mb-4 sm:mb-6 text-2xl sm:text-3xl md:text-[36px]" style={{ fontWeight: 700, lineHeight: 1.3 }}>
             <span className="text-[#072d2d]">The Problem?</span>
           </h2>
-          <p className="text-[#000000] text-lg leading-relaxed mb-8">
+          <p className="text-[#000000] text-sm sm:text-base md:text-lg leading-relaxed mb-8">
             In the last decade, several critical environmental crises have intensified across the world, especially in South Asia: <strong>AIR POLLUTION</strong> that chokes cities like Delhi with toxic smog, catastrophic <strong>FLOODING</strong> that submerges streets and contaminates water supplies, mountains of <strong>SOLID WASTE</strong> and <strong>E-WASTE</strong> that overflow from inadequate disposal systems, and <strong>MARINE POLLUTION</strong> that destroys coastal ecosystems. In our Level 3 <strong>Changemaker</strong> programme, students team up, choose one of these urgent challenges and build their own STEM-powered solutions.
           </p>
           <div className="grid grid-cols-2 gap-4 mt-8">
@@ -124,20 +124,20 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 p-8 md:p-12">
-          <div className="text-center mb-12">
-            <h2 className="text-[#000000] mb-4" style={{ fontSize: "36px", fontWeight: 700, lineHeight: 1.3 }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 p-6 sm:p-8 md:p-12">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-[#000000] mb-4 text-2xl sm:text-3xl md:text-[36px]" style={{ fontWeight: 700, lineHeight: 1.3 }}>
               Featured <span className="text-[#20593a]">SusSTEM</span> Project
             </h2>
-            <h3 className="text-black mb-3" style={{ fontSize: "28px", fontWeight: 600, lineHeight: 1.4 }}>Community Impact Project – Solar-Powered Desalination System</h3>
-            <p className="text-[#072d2d] text-xl mb-8 p-8 md:p-10">
+            <h3 className="text-black mb-3 text-xl sm:text-2xl md:text-[28px]" style={{ fontWeight: 600, lineHeight: 1.4 }}>Community Impact Project – Solar-Powered Desalination System</h3>
+            <p className="text-[#072d2d] text-sm sm:text-base md:text-xl mb-8 p-4 sm:p-6 md:p-10">
               A solar-powered desalination system turns salty or brackish water into safe drinking water for off-grid communities using sun-driven distillation, directly addressing water scarcity while integrating science, technology, engineering, and mathematics into one impactful STEM solution.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center mt-12">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center mt-10 sm:mt-12">
             <div className="space-y-4">
-              <div className="bg-[#a2bb65]/80 p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-start gap-4">
+              <div className="bg-[#a2bb65]/80 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-start gap-4">
                 <div className="w-12 h-12 bg-transparent rounded-full flex items-center justify-center flex-shrink-0">
                   <Droplets className="w-7 h-7 text-white" />
                 </div>
@@ -146,7 +146,7 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
                   <p className="text-[#072d2d]">Confirms when sensor readings show the treated water is within a safe range for drinking.</p>
                 </div>
               </div>
-              <div className="bg-[#ffd459]/80 p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-start gap-4">
+              <div className="bg-[#ffd459]/80 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-start gap-4">
                 <div className="w-12 h-12 bg-transparent rounded-full flex items-center justify-center flex-shrink-0">
                   <Gauge className="w-7 h-7 text-white" />
                 </div>
@@ -155,7 +155,7 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
                   <p className="text-[#072d2d]">Flags changing conditions so students and communities know when to watch the system more closely.</p>
                 </div>
               </div>
-              <div className="bg-[#ff9b69] p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-start gap-4">
+              <div className="bg-[#ff9b69] p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-start gap-4">
                 <div className="w-12 h-12 bg-transparent rounded-full flex items-center justify-center flex-shrink-0">
                   <AlertCircle className="w-7 h-7 text-white" />
                 </div>

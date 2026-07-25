@@ -17,6 +17,7 @@ import { AirAlertPage } from "./pages/AirAlertPage";
 // INNOVATOR_REMOVED: restore this import and the route block below if Level 2 Innovator returns.
 // import { InnovatorPage } from "./pages/InnovatorPage";
 import { ChangemakerPage } from "./pages/ChangemakerPage";
+import { ContactPage } from "./pages/ContactPage";
 
 type PageKey =
   | "home"
@@ -24,6 +25,7 @@ type PageKey =
   | "contribute"
   | "partner"
   | "air-alert"
+  | "contact"
   | "changemaker";
 
 const pagePaths: Record<PageKey, string> = {
@@ -32,6 +34,7 @@ const pagePaths: Record<PageKey, string> = {
   contribute: "/contribute",
   partner: "/partner",
   "air-alert": "/air-alert",
+  contact: "/contact",
   changemaker: "/changemaker",
 };
 
@@ -47,6 +50,8 @@ function getPageFromPath(pathname: string): PageKey {
       return "partner";
     case "/air-alert":
       return "air-alert";
+    case "/contact":
+      return "contact";
     case "/innovator":
       return "changemaker";
     case "/changemaker":
@@ -169,6 +174,16 @@ export default function App() {
     );
   }
 
+  if (currentPage === "contact") {
+    return (
+      <div className="min-h-screen bg-white">
+        <Navbar onNavigate={handleNavigate} />
+        <ContactPage onNavigate={handleNavigate} />
+        <Footer onNavigate={handleNavigate} />
+      </div>
+    );
+  }
+
   // INNOVATOR_REMOVED: restore this block if Level 2 Innovator returns.
   // if (currentPage === "innovator") {
   //   return (
@@ -201,7 +216,7 @@ export default function App() {
       <AboutUs />
       <CTASection />
       <Testimonials />
-      <ContactPreview />
+      <ContactPreview onNavigate={handleNavigate} />
       <Footer onNavigate={handleNavigate} />
     </div>
   );

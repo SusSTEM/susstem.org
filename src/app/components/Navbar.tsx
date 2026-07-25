@@ -11,7 +11,8 @@ interface NavbarProps {
  * Navbar Component
  * 
  * Navigation Behavior:
- * - Section links (Home, About Us, Programme, Impact, Our Purpose, Contact) → Smooth scroll to sections on same page
+ * - Section links (Home, About Us, Programme, Impact, Our Purpose) → Smooth scroll to sections on same page
+ * - Contact → Open the contact page
  * - Get Involved dropdown items (Volunteer, Donate, Partner) → Open form pages in new tab
  * - Programme pages (Explorer, Innovator, Changemaker) → Open in new tab
  * 
@@ -173,7 +174,7 @@ export function Navbar({ onNavigate }: NavbarProps) {
             </div>
 
             <button
-              onClick={() => handleNavClick("#contact")}
+              onClick={() => handleNavigate("contact")}
               className="text-[#072d2d] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif] bg-transparent border-none cursor-pointer whitespace-nowrap"
             >
               Contact
@@ -260,7 +261,7 @@ export function Navbar({ onNavigate }: NavbarProps) {
             </div>
 
             <button
-              onClick={() => handleNavClick("#contact")}
+              onClick={() => handleNavigate("contact")}
               className="text-[#000000] hover:text-[#a2bb65] transition-colors font-bold font-[Poppins,sans-serif] text-left bg-transparent border-none"
             >
               Contact

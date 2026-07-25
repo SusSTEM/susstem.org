@@ -55,14 +55,13 @@ export function GetInvolved({ onNavigate }: GetInvolvedProps) {
           {cards.map((card, index) => {
             const Icon = card.icon;
             const isDonate = card.isDonate;
-            const isPrimary = !isDonate; // Volunteer & Partner
-
             return (
               <div
                 key={index}
-                className="relative transition duration-300 ease-out hover:scale-105"              >
+                className="relative transition duration-300 ease-out hover:scale-[1.02]"
+              >
                 <div
-                  className={`rounded-3xl p-8 text-center space-y-6 shadow-md transition duration-300
+                  className={`rounded-3xl p-6 sm:p-8 text-center space-y-5 sm:space-y-6 shadow-md transition duration-300
                     hover:shadow-[12px_12px_30px_rgba(7,45,45,0.35)] flex flex-col
                     ${isDonate ? "bg-[#072D2D]" : "bg-white hover:bg-[#a2bb65]/80"}`}
                 >
@@ -103,7 +102,7 @@ export function GetInvolved({ onNavigate }: GetInvolvedProps) {
                   <Button
                     size="sm"
                     className={`
-                      px-3 py-6 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 w-45 mx-auto
+                      px-4 py-5 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 w-full sm:w-auto sm:min-w-[180px] mx-auto
                       text-sm font-semibold
                       ${isDonate
                         ? "bg-[#a4ff7b] text-[#072D2D] hover:bg-[#20593A] hover:text-[#a4ff7b]"
