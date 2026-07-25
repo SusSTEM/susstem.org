@@ -17,6 +17,9 @@ interface InnovatorPageProps {
 
 export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
   const handleNavigate = (page: string) => { if (onNavigate) onNavigate(page); };
+  const openInquiry = (subject: string) => {
+    window.location.href = `mailto:hello@susstem.org?subject=${encodeURIComponent(subject)}`;
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -30,7 +33,7 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href="#" className="text-[#072d2d] hover:text-[#20593A]">The Programme</BreadcrumbLink>
+                <BreadcrumbLink href="#" onClick={(e) => { e.preventDefault(); handleNavigate("home#projects"); }} className="text-[#072d2d] hover:text-[#20593A]">The Programme</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
@@ -56,10 +59,10 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
                 Level 2 is where students will use what they've learned about sensors, circuits, and Arduino to build devices that solve real sustainability problems that affect their community. Students develop their problem-solving skills by turning ideas into working prototypes and focusing on real-world impact.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <Button variant="outline" className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105" style={{ fontSize: "18px", fontWeight: 600 }}>
+                <Button variant="outline" className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105" style={{ fontSize: "18px", fontWeight: 600 }} onClick={() => openInquiry("SusSTEM Level 2 course download request") }>
                   <Download className="w-6 h-6 mr-3" /> Download Level 2 Course
                 </Button>
-                <Button variant="outline" className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105" style={{ fontSize: "18px", fontWeight: 600 }}>
+                <Button variant="outline" className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105" style={{ fontSize: "18px", fontWeight: 600 }} onClick={() => openInquiry("SusSTEM Level 2 workshop booking") }>
                   <Mail className="w-6 h-6 mr-3" /> Book a Level 2 Workshop
                 </Button>
               </div>

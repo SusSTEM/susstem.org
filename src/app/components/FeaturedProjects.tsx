@@ -8,14 +8,17 @@ interface FeaturedProjectsProps {
   onNavigate?: (page: string) => void;
 }
 
+const SHOW_INNOVATOR = false;
+
 /**
  * Featured Projects Section (The Programme)
  *
  * Navigation Behavior:
  * - "Learn More" buttons → Navigate to project detail pages (state change, same tab)
  *   - Level 1: Explorer → Air Alert project page
- *   - Level 2: Innovator → Innovator page
- *   - Level 3: Changemaker → Changemaker page
+ *   - Level 2: Changemaker → Changemaker page
+ *
+ * The Innovator card is kept behind a flag so it can be restored without rewriting the layout.
  *
  * Displays three progressive curriculum levels with responsive carousel on mobile.
  */
@@ -32,19 +35,22 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
         "https://lh3.googleusercontent.com/d/1FuFYH9o3u5O1sUy0gyau60yOXf4l9Y0z",
       link: "air-alert",
     },
-    // INNOVATOR_REMOVED: uncomment to restore Level 2
-    // {
-    //   level: "Level 2",
-    //   title: "Innovator: Ages 11-18",
-    //   description:
-    //     "Level 2 is where students will use what they've learned about sensors, circuits, and Arduino to build devices that solve real sustainability problems that affect their community.",
-    //   image:
-    //     "https://lh3.googleusercontent.com/d/1GOEnNE2YiL2iBzhWl547RwW6u_w_dsiy",
-    //   link: "innovator",
-    // },
+    ...(SHOW_INNOVATOR
+      ? [
+          {
+            level: "Level 2",
+            title: "Innovator: Ages 11-18",
+            description:
+              "Level 2 is where students will use what they've learned about sensors, circuits, and Arduino to build devices that solve real sustainability problems that affect their community.",
+            image:
+              "https://lh3.googleusercontent.com/d/1GOEnNE2YiL2iBzhWl547RwW6u_w_dsiy",
+            link: "innovator",
+          },
+        ]
+      : []),
     {
       level: "Level 2",
-      title: "Level 2: Ages 14-18",
+      title: "Changemaker: Ages 14-18",
       description:
         "Level 2 is where students form teams of three and choose one of four environmental challenges. Building on the fundamentals from Level 1, they advance their STEM skills to research, design and work together as a team to build creative, practical solutions for real, meaningful community impact.",
       image:
@@ -53,7 +59,9 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
     },
   ];
 
-  const cardBgClasses = ["bg-[#a2bb65CC]", "bg-[#ff9b69CC]"];
+  const cardBgClasses = SHOW_INNOVATOR
+    ? ["bg-[#a2bb65CC]", "bg-[#ffd459CC]", "bg-[#ff9b69CC]"]
+    : ["bg-[#a2bb65CC]", "bg-[#ff9b69CC]"];
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % projects.length);

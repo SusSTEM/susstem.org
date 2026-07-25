@@ -34,6 +34,9 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
       onNavigate(page);
     }
   };
+  const openInquiry = (subject: string) => {
+    window.location.href = `mailto:hello@susstem.org?subject=${encodeURIComponent(subject)}`;
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -45,7 +48,7 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
               <BreadcrumbItem>
                 <BreadcrumbLink 
                   href="#"
-                  onClick={(e) => {
+                  onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                     e.preventDefault();
                     handleNavigate("home");
                   }}
@@ -58,6 +61,10 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
               <BreadcrumbItem>
                 <BreadcrumbLink
                   href="#"
+                  onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                    e.preventDefault();
+                    handleNavigate("home#projects");
+                  }}
                   className="text-[#072d2d] hover:text-[#20593A]"
                 >
                   The Programme
@@ -115,6 +122,7 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
                   variant="outline"
                   className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all shadow-xl hover:shadow-2xl hover:scale-105"
                   style={{ fontSize: "18px", fontWeight: 600 }}
+                  onClick={() => openInquiry("SusSTEM Level 2 course download request")}
                 >
                   <Download className="w-6 h-6 mr-3" />
                   Download Level 2 Course
@@ -123,6 +131,7 @@ export function InnovatorPage({ onNavigate }: InnovatorPageProps) {
                   variant="outline"
                   className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all shadow-xl hover:shadow-2xl hover:scale-105"
                   style={{ fontSize: "18px", fontWeight: 600 }}
+                  onClick={() => openInquiry("SusSTEM Level 2 workshop booking")}
                 >
                   <Mail className="w-6 h-6 mr-3" />
                   Book a Level 2 Workshop

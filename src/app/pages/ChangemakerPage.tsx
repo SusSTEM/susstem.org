@@ -18,6 +18,9 @@ interface ChangemakerPageProps {
 
 export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
   const handleNavigate = (page: string) => { if (onNavigate) onNavigate(page); };
+  const openInquiry = (subject: string) => {
+    window.location.href = `mailto:hello@susstem.org?subject=${encodeURIComponent(subject)}`;
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -31,7 +34,7 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href="#" className="text-[#072d2d] hover:text-[#20593A]">The Programme</BreadcrumbLink>
+                <BreadcrumbLink href="#" onClick={(e) => { e.preventDefault(); handleNavigate("home#projects"); }} className="text-[#072d2d] hover:text-[#20593A]">The Programme</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
@@ -46,22 +49,22 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
       <section className="bg-[#eff2e7] py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="bg-[#072d2d] text-[#a4ff7b] hover:bg-[#ff9b69]/80 hover:text-[#072d2d] mb-6 px-6 py-2 rounded-full text-base">Level 3</Badge>
+            <Badge className="bg-[#072d2d] text-[#a4ff7b] hover:bg-[#ff9b69]/80 hover:text-[#072d2d] mb-6 px-6 py-2 rounded-full text-base">Level 2</Badge>
             <h1 className="text-[#000000] mb-6" style={{ fontSize: "48px", fontWeight: 700, lineHeight: 1.2 }}>Changemaker: For Ages 14-18</h1>
             <p className="text-[#072d2d] text-xl md:text-2xl mb-12">Building solutions for real-world sustainability challenges in your community</p>
             <div className="bg-[#ff9b69CC] p-8 md:p-12 rounded-3xl shadow-md mt-8">
               <h2 className="text-[#000000] mb-6" style={{ fontSize: "36px", fontWeight: 700, lineHeight: 1.3 }}>
-                <span className="text-[#072d2d]">Level 3</span> Overview
+                <span className="text-[#072d2d]">Level 2</span> Overview
               </h2>
               <p className="text-[#000000] text-lg leading-relaxed mb-8">
-                Level 3 is where students form teams of 5 and choose one of four critical environmental challenges: <strong>air pollution, flooding, solid waste, or marine pollution</strong>. Over the course of the programme, teams will apply what they've learnt throughout the SusSTEM programme to design and build STEM-powered solutions that address their chosen problem.
+                Level 2 is where students form teams of 5 and choose one of four critical environmental challenges: <strong>air pollution, flooding, solid waste, or marine pollution</strong>. Over the course of the programme, teams will apply what they've learnt throughout the SusSTEM programme to design and build STEM-powered solutions that address their chosen problem.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <Button variant="outline" className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105" style={{ fontSize: "18px", fontWeight: 600 }}>
-                  <Download className="w-6 h-6 mr-3" /> Download Level 3 Course
+                <Button variant="outline" className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105" style={{ fontSize: "18px", fontWeight: 600 }} onClick={() => openInquiry("SusSTEM Level 2 course download request") }>
+                  <Download className="w-6 h-6 mr-3" /> Download Level 2 Course
                 </Button>
-                <Button variant="outline" className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105" style={{ fontSize: "18px", fontWeight: 600 }}>
-                  <Mail className="w-6 h-6 mr-3" /> Book a Level 3 Workshop
+                <Button variant="outline" className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105" style={{ fontSize: "18px", fontWeight: 600 }} onClick={() => openInquiry("SusSTEM Level 2 workshop booking") }>
+                  <Mail className="w-6 h-6 mr-3" /> Book a Level 2 Workshop
                 </Button>
               </div>
             </div>

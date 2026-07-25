@@ -34,6 +34,9 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
       onNavigate(page);
     }
   };
+  const openInquiry = (subject: string) => {
+    window.location.href = `mailto:hello@susstem.org?subject=${encodeURIComponent(subject)}`;
+  };
 
   const learningHighlights = [
     { 
@@ -67,8 +70,8 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink 
-                  href="#" 
-                  onClick={(e) => {
+                  href="#"
+                  onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                     e.preventDefault();
                     handleNavigate('home');
                   }}
@@ -79,7 +82,7 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href="#" className="text-[#072d2d] hover:text-[#20593A]">
+                <BreadcrumbLink href="#" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { e.preventDefault(); handleNavigate("home#projects"); }} className="text-[#072d2d] hover:text-[#20593A]">
                   The Programme
                 </BreadcrumbLink>
               </BreadcrumbItem>
@@ -124,6 +127,7 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
                   variant='outline'
                   className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all shadow-xl hover:shadow-2xl hover:scale-105"
                   style={{ fontSize: '18px', fontWeight: 600 }}
+                  onClick={() => openInquiry("SusSTEM Level 1 course download request")}
                 >
                   <Download className="w-6 h-6 mr-3" />
                   Download Level 1 Course
@@ -132,6 +136,7 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
                   variant='outline'
                   className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all shadow-xl hover:shadow-2xl hover:scale-105"
                   style={{ fontSize: '18px', fontWeight: 600 }}
+                  onClick={() => openInquiry("SusSTEM Level 1 workshop booking")}
                 >
                   <Mail className="w-6 h-6 mr-3" />
                   Book a Level 1 Workshop

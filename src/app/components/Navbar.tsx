@@ -42,22 +42,27 @@ export function Navbar({ onNavigate }: NavbarProps) {
    * Helper function for smooth scrolling to section anchors
    * Used for in-page navigation (same tab)
    */
-  const handleNavClick = (hash: string) => {
-    // If hash is just "#", scroll to top
-    if (hash === "#" || hash === "") {
-      if (onNavigate) onNavigate('home');
+  const handleNavClick = (target: string) => {
+    if (target === "#" || target === "") {
+      if (onNavigate) {
+        onNavigate("home");
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
       setIsMenuOpen(false);
       setIsDropdownOpen(false);
       return;
     }
 
-    // Otherwise scroll to the element with the matching ID
-    const element = document.querySelector(hash);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (onNavigate) {
+      onNavigate(`home${target}`);
+      setIsMenuOpen(false);
+      setIsDropdownOpen(false);
+      return;
     }
-    
-    // Close mobile menu after navigation
+
+    const element = document.querySelector(target);
+    element?.scrollIntoView({ behavior: "smooth" });
     setIsMenuOpen(false);
     setIsDropdownOpen(false);
   };

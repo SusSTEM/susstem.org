@@ -1,7 +1,23 @@
 import { Linkedin, Youtube, Instagram, Heart } from "lucide-react";
 import { FaXTwitter } from 'react-icons/fa6';
 
-export function Footer() {
+interface FooterProps {
+  onNavigate?: (page: string) => void;
+}
+
+export function Footer({ onNavigate }: FooterProps) {
+  const navigateTo = (target: string) => {
+    if (onNavigate) {
+      onNavigate(target);
+      return;
+    }
+
+    const section = target.split("#")[1];
+    if (section) {
+      document.getElementById(section)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <footer className="bg-[#20593A] text-white py-12 md:py-16" id="footer">
       <div className="max-w-7xl mx-auto px-6">
@@ -29,44 +45,49 @@ export function Footer() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <a 
-                  href="#get-involved" 
-                  className="text-white/80 hover:text-[#a4ff7b] transition-colors"
+                <button
+                  type="button"
+                  onClick={() => navigateTo("home#get-involved")}
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Partner With Us
-                </a>
+                </button>
               </li>
               <li>
-                <a 
-                  href="#get-involved" 
-                  className="text-white/80 hover:text-[#a4ff7b] transition-colors"
+                <button
+                  type="button"
+                  onClick={() => navigateTo("home#get-involved")}
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Volunteer
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="#get-involved"
-                  className="text-white/80 hover:text-[#a4ff7b] transition-colors"
+                <button
+                  type="button"
+                  onClick={() => navigateTo("home#get-involved")}
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Contribute
-                </a>
+                </button>
               </li>
               <li>
-                <a 
-                  href="#projects" 
-                  className="text-white/80 hover:text-[#a4ff7b] transition-colors"
+                <button
+                  type="button"
+                  onClick={() => navigateTo("home#projects")}
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   For Educators
-                </a>
+                </button>
               </li>
               <li>
-                <a 
-                  href="#projects" 
-                  className="text-white/80 hover:text-[#a4ff7b] transition-colors"
+                <button
+                  type="button"
+                  onClick={() => navigateTo("home#projects")}
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Access Curriculum
-                </a>
+                </button>
               </li>
             </ul>
           </div>
