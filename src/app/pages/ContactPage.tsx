@@ -15,7 +15,7 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
               Contact SusSTEM
             </p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight" style={{ fontFamily: "Poppins, sans-serif" }}>
-              Talk to us about Explorer, Innovator, or Changemaker.
+              Talk to us about our programmes.
             </h1>
             <p className="mt-4 max-w-2xl text-base sm:text-lg text-white/80">
               Send a message and we’ll get back to you about workshops, school partnerships, or how to get involved.
