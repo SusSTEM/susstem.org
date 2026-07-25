@@ -58,14 +58,17 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
               <p className="text-[#000000] text-lg leading-relaxed">
                 Level 1 introduces young explorers to the fundamentals of electronics and basic sensor technology. Students build confidence through hands-on experiments, learning how simple components can interact to form functional circuits. The emphasis is on creativity and discovery, helping learners connect classroom concepts to real-world applications.
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-8">
-                <Button variant="outline" className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105" style={{ fontSize: "18px", fontWeight: 600 }} onClick={() => openInquiry("SusSTEM Level 1 course download request") }>
-                  <Info className="w-6 h-6 mr-3" /> Download Level 1 Course
-                </Button>
-                <Button variant="outline" className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105" style={{ fontSize: "18px", fontWeight: 600 }} onClick={() => openInquiry("SusSTEM Level 1 workshop booking") }>
-                  <Info className="w-6 h-6 mr-3" /> Book a Level 1 Workshop
-                </Button>
-              </div>
+              <div className="flex justify-center items-center mt-8">
+              <Button 
+                variant="outline"
+                className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center cursor-pointer"
+                style={{ fontSize: '18px', fontWeight: 600 }}
+                onClick={() => openInquiry("SusSTEM Level 1 Learn More")}
+              >
+                <Info className="w-6 h-6 mr-3" />
+                Learn More
+              </Button>
+            </div>
             </div>
           </div>
         </div>

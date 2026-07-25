@@ -59,12 +59,15 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
               <p className="text-[#000000] text-lg leading-relaxed mb-8">
                 Level 2 is where students form teams of 5 and choose one of four critical environmental challenges: <strong>air pollution, flooding, solid waste, or marine pollution</strong>. Over the course of the programme, teams will apply what they've learnt throughout the SusSTEM programme to design and build STEM-powered solutions that address their chosen problem.
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <Button variant="outline" className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105" style={{ fontSize: "18px", fontWeight: 600 }} onClick={() => openInquiry("SusSTEM Level 2 course download request") }>
-                  <Info className="w-6 h-6 mr-3" /> Download Level 2 Course
-                </Button>
-                <Button variant="outline" className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105" style={{ fontSize: "18px", fontWeight: 600 }} onClick={() => openInquiry("SusSTEM Level 2 workshop booking") }>
-                  <Info className="w-6 h-6 mr-3" /> Book a Level 2 Workshop
+              <div className="flex justify-center items-center mt-8">
+                <Button 
+                  variant="outline"
+                  className="border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center cursor-pointer"
+                  style={{ fontSize: '18px', fontWeight: 600 }}
+                  onClick={() => openInquiry("SusSTEM Level 1 Learn More")}
+                >
+                  <Info className="w-6 h-6 mr-3" />
+                  Learn More
                 </Button>
               </div>
             </div>
@@ -75,7 +78,7 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
       {/* Learning Outcomes */}
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#000000] mb-12 text-center" style={{ fontSize: "36px", fontWeight: 700, lineHeight: 1.3 }}>Learning Outcomes</h2>
+          <h2 className="text-[#000000] mb-12 text-center" style={{ fontSize: "36px", fontWeight 700, lineHeight: 1.3 }}>Learning Outcomes</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: Target, title: "Identify a community problem worth solving" },
