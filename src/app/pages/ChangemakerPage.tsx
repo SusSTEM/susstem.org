@@ -78,7 +78,7 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
       {/* Learning Outcomes */}
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#000000] mb-12 text-center" style={{ fontSize: "36px", fontWeight 700, lineHeight: 1.3 }}>Learning Outcomes</h2>
+          <h2 className="text-[#000000] mb-12 text-center" style={{ fontSize: "36px", fontWeight: 700, lineHeight: 1.3 }}>Learning Outcomes</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: Target, title: "Identify a community problem worth solving" },
