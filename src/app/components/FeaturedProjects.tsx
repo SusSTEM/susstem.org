@@ -28,7 +28,7 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
   const projects = [
     {
       level: "Level 1",
-      title: "Level 1: Ages 11-14",
+      title: "Explorer: Ages 11-14",
       description:
         "Introduction to SusSTEM and our approach to integrating STEM with sustainability and science. Students will learn the fundamentals of electronics using Arduino, along with Python programming and AI, and apply their knowledge to real-world sustainability challenges.",
       image:

@@ -39,7 +39,7 @@ export function ContributePage() {
     }
 
     // Dummy checkout URL redirect
-    window.location.href = "https://example.com/checkout";
+    window.location.href = "https://www.zenstores.shop/products/bluetooth-controlled-car/2064485000004265149";
   };
 
   return (
@@ -103,7 +103,7 @@ export function ContributePage() {
                       className="text-[#000000] font-semibold text-base sm:text-lg"
                       style={{ fontFamily: "Poppins, sans-serif" }}
                     >
-                      Level 1 Kit
+                      Explorer Kit
                     </h4>
                     {/* Lucide Info Button - Mobile Optimized & Hover state */}
                     <button
@@ -204,7 +204,7 @@ export function ContributePage() {
                       className="text-[#000000] font-semibold text-base sm:text-lg"
                       style={{ fontFamily: "Poppins, sans-serif" }}
                     >
-                      Level 2 Kit
+                      Changemaker Kit
                     </h4>
                     {/* Lucide Info Button - Mobile Optimized & Hover state */}
                     <button
@@ -212,7 +212,7 @@ export function ContributePage() {
                       onClick={() => setInfoModalKit("changemaker")}
                       className="w-8 h-8 rounded-full bg-white text-[#072d2d] hover:bg-[#20593a] hover:text-white transition-colors duration-200 shadow-sm border border-[#072d2d]/10 flex items-center justify-center active:scale-95 shrink-0"
                       title="Kit details"
-                      aria-label="View Level 2 Kit info"
+                      aria-label="View Changemaker Kit info"
                     >
                       <Info className="w-4 h-4" />
                     </button>
@@ -396,7 +396,7 @@ export function ContributePage() {
             {infoModalKit === "explorer" ? (
               <div>
                 <h3 className="text-xl font-bold text-[#072d2d] mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>
-                  Level 1 Kit Details
+                  Explorer Kit Details
                 </h3>
                 <p className="text-sm text-gray-600 mb-4" style={{ fontFamily: "Inter, sans-serif" }}>
                   Designed for individual students entering electronics and environmental monitoring.
@@ -411,7 +411,7 @@ export function ContributePage() {
             ) : (
               <div>
                 <h3 className="text-xl font-bold text-[#072d2d] mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>
-                  Level 2 Kit Details
+                  Changemaker Kit Details
                 </h3>
                 <p className="text-sm text-gray-600 mb-4" style={{ fontFamily: "Inter, sans-serif" }}>
                   Built for teams of 5 students working on collaborative, real-world sustainability projects.
