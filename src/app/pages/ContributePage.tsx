@@ -13,7 +13,7 @@ export function ContributePage() {
 
   const kitPrices = {
     explorer: 100,
-    changemaker: 600,
+    changemaker: 250,
   };
 
   const updateKitQuantity = (
