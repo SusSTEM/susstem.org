@@ -112,10 +112,10 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
           </p>
           <div className="grid grid-cols-2 gap-4 mt-8">
             {[
-              { src: "https://lh3.googleusercontent.com/d/1XGQSYffwCV5O3qZWiHZgkecqDYN0rgpw", alt: "Delhi Air Pollution" },
-              { src: "https://lh3.googleusercontent.com/d/1KA6CnlY_Uk9gX7PcrSOOpj2rVSsi9wYU", alt: "Flooding" },
-              { src: "https://lh3.googleusercontent.com/d/1L7rXsr7hLig6X8V1tn7b8DQkIfIS8GDA", alt: "Solid Waste Accumulation" },
-              { src: "https://lh3.googleusercontent.com/d/1mmdXgCePogDcgkAFwwsIcCz1phHidPaz", alt: "Impact of Marine Pollution" },
+              { src: "/images/delhiairpollutionsusstem.jpg", alt: "Delhi Air Pollution" },
+              { src: "/images/floodpeoplesusstem.jpg", alt: "Flooding" },
+              { src: "/images/trahsoverflowsusstem.jpeg", alt: "Solid Waste Accumulation" },
+              { src: "/images/fishwithtrashsusstem.jpeg", alt: "Impact of Marine Pollution" },
             ].map(({ src, alt }) => (
               <div key={alt} className="w-full h-64 rounded-3xl overflow-hidden shadow-lg">
                 <ImageWithFallback src={src} alt={alt} className="w-full h-full object-cover" />
@@ -166,7 +166,7 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <ImageWithFallback src="https://lh3.googleusercontent.com/d/131ZQe2KkBqmyhw-BDHBO9YaIUuQzSV74" className="w-full h-full object-cover" />
+              <ImageWithFallback src="/images/changemakerprojsusstem.jpg" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>

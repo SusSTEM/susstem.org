@@ -93,7 +93,7 @@ export default function WhatIsSusSTEM() {
             {/* Left: your photo */}
             <div className="flex-shrink-0 mt-8">
               <ImageWithFallback
-                src="https://lh3.googleusercontent.com/d/1Mr8hAre5_rArRCbwYH-HSByRGlRKG7HD"
+                src="/images/daiviksusstemwebsitephoto.png"
                 alt="Daivik Anand Datwani"
                 className="w-40 h-40 md:w-48 md:h-48 rounded-2xl object-cover"
               />
