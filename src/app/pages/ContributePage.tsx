@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Info, X, ArrowRight } from "lucide-react";
+import { Info, X, ArrowRight, Check } from "lucide-react";
 import { Button } from "../components/ui/button";
 
 export function ContributePage() {
@@ -105,11 +105,11 @@ export function ContributePage() {
                     >
                       Explorer Kit
                     </h4>
-                    {/* Lucide Info Button - Mobile Optimized & Hover state */}
+                    {/* Lucide Info Button */}
                     <button
                       type="button"
                       onClick={() => setInfoModalKit("explorer")}
-                      className="w-8 h-8 rounded-full bg-white text-[#072d2d] hover:bg-[#20593a] hover:text-white transition-colors duration-200 shadow-sm border border-[#072d2d]/10 flex items-center justify-center active:scale-95 shrink-0"
+                      className="w-8 h-8 rounded-full bg-white text-[#072d2d] hover:bg-[#20593a] hover:text-white transition-colors duration-200 shadow-sm border border-[#072d2d]/10 flex items-center justify-center active:scale-95 shrink-0 cursor-pointer"
                       title="Kit details"
                       aria-label="View Explorer Kit info"
                     >
@@ -130,7 +130,7 @@ export function ContributePage() {
                   Introductory electronics & environmental sensors
                 </p>
 
-                {/* Mobile & Desktop Optimized Container with Click-to-Expand */}
+                {/* Image Container with Click-to-Expand */}
                 <div className="flex justify-center my-3 sm:my-4">
                   <div 
                     onClick={() => setSelectedImage("/images/SusSTEM Level 1 Kit Mockup.png")}
@@ -162,7 +162,7 @@ export function ContributePage() {
                             -1
                           )
                         }
-                        className="w-8 h-8 rounded-full bg-[#eff2e7] text-sm sm:text-base font-semibold text-[#20593A] hover:bg-[#dbe4d3] active:scale-95 transition-transform"
+                        className="w-8 h-8 rounded-full bg-[#eff2e7] text-sm sm:text-base font-semibold text-[#20593A] hover:bg-[#dbe4d3] active:scale-95 transition-transform cursor-pointer"
                       >
                         −
                       </button>
@@ -181,7 +181,7 @@ export function ContributePage() {
                             1
                           )
                         }
-                        className="w-8 h-8 rounded-full bg-[#20593A] text-sm sm:text-base font-semibold text-white hover:bg-[#072d2d] active:scale-95 transition-transform"
+                        className="w-8 h-8 rounded-full bg-[#20593A] text-sm sm:text-base font-semibold text-white hover:bg-[#072d2d] active:scale-95 transition-transform cursor-pointer"
                       >
                         +
                       </button>
@@ -206,11 +206,11 @@ export function ContributePage() {
                     >
                       Changemaker Kit
                     </h4>
-                    {/* Lucide Info Button - Mobile Optimized & Hover state */}
+                    {/* Lucide Info Button */}
                     <button
                       type="button"
                       onClick={() => setInfoModalKit("changemaker")}
-                      className="w-8 h-8 rounded-full bg-white text-[#072d2d] hover:bg-[#20593a] hover:text-white transition-colors duration-200 shadow-sm border border-[#072d2d]/10 flex items-center justify-center active:scale-95 shrink-0"
+                      className="w-8 h-8 rounded-full bg-white text-[#072d2d] hover:bg-[#20593a] hover:text-white transition-colors duration-200 shadow-sm border border-[#072d2d]/10 flex items-center justify-center active:scale-95 shrink-0 cursor-pointer"
                       title="Kit details"
                       aria-label="View Changemaker Kit info"
                     >
@@ -231,7 +231,7 @@ export function ContributePage() {
                   Advanced team kit — serves 5 students on real-world prototypes
                 </p>
 
-                {/* Mobile & Desktop Optimized Container with Click-to-Expand */}
+                {/* Image Container with Click-to-Expand */}
                 <div className="flex justify-center my-3 sm:my-4">
                   <div 
                     onClick={() => setSelectedImage("/images/Chnagemaker Kit Mockup.png")}
@@ -263,7 +263,7 @@ export function ContributePage() {
                             -1
                           )
                         }
-                        className="w-8 h-8 rounded-full bg-[#eff2e7] text-sm sm:text-base font-semibold text-[#20593A] hover:bg-[#dbe4d3] active:scale-95 transition-transform"
+                        className="w-8 h-8 rounded-full bg-[#eff2e7] text-sm sm:text-base font-semibold text-[#20593A] hover:bg-[#dbe4d3] active:scale-95 transition-transform cursor-pointer"
                       >
                         −
                       </button>
@@ -282,7 +282,7 @@ export function ContributePage() {
                             1
                           )
                         }
-                        className="w-8 h-8 rounded-full bg-[#20593A] text-sm sm:text-base font-semibold text-white hover:bg-[#072d2d] active:scale-95 transition-transform"
+                        className="w-8 h-8 rounded-full bg-[#20593A] text-sm sm:text-base font-semibold text-white hover:bg-[#072d2d] active:scale-95 transition-transform cursor-pointer"
                       >
                         +
                       </button>
@@ -339,22 +339,22 @@ export function ContributePage() {
               </div>
             </div>
 
-            {/* Prominent & Enticing Mobile-Friendly Checkout Button */}
+            {/* Checkout Button */}
             <Button
               type="submit"
-              className="w-full bg-[#20593A] hover:bg-[#072d2d] text-white text-lg sm:text-xl font-bold py-4 sm:py-5 rounded-2xl shadow-md hover:shadow-xl hover:shadow-[#20593A]/25 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] flex items-center justify-center gap-2"
+              className="w-full bg-[#20593A] hover:bg-[#072d2d] text-white text-lg sm:text-xl font-bold py-4 sm:py-5 rounded-2xl shadow-md hover:shadow-xl hover:shadow-[#20593A]/25 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer"
               style={{
                 fontFamily: "Poppins, sans-serif",
               }}
             >
-              <span>Continue to Payment</span>
+              <span>Continue</span>
               <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </Button>
           </form>
         </div>
       </div>
 
-      {/* Lightbox / Zoom Modal */}
+      {/* Lightbox Modal */}
       {selectedImage && (
         <div 
           onClick={() => setSelectedImage(null)}
@@ -363,7 +363,7 @@ export function ContributePage() {
           <div className="relative max-w-4xl w-full max-h-[90vh] flex items-center justify-center">
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute -top-12 right-0 text-white hover:text-gray-300 bg-white/10 p-2 rounded-full flex items-center justify-center active:scale-95 transition-transform"
+              className="absolute -top-12 right-0 text-white hover:text-gray-300 bg-white/10 p-2 rounded-full flex items-center justify-center active:scale-95 transition-transform cursor-pointer"
             >
               <X className="w-6 h-6" />
             </button>
@@ -376,7 +376,7 @@ export function ContributePage() {
         </div>
       )}
 
-      {/* Kit Info Modal - Mobile Safe Scroll */}
+      {/* Enhanced Kit Info Modal */}
       {infoModalKit && (
         <div 
           onClick={() => setInfoModalKit(null)}
@@ -384,50 +384,84 @@ export function ContributePage() {
         >
           <div 
             onClick={(e) => e.stopPropagation()} 
-            className="bg-white rounded-3xl p-6 max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100 relative"
+            className="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100 relative"
           >
             <button
               onClick={() => setInfoModalKit(null)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors p-2 rounded-full active:bg-gray-100"
+              className="absolute top-5 right-5 text-gray-400 hover:text-gray-600 transition-colors p-2 rounded-full active:bg-gray-100 cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
             
             {infoModalKit === "explorer" ? (
               <div>
-                <h3 className="text-xl font-bold text-[#072d2d] mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>
-                  Explorer Kit Details
-                </h3>
-                <p className="text-sm text-gray-600 mb-4" style={{ fontFamily: "Inter, sans-serif" }}>
-                  Designed for individual students entering electronics and environmental monitoring.
+                <div className="flex items-center justify-between mb-3 pr-8">
+                  <h3 className="text-xl font-bold text-[#072d2d]" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    Explorer Kit Details
+                  </h3>
+                  <span className="bg-[#a2bb65]/30 text-[#20593a] text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+                    Solo Learner
+                  </span>
+                </div>
+                <p className="text-sm text-gray-600 mb-5 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
+                  Designed for individual students entering electronics, programming, and environmental monitoring.
                 </p>
-                <ul className="text-sm text-[#072d2d] space-y-2 list-disc list-inside">
-                  <li>Arduino Uno microcontroller unit</li>
-                  <li>Basic breadboard & jumper wires</li>
-                  <li>Environmental sensors (Temp, Moisture)</li>
-                  <li>Step-by-step beginner workbook</li>
+                <ul className="text-sm text-[#072d2d] space-y-3 font-medium">
+                  <li className="flex items-start gap-2.5">
+                    <Check className="w-5 h-5 text-[#20593a] shrink-0 mt-0.5" />
+                    <span>Arduino Uno microcontroller unit</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <Check className="w-5 h-5 text-[#20593a] shrink-0 mt-0.5" />
+                    <span>Basic breadboard & jumper wires</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <Check className="w-5 h-5 text-[#20593a] shrink-0 mt-0.5" />
+                    <span>Environmental sensors (Temp & Soil Moisture)</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <Check className="w-5 h-5 text-[#20593a] shrink-0 mt-0.5" />
+                    <span>Step-by-step beginner workbook</span>
+                  </li>
                 </ul>
               </div>
             ) : (
               <div>
-                <h3 className="text-xl font-bold text-[#072d2d] mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>
-                  Changemaker Kit Details
-                </h3>
-                <p className="text-sm text-gray-600 mb-4" style={{ fontFamily: "Inter, sans-serif" }}>
+                <div className="flex items-center justify-between mb-3 pr-8">
+                  <h3 className="text-xl font-bold text-[#072d2d]" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    Changemaker Kit Details
+                  </h3>
+                  <span className="bg-[#a4ff7b]/30 text-[#20593a] text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+                    Team Edition
+                  </span>
+                </div>
+                <p className="text-sm text-gray-600 mb-5 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
                   Built for teams of 5 students working on collaborative, real-world sustainability projects.
                 </p>
-                <ul className="text-sm text-[#072d2d] space-y-2 list-disc list-inside">
-                  <li>Serves up to 5 students simultaneously</li>
-                  <li>Advanced sensors & motor drivers</li>
-                  <li>Prototyping components & power supplies</li>
-                  <li>Full team challenge handbook & guide</li>
+                <ul className="text-sm text-[#072d2d] space-y-3 font-medium">
+                  <li className="flex items-start gap-2.5">
+                    <Check className="w-5 h-5 text-[#20593a] shrink-0 mt-0.5" />
+                    <span>Serves up to 5 students simultaneously</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <Check className="w-5 h-5 text-[#20593a] shrink-0 mt-0.5" />
+                    <span>Advanced sensors & actuators</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <Check className="w-5 h-5 text-[#20593a] shrink-0 mt-0.5" />
+                    <span>Prototyping components & power supplies</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <Check className="w-5 h-5 text-[#20593a] shrink-0 mt-0.5" />
+                    <span>Full team challenge handbook & guide</span>
+                  </li>
                 </ul>
               </div>
             )}
             
             <Button
               onClick={() => setInfoModalKit(null)}
-              className="w-full mt-6 bg-[#20593A] hover:bg-[#072d2d] text-white py-3 rounded-xl active:scale-95 transition-transform"
+              className="w-full mt-6 bg-[#20593A] hover:bg-[#072d2d] text-white py-3 rounded-xl active:scale-95 transition-transform cursor-pointer"
               style={{ fontFamily: "Poppins, sans-serif" }}
             >
               Got it
