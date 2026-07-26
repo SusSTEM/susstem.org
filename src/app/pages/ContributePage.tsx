@@ -34,7 +34,7 @@ export function ContributePage() {
     }
 
     // Dummy checkout URL redirect
-    window.location.href = "https://example.com/checkout";
+    window.location.href = "https://youtu.be/dQw4w9WgXcQ?si=S82m_pgEtBzl8xXP";
   };
 
   return (
