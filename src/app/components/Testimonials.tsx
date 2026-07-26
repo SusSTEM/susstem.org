@@ -1,4 +1,4 @@
-import { Quote } from "lucide-react";
+import { Quote, Heart } from "lucide-react";
 
 export function Testimonials() {
   const testimonials = [
@@ -28,19 +28,30 @@ export function Testimonials() {
     "WASTEless",
     "Arduino",
     "Code.org",
-   ];
+  ];
 
   return (
     <section className="bg-[#e1e4d8] py-12 md:py-24">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Testimonials */}
+        {/* Testimonials Header */}
         <div className="mb-16">
-          <h2
-            className="text-[#000000] text-3xl md:text-4xl text-center mb-12"
-            style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
-          >
-            Community Love</span>
-          </h2>
+          <div className="flex items-center justify-center gap-4 mb-12">
+            <h2
+              className="text-[#000000] text-3xl md:text-4xl text-center"
+              style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
+            >
+              Community Love
+            </h2>
+            
+            {/* Heart Badge using GetInvolved component styling */}
+            <div className="w-12 h-12 rounded-full flex items-center justify-center bg-[#072D2D] flex-shrink-0 shadow-md">
+              <Heart
+                className="w-6 h-6 text-[#a4ff7b] heartbeat"
+                strokeWidth={1.5}
+              />
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div

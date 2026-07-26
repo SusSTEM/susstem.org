@@ -127,7 +127,7 @@ export function ContributePage() {
                   className="text-[#072d2d] text-xs mb-2"
                   style={{ fontFamily: "Inter, sans-serif" }}
                 >
-                  Introductory electronics & environmental sensors
+                  Introductory electronics & environmental sensors to teach students the fundamentals of STEM and sustainability.
                 </p>
 
                 {/* Image Container with Click-to-Expand */}
@@ -228,7 +228,7 @@ export function ContributePage() {
                   className="text-[#072d2d] text-xs mb-2"
                   style={{ fontFamily: "Inter, sans-serif" }}
                 >
-                  Advanced team kit — serves 5 students on real-world prototypes
+                  Advanced team kit, designed for applying their STEM skills to solve real-world sustainability challenges in their community.
                 </p>
 
                 {/* Image Container with Click-to-Expand */}
