@@ -29,9 +29,9 @@ export function CTASection({ onNavigate }: CTASectionProps) {
           Join our mission to empower young changemakers.
         </h2>
         <p className="text-white/90 text-lg md:text-xl mb-8 max-w-3xl mx-auto">
-          Whether you're an educator, organization, or passionate individual,
-          there are many ways to support SusSTEM and help us reach more
-          students worldwide.
+          Whether you're a student, an educator, organization, or passionate individual,
+          simply wanting to make a difference, there are many ways to support the SusSTEM mission
+          and help us reach more students worldwide.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

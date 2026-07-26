@@ -88,9 +88,9 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
             The Programme
           </h2>
           <p className="text-[#072d2d] text-lg max-w-2xl mx-auto">
-            Our curriculum is designed in three progressive levels for all
-            secondary school students aged 11 to 18, each building essential
-            skills for STEM-powered, sustainable innovation.
+            Our curriculum is designed in two progressive levels for all
+            secondary school students aged 11 to 18, currently in English language only.
+            Each level building essential skills for STEM-powered, sustainability innovations.
           </p>
         </div>
 

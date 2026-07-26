@@ -80,15 +80,6 @@ export function Footer({ onNavigate }: FooterProps) {
                   For Educators
                 </button>
               </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => navigateTo("home#projects")}
-                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
-                >
-                  Access Curriculum
-                </button>
-              </li>
             </ul>
           </div>
 

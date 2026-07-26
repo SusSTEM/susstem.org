@@ -28,8 +28,7 @@ export function Testimonials() {
     "WASTEless",
     "Arduino",
     "Code.org",
-    "Roboarmy",
-  ];
+   ];
 
   return (
     <section className="bg-[#e1e4d8] py-12 md:py-24">
@@ -77,7 +76,7 @@ export function Testimonials() {
             className="text-[#000000] text-2xl md:text-3xl text-center mb-8"
             style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
           >
-            Our Partners
+            Backed by
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
             {partners.map((partner, index) => (
