@@ -29,7 +29,7 @@ export default function WhatIsSusSTEM() {
               <strong>free STEM education</strong> to students in under-resourced communities. 
             </p>
             <p className="text-[#072d2d] text-lg leading-relaxed">
-              Through 3 levels of hands-on projects, <strong>secondary school students aged 11-18</strong> learn to build
+              Through 2 levels of hands-on projects, <strong>secondary school students aged 11-18</strong> learn to build
               real-world solutions that make a difference in their communities and beyond.
             </p>
              <p className="text-[#072d2d] text-lg leading-relaxed">
