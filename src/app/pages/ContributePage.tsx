@@ -34,7 +34,7 @@ export function ContributePage() {
     }
 
     // Dummy checkout URL redirect
-    window.location.href = "https://youtu.be/dQw4w9WgXcQ?si=S82m_pgEtBzl8xXP";
+    window.location.href = "https://example.com/checkout";
   };
 
   return (
@@ -89,13 +89,13 @@ export function ContributePage() {
 
           <form onSubmit={handleCheckout} className="space-y-6">
             {/* CONTRIBUTE LEARNING KITS */}
-            <div className="space-y-5">
+            <div className="space-y-6">
               {/* Explorer Kit */}
-              <div className="rounded-2xl border border-gray-100 bg-[#a2bb65]/80 p-5">
+              <div className="rounded-2xl border border-gray-100 bg-[#a2bb65]/80 p-6">
                 <div className="flex justify-between items-start mb-2">
                   <div>
                     <h4
-                      className="text-[#000000] font-semibold text-base"
+                      className="text-[#000000] font-semibold text-lg"
                       style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                       Explorer Kit — Level 1
@@ -108,16 +108,16 @@ export function ContributePage() {
                     </p>
                   </div>
                   <span
-                    className="text-[#20593A] font-bold text-lg ml-4"
+                    className="text-[#20593A] font-bold text-xl ml-4"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
                     د.إ{kitPrices.explorer}
                   </span>
                 </div>
 
-                {/* Compact Square-Friendly Image Space */}
-                <div className="flex justify-center my-3">
-                  <div className="w-36 h-36 rounded-2xl overflow-hidden bg-white/60 flex items-center justify-center p-2 shadow-inner border border-[#072d2d]/10">
+                {/* Doubled Square Image Space */}
+                <div className="flex justify-center my-4">
+                  <div className="w-84 h-42 rounded-2xl overflow-hidden bg-white/60 flex items-center justify-center p-3 shadow-inner border border-[#072d2d]/10">
                     <img
                       src="/images/arduinouno.jpeg"
                       alt="Explorer Kit"
@@ -179,11 +179,11 @@ export function ContributePage() {
               </div>
 
               {/* Changemaker Kit */}
-              <div className="rounded-2xl border border-gray-100 bg-[#ff9b69]/80 p-5">
+              <div className="rounded-2xl border border-gray-100 bg-[#ff9b69]/80 p-6">
                 <div className="flex justify-between items-start mb-2">
                   <div>
                     <h4
-                      className="text-[#000000] font-semibold text-base"
+                      className="text-[#000000] font-semibold text-lg"
                       style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                       Changemaker Kit — Level 3
@@ -197,16 +197,16 @@ export function ContributePage() {
                     </p>
                   </div>
                   <span
-                    className="text-[#20593A] font-bold text-lg ml-4"
+                    className="text-[#20593A] font-bold text-xl ml-4"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
                     د.إ{kitPrices.changemaker}
                   </span>
                 </div>
 
-                {/* Compact Square-Friendly Image Space */}
-                <div className="flex justify-center my-3">
-                  <div className="w-36 h-36 rounded-2xl overflow-hidden bg-white/60 flex items-center justify-center p-2 shadow-inner border border-[#072d2d]/10">
+                {/* Doubled Square Image Space */}
+                <div className="flex justify-center my-4">
+                  <div className="w-84 h-42 rounded-2xl overflow-hidden bg-white/60 flex items-center justify-center p-3 shadow-inner border border-[#072d2d]/10">
                     <img
                       src="/images/changemakerprojsusstem.jpg"
                       alt="Changemaker Kit"
