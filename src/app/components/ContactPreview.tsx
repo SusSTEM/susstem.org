@@ -16,10 +16,10 @@ export function ContactPreview({ onNavigate }: ContactPreviewProps) {
           className="text-[#000000] text-2xl sm:text-3xl md:text-4xl mb-4"
           style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
         >
-          Want to partner, donate, or volunteer?
+          Want to partner, contribute, or volunteer?
         </h2>
         <p className="text-[#072d2d] text-base sm:text-lg mb-8 max-w-2xl mx-auto">
-          We'd love to hear from you! Get in touch to learn how you can support SusSTEM's mission and help empower the next generation of sustainable innovators.
+          We'd love to hear from you! Get in touch with us to support SusSTEM's mission and help empower the next generation of sustainable innovators.
         </p>
         <Button 
           className="bg-[#20593A] hover:bg-[#a2bb65] text-white w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-6 rounded-xl transition-colors text-base sm:text-lg"
