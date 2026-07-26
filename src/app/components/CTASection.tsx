@@ -26,7 +26,8 @@ export function CTASection({ onNavigate }: CTASectionProps) {
           className="text-white text-3xl md:text-4xl lg:text-5xl mb-6"
           style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
         >
-          Join our mission to empower tomorrow's changemakers.
+          Join our mission to Empower 
+          tomorrow's changemakers.
         </h2>
         <p className="text-white/90 text-lg md:text-xl mb-8 max-w-3xl mx-auto">
           Whether you're a student, an educator, organization, or passionate individual,
