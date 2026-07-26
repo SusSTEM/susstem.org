@@ -39,7 +39,7 @@ export function Testimonials() {
             className="text-[#000000] text-3xl md:text-4xl text-center mb-12"
             style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
           >
-            What People Are Saying
+            Community Love
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
