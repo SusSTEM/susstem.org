@@ -41,14 +41,14 @@ export function ContributePage() {
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* Hero */}
       <div
-        className="text-white py-20 px-6"
+        className="text-white py-16 px-6"
         style={{
           background:
             "linear-gradient(135deg, #072d2d 0%, #0f3d2e 50%, #20593a 100%)",
         }}
       >
         <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-block bg-[#a4ff7b]/20 border border-[#a4ff7b]/40 rounded-full px-5 py-2 mb-6">
+          <div className="inline-block bg-[#a4ff7b]/20 border border-[#a4ff7b]/40 rounded-full px-5 py-2 mb-4">
             <span
               className="text-[#a4ff7b] text-sm font-semibold"
               style={{ fontFamily: "Poppins, sans-serif" }}
@@ -57,14 +57,13 @@ export function ContributePage() {
             </span>
           </div>
           <h1
-            className="text-4xl md:text-5xl mb-5 leading-tight"
+            className="text-3xl md:text-4xl mb-3 leading-tight"
             style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
           >
-            Your contributions drive our mission forward. With your support, we
-            create a meaningful impact.
+            Your contributions drive our mission forward.
           </h1>
           <p
-            className="text-white/80 text-lg md:text-xl max-w-xl mx-auto"
+            className="text-white/80 text-base md:text-lg max-w-xl mx-auto"
             style={{ fontFamily: "Inter, sans-serif" }}
           >
             Your gift 🎁 reaches a child that is too often overlooked.
@@ -73,27 +72,27 @@ export function ContributePage() {
       </div>
 
       {/* Main Container */}
-      <div className="max-w-2xl mx-auto px-6 py-14">
-        <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-8 md:p-10">
+      <div className="max-w-2xl mx-auto px-6 py-10">
+        <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-6 md:p-8">
           <h2
-            className="text-2xl text-[#000000] mb-2"
+            className="text-2xl text-[#000000] mb-2 text-center"
             style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
           >
             Choose Your Contribution
           </h2>
           <p
-            className="text-[#858E80] text-sm mb-8"
+            className="text-[#858E80] text-sm mb-6 text-center"
             style={{ fontFamily: "Inter, sans-serif" }}
           >
-            Select one or more learning kits to support STEM education.
+            Select learning kits to support STEM education for students in need.
           </p>
 
           <form onSubmit={handleCheckout} className="space-y-6">
             {/* CONTRIBUTE LEARNING KITS */}
-            <div className="space-y-4">
+            <div className="space-y-5">
               {/* Explorer Kit */}
               <div className="rounded-2xl border border-gray-100 bg-[#a2bb65]/80 p-5">
-                <div className="flex justify-between items-start mb-3">
+                <div className="flex justify-between items-start mb-2">
                   <div>
                     <h4
                       className="text-[#000000] font-semibold text-base"
@@ -102,7 +101,7 @@ export function ContributePage() {
                       Explorer Kit — Level 1
                     </h4>
                     <p
-                      className="text-[#072d2d] text-sm mt-0.5"
+                      className="text-[#072d2d] text-xs mt-0.5"
                       style={{ fontFamily: "Inter, sans-serif" }}
                     >
                       Introductory electronics & environmental sensors
@@ -116,16 +115,18 @@ export function ContributePage() {
                   </span>
                 </div>
 
-                {/* Kit Image Placeholder */}
-                <div className="w-full h-48 my-4 rounded-xl overflow-hidden bg-white/40 flex items-center justify-center border border-[#072d2d]/10">
-                  <img
-                    src="/images/arduinouno.jpeg" // Replace with your kit image path
-                    alt="Explorer Kit"
-                    className="w-full h-full object-cover"
-                  />
+                {/* Compact Square-Friendly Image Space */}
+                <div className="flex justify-center my-3">
+                  <div className="w-36 h-36 rounded-2xl overflow-hidden bg-white/60 flex items-center justify-center p-2 shadow-inner border border-[#072d2d]/10">
+                    <img
+                      src="/images/arduinouno.jpeg"
+                      alt="Explorer Kit"
+                      className="w-full h-full object-contain rounded-xl"
+                    />
+                  </div>
                 </div>
 
-                <div className="flex items-center gap-3 flex-wrap mt-3">
+                <div className="flex items-center gap-3 flex-wrap mt-2">
                   <span
                     className="text-sm text-[#072d2d] font-medium"
                     style={{ fontFamily: "Poppins, sans-serif" }}
@@ -142,13 +143,13 @@ export function ContributePage() {
                           -1
                         )
                       }
-                      className="w-9 h-9 rounded-full bg-[#eff2e7] text-lg font-semibold text-[#20593A] hover:bg-[#dbe4d3] transition-colors"
+                      className="w-8 h-8 rounded-full bg-[#eff2e7] text-base font-semibold text-[#20593A] hover:bg-[#dbe4d3] transition-colors"
                       aria-label="Decrease Explorer Kit quantity"
                     >
                       −
                     </button>
                     <div
-                      className="min-w-10 text-center text-sm font-semibold text-[#072d2d]"
+                      className="min-w-8 text-center text-sm font-semibold text-[#072d2d]"
                       style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                       {explorerKitQty}
@@ -162,7 +163,7 @@ export function ContributePage() {
                           1
                         )
                       }
-                      className="w-9 h-9 rounded-full bg-[#20593A] text-lg font-semibold text-white hover:bg-[#072d2d] transition-colors"
+                      className="w-8 h-8 rounded-full bg-[#20593A] text-base font-semibold text-white hover:bg-[#072d2d] transition-colors"
                       aria-label="Increase Explorer Kit quantity"
                     >
                       +
@@ -179,7 +180,7 @@ export function ContributePage() {
 
               {/* Changemaker Kit */}
               <div className="rounded-2xl border border-gray-100 bg-[#ff9b69]/80 p-5">
-                <div className="flex justify-between items-start mb-3">
+                <div className="flex justify-between items-start mb-2">
                   <div>
                     <h4
                       className="text-[#000000] font-semibold text-base"
@@ -188,7 +189,7 @@ export function ContributePage() {
                       Changemaker Kit — Level 3
                     </h4>
                     <p
-                      className="text-[#072d2d] text-sm mt-0.5"
+                      className="text-[#072d2d] text-xs mt-0.5"
                       style={{ fontFamily: "Inter, sans-serif" }}
                     >
                       Advanced team kit — serves 5 students on real-world
@@ -203,16 +204,18 @@ export function ContributePage() {
                   </span>
                 </div>
 
-                {/* Kit Image Placeholder */}
-                <div className="w-full h-48 my-4 rounded-xl overflow-hidden bg-white/40 flex items-center justify-center border border-[#072d2d]/10">
-                  <img
-                    src="/images/changemakerprojsusstem.jpg" // Replace with your kit image path
-                    alt="Changemaker Kit"
-                    className="w-full h-full object-cover"
-                  />
+                {/* Compact Square-Friendly Image Space */}
+                <div className="flex justify-center my-3">
+                  <div className="w-36 h-36 rounded-2xl overflow-hidden bg-white/60 flex items-center justify-center p-2 shadow-inner border border-[#072d2d]/10">
+                    <img
+                      src="/images/changemakerprojsusstem.jpg"
+                      alt="Changemaker Kit"
+                      className="w-full h-full object-contain rounded-xl"
+                    />
+                  </div>
                 </div>
 
-                <div className="flex items-center gap-3 flex-wrap mt-3">
+                <div className="flex items-center gap-3 flex-wrap mt-2">
                   <span
                     className="text-sm text-[#072d2d] font-medium"
                     style={{ fontFamily: "Poppins, sans-serif" }}
@@ -229,13 +232,13 @@ export function ContributePage() {
                           -1
                         )
                       }
-                      className="w-9 h-9 rounded-full bg-[#eff2e7] text-lg font-semibold text-[#20593A] hover:bg-[#dbe4d3] transition-colors"
+                      className="w-8 h-8 rounded-full bg-[#eff2e7] text-base font-semibold text-[#20593A] hover:bg-[#dbe4d3] transition-colors"
                       aria-label="Decrease Changemaker Kit quantity"
                     >
                       −
                     </button>
                     <div
-                      className="min-w-10 text-center text-sm font-semibold text-[#072d2d]"
+                      className="min-w-8 text-center text-sm font-semibold text-[#072d2d]"
                       style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                       {changemakerKitQty}
@@ -249,7 +252,7 @@ export function ContributePage() {
                           1
                         )
                       }
-                      className="w-9 h-9 rounded-full bg-[#20593A] text-lg font-semibold text-white hover:bg-[#072d2d] transition-colors"
+                      className="w-8 h-8 rounded-full bg-[#20593A] text-base font-semibold text-white hover:bg-[#072d2d] transition-colors"
                       aria-label="Increase Changemaker Kit quantity"
                     >
                       +
@@ -266,9 +269,9 @@ export function ContributePage() {
             </div>
 
             {/* Impact Counter */}
-            <div className="bg-[#a4ff7b]/20 border border-[#a4ff7b] rounded-2xl p-5 text-center mt-6">
+            <div className="bg-[#a4ff7b]/20 border border-[#a4ff7b] rounded-2xl p-4 text-center mt-5">
               <p
-                className="text-[#072d2d] text-sm font-semibold mb-1"
+                className="text-[#072d2d] text-xs font-semibold mb-0.5"
                 style={{ fontFamily: "Poppins, sans-serif" }}
               >
                 Your Impact
@@ -277,13 +280,13 @@ export function ContributePage() {
                 className="text-[#20593A] font-bold"
                 style={{
                   fontFamily: "Poppins, sans-serif",
-                  fontSize: "36px",
+                  fontSize: "32px",
                 }}
               >
                 {calculateStudentsImpacted()}
               </p>
               <p
-                className="text-[#072d2d] text-sm"
+                className="text-[#072d2d] text-xs"
                 style={{ fontFamily: "Inter, sans-serif" }}
               >
                 students empowered with STEM education
@@ -291,12 +294,12 @@ export function ContributePage() {
             </div>
 
             {/* Total Summary */}
-            <div className="rounded-2xl bg-[#eff2e7] p-4 border border-[#dbe4d3] mt-6">
+            <div className="rounded-2xl bg-[#eff2e7] p-4 border border-[#dbe4d3]">
               <div
                 className="flex items-center justify-between text-sm text-[#072d2d]"
                 style={{ fontFamily: "Inter, sans-serif" }}
               >
-                <span>Estimated total</span>
+                <span className="font-medium">Estimated total</span>
                 <span
                   className="font-bold text-[#20593A] text-xl"
                   style={{ fontFamily: "Poppins, sans-serif" }}
@@ -309,16 +312,15 @@ export function ContributePage() {
             {/* Animated Checkout Button */}
             <Button
               type="submit"
-              className="w-full bg-[#20593A] hover:bg-[#072d2d] text-white text-base font-semibold transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] hover:shadow-xl hover:shadow-[#20593A]/20"
+              className="w-full bg-[#20593A] hover:bg-[#072d2d] text-white text-base font-semibold transition-all duration-300 transform hover:scale-[1.01] active:scale-[0.99] hover:shadow-lg hover:shadow-[#20593A]/20"
               style={{
                 borderRadius: "12px",
-                padding: "16px 0",
+                padding: "14px 0",
                 fontFamily: "Poppins, sans-serif",
                 fontWeight: 600,
-                marginTop: "12px",
               }}
             >
-              Continue to Payment
+              Continue to Checkout
             </Button>
           </form>
         </div>
