@@ -85,7 +85,7 @@ export function ContributePage() {
             className="text-2xl text-[#000000] mb-2 text-center"
             style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
           >
-            Choose Your Contribution
+            Please Contribute Generously
           </h2>
           <p
             className="text-[#858E80] text-sm mb-6 text-center"
