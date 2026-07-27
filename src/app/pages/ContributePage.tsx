@@ -28,8 +28,9 @@ export function ContributePage() {
     kitPrices.explorer * explorerKitQty +
     kitPrices.changemaker * changemakerKitQty;
 
+  // Updated: Changemaker kit now impacts 3 students instead of 5
   const calculateStudentsImpacted = () =>
-    explorerKitQty * 1 + changemakerKitQty * 5;
+    explorerKitQty * 1 + changemakerKitQty * 1;
 
   const handleCheckout = (e: React.FormEvent) => {
     e.preventDefault();
@@ -190,7 +191,7 @@ export function ContributePage() {
                     <button
                       type="button"
                       onClick={() => setInfoModalKit("changemaker")}
-                      className="w-8 h-8 rounded-full bg-[#20593a] text-white hover:bg-white hover:text-[#072d2d] transition-colors duration-200 shadow-sm border border-[#072d2d]/10 flex items-center justify-center active:scale-95 shrink-0 cursor-pointer"
+                      className="w-8 h-8 rounded-full bg-[#20593a] text-white hover:bg-[#072d2d] transition-colors duration-200 shadow-sm border border-[#072d2d]/10 flex items-center justify-center active:scale-95 shrink-0 cursor-pointer"
                       title="Kit details"
                       aria-label="View Changemaker Kit info"
                     >
