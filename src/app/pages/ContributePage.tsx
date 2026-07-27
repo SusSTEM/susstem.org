@@ -97,12 +97,12 @@ export function ContributePage() {
                       className="text-[#000000] font-semibold text-base sm:text-lg"
                       style={{ fontFamily: "Poppins, sans-serif" }}
                     >
-                      Explorer Kit
+                      Level 1: Explorer Kit
                     </h4>
                     <button
                       type="button"
                       onClick={() => setInfoModalKit("explorer")}
-                      className="w-8 h-8 rounded-full bg-white text-[#072d2d] hover:bg-[#20593a] hover:text-white transition-colors duration-200 shadow-sm border border-[#072d2d]/10 flex items-center justify-center active:scale-95 shrink-0 cursor-pointer"
+                      className="w-8 h-8 rounded-full bg-[#20593a] text-white hover:bg-white hover:text-[#072d2d] transition-colors duration-200 shadow-sm border border-[#072d2d]/10 flex items-center justify-center active:scale-95 shrink-0 cursor-pointer"
                       title="Kit details"
                       aria-label="View Explorer Kit info"
                     >
@@ -185,12 +185,12 @@ export function ContributePage() {
                       className="text-[#000000] font-semibold text-base sm:text-lg"
                       style={{ fontFamily: "Poppins, sans-serif" }}
                     >
-                      Changemaker Kit
+                      Level 2: Changemaker Kit
                     </h4>
                     <button
                       type="button"
                       onClick={() => setInfoModalKit("changemaker")}
-                      className="w-8 h-8 rounded-full bg-white text-[#072d2d] hover:bg-[#20593a] hover:text-white transition-colors duration-200 shadow-sm border border-[#072d2d]/10 flex items-center justify-center active:scale-95 shrink-0 cursor-pointer"
+                      className="w-8 h-8 rounded-full bg-[#20593a] text-white hover:bg-white hover:text-[#072d2d] transition-colors duration-200 shadow-sm border border-[#072d2d]/10 flex items-center justify-center active:scale-95 shrink-0 cursor-pointer"
                       title="Kit details"
                       aria-label="View Changemaker Kit info"
                     >
