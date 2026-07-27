@@ -38,8 +38,8 @@ export function ContributePage() {
       return;
     }
 
-    // Dummy checkout URL redirect
-    window.location.href = "https://www.zenstores.shop/products/bluetooth-controlled-car/2064485000004265149";
+    const checkoutUrl = "https://www.zenstores.shop/products/bluetooth-controlled-car/2064485000004265149";
+    window.location.href = checkoutUrl;
   };
 
   return (
@@ -105,7 +105,6 @@ export function ContributePage() {
                     >
                       Explorer Kit
                     </h4>
-                    {/* Lucide Info Button */}
                     <button
                       type="button"
                       onClick={() => setInfoModalKit("explorer")}
@@ -120,17 +119,17 @@ export function ContributePage() {
                     className="text-[#20593A] font-bold text-lg sm:text-xl ml-auto"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
-                    {kitPrices.explorer} د.إ
+                    {kitPrices.explorer} AED
                   </span>
                 </div>
                 <p
                   className="text-[#072d2d] text-xs mb-2"
                   style={{ fontFamily: "Inter, sans-serif" }}
                 >
-                  Introductory electronics & environmental sensors to teach students the fundamentals of STEM and sustainability.
+                  Introductory environmental sensors and microcontroller to teach students fundamental STEM & climate concepts.
                 </p>
 
-                {/* Image Container with Click-to-Expand */}
+                {/* Image Container */}
                 <div className="flex justify-center my-3 sm:my-4">
                   <div 
                     onClick={() => setSelectedImage("/images/SusSTEM Level 1 Kit Mockup.png")}
@@ -155,13 +154,7 @@ export function ContributePage() {
                     <div className="flex items-center gap-2 rounded-full border border-[#dbe4d3] bg-white p-1">
                       <button
                         type="button"
-                        onClick={() =>
-                          updateKitQuantity(
-                            setExplorerKitQty,
-                            explorerKitQty,
-                            -1
-                          )
-                        }
+                        onClick={() => updateKitQuantity(setExplorerKitQty, explorerKitQty, -1)}
                         className="w-8 h-8 rounded-full bg-[#eff2e7] text-sm sm:text-base font-semibold text-[#20593A] hover:bg-[#dbe4d3] active:scale-95 transition-transform cursor-pointer"
                       >
                         −
@@ -174,13 +167,7 @@ export function ContributePage() {
                       </span>
                       <button
                         type="button"
-                        onClick={() =>
-                          updateKitQuantity(
-                            setExplorerKitQty,
-                            explorerKitQty,
-                            1
-                          )
-                        }
+                        onClick={() => updateKitQuantity(setExplorerKitQty, explorerKitQty, 1)}
                         className="w-8 h-8 rounded-full bg-[#20593A] text-sm sm:text-base font-semibold text-white hover:bg-[#072d2d] active:scale-95 transition-transform cursor-pointer"
                       >
                         +
@@ -191,7 +178,7 @@ export function ContributePage() {
                     className="text-[#20593A] font-semibold text-xs sm:text-sm"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
-                    Total: {kitPrices.explorer * explorerKitQty} د.إ
+                    Total: {kitPrices.explorer * explorerKitQty} AED
                   </span>
                 </div>
               </div>
@@ -206,7 +193,6 @@ export function ContributePage() {
                     >
                       Changemaker Kit
                     </h4>
-                    {/* Lucide Info Button */}
                     <button
                       type="button"
                       onClick={() => setInfoModalKit("changemaker")}
@@ -221,17 +207,17 @@ export function ContributePage() {
                     className="text-[#20593A] font-bold text-lg sm:text-xl ml-auto"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
-                    {kitPrices.changemaker} د.إ
+                    {kitPrices.changemaker} AED
                   </span>
                 </div>
                 <p
                   className="text-[#072d2d] text-xs mb-2"
                   style={{ fontFamily: "Inter, sans-serif" }}
                 >
-                  Advanced team kit, designed for applying their STEM skills to solve real-world sustainability challenges in their community.
+                  Advanced team kit featuring solar power, IoT monitoring, and automated irrigation for local environmental projects.
                 </p>
 
-                {/* Image Container with Click-to-Expand */}
+                {/* Image Container */}
                 <div className="flex justify-center my-3 sm:my-4">
                   <div 
                     onClick={() => setSelectedImage("/images/Chnagemaker Kit Mockup.png")}
@@ -256,13 +242,7 @@ export function ContributePage() {
                     <div className="flex items-center gap-2 rounded-full border border-[#dbe4d3] bg-white p-1">
                       <button
                         type="button"
-                        onClick={() =>
-                          updateKitQuantity(
-                            setChangemakerKitQty,
-                            changemakerKitQty,
-                            -1
-                          )
-                        }
+                        onClick={() => updateKitQuantity(setChangemakerKitQty, changemakerKitQty, -1)}
                         className="w-8 h-8 rounded-full bg-[#eff2e7] text-sm sm:text-base font-semibold text-[#20593A] hover:bg-[#dbe4d3] active:scale-95 transition-transform cursor-pointer"
                       >
                         −
@@ -275,13 +255,7 @@ export function ContributePage() {
                       </span>
                       <button
                         type="button"
-                        onClick={() =>
-                          updateKitQuantity(
-                            setChangemakerKitQty,
-                            changemakerKitQty,
-                            1
-                          )
-                        }
+                        onClick={() => updateKitQuantity(setChangemakerKitQty, changemakerKitQty, 1)}
                         className="w-8 h-8 rounded-full bg-[#20593A] text-sm sm:text-base font-semibold text-white hover:bg-[#072d2d] active:scale-95 transition-transform cursor-pointer"
                       >
                         +
@@ -292,7 +266,7 @@ export function ContributePage() {
                     className="text-[#20593A] font-semibold text-xs sm:text-sm"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
-                    Total: {kitPrices.changemaker * changemakerKitQty} د.إ
+                    Total: {kitPrices.changemaker * changemakerKitQty} AED
                   </span>
                 </div>
               </div>
@@ -300,41 +274,23 @@ export function ContributePage() {
 
             {/* Impact Counter */}
             <div className="bg-[#a4ff7b]/20 border border-[#a4ff7b] rounded-2xl p-4 text-center mt-5">
-              <p
-                className="text-[#072d2d] text-xs font-semibold mb-0.5"
-                style={{ fontFamily: "Poppins, sans-serif" }}
-              >
+              <p className="text-[#072d2d] text-xs font-semibold mb-0.5" style={{ fontFamily: "Poppins, sans-serif" }}>
                 Your Impact
               </p>
-              <p
-                className="text-[#20593A] font-bold"
-                style={{
-                  fontFamily: "Poppins, sans-serif",
-                  fontSize: "32px",
-                }}
-              >
+              <p className="text-[#20593A] font-bold" style={{ fontFamily: "Poppins, sans-serif", fontSize: "32px" }}>
                 {calculateStudentsImpacted()}
               </p>
-              <p
-                className="text-[#072d2d] text-xs"
-                style={{ fontFamily: "Inter, sans-serif" }}
-              >
+              <p className="text-[#072d2d] text-xs" style={{ fontFamily: "Inter, sans-serif" }}>
                 students empowered with STEM education
               </p>
             </div>
 
             {/* Total Summary */}
             <div className="rounded-2xl bg-[#eff2e7] p-4 border border-[#dbe4d3]">
-              <div
-                className="flex items-center justify-between text-sm text-[#072d2d]"
-                style={{ fontFamily: "Inter, sans-serif" }}
-              >
+              <div className="flex items-center justify-between text-sm text-[#072d2d]" style={{ fontFamily: "Inter, sans-serif" }}>
                 <span className="font-medium">Estimated total</span>
-                <span
-                  className="font-bold text-[#20593A] text-xl"
-                  style={{ fontFamily: "Poppins, sans-serif" }}
-                >
-                  {totalContribution} د.إ
+                <span className="font-bold text-[#20593A] text-xl" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  {totalContribution} AED
                 </span>
               </div>
             </div>
@@ -343,9 +299,7 @@ export function ContributePage() {
             <Button
               type="submit"
               className="w-full bg-[#20593A] hover:bg-[#072d2d] text-white text-lg sm:text-xl font-bold py-4 sm:py-5 rounded-2xl shadow-md hover:shadow-xl hover:shadow-[#20593A]/25 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer"
-              style={{
-                fontFamily: "Poppins, sans-serif",
-              }}
+              style={{ fontFamily: "Poppins, sans-serif" }}
             >
               <span>Continue</span>
               <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -376,7 +330,7 @@ export function ContributePage() {
         </div>
       )}
 
-      {/* Enhanced Kit Info Modal */}
+      {/* Clean Component BOM Modal */}
       {infoModalKit && (
         <div 
           onClick={() => setInfoModalKit(null)}
@@ -384,84 +338,137 @@ export function ContributePage() {
         >
           <div 
             onClick={(e) => e.stopPropagation()} 
-            className="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100 relative"
+            className="bg-white rounded-3xl p-6 max-w-md w-full shadow-2xl border border-gray-100 relative max-h-[90vh] flex flex-col"
           >
             <button
               onClick={() => setInfoModalKit(null)}
-              className="absolute top-5 right-5 text-gray-400 hover:text-gray-600 transition-colors p-2 rounded-full active:bg-gray-100 cursor-pointer"
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-all p-2 rounded-full cursor-pointer z-10"
             >
               <X className="w-5 h-5" />
             </button>
             
-            {infoModalKit === "explorer" ? (
-              <div>
-                <div className="flex items-center justify-between mb-3 pr-8">
-                  <h3 className="text-xl font-bold text-[#072d2d]" style={{ fontFamily: "Poppins, sans-serif" }}>
-                    Explorer Kit Details
-                  </h3>
-                  <span className="bg-[#a2bb65]/30 text-[#20593a] text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
-                    Solo Learner
-                  </span>
-                </div>
-                <p className="text-sm text-gray-600 mb-5 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
-                  Designed for individual students entering electronics, programming, and environmental monitoring.
-                </p>
-                <ul className="text-sm text-[#072d2d] space-y-3 font-medium">
-                  <li className="flex items-start gap-2.5">
-                    <Check className="w-5 h-5 text-[#20593a] shrink-0 mt-0.5" />
-                    <span>Arduino Uno microcontroller unit</span>
+            <h3 className="text-xl font-bold text-[#072d2d] mb-4 pr-8 shrink-0" style={{ fontFamily: "Poppins, sans-serif" }}>
+              {infoModalKit === "explorer" ? "Explorer Kit BOM (100 AED)" : "Changemaker Kit BOM (250 AED)"}
+            </h3>
+
+            <div className="overflow-y-auto pr-1">
+              {infoModalKit === "explorer" ? (
+                <ul className="text-sm text-[#072d2d] space-y-2.5 font-medium">
+                  <li className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-[#20593a] shrink-0" />
+                      <span>Arduino UNO Board</span>
+                    </span>
+                    <span className="font-semibold text-[#20593a] text-xs">1 pc</span>
                   </li>
-                  <li className="flex items-start gap-2.5">
-                    <Check className="w-5 h-5 text-[#20593a] shrink-0 mt-0.5" />
-                    <span>Basic breadboard & jumper wires</span>
+                  <li className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-[#20593a] shrink-0" />
+                      <span>DHT11 Temp & Humidity Sensor</span>
+                    </span>
+                    <span className="font-semibold text-[#20593a] text-xs">1 pc</span>
                   </li>
-                  <li className="flex items-start gap-2.5">
-                    <Check className="w-5 h-5 text-[#20593a] shrink-0 mt-0.5" />
-                    <span>Environmental sensors (Temp & Soil Moisture)</span>
+                  <li className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-[#20593a] shrink-0" />
+                      <span>Soil Moisture Sensor</span>
+                    </span>
+                    <span className="font-semibold text-[#20593a] text-xs">1 pc</span>
                   </li>
-                  <li className="flex items-start gap-2.5">
-                    <Check className="w-5 h-5 text-[#20593a] shrink-0 mt-0.5" />
-                    <span>Step-by-step beginner workbook</span>
+                  <li className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-[#20593a] shrink-0" />
+                      <span>LDR Light Sensor</span>
+                    </span>
+                    <span className="font-semibold text-[#20593a] text-xs">1 pc</span>
                   </li>
-                </ul>
-              </div>
-            ) : (
-              <div>
-                <div className="flex items-center justify-between mb-3 pr-8">
-                  <h3 className="text-xl font-bold text-[#072d2d]" style={{ fontFamily: "Poppins, sans-serif" }}>
-                    Changemaker Kit Details
-                  </h3>
-                  <span className="bg-[#a4ff7b]/30 text-[#20593a] text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
-                    Team Edition
-                  </span>
-                </div>
-                <p className="text-sm text-gray-600 mb-5 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
-                  Built for teams of 5 students working on collaborative, real-world sustainability projects.
-                </p>
-                <ul className="text-sm text-[#072d2d] space-y-3 font-medium">
-                  <li className="flex items-start gap-2.5">
-                    <Check className="w-5 h-5 text-[#20593a] shrink-0 mt-0.5" />
-                    <span>Serves up to 5 students simultaneously</span>
+                  <li className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-[#20593a] shrink-0" />
+                      <span>LED Indicators & Buzzer Alarm</span>
+                    </span>
+                    <span className="font-semibold text-[#20593a] text-xs">1 set</span>
                   </li>
-                  <li className="flex items-start gap-2.5">
-                    <Check className="w-5 h-5 text-[#20593a] shrink-0 mt-0.5" />
-                    <span>Advanced sensors & actuators</span>
+                  <li className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-[#20593a] shrink-0" />
+                      <span>Mini Breadboard & Jumper Wires</span>
+                    </span>
+                    <span className="font-semibold text-[#20593a] text-xs">1 set</span>
                   </li>
-                  <li className="flex items-start gap-2.5">
-                    <Check className="w-5 h-5 text-[#20593a] shrink-0 mt-0.5" />
-                    <span>Prototyping components & power supplies</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <Check className="w-5 h-5 text-[#20593a] shrink-0 mt-0.5" />
-                    <span>Full team challenge handbook & guide</span>
+                  <li className="flex items-center justify-between pb-1">
+                    <span className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-[#20593a] shrink-0" />
+                      <span>USB Programming Cable</span>
+                    </span>
+                    <span className="font-semibold text-[#20593a] text-xs">1 pc</span>
                   </li>
                 </ul>
-              </div>
-            )}
+              ) : (
+                <ul className="text-sm text-[#072d2d] space-y-2.5 font-medium">
+                  <li className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-[#20593a] shrink-0" />
+                      <span>ESP32 Wi-Fi / Bluetooth Board</span>
+                    </span>
+                    <span className="font-semibold text-[#20593a] text-xs">1 pc</span>
+                  </li>
+                  <li className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-[#20593a] shrink-0" />
+                      <span>5V Solar Panel + Charge Controller</span>
+                    </span>
+                    <span className="font-semibold text-[#20593a] text-xs">1 set</span>
+                  </li>
+                  <li className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-[#20593a] shrink-0" />
+                      <span>TDS Water Quality & Salinity Sensor</span>
+                    </span>
+                    <span className="font-semibold text-[#20593a] text-xs">1 pc</span>
+                  </li>
+                  <li className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-[#20593a] shrink-0" />
+                      <span>Capacitive Soil Moisture Sensor</span>
+                    </span>
+                    <span className="font-semibold text-[#20593a] text-xs">1 pc</span>
+                  </li>
+                  <li className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-[#20593a] shrink-0" />
+                      <span>5V Submersible Water Pump + Tubing</span>
+                    </span>
+                    <span className="font-semibold text-[#20593a] text-xs">1 set</span>
+                  </li>
+                  <li className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-[#20593a] shrink-0" />
+                      <span>16x2 I2C Screen Display</span>
+                    </span>
+                    <span className="font-semibold text-[#20593a] text-xs">1 pc</span>
+                  </li>
+                  <li className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-[#20593a] shrink-0" />
+                      <span>5V Relay Switch Module</span>
+                    </span>
+                    <span className="font-semibold text-[#20593a] text-xs">1 pc</span>
+                  </li>
+                  <li className="flex items-center justify-between pb-1">
+                    <span className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-[#20593a] shrink-0" />
+                      <span>Breadboard & Assorted Jumper Wires</span>
+                    </span>
+                    <span className="font-semibold text-[#20593a] text-xs">1 set</span>
+                  </li>
+                </ul>
+              )}
+            </div>
             
             <Button
               onClick={() => setInfoModalKit(null)}
-              className="w-full mt-6 bg-[#20593A] hover:bg-[#072d2d] text-white py-3 rounded-xl active:scale-95 transition-transform cursor-pointer"
+              className="w-full mt-6 bg-[#20593A] hover:bg-[#072d2d] text-white font-semibold py-3 rounded-xl shadow-md active:scale-95 transition-all cursor-pointer shrink-0"
               style={{ fontFamily: "Poppins, sans-serif" }}
             >
               Got it
