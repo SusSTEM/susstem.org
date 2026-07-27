@@ -185,7 +185,7 @@ export function Navbar({ onNavigate }: NavbarProps) {
           {/* Donate/Contribute Button */}
           <div className="hidden md:block flex-shrink-0">
             <Button 
-              className="bg-[#a4ff7b] hover:bg-[#072d2d] text-[#072d2d] hover:text-white px-10 py-4 rounded-2xl transition-colors font-bold font-[Poppins,sans-serif] text-lg"
+              className="bg-[#ffd459] hover:bg-[#072d2d] text-[#072d2d] hover:text-white px-10 py-4 rounded-2xl transition-colors font-bold font-[Poppins,sans-serif] text-lg"
               onClick={() => handleNavigate('contribute')}
             >
               Contribute

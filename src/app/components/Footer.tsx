@@ -30,7 +30,7 @@ export function Footer({ onNavigate }: FooterProps) {
             >
               About SusSTEM
             </h3>
-            <p className="text-white/80 leading-relaxed">
+            <p className="text-[#a4ff7b] leading-relaxed">
               'SusSTEM' is a youth‑led initiative that uses hands‑on STEM projects to teach sustainability to students, especially in under‑resourced or rural communities with the support of volunteers and your contributions. 
             </p>
           </div>

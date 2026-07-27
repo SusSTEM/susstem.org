@@ -55,14 +55,6 @@ export function ContributePage() {
         }}
       >
         <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-block bg-[#a4ff7b]/20 border border-[#a4ff7b]/40 rounded-full px-5 py-2 mb-4">
-            <span
-              className="text-[#a4ff7b] text-sm font-semibold"
-              style={{ fontFamily: "Poppins, sans-serif" }}
-            >
-              Make a Contribution
-            </span>
-          </div>
           <h1
             className="text-3xl md:text-4xl mb-3 leading-tight"
             style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
@@ -85,11 +77,11 @@ export function ContributePage() {
             className="text-2xl text-[#000000] mb-2 text-center"
             style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
           >
-            Please Contribute Generously
+            Please Contribute Generously!
           </h2>
           <p
-            className="text-[#858E80] text-sm mb-6 text-center"
-            style={{ fontFamily: "Inter, sans-serif" }}
+            className="text-[#072d2d] text-base mb-6 text-center"
+            style={{ fontFamily: "Poppins, sans-serif" }}
           >
             Select learning kits to support STEM education for students in need.
           </p>
@@ -125,8 +117,8 @@ export function ContributePage() {
                   </span>
                 </div>
                 <p
-                  className="text-[#072d2d] text-xs mb-2"
-                  style={{ fontFamily: "Inter, sans-serif" }}
+                  className="text-[#072d2d] text-sm mb-2"
+                  style={{ fontFamily: "Poppins, sans-serif" }}
                 >
                   Introductory environmental sensors and microcontroller to teach students fundamental STEM & climate concepts.
                 </p>
@@ -213,8 +205,8 @@ export function ContributePage() {
                   </span>
                 </div>
                 <p
-                  className="text-[#072d2d] text-xs mb-2"
-                  style={{ fontFamily: "Inter, sans-serif" }}
+                  className="text-[#072d2d] text-sm mb-2"
+                  style={{ fontFamily: "Poppins, sans-serif" }}
                 >
                   Advanced team kit featuring solar power, IoT monitoring, and automated irrigation for local environmental projects.
                 </p>
@@ -275,21 +267,21 @@ export function ContributePage() {
             </div>
 
             {/* Impact Counter */}
-            <div className="bg-[#a4ff7b]/20 border border-[#a4ff7b] rounded-2xl p-4 text-center mt-5">
+            <div className="bg-[#bcb0fa]/80 border border-[#4632C4] rounded-2xl p-4 text-center mt-5">
               <p className="text-[#072d2d] text-xs font-semibold mb-0.5" style={{ fontFamily: "Poppins, sans-serif" }}>
                 Your Impact
               </p>
-              <p className="text-[#20593A] font-bold" style={{ fontFamily: "Poppins, sans-serif", fontSize: "32px" }}>
+              <p className="text-[#072d2d] font-bold" style={{ fontFamily: "Poppins, sans-serif", fontSize: "32px" }}>
                 {calculateStudentsImpacted()}
               </p>
-              <p className="text-[#072d2d] text-xs" style={{ fontFamily: "Inter, sans-serif" }}>
+              <p className="text-[#072d2d] text-xs" style={{ fontFamily: "Poppins, sans-serif" }}>
                 students empowered with STEM education
               </p>
             </div>
 
             {/* Total Summary */}
             <div className="rounded-2xl bg-[#eff2e7] p-4 border border-[#dbe4d3]">
-              <div className="flex items-center justify-between text-sm text-[#072d2d]" style={{ fontFamily: "Inter, sans-serif" }}>
+              <div className="flex items-center justify-between text-sm text-[#072d2d]" style={{ fontFamily: "Poppins, sans-serif" }}>
                 <span className="font-medium">Estimated total</span>
                 <span className="font-bold text-[#20593A] text-xl" style={{ fontFamily: "Poppins, sans-serif" }}>
                   {totalContribution} AED
