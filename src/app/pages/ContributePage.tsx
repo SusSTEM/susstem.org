@@ -39,7 +39,9 @@ export function ContributePage() {
     }
 
     const checkoutUrl = "https://www.zenstores.shop/products/bluetooth-controlled-car/2064485000004265149";
-    window.location.href = checkoutUrl;
+    
+    // Opens in a separate tab
+    window.open(checkoutUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -330,7 +332,7 @@ export function ContributePage() {
         </div>
       )}
 
-      {/* Clean Component BOM Modal */}
+      {/* Component BOM Modal */}
       {infoModalKit && (
         <div 
           onClick={() => setInfoModalKit(null)}
