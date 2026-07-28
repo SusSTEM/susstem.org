@@ -28,7 +28,7 @@ export default function WhatIsSusSTEM() {
               <strong className="font-bold text-white">free STEM education</strong> to students in under-resourced communities.
             </p>
             <p className="font-normal">
-              We offer completely free, online STEM education through 2 levels of hands-on projects, <strong className="font-bold text-white">secondary school students aged 11-18</strong> learn to build real-world solutions that make a difference in their communities and beyond.
+              We offer <strong className="font-bold text-white">completely free, online STEM courses</strong> with 2 levels of hands-on projects, where <strong className="font-bold text-white">secondary school students aged 11-18</strong> learn to build real-world solutions that make a difference in their communities and beyond.
             </p>
           </div>
         </div>
