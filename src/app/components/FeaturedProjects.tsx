@@ -10,18 +10,6 @@ interface FeaturedProjectsProps {
 
 const SHOW_INNOVATOR = false;
 
-/**
- * Featured Projects Section (The Programme)
- *
- * Navigation Behavior:
- * - "Learn More" buttons → Navigate to project detail pages (state change, same tab)
- *   - Level 1: Explorer → Air Alert project page
- *   - Level 2: Changemaker → Changemaker page
- *
- * The Innovator card is kept behind a flag so it can be restored without rewriting the layout.
- *
- * Displays three progressive curriculum levels with responsive carousel on mobile.
- */
 export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -31,8 +19,7 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
       title: "Explorer: Ages 11-14",
       description:
         "Introduction to SusSTEM and our approach to integrating STEM with sustainability and science. Students will learn the fundamentals of electronics using Arduino, along with Python programming and AI, and apply their knowledge to real-world sustainability challenges.",
-      image:
-        "/images/arduinouno.jpeg",
+      image: "/images/arduinouno.jpeg",
       link: "air-alert",
     },
     ...(SHOW_INNOVATOR
@@ -42,8 +29,7 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
             title: "Innovator: Ages 11-18",
             description:
               "Level 2 is where students will use what they've learned about sensors, circuits, and Arduino to build devices that solve real sustainability problems that affect their community.",
-            image:
-              "/images/arduinocar.jpeg",
+            image: "/images/arduinocar.jpeg",
             link: "innovator",
           },
         ]
@@ -53,8 +39,7 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
       title: "Changemaker: Ages 14-18",
       description:
         "Level 2 is where students form teams of three and choose one of four environmental challenges. Building on the fundamentals from Level 1, they advance their STEM skills to research, design and work together as a team to build creative, practical solutions for real, meaningful community impact.",
-      image:
-        "/images/groupofarduinostudents.jpg",
+      image: "/images/groupofarduinostudents.jpg",
       link: "changemaker",
     },
   ];
@@ -78,7 +63,7 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
   };
 
   return (
-    <section className="bg-[#eff2e7] py-12 md:py-24" id="projects">
+    <section className="bg-[#eff2e7] pt-24 pb-12 md:pt-28 md:pb-24" id="projects">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2
