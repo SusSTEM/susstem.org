@@ -27,7 +27,7 @@ export function CTASection({ onNavigate }: CTASectionProps) {
           style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
         >
           Join our mission to 
-          Empower Tomorrow's Changemakers.
+          nurture tomorrow's changemakers.
         </h2>
         <p className="text-white/90 text-lg md:text-xl mb-8 max-w-3xl mx-auto">
           Whether you're a student, an educator, organization, or passionate individual,
