@@ -56,7 +56,7 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
                 <span className="text-[#072d2d]">Level 1</span> Overview
               </h2>
               <p className="text-[#000000] text-sm sm:text-base md:text-lg leading-relaxed">
-                Level 1 introduces young explorers to the fundamentals of electronics and basic sensor technology. Students build confidence through hands-on experiments, learning how simple components can interact to form functional circuits. The emphasis is on creativity and discovery, helping learners connect classroom concepts to real-world applications.
+                Level 1 introduces young explorers to the fundamentals of AI, Machine Learning, Python Coding, Electronics and basic sensor technology. Students build confidence through hands-on experiments, learning how simple components can interact to form functional circuits. The emphasis is on creativity, collaboration and discovery, helping learners connect classroom concepts to real-world applications.
               </p>
               <div className="flex justify-center items-center mt-8">
               <Button 
