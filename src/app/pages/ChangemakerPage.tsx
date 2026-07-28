@@ -146,7 +146,7 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
                   <p className="text-[#072d2d]">Flags changing conditions so students and communities know when to watch the system more closely.</p>
                 </div>
               </div>
-              <div className="bg-[#ff9b69] p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-start gap-4">
+              <div className="bg-[#ff0000]/40 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-start gap-4">
                 <div className="w-12 h-12 bg-transparent rounded-full flex items-center justify-center flex-shrink-0">
                   <AlertCircle className="w-7 h-7 text-white" />
                 </div>

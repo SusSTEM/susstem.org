@@ -136,7 +136,7 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
                   <p className="text-[#072d2d]">Caution advised - gas levels are elevated</p>
                 </div>
               </div>
-              <div className="bg-[#ff9b69e7] p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-start gap-4">
+              <div className="bg-[#ff0000]/40 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-start gap-4">
                 <div className="w-12 h-12 bg-transparent rounded-full flex items-center justify-center flex-shrink-0">
                   <X className="w-7 h-7 text-white" />
                 </div>
