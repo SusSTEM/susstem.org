@@ -46,7 +46,7 @@ export function ContributePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC]">
+    <div className="min-h-screen bg-[#eff2e7]">
       {/* Hero */}
       <div
         className="text-white py-16 px-6"
