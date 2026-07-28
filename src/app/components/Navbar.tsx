@@ -269,7 +269,7 @@ export function Navbar({ onNavigate }: NavbarProps) {
               Contact
             </button>
             <Button 
-              className="bg-[#a4ff7b] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition shadow-xl hover:shadow-2xl hover:scale-105"
+              className="bg-[#ffd459] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-10 py-7 rounded-2xl transition shadow-xl hover:shadow-2xl hover:scale-105"
               onClick={() => handleNavigate('contribute')}
             >
               Contribute
