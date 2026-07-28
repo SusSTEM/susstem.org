@@ -5,43 +5,40 @@ export default function WhatIsSusSTEM() {
   return (
     <section id="what-is-susstem">
       {/* 1. TOP BLOCK: Dark Green Hero Container (#20593A) */}
-      <div className="bg-[#20593A] text-white py-14 md:py-20 px-6">
+      <div className="bg-[#20593A] text-white pt-14 pb-20 md:pt-20 md:pb-28 px-6">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl text-white"
-            style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+            className="text-3xl md:text-4xl lg:text-5xl text-white font-bold"
+            style={{ fontFamily: "Poppins, sans-serif" }}
           >
             What is SusSTEM?
           </h2>
 
           <p className="text-2xl md:text-3xl leading-relaxed tracking-wide">
             <span className="font-bold text-white">SusSTEM</span>
-            <span className="font-semibold text-white/80">{" = "}</span>
+            <span className="font-semibold text-white">{" = "}</span>
             <span className="font-semibold text-white">Sustainability</span>
-            <span className="font-semibold text-white/80">{" + "}</span>
-            <span className="font-bold text-[#a2bb65]">S.T.E.M</span>
+            <span className="font-semibold text-white">{" + "}</span>
+            <span className="font-bold text-white">S.T.E.M</span>
           </p>
 
-          <div className="max-w-2xl mx-auto space-y-4 text-white/90 text-lg md:text-xl leading-relaxed">
-            <p>
-              <strong className="text-white">SusSTEM</strong> is a Not-For-Profit Organisation empowered to offer{" "}
-              <strong className="text-[#a2bb65]">free STEM education</strong> to students in under-resourced communities.
+          <div className="max-w-3xl mx-auto space-y-4 text-white text-lg md:text-xl leading-relaxed">
+            <p className="font-normal">
+              <strong className="font-bold text-white">SusSTEM</strong> is a Not-For-Profit Organisation empowered to offer{" "}
+              <strong className="font-bold text-white">free STEM education</strong> to students in under-resourced communities.
             </p>
-            <p>
-              Through 2 levels of hands-on projects, <strong className="text-white">secondary school students aged 11-18</strong> learn to build real-world solutions that make a difference in their communities and beyond.
-            </p>
-            <p className="italic text-[#a2bb65] font-medium pt-2">
-              'SusSTEM inspires the next generation of sustainable innovators through S.T.E.M'
+            <p className="font-normal">
+              We offer completely free, online STEM education through 2 levels of hands-on projects, <strong className="font-bold text-white">secondary school students aged 11-18</strong> learn to build real-world solutions that make a difference in their communities and beyond.
             </p>
           </div>
         </div>
       </div>
 
       {/* 2. BOTTOM BLOCK: White Background containing Founder Story FIRST, then Pillars */}
-      <div className="bg-white py-12 md:py-20 px-6">
+      <div className="bg-white pt-24 pb-12 md:pb-20 px-6">
         <div className="max-w-5xl mx-auto space-y-16">
           
-          {/* Founder Quote Card (NOW ON TOP) */}
+          {/* Founder Quote Card */}
           <div className="max-w-5xl mx-auto rounded-2xl bg-[#a2bb65] px-6 md:px-10 py-8 md:py-10 shadow-[6px_6px_20px_rgba(0,0,0,0.15)] hover:shadow-[8px_8px_24px_rgba(0,0,0,0.3)] hover:scale-[1.02] transition-all duration-300 ease-out">
             <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10">
               {/* Photo */}
@@ -82,7 +79,7 @@ export default function WhatIsSusSTEM() {
             </div>
           </div>
 
-          {/* Core Values Cards & Paragraph (NOW UNDERNEATH) */}
+          {/* Core Values Cards & Paragraph */}
           <div className="flex flex-col items-center space-y-8">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-3xl">
               <div className="flex flex-col items-center text-center space-y-4 p-6 rounded-2xl bg-[#e1e4d8] hover:shadow-lg transition-shadow">
