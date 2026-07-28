@@ -28,6 +28,7 @@ export function Testimonials() {
     "WASTEless",
     "Arduino",
     "Code.org",
+    "Zenstore",
   ];
 
   return (
