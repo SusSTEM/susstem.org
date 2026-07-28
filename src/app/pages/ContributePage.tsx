@@ -312,7 +312,7 @@ export function ContributePage() {
                 1st career experiential store, for handling direct
                 delivery of kits to students and schools. By clicking{" "}
                 <span className="font-semibold text-[#20593A]">Continue</span> you will
-                be redirected to their secure payment processing platform to complete your transaction. A reciept shall be emailed upon completion
+                be redirected to their secure payment processing platform(zenstore.shop)to complete your transaction. A reciept shall be emailed upon completion
               </p>
             </div>
 
