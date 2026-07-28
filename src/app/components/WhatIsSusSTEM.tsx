@@ -3,49 +3,94 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export default function WhatIsSusSTEM() {
   return (
-    <section className="bg-white py-12 md:py-24" id="what-is-susstem">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Top: main two-column layout */}
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left - Text Content */}
-          <div className="space-y-6">
-            <h2
-              className="text-[#000000] text-3xl md:text-4xl lg:text-5xl"
-              style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
-            >
-              What is SusSTEM?
-            </h2>
+    <section id="what-is-susstem">
+      {/* 1. TOP BLOCK: Dark Green Hero Container (#20593A) */}
+      <div className="bg-[#20593A] text-white py-14 md:py-20 px-6">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h2
+            className="text-3xl md:text-4xl lg:text-5xl text-white"
+            style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+          >
+            What is SusSTEM?
+          </h2>
 
-            <p className="text-2xl leading-relaxed">
-              <span className="font-semibold text-[#20593A]">SusSTEM</span>
-              <span className="font-semibold text-[#072d2d]">{" = "}</span>
-              <span className="font-semibold text-[#072d2d]">Sustainability</span>
-              <span className="font-semibold text-[#072d2d]">{" + "}</span>
-              <span className="font-semibold text-[#a2bb65]">S.T.E.M</span>
-            </p>
+          <p className="text-2xl md:text-3xl leading-relaxed tracking-wide">
+            <span className="font-bold text-white">SusSTEM</span>
+            <span className="font-semibold text-white/80">{" = "}</span>
+            <span className="font-semibold text-white">Sustainability</span>
+            <span className="font-semibold text-white/80">{" + "}</span>
+            <span className="font-bold text-[#a2bb65]">S.T.E.M</span>
+          </p>
 
-            <p className="text-[#072d2d] text-lg leading-relaxed">
-              <strong>SusSTEM</strong> is a Not-For-Profit Organisation empowered to offer{" "}
-              <strong>free STEM education</strong> to students in under-resourced communities. 
+          <div className="max-w-2xl mx-auto space-y-4 text-white/90 text-lg md:text-xl leading-relaxed">
+            <p>
+              <strong className="text-white">SusSTEM</strong> is a Not-For-Profit Organisation empowered to offer{" "}
+              <strong className="text-[#a2bb65]">free STEM education</strong> to students in under-resourced communities.
             </p>
-            <p className="text-[#072d2d] text-lg leading-relaxed">
-              Through 2 levels of hands-on projects, <strong>secondary school students aged 11-18</strong> learn to build
-              real-world solutions that make a difference in their communities and beyond.
+            <p>
+              Through 2 levels of hands-on projects, <strong className="text-white">secondary school students aged 11-18</strong> learn to build real-world solutions that make a difference in their communities and beyond.
             </p>
-             <p className="text-[#072d2d] text-lg leading-relaxed">
-                '<strong>SusSTEM</strong> inspires the next generation of sustainable innovators through S.T.E.M'
+            <p className="italic text-[#a2bb65] font-medium pt-2">
+              'SusSTEM inspires the next generation of sustainable innovators through S.T.E.M'
             </p>
           </div>
+        </div>
+      </div>
 
-          {/* Right - Cards + contributions paragraph */}
+      {/* 2. BOTTOM BLOCK: White Background containing Founder Story FIRST, then Pillars */}
+      <div className="bg-white py-12 md:py-20 px-6">
+        <div className="max-w-5xl mx-auto space-y-16">
+          
+          {/* Founder Quote Card (NOW ON TOP) */}
+          <div className="max-w-5xl mx-auto rounded-2xl bg-[#a2bb65] px-6 md:px-10 py-8 md:py-10 shadow-[6px_6px_20px_rgba(0,0,0,0.15)] hover:shadow-[8px_8px_24px_rgba(0,0,0,0.3)] hover:scale-[1.02] transition-all duration-300 ease-out">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10">
+              {/* Photo */}
+              <div className="flex-shrink-0 md:mt-2">
+                <ImageWithFallback
+                  src="/images/daiviksusstemwebsitephoto.png"
+                  alt="Daivik Anand Datwani"
+                  className="w-40 h-40 md:w-48 md:h-48 rounded-2xl object-cover"
+                />
+              </div>
+
+              {/* Vertical divider */}
+              <div className="hidden md:block w-1.5 self-stretch bg-[#072d2d]/30 rounded-full" />
+
+              {/* Text + Name */}
+              <div className="text-center md:text-left space-y-4">
+                <p
+                  className="text-lg md:text-xl text-[#072d2d] leading-relaxed"
+                  style={{ fontFamily: "Poppins, sans-serif" }}
+                >
+                  What started as an extracurricular club called “WASTEless,” teaching students about waste disposal and management at school, has evolved into <strong>SusSTEM</strong>.
+                </p>
+
+                <p
+                  className="text-lg md:text-xl text-[#072d2d] leading-relaxed"
+                  style={{ fontFamily: "Poppins, sans-serif" }}
+                >
+                  <strong>SusSTEM</strong> is a passion project that unites my love for S.T.E.M with environmental protection, empowering young students to harness the power of technology to tackle sustainability challenges in their communities.
+                </p>
+
+                <p
+                  className="pt-2 text-[#072d2d] text-xl font-medium"
+                  style={{ fontFamily: "Poppins, sans-serif", fontStyle: "italic" }}
+                >
+                  <strong>Daivik Anand Datwani –</strong> Founder, CTO
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Core Values Cards & Paragraph (NOW UNDERNEATH) */}
           <div className="flex flex-col items-center space-y-8">
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-3xl">
               <div className="flex flex-col items-center text-center space-y-4 p-6 rounded-2xl bg-[#e1e4d8] hover:shadow-lg transition-shadow">
                 <div className="w-20 h-20 rounded-full bg-[#a2bb65] flex items-center justify-center">
                   <Lightbulb className="w-10 h-10 text-white" />
                 </div>
                 <p
-                  className="text-[#20593A]"
+                  className="text-[#20593A] text-lg"
                   style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
                 >
                   Innovation
@@ -57,7 +102,7 @@ export default function WhatIsSusSTEM() {
                   <Leaf className="w-10 h-10 text-white" />
                 </div>
                 <p
-                  className="text-[#20593A]"
+                  className="text-[#20593A] text-lg"
                   style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
                 >
                   Sustainability
@@ -69,7 +114,7 @@ export default function WhatIsSusSTEM() {
                   <Cpu className="w-10 h-10 text-white" />
                 </div>
                 <p
-                  className="text-[#20593A]"
+                  className="text-[#20593A] text-lg"
                   style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
                 >
                   Technology
@@ -77,55 +122,14 @@ export default function WhatIsSusSTEM() {
               </div>
             </div>
 
-            {/* Moved paragraph */}
-            <p className="text-[#072d2d] text-lg leading-relaxed text-center md:text-left">
+            <p className="text-[#072d2d] text-lg md:text-xl leading-relaxed text-center max-w-3xl">
               Your contributions fuel our mission at <strong>SusSTEM</strong> to combine Sustainable,
               Environmental practices with{" "}
               <strong>Science, Technology, Engineering, and Math (S.T.E.M)</strong> in order to inspire
-              students to  build STEM-powered, sustainable and innovative solutions to protect the planet.
+              students to build STEM-powered, sustainable and innovative solutions to protect the planet.
             </p>
           </div>
-        </div>
 
-        {/* Founder quote section under entire block */}
-        <div className="mt-16 max-w-5xl mx-auto rounded-2xl bg-[#a2bb65] px-6 md:px-10 py-8 md:py-10 shadow-[6px_6px_20px_rgba(0,0,0,0.15)] hover:shadow-[8px_8px_24px_rgba(0,0,0,0.5)]  hover:scale-105 transition-all duration-300 ease-out">
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10">
-            {/* Left: your photo */}
-            <div className="flex-shrink-0 mt-8">
-              <ImageWithFallback
-                src="/images/daiviksusstemwebsitephoto.png"
-                alt="Daivik Anand Datwani"
-                className="w-40 h-40 md:w-48 md:h-48 rounded-2xl object-cover"
-              />
-            </div>
-
-            {/* Middle: longer vertical divider */}
-            <div className="hidden md:block w-4 h-62 bg-[#072d2d]/70" />
-
-            {/* Right: text + name */}
-            <div className="text-center md:text-left">
-              <p
-                className="text-lg md:text-xl text-[#072d2d] leading-relaxed"
-                style={{ fontFamily: "Poppins, sans-serif" }}
-              >
-               What started as an extracurricular club called “WASTEless,” teaching students about waste disposal and management at school, has evolved into <strong>SusSTEM</strong>.
-              </p>
-             
-              <p
-                className="text-lg md:text-xl mt-4 text-[#072d2d] leading-relaxed"
-                style={{ fontFamily: "Poppins, sans-serif" }}
-              >
-                <strong>SusSTEM</strong> is a passion project that unites my love for S.T.E.M with environmental protection, empowering young students to harness the power of technology to tackle sustainability challenges in their communities.
-              </p>
-              <p
-                
-                className="mt-4 text-[#072d2d] text-xl leading-relaxed"
-                style={{ fontFamily: "Poppins, sans-serif", fontStyle: "italic" }}
-              >
-                 <strong>Daivik Anand Datwani –</strong> Founder, CTO
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
