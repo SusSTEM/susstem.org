@@ -309,10 +309,10 @@ export function ContributePage() {
               >
                 We are partnered with{" "}
                 <span className="font-semibold text-[#000000]">Zenstore India</span>, India's
-                1st career experiential store, for secure payment processing and direct
-                delivery of kits to students and schools. Clicking{" "}
-                <span className="font-semibold text-[#20593A]">Continue</span> will
-                redirect you to their platform to complete your transaction.
+                1st career experiential store, for handling direct
+                delivery of kits to students and schools. By clicking{" "}
+                <span className="font-semibold text-[#20593A]">Continue</span> you will
+                be redirected to their secure payment processing platform to complete your transaction.
               </p>
             </div>
 
