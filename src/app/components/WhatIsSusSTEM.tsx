@@ -4,8 +4,7 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 export default function WhatIsSusSTEM() {
   return (
     <section id="what-is-susstem">
-      {/* 1. TOP BLOCK: Dark Green Hero Container (#20593A) */}
-      <div className="bg-[#20593A] text-white pt-14 pb-20 md:pt-20 md:pb-28 px-6">
+      <div className="bg-[#20593A] text-white pt-14 pb-16 md:pt-20 md:pb-20 px-6">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <h2
             className="text-3xl md:text-4xl lg:text-5xl text-white font-bold"
@@ -34,15 +33,12 @@ export default function WhatIsSusSTEM() {
         </div>
       </div>
 
-      {/* 2. BOTTOM BLOCK: White Background containing Founder Story FIRST, then Pillars */}
-      <div className="bg-white pt-24 pb-12 md:pb-20 px-6">
+      <div className="bg-white pt-16 pb-20 px-6 relative">
         <div className="max-w-5xl mx-auto space-y-16">
           
-          {/* Founder Quote Card */}
           <div className="max-w-5xl mx-auto rounded-2xl bg-[#a2bb65] px-6 md:px-10 py-8 md:py-10 shadow-[6px_6px_20px_rgba(0,0,0,0.15)] hover:shadow-[8px_8px_24px_rgba(0,0,0,0.3)] hover:scale-[1.02] transition-all duration-300 ease-out">
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10">
-              {/* Photo */}
-              <div className="flex-shrink-0 md:mt-2">
+            <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+              <div className="flex-shrink-0">
                 <ImageWithFallback
                   src="/images/daiviksusstemwebsitephoto.png"
                   alt="Daivik Anand Datwani"
@@ -50,10 +46,8 @@ export default function WhatIsSusSTEM() {
                 />
               </div>
 
-              {/* Vertical divider */}
-              <div className="hidden md:block w-1.5 self-stretch bg-[#072d2d]/30 rounded-full" />
+              <div className="hidden md:block w-1.5 self-stretch bg-[#072d2d] rounded-full" />
 
-              {/* Text + Name */}
               <div className="text-center md:text-left space-y-4">
                 <p
                   className="text-lg md:text-xl text-[#072d2d] leading-relaxed"
@@ -79,7 +73,6 @@ export default function WhatIsSusSTEM() {
             </div>
           </div>
 
-          {/* Core Values Cards & Paragraph */}
           <div className="flex flex-col items-center space-y-8">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-3xl">
               <div className="flex flex-col items-center text-center space-y-4 p-6 rounded-2xl bg-[#e1e4d8] hover:shadow-lg transition-shadow">
@@ -127,6 +120,17 @@ export default function WhatIsSusSTEM() {
             </p>
           </div>
 
+        </div>
+
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 z-20 w-full px-6 flex justify-center pointer-events-none">
+          <div className="bg-[#a2bb65]/80 text-[#072d2d] px-8 py-4 rounded-full max-w-xl text-center shadow-xl border-2 border-[#20593a] pointer-events-auto">
+            <p 
+              className="text-base md:text-lg font-bold italic"
+              style={{ fontFamily: "Poppins, sans-serif" }}
+            >
+              'SusSTEM inspires the next generation of sustainable innovators through S.T.E.M'
+            </p>
+          </div>
         </div>
       </div>
     </section>
