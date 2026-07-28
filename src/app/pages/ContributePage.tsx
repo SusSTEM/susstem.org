@@ -28,7 +28,6 @@ export function ContributePage() {
     kitPrices.explorer * explorerKitQty +
     kitPrices.changemaker * changemakerKitQty;
 
-  // Updated: Changemaker kit now impacts 3 students instead of 5
   const calculateStudentsImpacted = () =>
     explorerKitQty * 1 + changemakerKitQty * 1;
 
@@ -288,6 +287,33 @@ export function ContributePage() {
                   {totalContribution} AED
                 </span>
               </div>
+            </div>
+
+            {/* Zenstores Partnership Notice Card */}
+            <div className="rounded-2xl bg-[#ff0000]/30 border border-[#ff0000] p-5 flex items-center gap-5">
+              <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-2xl bg-white p-0 shrink-0 flex items-center justify-center shadow-md border border-[#e2e8f0] overflow-hidden">
+                <img
+                  src="/images/zenstoreslogosusstem.png"
+                  alt="Zenstore Logo"
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
+              </div>
+
+              {/* Text Message */}
+              <p
+                className="text-sm sm:text-base text-[#072d2d] leading-relaxed"
+                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400 }}
+              >
+                We are partnered with{" "}
+                <span className="font-semibold text-[#000000]">Zenstore India</span>, India's
+                1st career experiential store, for secure payment processing and direct
+                delivery of kits to students and schools. Clicking{" "}
+                <span className="font-semibold text-[#20593A]">Continue</span> will
+                redirect you to their platform to complete your transaction.
+              </p>
             </div>
 
             {/* Checkout Button */}
