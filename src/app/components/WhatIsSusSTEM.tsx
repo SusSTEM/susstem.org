@@ -112,7 +112,7 @@ export default function WhatIsSusSTEM() {
               </div>
             </div>
 
-            <p className="text-[#072d2d] text-lg md:text-xl leading-relaxed text-center max-w-3xl">
+            <p className="text-[#072d2d] text-lg md:text-xl leading-relaxed text-center max-w-3xl mt-4 md:mt-8">
               Your contributions fuel our mission at <strong>SusSTEM</strong> to combine Sustainable,
               Environmental practices with{" "}
               <strong>Science, Technology, Engineering, and Math (S.T.E.M)</strong> in order to inspire

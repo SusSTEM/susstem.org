@@ -60,6 +60,12 @@ export function Hero() {
     if (element) element.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Ultra-strong 3-tier drop shadow: 
+  // 1. Crisp immediate edge contrast
+  // 2. Mid-level shadow depth
+  // 3. Wide ambient background dark glow
+  const ultraShadow = "drop-shadow-[0_2px_4px_rgba(0,0,0,1)] drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)] drop-shadow-[0_16px_32px_rgba(0,0,0,0.8)]";
+
   return (
     <section className="relative w-full min-h-[82svh] overflow-hidden">
       <AnimatePresence mode="sync">
@@ -92,10 +98,10 @@ export function Hero() {
                   transition={{ delay: 0.15, duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
                   className="flex flex-col items-center space-y-2"
                 >
-                  <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
+                  <h1 className={`text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight ${ultraShadow}`} style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
                     {slides[currentSlide].title}
                   </h1>
-                  <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
+                  <span className={`text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl ${ultraShadow}`} style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
                     Sustainability + STEM
                   </span>
                 </motion.div>
@@ -104,7 +110,7 @@ export function Hero() {
                   initial={{ y: 12, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.15, duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
-                  className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight"
+                  className={`text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight ${ultraShadow}`}
                   style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
                 >
                   {slides[currentSlide].title}
