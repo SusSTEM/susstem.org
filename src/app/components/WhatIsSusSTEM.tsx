@@ -123,7 +123,7 @@ export default function WhatIsSusSTEM() {
         </div>
 
         <div className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 z-20 w-full px-6 flex justify-center pointer-events-none">
-          <div className="bg-[#015651] text-[#ffffff] px-8 py-4 rounded-full max-w-xl text-center shadow-xl border-2 border-[#a2bb65] pointer-events-auto">
+          <div className="bg-[#20593A] text-[#ffffff] px-8 py-4 rounded-full max-w-xl text-center shadow-xl border-2 border-[#a2bb65] pointer-events-auto">
             <p 
               className="text-base md:text-lg font-semibold"
               style={{ fontFamily: "Poppins, sans-serif" }}
