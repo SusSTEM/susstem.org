@@ -337,7 +337,7 @@ export function ContributePage() {
                   >
                     We are partnered with{" "}
                     <span className="font-semibold text-[#000000]">Zenstore India</span>, India's
-                    1st career experiential store, for handling direct delivery of kits to students and schools. By clicking{" "}
+                    1st career experiential store, for handling direct delivery of the SusSTEM kits to students and schools. By clicking{" "}
                     <span className="font-semibold text-[#20593A]">Continue</span> you will be redirected to their secure payment processing platform(zenstore.shop)to complete your transaction. A receipt shall be emailed upon completion.
                   </p>
 
