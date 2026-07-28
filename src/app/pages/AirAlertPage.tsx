@@ -58,17 +58,6 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
               <p className="text-[#000000] text-sm sm:text-base md:text-lg leading-relaxed">
                 Level 1 introduces young explorers to the fundamentals of AI, Machine Learning, Python Coding, Electronics and basic sensor technology. Students build confidence through hands-on experiments, learning how simple components can interact to form functional circuits. The emphasis is on creativity, collaboration and discovery, helping learners connect classroom concepts to real-world applications.
               </p>
-              <div className="flex justify-center items-center mt-8">
-              <Button 
-                variant="outline"
-                className="w-full sm:w-auto border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-6 sm:px-10 py-5 sm:py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center cursor-pointer"
-                style={{ fontSize: '16px', fontWeight: 600 }}
-                onClick={() => openInquiry("SusSTEM Level 1 Learn More")}
-              >
-                <Info className="w-6 h-6 mr-3" />
-                Learn More
-              </Button>
-            </div>
             </div>
           </div>
         </div>

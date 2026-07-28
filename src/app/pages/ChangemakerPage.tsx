@@ -52,24 +52,15 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
             <Badge className="bg-[#072d2d] text-[#a4ff7b] hover:bg-[#ff9b69]/80 hover:text-[#072d2d] mb-5 sm:mb-6 px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base">Level 2</Badge>
             <h1 className="text-[#000000] mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl" style={{ fontWeight: 700, lineHeight: 1.2 }}>Changemaker: For Ages 14-18</h1>
             <p className="text-[#072d2d] text-base sm:text-xl md:text-2xl mb-8 sm:mb-12">Building solutions for real-world sustainability challenges in your community</p>
-            <div className="bg-[#ff9b69CC] p-5 sm:p-8 md:p-12 rounded-3xl shadow-md mt-8">
+            
+            {/* Overview Card with Fixed Spacing */}
+            <div className="bg-[#ff9b69CC] p-6 sm:p-8 md:p-12 rounded-3xl shadow-md mt-8">
               <h2 className="text-[#000000] mb-4 sm:mb-6 text-2xl sm:text-3xl md:text-[36px]" style={{ fontWeight: 700, lineHeight: 1.3 }}>
                 <span className="text-[#072d2d]">Level 2</span> Overview
               </h2>
-              <p className="text-[#000000] text-sm sm:text-base md:text-lg leading-relaxed mb-8">
-                Level 2 is where students form teams of 5 and choose one of four critical environmental challenges: <strong>air pollution, flooding, solid waste, or marine pollution</strong>. Over the course of the programme, teams will apply what they've learnt throughout the SusSTEM programme to design and build STEM-powered solutions that address their chosen problem.
+              <p className="text-[#000000] text-sm sm:text-base md:text-lg leading-relaxed">
+                Level 2 is where students form teams of 3 and choose 1 of 4 environmental challenges: <strong>air pollution, flooding, solid waste, or marine pollution</strong>. Over the course of the programme, teams will apply what they've learnt throughout the SusSTEM programme to design and build STEM-powered solutions that address their chosen problem.
               </p>
-              <div className="flex justify-center items-center mt-8">
-                <Button 
-                  variant="outline"
-                  className="w-full sm:w-auto border-2 border-[#072d2d] text-[#072d2d] hover:bg-[#072d2d] hover:text-white px-6 sm:px-10 py-5 sm:py-7 rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center cursor-pointer"
-                  style={{ fontSize: '16px', fontWeight: 600 }}
-                  onClick={() => openInquiry("SusSTEM Level 1 Learn More")}
-                >
-                  <Info className="w-6 h-6 mr-3" />
-                  Learn More
-                </Button>
-              </div>
             </div>
           </div>
         </div>
@@ -103,7 +94,7 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
 
       {/* Project Overview */}
       <section className="py-12 sm:py-16 md:py-24 bg-[#eff2e7]">
-        <div className="bg-[#ff9b69]/80 max-w-4xl mx-auto text-center px-4 sm:px-6 p-6 sm:p-8 md:p-12 rounded-3xl shadow-md mt-8">
+        <div className="bg-[#ff9b69]/80 max-w-4xl mx-auto text-center px-6 p-8 md:p-12 rounded-3xl shadow-md mt-8">
           <h2 className="text-[#000000] mb-4 sm:mb-6 text-2xl sm:text-3xl md:text-[36px]" style={{ fontWeight: 700, lineHeight: 1.3 }}>
             <span className="text-[#072d2d]">The Problem?</span>
           </h2>
