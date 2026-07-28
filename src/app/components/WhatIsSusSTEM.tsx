@@ -33,7 +33,7 @@ export default function WhatIsSusSTEM() {
         </div>
       </div>
 
-      <div className="bg-white pt-16 pb-20 px-6 relative">
+      <div className="bg-white pt-16 pb-32 md:pb-36 px-6 relative">
         <div className="max-w-5xl mx-auto space-y-16">
           
           <div className="max-w-5xl mx-auto rounded-2xl bg-[#a2bb65] px-6 md:px-10 py-8 md:py-10 shadow-[6px_6px_20px_rgba(0,0,0,0.15)] hover:shadow-[8px_8px_24px_rgba(0,0,0,0.3)] hover:scale-[1.02] transition-all duration-300 ease-out">
@@ -123,9 +123,9 @@ export default function WhatIsSusSTEM() {
         </div>
 
         <div className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 z-20 w-full px-6 flex justify-center pointer-events-none">
-          <div className="bg-[#a2bb65]/80 text-[#072d2d] px-8 py-4 rounded-full max-w-xl text-center shadow-xl border-2 border-[#20593a] pointer-events-auto">
+          <div className="bg-[#015651] text-[#ffffff] px-8 py-4 rounded-full max-w-xl text-center shadow-xl border-2 border-[#a2bb65] pointer-events-auto">
             <p 
-              className="text-base md:text-lg font-bold italic"
+              className="text-base md:text-lg font-semibold"
               style={{ fontFamily: "Poppins, sans-serif" }}
             >
               'SusSTEM inspires the next generation of sustainable innovators through S.T.E.M'
