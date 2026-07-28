@@ -34,15 +34,6 @@ export function Testimonials() {
     },
   ];
 
-  const partners = [
-    "Propeller Technologies",
-    "ZenKidz",
-    "WASTEless",
-    "Arduino",
-    "Code.org",
-    "Zenstore",
-  ];
-
   return (
     <section className="bg-[#e1e4d8] py-12 md:py-24">
       <div className="max-w-7xl mx-auto px-6">
@@ -92,39 +83,6 @@ export function Testimonials() {
                     {testimonial.role}
                   </p>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Partner Logos */}
-        <div>
-          <h3
-            className="text-[#000000] text-2xl md:text-3xl text-center mb-8"
-            style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
-          >
-            Backed by
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-            {partners.map((partner, index) => (
-              <div
-                key={index}
-                className="group bg-white rounded-2xl p-6 flex items-center justify-center h-24 shadow-sm transform transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_16px_35px_rgba(0,0,0,0.18)] hover:bg-[#20593a]"
-              >
-                <span
-                  className="
-                    text-[#072d2d]
-                    text-center
-                    group-hover:text-[#a4ff7b]
-                    transition-colors
-                  "
-                  style={{
-                    fontFamily: "Poppins, sans-serif",
-                    fontWeight: 600,
-                  }}
-                >
-                  {partner}
-                </span>
               </div>
             ))}
           </div>

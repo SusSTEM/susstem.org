@@ -8,6 +8,7 @@ import { FeaturedProjects } from "./components/FeaturedProjects";
 import { CTASection } from "./components/CTASection";
 import { AboutUs } from "./components/MissionVision";
 import { Testimonials } from "./components/Testimonials";
+import { PartnerShowcase } from "./components/PartnerShowcase";
 import { ContactPreview } from "./components/ContactPreview";
 import { Footer } from "./components/Footer";
 import { VolunteerPage } from "./pages/VolunteerPage";
@@ -216,6 +217,7 @@ export default function App() {
       <AboutUs />
       <CTASection />
       <Testimonials />
+      <PartnerShowcase />
       <ContactPreview onNavigate={handleNavigate} />
       <Footer onNavigate={handleNavigate} />
     </div>
