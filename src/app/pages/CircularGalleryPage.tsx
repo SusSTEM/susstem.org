@@ -11,7 +11,7 @@ export function CircularGalleryShowcase({ onNavigate }: CircularGalleryShowcaseP
       <div className="w-full px-4 sm:px-8">
         <div className="relative -top-[3px] mb-[9px] text-center">
           <h2 className="text-3xl font-semibold tracking-[-0.02em] text-[#072d2d] sm:text-4xl">
-            Gallery
+            Content Library
           </h2>
         </div>
 

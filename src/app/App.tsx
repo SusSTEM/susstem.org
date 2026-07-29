@@ -212,13 +212,17 @@ export default function App() {
       <WhatIsSusSTEM />
       <FeaturedProjects onNavigate={handleNavigate} />
       <ImpactStats />
-      <GetInvolved onNavigate={handleNavigate} />
-      <AboutUs />
       
-      {/* Gallery Section moved here */}
+      {/* Join the Movement */}
+      <GetInvolved onNavigate={handleNavigate} />
+      
+      {/* Gallery Section right below Join the Movement */}
       <div id="gallery" className="scroll-mt-32 bg-white px-0 pb-0 pt-4 sm:pt-6">
         <CircularGalleryShowcase />
       </div>
+
+      {/* About Us / Mission & Vision */}
+      <AboutUs />
 
       <CTASection />
       <Testimonials />
