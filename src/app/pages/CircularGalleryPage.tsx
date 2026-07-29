@@ -41,7 +41,7 @@ export function CircularGalleryPage({ onNavigate }: CircularGalleryPageProps) {
       <div className="w-full px-4 sm:px-8">
         <div className="relative -top-[3px] mb-[9px] text-center">
           <h1 className="text-3xl font-semibold tracking-[-0.02em] text-[#072d2d] sm:text-4xl">
-            Gallery
+            Content Library
           </h1>
         </div>
 

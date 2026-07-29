@@ -70,7 +70,7 @@ function getPageFromPath(pathname: string): PageKey {
 
 function getSectionFromHash(hash: string) {
   const section = hash.replace(/^#/, "");
-  return ["what-is-susstem", "projects", "impact", "about-us", "get-involved", "contact"].includes(section)
+  return ["what-is-susstem", "projects", "impact", "about-us", "get-involved", "gallery", "contact"].includes(section)
     ? section
     : null;
 }
@@ -195,17 +195,6 @@ export default function App() {
     );
   }
 
-  // INNOVATOR_REMOVED: restore this block if Level 2 Innovator returns.
-  // if (currentPage === "innovator") {
-  //   return (
-  //     <div className="min-h-screen bg-white">
-  //       <Navbar onNavigate={handleNavigate} />
-  //       <InnovatorPage onNavigate={handleNavigate} />
-  //       <Footer onNavigate={handleNavigate} />
-  //     </div>
-  //   );
-  // }
-
   if (currentPage === "changemaker") {
     return (
       <div className="min-h-screen bg-white">
@@ -222,12 +211,15 @@ export default function App() {
       <Hero />
       <WhatIsSusSTEM />
       <FeaturedProjects onNavigate={handleNavigate} />
-      <div id="gallery" className="scroll-mt-32 bg-white px-0 pb-0 pt-4 sm:pt-6">
-        <CircularGalleryShowcase />
-      </div>
       <ImpactStats />
       <GetInvolved onNavigate={handleNavigate} />
       <AboutUs />
+      
+      {/* Gallery Section moved here */}
+      <div id="gallery" className="scroll-mt-32 bg-white px-0 pb-0 pt-4 sm:pt-6">
+        <CircularGalleryShowcase />
+      </div>
+
       <CTASection />
       <Testimonials />
       <PartnerShowcase />
