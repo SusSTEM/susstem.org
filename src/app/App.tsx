@@ -5,6 +5,7 @@ import WhatIsSusSTEM from "./components/WhatIsSusSTEM";
 import { ImpactStats } from "./components/ImpactStats";
 import { GetInvolved } from "./components/GetInvolved";
 import { FeaturedProjects } from "./components/FeaturedProjects";
+import { CircularGalleryShowcase } from "./pages/CircularGalleryPage";
 import { CTASection } from "./components/CTASection";
 import { AboutUs } from "./components/MissionVision";
 import { Testimonials } from "./components/Testimonials";
@@ -15,6 +16,7 @@ import { VolunteerPage } from "./pages/VolunteerPage";
 import { ContributePage } from "./pages/ContributePage";
 import { PartnerPage } from "./pages/PartnerPage";
 import { AirAlertPage } from "./pages/AirAlertPage";
+import { CircularGalleryPage } from "./pages/CircularGalleryPage";
 // INNOVATOR_REMOVED: restore this import and the route block below if Level 2 Innovator returns.
 // import { InnovatorPage } from "./pages/InnovatorPage";
 import { ChangemakerPage } from "./pages/ChangemakerPage";
@@ -26,6 +28,7 @@ type PageKey =
   | "contribute"
   | "partner"
   | "air-alert"
+  | "gallery"
   | "contact"
   | "changemaker";
 
@@ -35,6 +38,7 @@ const pagePaths: Record<PageKey, string> = {
   contribute: "/contribute",
   partner: "/partner",
   "air-alert": "/air-alert",
+  gallery: "/gallery",
   contact: "/contact",
   changemaker: "/changemaker",
 };
@@ -51,6 +55,8 @@ function getPageFromPath(pathname: string): PageKey {
       return "partner";
     case "/air-alert":
       return "air-alert";
+    case "/gallery":
+      return "gallery";
     case "/contact":
       return "contact";
     case "/innovator":
@@ -175,6 +181,10 @@ export default function App() {
     );
   }
 
+  if (currentPage === "gallery") {
+    return <CircularGalleryPage onNavigate={handleNavigate} />;
+  }
+
   if (currentPage === "contact") {
     return (
       <div className="min-h-screen bg-white">
@@ -212,6 +222,9 @@ export default function App() {
       <Hero />
       <WhatIsSusSTEM />
       <FeaturedProjects onNavigate={handleNavigate} />
+      <div id="gallery" className="scroll-mt-32 bg-white px-0 pb-0 pt-10">
+        <CircularGalleryShowcase />
+      </div>
       <ImpactStats />
       <GetInvolved onNavigate={handleNavigate} />
       <AboutUs />

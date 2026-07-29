@@ -45,7 +45,7 @@ export function PartnerShowcase() {
           
           {/* Main Section Header */}
           <div className="text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#072d2d]" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-[#072d2d]" style={{ fontFamily: "Poppins, sans-serif" }}>
               Our Partners
             </h2>
           </div>
