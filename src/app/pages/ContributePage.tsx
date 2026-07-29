@@ -140,12 +140,12 @@ export function ContributePage() {
                 <div className="flex justify-center my-3 sm:my-4">
                   <button
                     type="button"
-                    onClick={() => setSelectedImage("/images/SusSTEM Level 1 Kit Mockup.png")}
+                    onClick={() => setSelectedImage("/images/main%20pages/SusSTEM%20Level%201%20Kit%20Mockup.png")}
                     className="w-[85%] max-w-xs aspect-[16/10] rounded-2xl overflow-hidden bg-white/70 flex items-center justify-center p-3 shadow-sm border border-[#072d2d]/10 cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200"
                     aria-label="Enlarge Explorer Kit image"
                   >
                     <img
-                      src="/images/SusSTEM Level 1 Kit Mockup.png"
+                      src="/images/main%20pages/SusSTEM%20Level%201%20Kit%20Mockup.png"
                       alt="Level 1 Kit"
                       className="w-full h-full object-contain"
                     />
@@ -233,12 +233,12 @@ export function ContributePage() {
                 <div className="flex justify-center my-3 sm:my-4">
                   <button
                     type="button"
-                    onClick={() => setSelectedImage("/images/Chnagemaker Kit Mockup.png")}
+                    onClick={() => setSelectedImage("/images/main%20pages/Chnagemaker%20Kit%20Mockup.png")}
                     className="w-[85%] max-w-xs aspect-[16/10] rounded-2xl overflow-hidden bg-white/70 flex items-center justify-center p-3 shadow-sm border border-[#072d2d]/10 cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200"
                     aria-label="Enlarge Changemaker Kit image"
                   >
                     <img
-                      src="/images/Chnagemaker Kit Mockup.png"
+                      src="/images/main%20pages/Chnagemaker%20Kit%20Mockup.png"
                       alt="Changemaker Kit"
                       className="w-full h-full object-contain"
                     />
@@ -321,7 +321,7 @@ export function ContributePage() {
                   {/* Outer White Card Frame */}
                   <div className="w-56 h-20 rounded-2xl bg-white shrink-0 flex items-center justify-center shadow-md border border-[#e2e8f0] overflow-hidden">
                     <img
-                      src="/images/zenstoreslogosusstem.png"
+                      src="/images/main%20pages/zenstoreslogosusstem.png"
                       alt="Zenstore Logo"
                       className="w-full h-full object-contain scale-[1.6] transform"
                       onError={(e) => {
@@ -348,7 +348,7 @@ export function ContributePage() {
               <div className="hidden sm:flex p-5 items-center gap-5">
                 <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-2xl bg-white p-0 shrink-0 flex items-center justify-center shadow-md border border-[#e2e8f0] overflow-hidden">
                   <img
-                    src="/images/zenstoreslogosusstem.png"
+                    src="/images/main%20pages/zenstoreslogosusstem.png"
                     alt="Zenstore Logo"
                     className="w-full h-full object-contain"
                     onError={(e) => {

@@ -40,7 +40,7 @@ export default function WhatIsSusSTEM() {
             <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
               <div className="flex-shrink-0">
                 <ImageWithFallback
-                  src="/images/daiviksusstemwebsitephoto.png"
+                  src="/images/main%20pages/daiviksusstemwebsitephoto.png"
                   alt="Daivik Anand Datwani"
                   className="w-40 h-40 md:w-48 md:h-48 rounded-2xl object-cover"
                 />

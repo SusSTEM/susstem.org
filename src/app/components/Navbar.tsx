@@ -98,7 +98,7 @@ export function Navbar({ onNavigate }: NavbarProps) {
               aria-label="Go to homepage"
             >
               <ImageWithFallback 
-                src="/images/SusSTEMWEBSITEPNG.png"
+                src="/images/main%20pages/SusSTEMWEBSITEPNG.png"
                 alt="SusSTEM Logo"
                 className="h-10 w-auto object-contain"
               />

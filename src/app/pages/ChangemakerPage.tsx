@@ -103,10 +103,10 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
           </p>
           <div className="grid grid-cols-2 gap-4 mt-8">
             {[
-              { src: "/images/delhiairpollutionsusstem.jpg", alt: "Delhi Air Pollution" },
-              { src: "/images/floodpeoplesusstem.jpg", alt: "Flooding" },
-              { src: "/images/trahsoverflowsusstem.jpeg", alt: "Solid Waste Accumulation" },
-              { src: "/images/fishwithtrashsusstem.jpeg", alt: "Impact of Marine Pollution" },
+              { src: "/images/main%20pages/delhiairpollutionsusstem.jpg", alt: "Delhi Air Pollution" },
+              { src: "/images/main%20pages/floodpeoplesusstem.jpg", alt: "Flooding" },
+              { src: "/images/main%20pages/trahsoverflowsusstem.jpeg", alt: "Solid Waste Accumulation" },
+              { src: "/images/main%20pages/fishwithtrashsusstem.jpeg", alt: "Impact of Marine Pollution" },
             ].map(({ src, alt }) => (
               <div key={alt} className="w-full h-64 rounded-3xl overflow-hidden shadow-lg">
                 <ImageWithFallback src={src} alt={alt} className="w-full h-full object-cover" />
@@ -157,7 +157,7 @@ export function ChangemakerPage({ onNavigate }: ChangemakerPageProps) {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <ImageWithFallback src="/images/changemakerprojsusstem.jpg" className="w-full h-full object-cover" />
+              <ImageWithFallback src="/images/main%20pages/changemakerprojsusstem.jpg" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>

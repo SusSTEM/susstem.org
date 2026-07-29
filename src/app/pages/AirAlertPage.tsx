@@ -100,7 +100,7 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
           </p>
           <div className="mt-8 flex justify-center">
             <div className="w-full rounded-3xl overflow-hidden shadow-lg">
-              <ImageWithFallback src="/images/wildfiresusstem.jpg" alt="Forest Fires" className="w-full h-64 md:h-80 object-cover" />
+              <ImageWithFallback src="/images/main%20pages/wildfiresusstem.jpg" alt="Forest Fires" className="w-full h-64 md:h-80 object-cover" />
             </div>
           </div>
         </div>
@@ -147,7 +147,7 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <ImageWithFallback src="/images/peopleinruralschoolsusstem.jpg" className="w-full h-92 object-cover" />
+              <ImageWithFallback src="/images/main%20pages/peopleinruralschoolsusstem.jpg" className="w-full h-92 object-cover" />
             </div>
           </div>
         </div>

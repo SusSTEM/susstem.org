@@ -52,14 +52,14 @@ export function PartnerShowcase() {
 
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12 items-stretch">
             <PartnerHighlight
-              logoSrc="/images/zenkidzlogo.png"
+              logoSrc="/images/main%20pages/zenkidzlogo.png"
               logoAlt="ZenKidz logo"
               description="Experiential Learning Platform for K–12. The online gateway to skill-based experiential learning, engaging students globally."
               logoClassName="scale-125"
             />
 
             <PartnerHighlight
-              logoSrc="/images/zenstore.png"
+              logoSrc="/images/main%20pages/zenstore.png"
               logoAlt="Zenstore India logo"
               description="India's 1st Career Concept Store. Hands-on kits and educational products that inspire real-world skill building for K–12 students."
             />
