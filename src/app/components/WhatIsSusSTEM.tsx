@@ -4,7 +4,7 @@ export default function WhatIsSusSTEM() {
   return (
     <section id="what-is-susstem">
       <div className="bg-[#20593A] text-white pt-14 pb-16 md:pt-20 md:pb-20 px-6">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2
             className="text-3xl md:text-4xl lg:text-5xl text-white font-bold"
             style={{ fontFamily: "Poppins, sans-serif" }}
@@ -20,20 +20,24 @@ export default function WhatIsSusSTEM() {
             <span className="font-bold text-white">S.T.E.M</span>
           </p>
 
-          <div className="max-w-3xl mx-auto space-y-4 text-white text-lg md:text-xl leading-relaxed">
-            <p className="font-normal">
-              <strong className="font-bold text-white">SusSTEM</strong> is a youth-led, Not-For-Profit Organisation dedicated to offer{" "}
-              <strong className="font-bold text-white">free STEM education</strong> to students from under-resourced communities.
-            </p>
-            <p className="font-normal">
-              We offer <strong className="font-bold text-white">completely free, online STEM courses</strong> with 2 levels of hands-on projects, where <strong className="font-bold text-white">secondary school students aged 11-18</strong> learn to build real-world solutions that make a difference in their communities and beyond.
+          <div className="max-w-2xl mx-auto leading-relaxed">
+            {/* Slightly smaller (text-xl md:text-2xl), max-w-2xl forces it to lay out neatly across 2 lines */}
+            <p className="font-normal text-xl md:text-2xl leading-relaxed text-white">
+              "<strong className="font-bold text-white">SusSTEM</strong> is a youth-led, Not-For-Profit Organisation dedicated to providing{" "}
+              <strong className="font-bold text-white">free STEM education</strong> to students from under-resourced communities."
             </p>
           </div>
         </div>
       </div>
 
-      <div className="bg-white pt-16 pb-24 md:pb-28 px-6 relative">
-        <div className="max-w-5xl mx-auto space-y-16">
+      <div className="bg-white pt-12 pb-24 md:pb-28 px-6 relative">
+        <div className="max-w-5xl mx-auto space-y-12">
+          
+          {/* Text moved to white section above the cards in #072d2d color */}
+          <p className="text-[#072d2d] text-lg md:text-xl leading-relaxed text-center max-w-3xl mx-auto font-normal">
+            We offer <strong className="font-bold text-[#072d2d]">completely free, online STEM courses</strong> with 2 levels of hands-on projects, where <strong className="font-bold text-[#072d2d]">secondary school students aged 11-18</strong> learn to build real-world solutions that make a difference in their communities and beyond.
+          </p>
+
           <div className="flex flex-col items-center space-y-8">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-3xl">
               <div className="flex flex-col items-center text-center space-y-4 p-6 rounded-2xl bg-[#e1e4d8] hover:shadow-lg transition-shadow">
