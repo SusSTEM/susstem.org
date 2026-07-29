@@ -22,8 +22,8 @@ function PartnerHighlight({
         />
       </div>
 
-      {/* Expanded width + calibrated text size so full copy fits in 2 lines */}
-      <p className="w-full max-w-xl sm:max-w-2xl text-sm sm:text-base lg:text-[1.05rem] leading-snug sm:leading-relaxed text-black font-normal mx-auto">
+      {/* Expanded max-width and snug line height to force strictly 2 lines */}
+      <p className="w-full max-w-2xl text-xs sm:text-sm md:text-base leading-snug sm:leading-normal text-black font-normal mx-auto">
         {description}
       </p>
     </article>
@@ -32,18 +32,24 @@ function PartnerHighlight({
 
 const partnerNetwork = [
   "Propeller Technologies",
-  "ZenKidz",
   "WASTEless",
   "Arduino",
   "Code.org",
-  "Zenstore",
 ];
 
 export function PartnerShowcase() {
   return (
-    <section className="bg-white py-8 sm:py-12 md:py-18">
+    <section className="bg-white py-8 sm:py-12 md:py-16">
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="mx-auto w-full max-w-6xl space-y-7 sm:space-y-9">
+          
+          {/* Main Section Header */}
+          <div className="text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#072d2d]" style={{ fontFamily: "Poppins, sans-serif" }}>
+              Our Partners
+            </h2>
+          </div>
+
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12 items-stretch">
             <PartnerHighlight
               logoSrc="/images/zenkidzlogo.png"
@@ -77,16 +83,17 @@ export function PartnerShowcase() {
             </div>
           </div>
 
-          <div className="pt-2 sm:pt-4">
-            <p className="text-center text-xs sm:text-sm font-semibold uppercase tracking-[0.34em] text-[#20593A]">
-              Backed by
+          {/* Centered Also Backed By Section */}
+          <div className="pt-2 sm:pt-4 text-center">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.34em] text-[#20593A]">
+              Also Backed by
             </p>
 
-            <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 sm:grid-cols-3 lg:grid-cols-6 lg:gap-5">
+            <div className="mt-6 flex flex-wrap justify-center items-center gap-3 sm:gap-4 lg:gap-5 mx-auto">
               {partnerNetwork.map((partner) => (
                 <div
                   key={partner}
-                  className="group flex min-h-16 sm:min-h-20 cursor-pointer items-center justify-center rounded-2xl border border-[#072d2d]/10 bg-white px-3 py-3 text-center shadow-[0_8px_18px_rgba(7,45,45,0.06)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#d2042d] hover:border-transparent hover:shadow-[0_10px_22px_rgba(210,4,45,0.25)]"
+                  className="group flex h-16 sm:h-20 w-[calc(50%-0.5rem)] sm:w-44 lg:w-48 cursor-pointer items-center justify-center rounded-2xl border border-[#072d2d]/10 bg-white px-3 py-3 text-center shadow-[0_8px_18px_rgba(7,45,45,0.06)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#d2042d] hover:border-transparent hover:shadow-[0_10px_22px_rgba(210,4,45,0.25)]"
                 >
                   <span
                     className="text-xs sm:text-sm md:text-base font-semibold text-[#072d2d] group-hover:text-white transition-colors duration-300 leading-tight"
@@ -98,6 +105,7 @@ export function PartnerShowcase() {
               ))}
             </div>
           </div>
+
         </div>
       </div>
     </section>
