@@ -4,9 +4,9 @@ export function Testimonials() {
   const testimonials = [
     {
       quote:
-        "SusSTEM has transformed how my students think about technology and the environment. They're now solving real problems in our community!",
-      author: "Maria Rodriguez",
-      role: "Science Teacher, São Paulo",
+        "SusSTEM has changed how my students think about the environment. I'm so excited to see the impact they are making!",
+      author: "Sujatha Ma'am",
+      role: "Science Teacher, Chennai, India",
       // First Card Colors
       colorHex: "#a2bb65",
       hoverBg: "hover:bg-[#a2bb65]",
@@ -14,9 +14,9 @@ export function Testimonials() {
     },
     {
       quote:
-        "My daughter built a water conservation system for our garden. I'm amazed at what these kids can achieve with the right guidance.",
-      author: "James Chen",
-      role: "Parent, Singapore",
+        "My daughter built a water saving system for our terrace. I'm so proud of what these kids can achieve with proper teaching.",
+      author: "R. Ashwini",
+      role: "Parent, Ambattur, India",
       // Second Card Colors
       colorHex: "#ffd459",
       hoverBg: "hover:bg-[#ffd459]",
@@ -24,9 +24,9 @@ export function Testimonials() {
     },
     {
       quote:
-        "The hands-on approach and focus on sustainability makes learning exciting. Our students are more engaged than ever before.",
-      author: "Amina Okonkwo",
-      role: "Education Director, Lagos",
+        "The practical projects make my daughter excited about learning every week. God bless the team at SusSTEM for this wonderful initiative.",
+      author: "D. Dharshini",
+      role: "Parent, Pudukottai, India",
       // Third Card Colors
       colorHex: "#bcb0fa",
       hoverBg: "hover:bg-[#bcb0fa]",

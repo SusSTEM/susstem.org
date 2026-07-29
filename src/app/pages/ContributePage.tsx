@@ -12,8 +12,8 @@ export function ContributePage() {
   const [infoModalKit, setInfoModalKit] = useState<"explorer" | "changemaker" | null>(null);
 
   const kitPrices = {
-    explorer: 100,
-    changemaker: 250,
+    explorer: 250,
+    changemaker: 350,
   };
 
   const updateKitQuantity = (

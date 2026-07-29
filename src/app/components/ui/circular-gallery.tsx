@@ -12,12 +12,6 @@ export interface GalleryItem {
 
 // 📌 PASTE YOUR YOUTUBE LINKS HERE LATER (Shorts or Widescreen)
 const YOUTUBE_VIDEOS: GalleryItem[] = [
-  { 
-    id: "yt-rickroll", 
-    type: "youtube", 
-    url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // Never gonna give you up!
-    aspect: "landscape" 
-  },
   /* Examples when you add yours later:
   { id: "yt-1", type: "youtube", url: "https://www.youtube.com/shorts/YOUR_SHORT_ID", aspect: "short" },
   { id: "yt-2", type: "youtube", url: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", aspect: "landscape" },
