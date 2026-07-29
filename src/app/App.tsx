@@ -222,7 +222,7 @@ export default function App() {
       <Hero />
       <WhatIsSusSTEM />
       <FeaturedProjects onNavigate={handleNavigate} />
-      <div id="gallery" className="scroll-mt-32 bg-white px-0 pb-0 pt-10">
+      <div id="gallery" className="scroll-mt-32 bg-white px-0 pb-0 pt-4 sm:pt-6">
         <CircularGalleryShowcase />
       </div>
       <ImpactStats />

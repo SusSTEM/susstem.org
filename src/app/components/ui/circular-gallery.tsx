@@ -101,6 +101,8 @@ export function CircularGallery({ items = initialGalleryItems }: GalleryProps) {
                     : "https://images.unsplash.com/photo-1518173946687-a4c8a383392e?w=600&auto=format&fit=crop"
                 }
                 alt={item.title}
+                loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover opacity-85 transition duration-300 group-hover:scale-105 group-hover:opacity-100"
               />
               <div className="absolute flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-black shadow-md backdrop-blur-md transition-transform duration-300 group-hover:scale-110">
@@ -112,6 +114,7 @@ export function CircularGallery({ items = initialGalleryItems }: GalleryProps) {
               src={item.media.url}
               alt={item.media.alt || item.title}
               loading="lazy"
+              decoding="async"
               onError={(e) => {
                 (e.target as HTMLImageElement).src =
                   "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop";
