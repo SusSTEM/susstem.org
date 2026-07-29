@@ -22,8 +22,8 @@ export default function WhatIsSusSTEM() {
 
           <div className="max-w-3xl mx-auto space-y-4 text-white text-lg md:text-xl leading-relaxed">
             <p className="font-normal">
-              <strong className="font-bold text-white">SusSTEM</strong> is a Not-For-Profit Organisation empowered to offer{" "}
-              <strong className="font-bold text-white">free STEM education</strong> to students in under-resourced communities.
+              <strong className="font-bold text-white">SusSTEM</strong> is a youth-led, Not-For-Profit Organisation dedicated to offer{" "}
+              <strong className="font-bold text-white">free STEM education</strong> to students from under-resourced communities.
             </p>
             <p className="font-normal">
               We offer <strong className="font-bold text-white">completely free, online STEM courses</strong> with 2 levels of hands-on projects, where <strong className="font-bold text-white">secondary school students aged 11-18</strong> learn to build real-world solutions that make a difference in their communities and beyond.
