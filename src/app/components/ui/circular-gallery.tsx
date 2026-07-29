@@ -159,8 +159,10 @@ function GalleryTile({
       ? ""
       : status[item.id] === "error"
         ? createFallbackPreview(item.title, item.type)
-        : isVideoPreview && isYouTubeUrl(item.media.url)
-          ? getYouTubeThumbnailUrl(item.media.url) ?? createFallbackPreview(item.title, item.type)
+        : isVideoPreview
+          ? isYouTubeUrl(item.media.url)
+            ? getYouTubeThumbnailUrl(item.media.url) ?? createFallbackPreview(item.title, item.type)
+            : createFallbackPreview(item.title, item.type)
           : item.media.url;
 
   const showImage = !isPlaceholder;
