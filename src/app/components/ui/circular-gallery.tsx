@@ -165,8 +165,8 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
       <style>{`
         @keyframes slowScrollDown { 0% { transform: translateY(-50%); } 100% { transform: translateY(0%); } }
         @keyframes slowScrollUp { 0% { transform: translateY(0%); } 100% { transform: translateY(-50%); } }
-        .animate-slow-down { animation: slowScrollDown 25s linear infinite; }
-        .animate-slow-up { animation: slowScrollUp 25s linear infinite; }
+        .animate-slow-down { animation: slowScrollDown 15s linear infinite; }
+        .animate-slow-up { animation: slowScrollUp 15s linear infinite; }
       `}</style>
 
       {/* MOBILE VIEW */}
