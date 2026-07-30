@@ -60,10 +60,7 @@ export function Hero() {
     if (element) element.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Ultra-strong 3-tier drop shadow: 
-  // 1. Crisp immediate edge contrast
-  // 2. Mid-level shadow depth
-  // 3. Wide ambient background dark glow
+
   const ultraShadow = "drop-shadow-[0_2px_4px_rgba(0,0,0,1)] drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)] drop-shadow-[0_16px_32px_rgba(0,0,0,0.8)]";
 
   return (
