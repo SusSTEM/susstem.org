@@ -18,7 +18,7 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
       level: "Level 1",
       title: "Explorer: Ages 11-14",
       description:
-        "Introduction to SusSTEM and our approach to integrating STEM with sustainability and science. Students will learn the fundamentals of electronics using Arduino, along with Python programming, ML(Machine Learning) and AI, to apply their knowledge to real-world sustainability challenges.",
+        "Introduction to SusSTEM and our approach to integrating STEM with sustainability and science. Students will learn the fundamentals of electronics using Arduino, CAD Design along with Python programming, ML(Machine Learning) and effectively using AI models, to apply their knowledge to real-world sustainability challenges.",
       image: "/images/main%20pages/arduinouno.jpeg",
       link: "air-alert",
     },
@@ -38,7 +38,7 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
       level: "Level 2",
       title: "Changemaker: Ages 14-18",
       description:
-        "Level 2 is where students form teams of three and choose one of four environmental challenges. Building on the fundamentals from Level 1, students advance their STEM skills to research using AI, learn CAD design and collaborate as a team to build creative, practical solutions for real, meaningful community impact.",
+        "Level 2 is where students form teams of three and choose one of four environmental challenges. Building on the fundamentals from Level 1, students advance their STEM skills to research using AI, 3D print CAD models and collaborate as a team to build creative, practical solutions for real, meaningful community impact.",
       image: "/images/main%20pages/groupofarduinostudents.jpg",
       link: "changemaker",
     },
