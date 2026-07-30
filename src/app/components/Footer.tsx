@@ -105,7 +105,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 <Linkedin className="w-6 h-6 text-[#a4ff7b]" />
               </a>
               <a 
-                href="https://www.youtube.com/@SusSTEM" 
+                href="https://youtube.com/playlist?list=PLCGFK1Hy9Lr_qg_RLBL0UDd-ABLgztDd_&si=6lMixLGdP4BSBk-b" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"

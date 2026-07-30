@@ -12,10 +12,9 @@ export interface GalleryItem {
 
 // 📌 PASTE YOUR YOUTUBE LINKS HERE LATER (Shorts or Widescreen)
 const YOUTUBE_VIDEOS: GalleryItem[] = [
-  /* Examples when you add yours later:
-  { id: "yt-1", type: "youtube", url: "https://www.youtube.com/shorts/YOUR_SHORT_ID", aspect: "short" },
-  { id: "yt-2", type: "youtube", url: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", aspect: "landscape" },
-  */
+  { id: "yt-1", type: "youtube", url: "https://youtu.be/MV_vnBGPXI8?si=TN6pG34ekor_vQuc", aspect: "landscape" },
+  //  { id: "yt-2", type: "youtube", url: "https://www.youtube.com/shorts/YOUR_SHORT_ID", aspect: "short" },
+
 ];
 
 function extractYouTubeId(urlOrId: string): string {
