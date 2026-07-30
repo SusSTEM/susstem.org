@@ -23,7 +23,7 @@ const slides = [
     title: "SusSTEM = ",
     cta: "Join the Movement",
     link: "#get-involved",
-    image: "/images/main%20pages/arduino+breadboardimagesusstem.jpg",
+    image: "/images/main%20pages/arduinobreadboardimagesusstem.jpg",
   },
   {
     id: 4,
