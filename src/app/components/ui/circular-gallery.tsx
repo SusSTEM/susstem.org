@@ -10,11 +10,26 @@ export interface GalleryItem {
   aspect?: "short" | "landscape" | "square" | "portrait";
 }
 
-// 📌 PASTE YOUR YOUTUBE LINKS HERE LATER (Shorts or Widescreen)
+// 📌 ADD YOUR YOUTUBE LINKS HERE (Shorts or Widescreen)
 const YOUTUBE_VIDEOS: GalleryItem[] = [
-  { id: "yt-1", type: "youtube", url: "https://youtu.be/MV_vnBGPXI8?si=TN6pG34ekor_vQuc", aspect: "landscape" },
-  //  { id: "yt-2", type: "youtube", url: "https://www.youtube.com/shorts/YOUR_SHORT_ID", aspect: "short" },
-
+  { 
+    id: "yt-1", 
+    type: "youtube", 
+    url: "https://youtu.be/MV_vnBGPXI8?si=TN6pG34ekor_vQuc", 
+    aspect: "landscape" 
+  },
+  { 
+    id: "yt-2", 
+    type: "youtube", 
+    url: "https://youtu.be/ECIQ7b9lE6A?si=mgB9u32EKdomPVOw", 
+    aspect: "landscape" 
+  },
+  //{ 
+    //id: "yt-2", 
+    //type: "youtube", 
+    //url: "https://youtube.com/shorts/CXtS_mLkh_U", 
+    //aspect: "short" 
+  //},
 ];
 
 function extractYouTubeId(urlOrId: string): string {
@@ -65,10 +80,11 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
       console.warn("Error reading local gallery images:", err);
     }
 
-    const ytList = customYouTubeVideos || YOUTUBE_VIDEOS;
-    const combined = [...loadedImages, ...ytList];
+    const rawYtList = customYouTubeVideos || YOUTUBE_VIDEOS;
+    const validYtList = rawYtList.filter((item) => item.type !== "youtube" || (item.url && item.url.trim() !== ""));
 
-    // Shuffle so YouTube videos mix in with local images
+    const combined = [...loadedImages, ...validYtList];
+
     const shuffled = [...combined].sort((a, b) => {
       let hashA = 0, hashB = 0;
       for (let i = 0; i < a.id.length; i++) hashA += a.id.charCodeAt(i);
@@ -149,8 +165,8 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
       <style>{`
         @keyframes slowScrollDown { 0% { transform: translateY(-50%); } 100% { transform: translateY(0%); } }
         @keyframes slowScrollUp { 0% { transform: translateY(0%); } 100% { transform: translateY(-50%); } }
-        .animate-slow-down { animation: slowScrollDown 45s linear infinite; }
-        .animate-slow-up { animation: slowScrollUp 45s linear infinite; }
+        .animate-slow-down { animation: slowScrollDown 25s linear infinite; }
+        .animate-slow-up { animation: slowScrollUp 25s linear infinite; }
       `}</style>
 
       {/* MOBILE VIEW */}

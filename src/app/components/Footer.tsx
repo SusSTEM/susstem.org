@@ -150,7 +150,7 @@ export function Footer({ onNavigate }: FooterProps) {
         <div className="border-t border-[#a4ff7b] pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/60 text-sm text-center md:text-left">
-              © 2025 SusSTEM — Empowering sustainability through STEM.
+              © 2026 SusSTEM — Empowering sustainability through STEM.
             </p>
             <div className="flex items-center gap-2 text-white/60 text-sm">
               <span>Made with</span>
