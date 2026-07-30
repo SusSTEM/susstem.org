@@ -46,7 +46,7 @@ export function ImpactStats() {
     },
     {
       icon: BookOpen,
-      number: 20,
+      number: 17,
       label: "Projects Completed",
       prefix: "+",
       bgColor: "#e1e4d9",
@@ -54,7 +54,7 @@ export function ImpactStats() {
     },
     {
       icon: School,
-      number: 5,
+      number: 3,
       label: "Schools Impacted",
       prefix: "",
       bgColor: "#e1e4d9",
