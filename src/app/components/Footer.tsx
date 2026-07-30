@@ -19,24 +19,25 @@ export function Footer({ onNavigate }: FooterProps) {
   };
 
   return (
-    <footer className="bg-[#20593A] text-white py-8 md:py-10" id="footer">
+    <footer className="bg-[#20593A] text-white py-12 md:py-16" id="footer">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        {/* Constrained width grid to bring columns close together laterally */}
+        <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-y-8 gap-x-4 mb-12">
           
           {/* About Column */}
-          <div className="space-y-3">
+          <div className="space-y-4">
             <h3 
-              className="text-lg font-semibold mb-2"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
+              className="text-xl mb-4"
+              style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
             >
               About
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               <li>
                 <button
                   type="button"
                   onClick={() => navigateTo("home#about")}
-                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left text-sm"
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   SusSTEM
                 </button>
@@ -45,7 +46,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 <button
                   type="button"
                   onClick={() => navigateTo("home#story")}
-                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left text-sm"
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Founding Story
                 </button>
@@ -54,7 +55,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 <button
                   type="button"
                   onClick={() => navigateTo("home#content-library")}
-                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left text-sm"
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Content Library
                 </button>
@@ -63,7 +64,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 <button
                   type="button"
                   onClick={() => navigateTo("home#updates")}
-                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left text-sm"
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Insider Updates
                 </button>
@@ -72,19 +73,19 @@ export function Footer({ onNavigate }: FooterProps) {
           </div>
 
           {/* Get Involved Column */}
-          <div className="space-y-3">
+          <div className="space-y-4">
             <h3 
-              className="text-lg font-semibold mb-2"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
+              className="text-xl mb-4"
+              style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
             >
               Get Involved
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               <li>
                 <button
                   type="button"
                   onClick={() => navigateTo("home#get-involved")}
-                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left text-sm"
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Partner With Us
                 </button>
@@ -93,7 +94,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 <button
                   type="button"
                   onClick={() => navigateTo("home#get-involved")}
-                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left text-sm"
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Volunteer
                 </button>
@@ -102,7 +103,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 <button
                   type="button"
                   onClick={() => navigateTo("home#get-involved")}
-                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left text-sm"
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Contribute
                 </button>
@@ -111,7 +112,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 <button
                   type="button"
                   onClick={() => navigateTo("home#projects")}
-                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left text-sm"
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   For Educators
                 </button>
@@ -120,18 +121,18 @@ export function Footer({ onNavigate }: FooterProps) {
           </div>
 
           {/* Connect Column */}
-          <div className="space-y-3">
+          <div className="space-y-4">
             <h3 
-              className="text-lg font-semibold mb-2"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
+              className="text-xl mb-4"
+              style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
             >
               Connect
             </h3>
-            <p className="text-white/80 text-sm">
+            <p className="text-white/80">
               Follow us on social media to see our latest projects and student success stories.
             </p>
             
-            {/* Email (moved above icons) */}
+            {/* Email (above social icons) */}
             <div>
               <p className="text-white/80 text-sm">
                 Email:{" "}
@@ -144,57 +145,57 @@ export function Footer({ onNavigate }: FooterProps) {
               </p>
             </div>
 
-            {/* Social Media Icons */}
-            <div className="flex gap-3 pt-1">
+            {/* Social Icons */}
+            <div className="flex gap-4 pt-1">
               <a 
                 href="https://www.linkedin.com/company/susstem" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
                 aria-label="Visit our LinkedIn page (opens in new tab)"
               >
-                <Linkedin className="w-5 h-5 text-[#a4ff7b]" />
+                <Linkedin className="w-6 h-6 text-[#a4ff7b]" />
               </a>
               <a 
                 href="https://youtube.com/playlist?list=PLCGFK1Hy9Lr_qg_RLBL0UDd-ABLgztDd_&si=6lMixLGdP4BSBk-b" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
                 aria-label="Visit our YouTube channel (opens in new tab)"
               >
-                <Youtube className="w-5 h-5 text-[#a4ff7b]" />
+                <Youtube className="w-6 h-6 text-[#a4ff7b]" />
               </a>
               <a 
                 href="https://www.instagram.com/susstem.org" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
                 aria-label="Visit our Instagram page (opens in new tab)"
               >
-                <Instagram className="w-5 h-5 text-[#a4ff7b]" />
+                <Instagram className="w-6 h-6 text-[#a4ff7b]" />
               </a>
               <a 
                 href="https://twitter.com/susstem_org" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
                 aria-label="Visit our X/Twitter page (opens in new tab)"
               >
-                <FaXTwitter className="w-5 h-5 text-[#a4ff7b]" />
+                <FaXTwitter className="w-6 h-6 text-[#a4ff7b]" />
               </a>
             </div>
           </div>
         </div>
 
         {/* Bottom Line */}
-        <div className="border-t border-[#a4ff7b]/40 pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-3">
-            <p className="text-white/60 text-xs text-center md:text-left">
+        <div className="border-t border-[#a4ff7b] pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-white/60 text-sm text-center md:text-left">
               © 2026 SusSTEM — Empowering sustainability through STEM.
             </p>
-            <div className="flex items-center gap-1.5 text-white/60 text-xs">
+            <div className="flex items-center gap-2 text-white/60 text-sm">
               <span>Made with</span>
-              <Heart className="w-3.5 h-3.5 text-[#a4ff7b] fill-current" />
+              <Heart className="w-4 h-4 text-[#a4ff7b] fill-current" />
               <span>for our planet</span>
             </div>
           </div>
