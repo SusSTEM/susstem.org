@@ -38,7 +38,7 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
       level: "Level 2",
       title: "Changemaker: Ages 14-18",
       description:
-        "Level 2 is where students form teams of three and choose one of four environmental challenges. Building on the fundamentals from Level 1, students advance their STEM skills to research using AI, 3D print CAD models and collaborate as a team to build creative, practical solutions for real, meaningful community impact.",
+        "Level 2 is where students form teams of three and choose to addrress one of four environmental challenges. Building on the fundamentals from Level 1, students advance their STEM skills to research alonside AI models, 3D print their CAD models and collaborate as a team to build creative, practical solutions for real, meaningful community impact.",
       image: "/images/main%20pages/groupofarduinostudents.jpg",
       link: "changemaker",
     },
