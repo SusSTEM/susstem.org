@@ -47,10 +47,10 @@ export function NewsletterPage({ onNavigate, isSubscribed, onSubscribe }: Newsle
             </div>
             <div className="space-y-4">
               <h1 className="mx-auto max-w-3xl text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
-                A premium newsletter for the people building SusSTEM with us.
+                Follow our Journey in building SusSTEM with us.
               </h1>
               <p className="mx-auto max-w-2xl text-base leading-7 text-white/78 sm:text-lg">
-                Stay close to the work with publication drops, student stories, behind-the-scenes updates, and partner announcements in a format that feels as polished as the rest of the site.
+                Publication drops, student stories, behind-the-scenes updates, and more about the impact that your contribution at SusSTEM is making.
               </p>
             </div>
 
@@ -106,7 +106,7 @@ export function NewsletterPage({ onNavigate, isSubscribed, onSubscribe }: Newsle
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#20593A]">Previous publications</p>
           <h2 className="text-3xl font-bold sm:text-4xl">Read what we&apos;ve already shared.</h2>
           <p className="text-base leading-7 text-[#4f5f59]">
-            Use this archive as the home for future issues, launch notes, and roundups. It keeps the newsletter page useful even after someone subscribes.
+            SusSTEM archive for future issues, Student Progress, and events.
           </p>
           <div className="flex flex-wrap justify-center gap-3 pt-2 text-sm text-[#5e6f69]">
             {articleHighlights.map((item) => (
