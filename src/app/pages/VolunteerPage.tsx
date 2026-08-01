@@ -3,7 +3,6 @@ import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
 import { Label } from "../components/ui/label";
-import { Users, Lightbulb, Globe } from "lucide-react";
 
 export function VolunteerPage() {
   const [formData, setFormData] = useState({
@@ -16,7 +15,9 @@ export function VolunteerPage() {
     message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -43,71 +44,133 @@ export function VolunteerPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.interests.length === 0) { alert("Please select at least one volunteering interest"); return; }
-    if (!formData.country) { alert("Please select your country of residence"); return; }
-    if (formData.country === "Other" && !formData.otherCountry) { alert("Please specify your country"); return; }
+    if (formData.interests.length === 0) {
+      alert("Please select at least one volunteering interest");
+      return;
+    }
+    if (!formData.country) {
+      alert("Please select your country of residence");
+      return;
+    }
+    if (formData.country === "Other" && !formData.otherCountry) {
+      alert("Please specify your country");
+      return;
+    }
     console.log("Volunteer form submitted:", formData);
   };
 
   const countryOptions = ["UAE", "India", "Other"];
-  const applicantTypes = ["Student", "Teacher", "Parent", "Professional", "Other"];
-  const volunteeringOptions = ["Workshop Facilitator", "Mentor", "Event Helper", "Logistics", "Not sure yet"];
+  const applicantTypes = [
+    "Student",
+    "Teacher",
+    "Parent",
+    "Professional",
+    "Other",
+  ];
+  const volunteeringOptions = [
+    "Workshop Facilitator",
+    "Mentor",
+    "Event Helper",
+    "Logistics",
+    "Not sure yet",
+  ];
 
   return (
     <div className="min-h-screen bg-[#eff2e7]">
       <div
-        className="text-white py-18 px-6"
-        style={{ background: "linear-gradient(135deg, #072d2d 0%, #0f3d2e 48%, #20593a 100%)" }}
+        className="text-white py-16 px-6"
+        style={{
+          background:
+            "linear-gradient(135deg, #072d2d 0%, #0f3d2e 50%, #20593a 100%)",
+        }}
       >
-        <div className="max-w-4xl mx-auto text-center space-y-5">
-          <div className="inline-flex items-center rounded-full border border-[#a4ff7b]/35 bg-[#a4ff7b]/10 px-5 py-2">
-            <span className="text-[#a4ff7b] text-sm font-semibold" style={{ fontFamily: "Poppins, sans-serif" }}>
-              Join our volunteer network
-            </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl leading-tight" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
-            Turn your skills into real student impact.
+        <div className="max-w-3xl mx-auto text-center">
+          <h1
+            className="text-3xl md:text-4xl mb-3 leading-tight font-bold"
+            style={{ fontFamily: "Poppins, sans-serif" }}
+          >
+            Your time and passion can empower the next generation of sustainability leaders.
           </h1>
-          <p className="text-white/82 text-lg md:text-xl max-w-2xl mx-auto" style={{ fontFamily: "Inter, sans-serif" }}>
-            Help SusSTEM run workshops, mentor students, and grow a community of young sustainability builders.
+          <p
+            className="text-white/80 text-base md:text-lg max-w-xl mx-auto"
+            style={{ fontFamily: "Inter, sans-serif" }}
+          >
+            Volunteer 🙋🏻‍♀️ with us at SusSTEM
           </p>
         </div>
       </div>
 
-      <div className="max-w-2xl mx-auto px-6 py-14">
-        <div className="bg-white rounded-[2rem] shadow-lg border border-[#e5e8df] p-8 md:p-10">
-          <h2 className="text-2xl text-[#000000] text-center mb-2" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
+      {/* Form Section */}
+      <div className="max-w-2xl mx-auto px-6 py-10">
+        <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-6 md:p-8">
+          <h2
+            className="text-2xl text-[#000000] mb-2 text-center font-bold"
+            style={{ fontFamily: "Poppins, sans-serif" }}
+          >
             Apply to Volunteer
           </h2>
-          <p className="text-[#858E80] text-sm text-center mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
+          <p
+            className="text-[#072d2d] text-base mb-6 text-center"
+            style={{ fontFamily: "Poppins, sans-serif" }}
+          >
             Fill in the form below and our team will be in touch.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="name" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>Full Name *</Label>
-                <Input id="name" name="name" type="text" required value={formData.name} onChange={handleChange} placeholder="Your name"
-                  className="border-gray-200 focus-visible:ring-[#a4ff7b] focus-visible:ring-2 focus-visible:border-[#20593A]"
-                  style={{ borderRadius: "14px", fontFamily: "Inter, sans-serif" }} />
+                <Label
+                  htmlFor="name"
+                  style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
+                >
+                  Full Name *
+                </Label>
+                <Input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Your name"
+                  className="border-gray-200 focus-visible:ring-[#20593A] focus-visible:ring-2 focus-visible:border-[#20593A]"
+                  style={{ borderRadius: "14px", fontFamily: "Inter, sans-serif" }}
+                />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="email" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>Email *</Label>
-                <Input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} placeholder="your@email.com"
-                  className="border-gray-200 focus-visible:ring-[#a4ff7b] focus-visible:ring-2 focus-visible:border-[#20593A]"
-                  style={{ borderRadius: "14px", fontFamily: "Inter, sans-serif" }} />
+                <Label
+                  htmlFor="email"
+                  style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
+                >
+                  Email *
+                </Label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="your@email.com"
+                  className="border-gray-200 focus-visible:ring-[#20593A] focus-visible:ring-2 focus-visible:border-[#20593A]"
+                  style={{ borderRadius: "14px", fontFamily: "Inter, sans-serif" }}
+                />
               </div>
             </div>
 
             <div className="space-y-3">
-              <Label style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>Country of Residence *</Label>
+              <Label
+                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
+              >
+                Country of Residence *
+              </Label>
               <div className="flex flex-wrap gap-3">
                 {countryOptions.map((country) => (
                   <button
                     key={country}
                     type="button"
                     onClick={() => handleCountryChange(country)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-200 ${
+                    className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-200 cursor-pointer ${
                       formData.country === country
                         ? "bg-[#20593A] text-white border-[#20593A]"
                         : "bg-white text-[#072d2d] border-gray-200 hover:border-[#20593A]"
@@ -119,21 +182,32 @@ export function VolunteerPage() {
                 ))}
               </div>
               {formData.country === "Other" && (
-                <Input name="otherCountry" type="text" required value={formData.otherCountry} onChange={handleChange} placeholder="Please specify your country"
-                  className="border-gray-200 focus-visible:ring-[#a4ff7b] focus-visible:ring-2 focus-visible:border-[#20593A]"
-                  style={{ borderRadius: "14px", fontFamily: "Inter, sans-serif" }} />
+                <Input
+                  name="otherCountry"
+                  type="text"
+                  required
+                  value={formData.otherCountry}
+                  onChange={handleChange}
+                  placeholder="Please specify your country"
+                  className="border-gray-200 focus-visible:ring-[#20593A] focus-visible:ring-2 focus-visible:border-[#20593A]"
+                  style={{ borderRadius: "14px", fontFamily: "Inter, sans-serif" }}
+                />
               )}
             </div>
 
             <div className="space-y-3">
-              <Label style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>I am a...</Label>
+              <Label
+                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
+              >
+                I am a...
+              </Label>
               <div className="flex flex-wrap gap-3">
                 {applicantTypes.map((type) => (
                   <button
                     key={type}
                     type="button"
                     onClick={() => handleApplicantTypeChange(type)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-200 ${
+                    className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-200 cursor-pointer ${
                       formData.applicantType === type
                         ? "bg-[#20593A] text-white border-[#20593A]"
                         : "bg-white text-[#072d2d] border-gray-200 hover:border-[#20593A]"
@@ -147,16 +221,20 @@ export function VolunteerPage() {
             </div>
 
             <div className="space-y-3">
-              <Label style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>How would you like to help? *</Label>
+              <Label
+                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
+              >
+                How would you like to help? *
+              </Label>
               <div className="flex flex-wrap gap-3">
                 {volunteeringOptions.map((option) => (
                   <button
                     key={option}
                     type="button"
                     onClick={() => handleInterestToggle(option)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-200 ${
+                    className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-200 cursor-pointer ${
                       formData.interests.includes(option)
-                        ? "bg-[#a4ff7b] text-[#072d2d] border-[#a4ff7b]"
+                        ? "bg-[#20593A] text-white border-[#20593A]"
                         : "bg-white text-[#072d2d] border-gray-200 hover:border-[#20593A]"
                     }`}
                     style={{ fontFamily: "Poppins, sans-serif" }}
@@ -166,20 +244,38 @@ export function VolunteerPage() {
                 ))}
               </div>
               {formData.interests.length === 0 && (
-                <p className="text-xs text-red-500" style={{ fontFamily: "Inter, sans-serif" }}>Please select at least one option</p>
+                <p
+                  className="text-xs text-red-500"
+                  style={{ fontFamily: "Inter, sans-serif" }}
+                >
+                  Please select at least one option
+                </p>
               )}
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="message" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>Anything else? (Optional)</Label>
-              <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell us a bit about yourself..."
-                className="border-gray-200 focus-visible:ring-[#a4ff7b] focus-visible:ring-2 focus-visible:border-[#20593A] min-h-[96px] resize-none"
-                style={{ borderRadius: "14px", fontFamily: "Inter, sans-serif" }} />
+              <Label
+                htmlFor="message"
+                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
+              >
+                Anything else? (Optional)
+              </Label>
+              <Textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Tell us a bit about yourself..."
+                className="border-gray-200 focus-visible:ring-[#20593A] focus-visible:ring-2 focus-visible:border-[#20593A] min-h-[96px] resize-none"
+                style={{ borderRadius: "14px", fontFamily: "Inter, sans-serif" }}
+              />
             </div>
 
-            <Button type="submit"
-              className="w-full bg-[#20593A] hover:bg-[#072d2d] text-white text-base font-semibold transition-colors duration-300"
-              style={{ borderRadius: "9999px", padding: "14px 0", fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
+            <Button
+              type="submit"
+              className="w-full bg-[#20593A] hover:bg-[#072d2d] text-white text-lg font-bold py-4 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] cursor-pointer"
+              style={{ fontFamily: "Poppins, sans-serif" }}
+            >
               Submit Application
             </Button>
           </form>
