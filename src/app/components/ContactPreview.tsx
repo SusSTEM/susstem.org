@@ -9,8 +9,8 @@ export function ContactPreview({ onNavigate }: ContactPreviewProps) {
   return (
     <section className="bg-[#f3f1e7] py-12 md:py-24" id="contact">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#dbe4d3] mb-6">
-          <Mail className="w-8 h-8 sm:w-10 sm:h-10 text-[#20593A]" />
+        <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#dbe4d3] mb-6 shadow-[0_0_0_0_rgba(32,89,58,0.28)] animate-pulse">
+          <Mail className="w-8 h-8 sm:w-10 sm:h-10 text-[#20593A] animate-pulse" />
         </div>
         <h2 
           className="text-[#000000] text-2xl sm:text-3xl md:text-4xl mb-4"

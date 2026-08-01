@@ -55,7 +55,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li>
                 <button
                   type="button"
-                  onClick={() => navigateTo("gallery")}
+                  onClick={() => navigateTo("home#gallery")}
                   className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Content Library

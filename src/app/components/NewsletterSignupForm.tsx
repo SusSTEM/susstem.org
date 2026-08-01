@@ -80,10 +80,10 @@ export function NewsletterSignupForm({ onSubscribe, submitLabel = "Sign up", com
           <div className="space-y-1">
             <p className="text-sm font-semibold text-[#072d2d]">Protected by reCAPTCHA</p>
             <p className="text-xs leading-5 text-[#62706a]">
-              Privacy Policy and Terms of Service apply.
+              Replace this note with your live Google reCAPTCHA widget and site key before launch.
             </p>
             <p className="text-xs leading-5 text-[#8a938c]">
-              Wire in your Google site key to render the live widget here.
+              Keep the checkbox, privacy policy, and terms text visible in the finished version.
             </p>
           </div>
         </div>

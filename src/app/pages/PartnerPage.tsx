@@ -3,7 +3,6 @@ import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
 import { Label } from "../components/ui/label";
-import { Checkbox } from "../components/ui/checkbox";
 import { BookOpen, UserCheck, Award } from "lucide-react";
 
 export function PartnerPage() {
@@ -51,24 +50,6 @@ export function PartnerPage() {
   const applicantTypes = ["Student", "Teacher", "Parent", "Professional", "Other"];
   const partnerOptions = ["Workshop Facilitator", "Mentor", "Event Helper", "Logistics", "Not sure yet"];
 
-  const highlights = [
-    {
-      icon: BookOpen,
-      title: "Curriculum Integration",
-      desc: "Embed hands-on sustainability STEM directly into your school programme.",
-    },
-    {
-      icon: UserCheck,
-      title: "Dedicated Volunteers",
-      desc: "We send trained SusSTEM educators to run workshops and mentor your students.",
-    },
-    {
-      icon: Award,
-      title: "Recognition & Impact",
-      desc: "Showcase your school's commitment to sustainability and innovation.",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-[#eff2e7]">
       <div
@@ -90,30 +71,12 @@ export function PartnerPage() {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 -mt-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {highlights.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="bg-white rounded-3xl p-6 shadow-md border border-[#e5e8df] flex flex-col gap-3">
-              <div className="w-11 h-11 rounded-xl bg-[#eff2e7] flex items-center justify-center">
-                <Icon className="w-5 h-5 text-[#20593A]" />
-              </div>
-              <h3 className="text-[#000000] text-base" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
-                {title}
-              </h3>
-              <p className="text-[#858E80] text-sm leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
-                {desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       <div className="max-w-2xl mx-auto px-6 py-14">
         <div className="bg-white rounded-[2rem] shadow-lg border border-[#e5e8df] p-8 md:p-10">
-          <h2 className="text-2xl text-[#000000] mb-2" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
+          <h2 className="text-2xl text-[#000000] text-center mb-2" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
             Get in Touch
           </h2>
-          <p className="text-[#858E80] text-sm mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
+          <p className="text-[#858E80] text-sm text-center mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
             Tell us about your school or organisation and we'll reach out to discuss next steps.
           </p>
 

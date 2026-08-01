@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Newspaper, Sparkles, ArrowRight } from "lucide-react";
+import { Newspaper, Sparkles, ArrowRight, Image as ImageIcon } from "lucide-react";
 import { NewsletterSignupForm } from "../components/NewsletterSignupForm";
 
 interface NewsletterPageProps {
@@ -30,55 +30,91 @@ export function NewsletterPage({ onNavigate, isSubscribed, onSubscribe }: Newsle
     []
   );
   const [activePublication, setActivePublication] = useState(publications[0]);
+  const articleHighlights = [
+    "Student stories from classrooms and workshops",
+    "Partner updates and project milestones",
+    "A polished archive of past publications",
+  ];
 
   return (
     <main className="bg-[#f5f7f1] text-[#072d2d]">
       <section className="bg-[#072d2d] text-white">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:py-20">
-          <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-[#a4ff7b]">
+        <div className="mx-auto max-w-7xl px-6 py-16 lg:py-20">
+          <div className="mx-auto max-w-4xl space-y-8 text-center">
+            <div className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-[#a4ff7b]">
               <Sparkles className="h-4 w-4" />
               Insider updates
             </div>
             <div className="space-y-4">
-              <h1 className="max-w-xl text-4xl font-extrabold leading-tight sm:text-5xl">
-                A newsletter for the people building SusSTEM with us.
+              <h1 className="mx-auto max-w-3xl text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
+                A premium newsletter for the people building SusSTEM with us.
               </h1>
-              <p className="max-w-2xl text-base leading-7 text-white/78 sm:text-lg">
+              <p className="mx-auto max-w-2xl text-base leading-7 text-white/78 sm:text-lg">
                 Stay close to the work with publication drops, student stories, behind-the-scenes updates, and partner announcements in a format that feels as polished as the rest of the site.
               </p>
             </div>
 
             {isSubscribed ? (
-              <div className="rounded-3xl border border-[#a4ff7b]/25 bg-[#a4ff7b]/10 px-5 py-4 text-sm leading-6 text-white sm:max-w-lg">
+              <div className="mx-auto rounded-3xl border border-[#a4ff7b]/25 bg-[#a4ff7b]/10 px-5 py-4 text-sm leading-6 text-white sm:max-w-lg">
                 You&apos;re already subscribed. Browse the archive below to read previous publications.
               </div>
             ) : null}
           </div>
 
-          <div className="rounded-[2rem] bg-white p-6 text-[#072d2d] shadow-[0_18px_60px_rgba(0,0,0,0.18)] sm:p-8">
-            <div className="mb-6 flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#eff2e7] text-[#20593A]">
-                <Newspaper className="h-6 w-6" />
+          <div className="mx-auto mt-12 grid max-w-6xl gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+            <div className="rounded-[2rem] bg-white p-6 text-[#072d2d] shadow-[0_18px_60px_rgba(0,0,0,0.18)] sm:p-8">
+              <div className="mb-6 flex items-center gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#eff2e7] text-[#20593A]">
+                  <Newspaper className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#6b7b75]">Newsletter</p>
+                  <h2 className="text-2xl font-bold">Stay in the loop</h2>
+                </div>
               </div>
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#6b7b75]">Newsletter</p>
-                <h2 className="text-2xl font-bold">Stay in the loop</h2>
-              </div>
+
+              <NewsletterSignupForm onSubscribe={onSubscribe} submitLabel="Yes, send me updates" />
             </div>
 
-            <NewsletterSignupForm onSubscribe={onSubscribe} submitLabel="Yes, send me updates" />
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              <div className="rounded-[2rem] border border-white/10 bg-white/5 p-5 text-left backdrop-blur-sm">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#a4ff7b]">Image space</p>
+                <div className="mt-4 flex min-h-40 items-center justify-center rounded-[1.5rem] border border-white/10 bg-white/8 text-white/60">
+                  <div className="text-center">
+                    <ImageIcon className="mx-auto h-8 w-8 text-[#a4ff7b]" />
+                    <p className="mt-2 text-sm">Add a newsletter hero image here.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-[2rem] border border-white/10 bg-white/5 p-5 text-left backdrop-blur-sm">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#a4ff7b]">Image space</p>
+                <div className="mt-4 flex min-h-40 items-center justify-center rounded-[1.5rem] border border-white/10 bg-white/8 text-white/60">
+                  <div className="text-center">
+                    <ImageIcon className="mx-auto h-8 w-8 text-[#a4ff7b]" />
+                    <p className="mt-2 text-sm">Use this for a featured publication graphic.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-14 lg:py-16" id="archive">
-        <div className="mb-8 max-w-2xl space-y-3">
+        <div className="mx-auto mb-8 max-w-3xl space-y-3 text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#20593A]">Previous publications</p>
           <h2 className="text-3xl font-bold sm:text-4xl">Read what we&apos;ve already shared.</h2>
           <p className="text-base leading-7 text-[#4f5f59]">
             Use this archive as the home for future issues, launch notes, and roundups. It keeps the newsletter page useful even after someone subscribes.
           </p>
+          <div className="flex flex-wrap justify-center gap-3 pt-2 text-sm text-[#5e6f69]">
+            {articleHighlights.map((item) => (
+              <span key={item} className="rounded-full bg-white px-4 py-2 shadow-sm ring-1 ring-[#d9e2d5]">
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="grid gap-4 lg:grid-cols-3">
@@ -89,6 +125,9 @@ export function NewsletterPage({ onNavigate, isSubscribed, onSubscribe }: Newsle
                   Issue {index + 1}
                 </span>
                 <span className="text-sm text-[#6b7b75]">{publication.date}</span>
+              </div>
+              <div className="mb-5 flex min-h-36 items-center justify-center rounded-[1.25rem] border border-dashed border-[#cdd7c9] bg-[#f8faf5] text-[#8a938c]">
+                Demo article image
               </div>
               <h3 className="text-xl font-bold text-[#072d2d]">{publication.title}</h3>
               <p className="mt-3 text-sm leading-6 text-[#4f5f59]">{publication.summary}</p>

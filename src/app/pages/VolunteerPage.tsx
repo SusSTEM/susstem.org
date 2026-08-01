@@ -3,7 +3,6 @@ import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
 import { Label } from "../components/ui/label";
-import { Checkbox } from "../components/ui/checkbox";
 import { Users, Lightbulb, Globe } from "lucide-react";
 
 export function VolunteerPage() {
@@ -54,24 +53,6 @@ export function VolunteerPage() {
   const applicantTypes = ["Student", "Teacher", "Parent", "Professional", "Other"];
   const volunteeringOptions = ["Workshop Facilitator", "Mentor", "Event Helper", "Logistics", "Not sure yet"];
 
-  const highlights = [
-    {
-      icon: Users,
-      title: "Mentor Students",
-      desc: "Guide young innovators aged 11–18 as they build real sustainability solutions.",
-    },
-    {
-      icon: Lightbulb,
-      title: "Run Workshops",
-      desc: "Facilitate hands-on STEM sessions that spark curiosity and confidence.",
-    },
-    {
-      icon: Globe,
-      title: "Drive Impact",
-      desc: "Help students tackle real environmental challenges in their communities.",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-[#eff2e7]">
       <div
@@ -93,30 +74,12 @@ export function VolunteerPage() {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 -mt-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {highlights.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="bg-white rounded-3xl p-6 shadow-md border border-[#e5e8df] flex flex-col gap-3">
-              <div className="w-11 h-11 rounded-xl bg-[#eff2e7] flex items-center justify-center">
-                <Icon className="w-5 h-5 text-[#20593A]" />
-              </div>
-              <h3 className="text-[#000000] text-base" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
-                {title}
-              </h3>
-              <p className="text-[#858E80] text-sm leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
-                {desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       <div className="max-w-2xl mx-auto px-6 py-14">
         <div className="bg-white rounded-[2rem] shadow-lg border border-[#e5e8df] p-8 md:p-10">
-          <h2 className="text-2xl text-[#000000] mb-2" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
+          <h2 className="text-2xl text-[#000000] text-center mb-2" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
             Apply to Volunteer
           </h2>
-          <p className="text-[#858E80] text-sm mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
+          <p className="text-[#858E80] text-sm text-center mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
             Fill in the form below and our team will be in touch.
           </p>
 
