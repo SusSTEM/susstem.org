@@ -34,10 +34,10 @@ export function NewsletterPopup({ open, onClose, onSubscribe }: NewsletterPopupP
             Insider updates
           </p>
           <h2 id="newsletter-popup-title" className="text-3xl font-extrabold leading-tight text-[#072d2d] sm:text-4xl">
-            Stay connected to our work
+            Be in the Know
           </h2>
           <p className="text-sm leading-6 text-[#4f5f59] sm:text-base">
-            Get news, publications, and SusSTEM stories delivered straight to your inbox.
+            Newsletters, publications, Events and SusSTEM stories delivered to your inbox.
           </p>
         </div>
 
