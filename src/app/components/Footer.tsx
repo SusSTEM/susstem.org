@@ -8,21 +8,27 @@ interface FooterProps {
 
 export function Footer({ onNavigate }: FooterProps) {
   const navigateTo = (target: string) => {
-    if (onNavigate) {
-      onNavigate(target);
-      return;
+    const [pageName, section] = target.split("#");
+
+    // If we're scrolling to a section on the home page and that section exists, scroll straight to it
+    if (pageName === "home" && section) {
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState({}, "", `/#${section}`);
+        return;
+      }
     }
 
-    const section = target.split("#")[1];
-    if (section) {
-      document.getElementById(section)?.scrollIntoView({ behavior: "smooth" });
+    // Otherwise pass it up to App.tsx
+    if (onNavigate) {
+      onNavigate(target);
     }
   };
 
   return (
     <footer className="bg-[#20593A] text-white py-12 md:py-16" id="footer">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Constrained width grid to bring columns close together laterally */}
         <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-y-8 gap-x-4 mb-12">
           
           {/* About Column */}
@@ -55,7 +61,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li>
                 <button
                   type="button"
-                  onClick={() => navigateTo("gallery")}
+                  onClick={() => navigateTo("home#gallery")}
                   className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Content Library
@@ -133,7 +139,7 @@ export function Footer({ onNavigate }: FooterProps) {
               Follow us on social media to see our latest projects and student success stories.
             </p>
             
-            {/* Email (above social icons) */}
+            {/* Email */}
             <div>
               <p className="text-white/80 text-sm">
                 Email:{" "}
@@ -153,7 +159,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
-                aria-label="Visit our LinkedIn page (opens in new tab)"
+                aria-label="Visit our LinkedIn page"
               >
                 <Linkedin className="w-6 h-6 text-[#a4ff7b]" />
               </a>
@@ -162,7 +168,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
-                aria-label="Visit our YouTube channel (opens in new tab)"
+                aria-label="Visit our YouTube channel"
               >
                 <Youtube className="w-6 h-6 text-[#a4ff7b]" />
               </a>
@@ -171,7 +177,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
-                aria-label="Visit our Instagram page (opens in new tab)"
+                aria-label="Visit our Instagram page"
               >
                 <Instagram className="w-6 h-6 text-[#a4ff7b]" />
               </a>
@@ -180,7 +186,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#a2bb65] flex items-center justify-center transition-colors"
-                aria-label="Visit our X/Twitter page (opens in new tab)"
+                aria-label="Visit our X/Twitter page"
               >
                 <FaXTwitter className="w-6 h-6 text-[#a4ff7b]" />
               </a>
