@@ -3,6 +3,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 
 interface FooterProps {
   onNavigate?: (page: string) => void;
+  isNewsletterSubscribed?: boolean;
 }
 
 export function Footer({ onNavigate }: FooterProps) {
@@ -36,7 +37,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li>
                 <button
                   type="button"
-                  onClick={() => navigateTo("home#about")}
+                  onClick={() => navigateTo("home#what-is-susstem")}
                   className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   SusSTEM
@@ -45,7 +46,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li>
                 <button
                   type="button"
-                  onClick={() => navigateTo("home#story")}
+                  onClick={() => navigateTo("home#founding-story")}
                   className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Founding Story
@@ -54,7 +55,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li>
                 <button
                   type="button"
-                  onClick={() => navigateTo("home#content-library")}
+                  onClick={() => navigateTo("gallery")}
                   className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Content Library
@@ -63,7 +64,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li>
                 <button
                   type="button"
-                  onClick={() => navigateTo("home#updates")}
+                  onClick={() => navigateTo("newsletter")}
                   className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Insider Updates
@@ -84,7 +85,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li>
                 <button
                   type="button"
-                  onClick={() => navigateTo("home#get-involved")}
+                  onClick={() => navigateTo("partner")}
                   className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Partner With Us
@@ -93,7 +94,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li>
                 <button
                   type="button"
-                  onClick={() => navigateTo("home#get-involved")}
+                  onClick={() => navigateTo("volunteer")}
                   className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Volunteer
@@ -102,7 +103,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li>
                 <button
                   type="button"
-                  onClick={() => navigateTo("home#get-involved")}
+                  onClick={() => navigateTo("contribute")}
                   className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Contribute
@@ -111,7 +112,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li>
                 <button
                   type="button"
-                  onClick={() => navigateTo("home#projects")}
+                  onClick={() => navigateTo("air-alert")}
                   className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   For Educators

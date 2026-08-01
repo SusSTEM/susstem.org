@@ -12,6 +12,7 @@ import { Testimonials } from "./components/Testimonials";
 import { PartnerShowcase } from "./components/PartnerShowcase";
 import { ContactPreview } from "./components/ContactPreview";
 import { Footer } from "./components/Footer";
+import { NewsletterPopup } from "./components/NewsletterPopup";
 import { VolunteerPage } from "./pages/VolunteerPage";
 import { ContributePage } from "./pages/ContributePage";
 import { PartnerPage } from "./pages/PartnerPage";
@@ -21,6 +22,7 @@ import { CircularGalleryPage } from "./pages/CircularGalleryPage";
 // import { InnovatorPage } from "./pages/InnovatorPage";
 import { ChangemakerPage } from "./pages/ChangemakerPage";
 import { ContactPage } from "./pages/ContactPage";
+import { NewsletterPage } from "./pages/NewsletterPage";
 
 type PageKey =
   | "home"
@@ -30,7 +32,12 @@ type PageKey =
   | "air-alert"
   | "gallery"
   | "contact"
-  | "changemaker";
+  | "changemaker"
+  | "newsletter";
+
+const newsletterStorageKey = "susstem-newsletter-subscribed";
+const newsletterEmailKey = "susstem-newsletter-email";
+const newsletterDismissedKey = "susstem-newsletter-dismissed";
 
 const pagePaths: Record<PageKey, string> = {
   home: "/",
@@ -41,6 +48,7 @@ const pagePaths: Record<PageKey, string> = {
   gallery: "/gallery",
   contact: "/contact",
   changemaker: "/changemaker",
+  newsletter: "/newsletter",
 };
 
 function getPageFromPath(pathname: string): PageKey {
@@ -59,6 +67,10 @@ function getPageFromPath(pathname: string): PageKey {
       return "gallery";
     case "/contact":
       return "contact";
+    case "/newsletter":
+      return "newsletter";
+    case "/updates":
+      return "newsletter";
     case "/innovator":
       return "changemaker";
     case "/changemaker":
@@ -70,7 +82,7 @@ function getPageFromPath(pathname: string): PageKey {
 
 function getSectionFromHash(hash: string) {
   const section = hash.replace(/^#/, "");
-  return ["what-is-susstem", "projects", "impact", "about-us", "get-involved", "gallery", "contact"].includes(section)
+  return ["what-is-susstem", "projects", "impact", "about-us", "get-involved", "gallery", "contact", "founding-story"].includes(section)
     ? section
     : null;
 }
@@ -79,6 +91,10 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<PageKey>(() =>
     getPageFromPath(window.location.pathname)
   );
+  const [isNewsletterSubscribed, setIsNewsletterSubscribed] = useState(() =>
+    window.localStorage.getItem(newsletterStorageKey) === "true"
+  );
+  const [newsletterModalOpen, setNewsletterModalOpen] = useState(false);
   const [pendingSection, setPendingSection] = useState<string | null>(() =>
     getPageFromPath(window.location.pathname) === "home"
       ? getSectionFromHash(window.location.hash)
@@ -101,6 +117,28 @@ export default function App() {
       window.history.replaceState({}, "", "/changemaker");
     }
   }, []);
+
+  useEffect(() => {
+    const storedSubscribed = window.localStorage.getItem(newsletterStorageKey) === "true";
+    setIsNewsletterSubscribed(storedSubscribed);
+  }, []);
+
+  useEffect(() => {
+    if (currentPage !== "home" || isNewsletterSubscribed) {
+      return;
+    }
+
+    if (window.sessionStorage.getItem(newsletterDismissedKey) === "true") {
+      return;
+    }
+
+    const delay = 5000 + Math.floor(Math.random() * 5000);
+    const timer = window.setTimeout(() => {
+      setNewsletterModalOpen(true);
+    }, delay);
+
+    return () => window.clearTimeout(timer);
+  }, [currentPage, isNewsletterSubscribed]);
 
   useEffect(() => {
     if (currentPage !== "home" || !pendingSection) {
@@ -139,6 +177,19 @@ export default function App() {
 
     setPendingSection(null);
     window.history.pushState({}, "", nextPath);
+  };
+
+  const handleNewsletterSubscribe = (email: string) => {
+    window.localStorage.setItem(newsletterStorageKey, "true");
+    window.localStorage.setItem(newsletterEmailKey, email);
+    window.sessionStorage.setItem(newsletterDismissedKey, "true");
+    setIsNewsletterSubscribed(true);
+    setNewsletterModalOpen(false);
+  };
+
+  const handleNewsletterDismiss = () => {
+    window.sessionStorage.setItem(newsletterDismissedKey, "true");
+    setNewsletterModalOpen(false);
   };
 
   if (currentPage === "volunteer") {
@@ -185,6 +236,20 @@ export default function App() {
     return <CircularGalleryPage onNavigate={handleNavigate} />;
   }
 
+  if (currentPage === "newsletter") {
+    return (
+      <div className="min-h-screen bg-white">
+        <Navbar onNavigate={handleNavigate} />
+        <NewsletterPage
+          onNavigate={handleNavigate}
+          isSubscribed={isNewsletterSubscribed}
+          onSubscribe={handleNewsletterSubscribe}
+        />
+        <Footer onNavigate={handleNavigate} isNewsletterSubscribed={isNewsletterSubscribed} />
+      </div>
+    );
+  }
+
   if (currentPage === "contact") {
     return (
       <div className="min-h-screen bg-white">
@@ -228,7 +293,12 @@ export default function App() {
       <Testimonials />
       <PartnerShowcase />
       <ContactPreview onNavigate={handleNavigate} />
-      <Footer onNavigate={handleNavigate} />
+      <Footer onNavigate={handleNavigate} isNewsletterSubscribed={isNewsletterSubscribed} />
+      <NewsletterPopup
+        open={newsletterModalOpen}
+        onClose={handleNewsletterDismiss}
+        onSubscribe={handleNewsletterSubscribe}
+      />
     </div>
   );
 }

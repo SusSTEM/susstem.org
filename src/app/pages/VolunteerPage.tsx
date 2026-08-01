@@ -73,32 +73,30 @@ export function VolunteerPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC]">
-      {/* Hero */}
+    <div className="min-h-screen bg-[#eff2e7]">
       <div
-        className="text-white py-20 px-6"
-        style={{ background: "linear-gradient(135deg, #072d2d 0%, #0f3d2e 50%, #20593a 100%)" }}
+        className="text-white py-18 px-6"
+        style={{ background: "linear-gradient(135deg, #072d2d 0%, #0f3d2e 48%, #20593a 100%)" }}
       >
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-block bg-[#a4ff7b]/20 border border-[#a4ff7b]/40 rounded-full px-5 py-2 mb-6">
+        <div className="max-w-4xl mx-auto text-center space-y-5">
+          <div className="inline-flex items-center rounded-full border border-[#a4ff7b]/35 bg-[#a4ff7b]/10 px-5 py-2">
             <span className="text-[#a4ff7b] text-sm font-semibold" style={{ fontFamily: "Poppins, sans-serif" }}>
-              Join Our Volunteer Network
+              Join our volunteer network
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl mb-5 leading-tight" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
-            Your expertise can change a student's future.
+          <h1 className="text-4xl md:text-5xl leading-tight" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
+            Turn your skills into real student impact.
           </h1>
-          <p className="text-white/80 text-lg md:text-xl max-w-xl mx-auto" style={{ fontFamily: "Inter, sans-serif" }}>
-            Volunteer with SusSTEM and help young people build real STEM solutions to real environmental problems.
+          <p className="text-white/82 text-lg md:text-xl max-w-2xl mx-auto" style={{ fontFamily: "Inter, sans-serif" }}>
+            Help SusSTEM run workshops, mentor students, and grow a community of young sustainability builders.
           </p>
         </div>
       </div>
 
-      {/* Why Volunteer - 3 cards */}
       <div className="max-w-5xl mx-auto px-6 -mt-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {highlights.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="bg-white rounded-2xl p-6 shadow-md border border-gray-100 flex flex-col gap-3">
+            <div key={title} className="bg-white rounded-3xl p-6 shadow-md border border-[#e5e8df] flex flex-col gap-3">
               <div className="w-11 h-11 rounded-xl bg-[#eff2e7] flex items-center justify-center">
                 <Icon className="w-5 h-5 text-[#20593A]" />
               </div>
@@ -113,9 +111,8 @@ export function VolunteerPage() {
         </div>
       </div>
 
-      {/* Form */}
       <div className="max-w-2xl mx-auto px-6 py-14">
-        <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-8 md:p-10">
+        <div className="bg-white rounded-[2rem] shadow-lg border border-[#e5e8df] p-8 md:p-10">
           <h2 className="text-2xl text-[#000000] mb-2" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
             Apply to Volunteer
           </h2>
@@ -129,13 +126,13 @@ export function VolunteerPage() {
                 <Label htmlFor="name" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>Full Name *</Label>
                 <Input id="name" name="name" type="text" required value={formData.name} onChange={handleChange} placeholder="Your name"
                   className="border-gray-200 focus-visible:ring-[#a4ff7b] focus-visible:ring-2 focus-visible:border-[#20593A]"
-                  style={{ borderRadius: "12px", fontFamily: "Inter, sans-serif" }} />
+                  style={{ borderRadius: "14px", fontFamily: "Inter, sans-serif" }} />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>Email *</Label>
                 <Input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} placeholder="your@email.com"
                   className="border-gray-200 focus-visible:ring-[#a4ff7b] focus-visible:ring-2 focus-visible:border-[#20593A]"
-                  style={{ borderRadius: "12px", fontFamily: "Inter, sans-serif" }} />
+                  style={{ borderRadius: "14px", fontFamily: "Inter, sans-serif" }} />
               </div>
             </div>
 
@@ -161,7 +158,7 @@ export function VolunteerPage() {
               {formData.country === "Other" && (
                 <Input name="otherCountry" type="text" required value={formData.otherCountry} onChange={handleChange} placeholder="Please specify your country"
                   className="border-gray-200 focus-visible:ring-[#a4ff7b] focus-visible:ring-2 focus-visible:border-[#20593A]"
-                  style={{ borderRadius: "12px", fontFamily: "Inter, sans-serif" }} />
+                  style={{ borderRadius: "14px", fontFamily: "Inter, sans-serif" }} />
               )}
             </div>
 
@@ -214,12 +211,12 @@ export function VolunteerPage() {
               <Label htmlFor="message" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>Anything else? (Optional)</Label>
               <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell us a bit about yourself..."
                 className="border-gray-200 focus-visible:ring-[#a4ff7b] focus-visible:ring-2 focus-visible:border-[#20593A] min-h-[96px] resize-none"
-                style={{ borderRadius: "12px", fontFamily: "Inter, sans-serif" }} />
+                style={{ borderRadius: "14px", fontFamily: "Inter, sans-serif" }} />
             </div>
 
             <Button type="submit"
               className="w-full bg-[#20593A] hover:bg-[#072d2d] text-white text-base font-semibold transition-colors duration-300"
-              style={{ borderRadius: "12px", padding: "14px 0", fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
+              style={{ borderRadius: "9999px", padding: "14px 0", fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
               Submit Application
             </Button>
           </form>
