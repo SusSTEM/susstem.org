@@ -46,7 +46,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li>
                 <button
                   type="button"
-                  onClick={() => navigateTo("home#founding-story")}
+                  onClick={() => navigateTo("home#impact")}
                   className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Founding Story
@@ -55,7 +55,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li>
                 <button
                   type="button"
-                  onClick={() => navigateTo("home#gallery")}
+                  onClick={() => navigateTo("gallery")}
                   className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   Content Library

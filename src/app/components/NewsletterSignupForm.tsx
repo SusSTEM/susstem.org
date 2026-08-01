@@ -61,18 +61,8 @@ export function NewsletterSignupForm({ onSubscribe, submitLabel = "Sign up", com
             Yes, I&apos;d like to receive updates from SusSTEM.
           </span>
         </label>
-
-        <label className="flex items-start gap-3 text-[#072d2d] cursor-pointer">
-          <Checkbox
-            checked={isPartner}
-            onCheckedChange={(checked) => setIsPartner(Boolean(checked))}
-            className="mt-1 border-[#c9d2c4] data-[state=checked]:bg-[#20593A] data-[state=checked]:border-[#20593A]"
-          />
-          <span className="text-sm leading-6 sm:text-base">
-            I am a community-based organization, past or current partner.
-          </span>
-        </label>
       </div>
+
 
       <div className="rounded-2xl border border-[#d9e2d5] bg-[#f7f9f4] px-4 py-4">
         <div className="flex items-start gap-3">
