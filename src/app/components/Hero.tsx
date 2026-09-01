@@ -9,7 +9,7 @@ const slides = [
     title: "Inspiring the next generation of sustainable innovators",
     cta: "Learn More",
     link: "#what-is-susstem",
-    image: "/images/main%20pages/girlworkingonarduinoherosusstem.jpg",
+    image: "/images/main%20pages/SusSTEM_Banner_Selfie.jpg",
   },
   {
     id: 2,
