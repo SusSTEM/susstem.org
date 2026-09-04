@@ -23,6 +23,7 @@ import { CircularGalleryPage } from "./pages/CircularGalleryPage";
 import { ChangemakerPage } from "./pages/ChangemakerPage";
 import { ContactPage } from "./pages/ContactPage";
 import { NewsletterPage } from "./pages/NewsletterPage";
+import { MediaAdminPage } from "./pages/MediaAdminPage";
 
 type PageKey =
   | "home"
@@ -33,7 +34,8 @@ type PageKey =
   | "gallery"
   | "contact"
   | "changemaker"
-  | "newsletter";
+  | "newsletter"
+  | "media-admin";
 
 const newsletterStorageKey = "susstem-newsletter-subscribed";
 const newsletterEmailKey = "susstem-newsletter-email";
@@ -49,6 +51,7 @@ const pagePaths: Record<PageKey, string> = {
   contact: "/contact",
   changemaker: "/changemaker",
   newsletter: "/newsletter",
+  "media-admin": "/media-admin",
 };
 
 function getPageFromPath(pathname: string): PageKey {
@@ -69,6 +72,8 @@ function getPageFromPath(pathname: string): PageKey {
       return "contact";
     case "/newsletter":
       return "newsletter";
+    case "/media-admin":
+      return "media-admin";
     case "/updates":
       return "newsletter";
     case "/innovator":
@@ -234,6 +239,10 @@ export default function App() {
 
   if (currentPage === "gallery") {
     return <CircularGalleryPage onNavigate={handleNavigate} />;
+  }
+
+  if (currentPage === "media-admin") {
+    return <MediaAdminPage onNavigate={handleNavigate} />;
   }
 
   if (currentPage === "newsletter") {

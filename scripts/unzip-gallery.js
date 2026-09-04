@@ -4,6 +4,8 @@ import AdmZip from "adm-zip";
 
 const rootDir = path.join(process.cwd());
 const galleryDir = path.join(rootDir, "public", "assets", "gallery");
+const manifestPath = path.join(galleryDir, "manifest.json");
+const mediaExtensions = new Set([".jpg", ".jpeg", ".png", ".gif", ".webp", ".avif", ".svg", ".mp4", ".webm", ".mov", ".m4v"]);
 
 if (!fs.existsSync(galleryDir)) {
   fs.mkdirSync(galleryDir, { recursive: true });
@@ -12,11 +14,6 @@ if (!fs.existsSync(galleryDir)) {
 const zipFiles = fs
   .readdirSync(rootDir)
   .filter((file) => file.toLowerCase().endsWith(".zip"));
-
-if (zipFiles.length === 0) {
-  console.log("No .zip file found in root directory.");
-  process.exit(0);
-}
 
 for (const zipFile of zipFiles) {
   const zipPath = path.join(rootDir, zipFile);
@@ -29,4 +26,20 @@ for (const zipFile of zipFiles) {
   console.log(`Removed ${zipFile}`);
 }
 
-console.log("Unzipped successfully.");
+const mediaFiles = fs
+  .readdirSync(galleryDir, { withFileTypes: true })
+  .filter((entry) => entry.isFile() && mediaExtensions.has(path.extname(entry.name).toLowerCase()))
+  .map((entry, index) => {
+    const extension = path.extname(entry.name).toLowerCase();
+    const type = extension === ".mp4" || extension === ".webm" || extension === ".mov" || extension === ".m4v" ? "video" : "image";
+    const encodedName = encodeURIComponent(entry.name);
+    return {
+      id: `local-img-${index + 1}`,
+      type,
+      url: `/assets/gallery/${encodedName}`,
+      aspect: index % 3 === 0 ? "portrait" : index % 2 === 0 ? "landscape" : "square",
+    };
+  });
+
+fs.writeFileSync(manifestPath, `${JSON.stringify(mediaFiles, null, 2)}\n`);
+console.log(`${zipFiles.length ? "Unzipped successfully and " : ""}updated gallery manifest with ${mediaFiles.length} media files.`);

@@ -2,12 +2,15 @@
 
 import React, { useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { mediaAssetToGalleryItem, readMediaAssets } from "../../media/mediaTypes";
 
 export interface GalleryItem {
   id: string;
-  type: "image" | "youtube";
+  type: "image" | "youtube" | "video";
   url: string;
   aspect?: "short" | "landscape" | "square" | "portrait";
+  title?: string;
+  alt?: string;
 }
 
 // 📌 ADD YOUR YOUTUBE LINKS HERE (Shorts or Widescreen)
@@ -60,39 +63,37 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
   const [hoveredCol, setHoveredCol] = useState<string | null>(null);
 
   useEffect(() => {
-    let loadedImages: GalleryItem[] = [];
+    let isMounted = true;
 
-    // Auto-grab images from /public/assets/gallery/
-    try {
-      const imageFiles = (import.meta as any).glob(
-        '/public/assets/gallery/*.{jpg,jpeg,png,gif,webp,JPG,JPEG,PNG,WEBP}',
-        { eager: true, import: 'default' }
-      ) as Record<string, string>;
+    const loadGallery = async () => {
+      const savedAssets = readMediaAssets()
+        .filter((asset) => asset.placement === "gallery" || asset.placement === "both")
+        .map(mediaAssetToGalleryItem);
 
-      const filePaths = Object.keys(imageFiles);
-      loadedImages = filePaths.map((filePath, index) => ({
-        id: `local-img-${index + 1}`,
-        type: "image",
-        url: filePath.replace(/^\/public/, ''),
-        aspect: "portrait",
-      }));
-    } catch (err) {
-      console.warn("Error reading local gallery images:", err);
-    }
+      try {
+        const response = await fetch("/assets/gallery/manifest.json");
+        if (!response.ok) {
+          throw new Error(`Gallery manifest request failed: ${response.status}`);
+        }
+        const loadedImages = await response.json() as GalleryItem[];
+        const rawYtList = customYouTubeVideos || YOUTUBE_VIDEOS;
+        const validYtList = rawYtList.filter((item) => item.type !== "youtube" || (item.url && item.url.trim() !== ""));
+        if (isMounted) setItems([...savedAssets, ...loadedImages, ...validYtList]);
+      } catch (error) {
+        console.error("Error loading local gallery media:", error);
+        if (isMounted) setItems([...savedAssets, ...(customYouTubeVideos || YOUTUBE_VIDEOS)]);
+      }
+    };
 
-    const rawYtList = customYouTubeVideos || YOUTUBE_VIDEOS;
-    const validYtList = rawYtList.filter((item) => item.type !== "youtube" || (item.url && item.url.trim() !== ""));
+    void loadGallery();
 
-    const combined = [...loadedImages, ...validYtList];
+    const handleMediaUpdate = () => { void loadGallery(); };
+    window.addEventListener("susstem-media-updated", handleMediaUpdate);
 
-    const shuffled = [...combined].sort((a, b) => {
-      let hashA = 0, hashB = 0;
-      for (let i = 0; i < a.id.length; i++) hashA += a.id.charCodeAt(i);
-      for (let i = 0; i < b.id.length; i++) hashB += b.id.charCodeAt(i);
-      return (hashA % 13) - (hashB % 13);
-    });
-
-    setItems(shuffled);
+    return () => {
+      isMounted = false;
+      window.removeEventListener("susstem-media-updated", handleMediaUpdate);
+    };
   }, [customYouTubeVideos]);
 
   useEffect(() => {
@@ -131,6 +132,7 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
 
   const renderMediaCard = (item: GalleryItem, originalIndex: number) => {
     const isYT = item.type === "youtube";
+    const isVideo = item.type === "video";
     const ytId = isYT ? extractYouTubeId(item.url) : "";
     const thumbnailUrl = isYT
       ? `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`
@@ -144,12 +146,22 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
         className="group relative cursor-pointer overflow-hidden rounded-2xl transition-all duration-300 hover:shadow-lg active:scale-95 bg-gray-900"
       >
         <div className={`w-full relative bg-black/20 flex items-center justify-center overflow-hidden ${aspectClass}`}>
-          <img
-            src={thumbnailUrl}
-            alt="Gallery item"
-            loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
+          {isVideo ? (
+            <video
+              src={item.url}
+              muted
+              playsInline
+              preload="metadata"
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <img
+              src={thumbnailUrl}
+              alt={item.alt || item.title || "Gallery item"}
+              loading="lazy"
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          )}
           {isYT && (
             <div className="absolute flex h-12 w-12 items-center justify-center rounded-full bg-red-600 text-white shadow-lg backdrop-blur-md transition-transform duration-300 group-hover:scale-110">
               <Play className="h-5 w-5 fill-current ml-0.5" />
@@ -272,6 +284,14 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="h-full w-full rounded-2xl border-0"
+              />
+            ) : activeItem.type === "video" ? (
+              <video
+                src={activeItem.url}
+                controls
+                autoPlay
+                playsInline
+                className="max-h-[80vh] w-auto max-w-full rounded-2xl"
               />
             ) : (
               <img

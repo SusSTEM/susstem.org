@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { MediaRenderer } from "./media/MediaRenderer";
+import { readMediaAssets, type MediaAsset } from "../media/mediaTypes";
 
 const slides = [
   {
@@ -43,6 +45,17 @@ const slides = [
 
 export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [heroAssets, setHeroAssets] = useState<MediaAsset[]>([]);
+
+  useEffect(() => {
+    const loadHeroAssets = () => {
+      setHeroAssets(readMediaAssets().filter((asset) => asset.placement === "hero" || asset.placement === "both"));
+    };
+
+    loadHeroAssets();
+    window.addEventListener("susstem-media-updated", loadHeroAssets);
+    return () => window.removeEventListener("susstem-media-updated", loadHeroAssets);
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -62,6 +75,22 @@ export function Hero() {
 
 
   const ultraShadow = "drop-shadow-[0_2px_4px_rgba(0,0,0,1)] drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)] drop-shadow-[0_16px_32px_rgba(0,0,0,0.8)]";
+  const savedHero = heroAssets[currentSlide];
+  const heroAsset: MediaAsset = savedHero ?? {
+    id: `default-hero-${slides[currentSlide].id}`,
+    url: slides[currentSlide].image,
+    mediaType: "image",
+    title: slides[currentSlide].title,
+    altText: slides[currentSlide].title,
+    nativeWidth: 0,
+    nativeHeight: 0,
+    zoom: 1,
+    focalPointX: 50,
+    focalPointY: 50,
+    objectFit: "cover",
+    placement: "hero",
+    createdAt: "",
+  };
 
   return (
     <section className="relative w-full min-h-[82svh] overflow-hidden">
@@ -74,11 +103,7 @@ export function Hero() {
           transition={{ duration: 0.7, ease: "easeInOut" }}
           className="absolute inset-0"
         >
-          {/* Background Image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${slides[currentSlide].image})` }}
-          />
+          <div className="absolute inset-0 overflow-hidden bg-[#20593a]"><MediaRenderer asset={{ ...heroAsset, objectFit: heroAsset.objectFit === "auto" ? "cover" : heroAsset.objectFit }} eager className="absolute inset-0" /></div>
           {/* Gradient Overlay */}
           <div
             className="absolute inset-0"

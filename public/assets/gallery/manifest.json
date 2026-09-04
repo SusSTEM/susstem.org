@@ -1,0 +1,74 @@
+[
+  {
+    "id": "local-img-1",
+    "type": "image",
+    "url": "/assets/gallery/20260114_121034.jpg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "local-img-2",
+    "type": "image",
+    "url": "/assets/gallery/20260223_143340.jpg",
+    "aspect": "square"
+  },
+  {
+    "id": "local-img-3",
+    "type": "image",
+    "url": "/assets/gallery/IMG-20260706-WA0004.jpg",
+    "aspect": "landscape"
+  },
+  {
+    "id": "local-img-4",
+    "type": "image",
+    "url": "/assets/gallery/SusSTEM%20Cohort%201.jpeg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "local-img-5",
+    "type": "image",
+    "url": "/assets/gallery/SusSTEM%20group%20of%20high%20school%20students%20male%20and%20female%20aged%2011%20to%2014%20%2C%20from%20a%20rural%20village%20%20563676.jpg",
+    "aspect": "landscape"
+  },
+  {
+    "id": "local-img-6",
+    "type": "image",
+    "url": "/assets/gallery/SusSTEM%20Online.jpeg",
+    "aspect": "square"
+  },
+  {
+    "id": "local-img-7",
+    "type": "image",
+    "url": "/assets/gallery/SusSTEMhigh%20school%20students%20male%20and%20female%20aged%2011%20to%2014%20%2C%20from%20a%20rural%20village%20%20916993.jpg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "local-img-8",
+    "type": "image",
+    "url": "/assets/gallery/TN1%20(1).JPG",
+    "aspect": "square"
+  },
+  {
+    "id": "local-img-9",
+    "type": "image",
+    "url": "/assets/gallery/WhatsApp%20Image%202026-02-23%20at%2013.34.38.jpeg",
+    "aspect": "landscape"
+  },
+  {
+    "id": "local-img-10",
+    "type": "image",
+    "url": "/assets/gallery/WhatsApp%20Image%202026-06-13%20at%201.01.27%20PM%20(1).jpeg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "local-img-11",
+    "type": "image",
+    "url": "/assets/gallery/WhatsApp%20Image%202026-06-13%20at%201.01.27%20PM.jpeg",
+    "aspect": "landscape"
+  },
+  {
+    "id": "local-img-12",
+    "type": "image",
+    "url": "/assets/gallery/WhatsApp%20Image%202026-07-17%20at%2016.49.07.jpeg",
+    "aspect": "square"
+  }
+]
