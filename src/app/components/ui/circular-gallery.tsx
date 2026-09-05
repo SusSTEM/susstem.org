@@ -11,6 +11,10 @@ export interface GalleryItem {
   aspect?: "short" | "landscape" | "square" | "portrait";
   title?: string;
   alt?: string;
+  nativeWidth?: number;
+  nativeHeight?: number;
+  nativeWidth?: number;
+  nativeHeight?: number;
 }
 
 // 📌 ADD YOUR YOUTUBE LINKS HERE (Shorts or Widescreen)
@@ -42,19 +46,30 @@ function extractYouTubeId(urlOrId: string): string {
   return match && match[2].length === 11 ? match[2] : urlOrId;
 }
 
-function detectAspect(item: GalleryItem): string {
-  if (item.aspect) {
-    if (item.aspect === "short") return "aspect-[9/16]";
-    if (item.aspect === "landscape") return "aspect-[16/9]";
-    if (item.aspect === "square") return "aspect-square";
-    return "aspect-[4/5]";
+function getItemAspectRatio(item: GalleryItem): string {
+  if (item.nativeWidth && item.nativeHeight) {
+    return `${item.nativeWidth} / ${item.nativeHeight}`;
+  }
+
+  if (item.type === "video") {
+    return "16 / 9";
   }
 
   if (item.type === "youtube" && item.url.includes("/shorts/")) {
-    return "aspect-[9/16]";
+    return "9 / 16";
   }
 
-  return "aspect-[4/5]";
+  if (item.aspect === "short") return "9 / 16";
+  if (item.aspect === "landscape") return "16 / 9";
+  if (item.aspect === "square") return "1 / 1";
+  return "4 / 5";
+}
+
+function getItemTitle(item: GalleryItem): string {
+  if (item.title?.trim()) return item.title;
+
+  const fileName = decodeURIComponent(item.url.split("/").pop() || "Media");
+  return fileName.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ").trim() || "Media";
 }
 
 export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?: GalleryItem[] }) {
@@ -137,7 +152,8 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
     const thumbnailUrl = isYT
       ? `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`
       : item.url;
-    const aspectClass = detectAspect(item);
+    const aspectRatio = getItemAspectRatio(item);
+    const itemTitle = getItemTitle(item);
 
     return (
       <div
@@ -145,21 +161,24 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
         onClick={() => setLightboxIndex(originalIndex)}
         className="group relative cursor-pointer overflow-hidden rounded-2xl transition-all duration-300 hover:shadow-lg active:scale-95 bg-gray-900"
       >
-        <div className={`w-full relative bg-black/20 flex items-center justify-center overflow-hidden ${aspectClass}`}>
+        <div
+          className="relative flex w-full items-center justify-center overflow-hidden bg-white"
+          style={{ aspectRatio }}
+        >
           {isVideo ? (
             <video
               src={item.url}
               muted
               playsInline
               preload="metadata"
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="h-full w-full object-contain transition-transform duration-500"
             />
           ) : (
             <img
               src={thumbnailUrl}
-              alt={item.alt || item.title || "Gallery item"}
+              alt={item.alt || itemTitle}
               loading="lazy"
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className={`h-full w-full transition-transform duration-500 ${isVideo ? "object-cover" : "object-contain"}`}
             />
           )}
           {isYT && (
@@ -280,7 +299,7 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
             {activeItem.type === "youtube" ? (
               <iframe
                 src={`https://www.youtube.com/embed/${extractYouTubeId(activeItem.url)}?autoplay=1`}
-                title="YouTube Video"
+                title={getItemTitle(activeItem)}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="h-full w-full rounded-2xl border-0"
@@ -296,8 +315,8 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
             ) : (
               <img
                 src={activeItem.url}
-                alt="Gallery item"
-                className="max-h-[80vh] w-auto max-w-full object-contain rounded-2xl"
+                alt={getItemTitle(activeItem)}
+                className="max-h-[80vh] max-w-full object-contain rounded-2xl"
               />
             )}
           </div>
