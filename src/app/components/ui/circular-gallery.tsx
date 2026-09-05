@@ -159,10 +159,10 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
       <div
         key={item.id}
         onClick={() => setLightboxIndex(originalIndex)}
-        className="group relative cursor-pointer overflow-hidden rounded-2xl transition-all duration-300 hover:shadow-lg active:scale-95 bg-gray-900"
+        className="group relative cursor-pointer overflow-hidden rounded-2xl bg-black transition-all duration-300 hover:shadow-lg active:scale-95"
       >
         <div
-          className="relative flex w-full items-center justify-center overflow-hidden bg-white"
+          className="relative flex w-full items-center justify-center overflow-hidden bg-black"
           style={{ aspectRatio }}
         >
           {isVideo ? (
@@ -171,14 +171,14 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
               muted
               playsInline
               preload="metadata"
-              className="h-full w-full object-contain transition-transform duration-500"
+              className="h-full w-full object-cover transition-transform duration-500"
             />
           ) : (
             <img
               src={thumbnailUrl}
               alt={item.alt || itemTitle}
               loading="lazy"
-              className={`h-full w-full transition-transform duration-500 ${isVideo ? "object-cover" : "object-contain"}`}
+              className="h-full w-full object-cover transition-transform duration-500"
             />
           )}
           {isYT && (
@@ -289,11 +289,13 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
           </button>
 
           <div
-            className={`relative overflow-hidden rounded-2xl bg-black shadow-2xl flex items-center justify-center ${
-              activeItem.type === "youtube" && activeItem.url.includes("/shorts/")
-                ? "h-[85vh] w-[48vh] max-w-full"
-                : "h-[80vh] w-[90vw] max-w-4xl"
-            }`}
+            className={activeItem.type === "image"
+              ? "relative flex max-h-[90vh] max-w-[90vw] items-center justify-center"
+              : `relative flex items-center justify-center overflow-hidden rounded-2xl bg-black shadow-2xl ${
+                activeItem.type === "youtube" && activeItem.url.includes("/shorts/")
+                  ? "h-[85vh] w-[48vh] max-w-full"
+                  : "h-[80vh] w-[90vw] max-w-4xl"
+              }`}
             onClick={(e) => e.stopPropagation()}
           >
             {activeItem.type === "youtube" ? (
@@ -316,7 +318,7 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
               <img
                 src={activeItem.url}
                 alt={getItemTitle(activeItem)}
-                className="max-h-[80vh] max-w-full object-contain rounded-2xl"
+                className="max-h-[90vh] max-w-[90vw] object-contain"
               />
             )}
           </div>

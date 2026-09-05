@@ -93,7 +93,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative w-full min-h-[82svh] overflow-hidden">
+    <section className="relative isolate w-full min-h-[82svh] overflow-hidden scroll-mt-24">
       <AnimatePresence mode="sync">
         <motion.div
           key={currentSlide}
@@ -103,7 +103,7 @@ export function Hero() {
           transition={{ duration: 0.7, ease: "easeInOut" }}
           className="absolute inset-0"
         >
-          <div className="absolute inset-0 overflow-hidden bg-[#20593a]"><MediaRenderer asset={{ ...heroAsset, objectFit: heroAsset.objectFit === "auto" ? "cover" : heroAsset.objectFit }} eager className="absolute inset-0" /></div>
+          <div className="absolute inset-0 z-0 overflow-hidden bg-[#20593a]"><MediaRenderer asset={{ ...heroAsset, objectFit: heroAsset.objectFit === "auto" ? "cover" : heroAsset.objectFit }} eager className="absolute inset-0" /></div>
           {/* Gradient Overlay */}
           <div
             className="absolute inset-0"

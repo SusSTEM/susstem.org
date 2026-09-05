@@ -86,7 +86,7 @@ export function Navbar({ onNavigate }: NavbarProps) {
   ];
 
   return (
-    <nav className="bg-[#ffffff] border-b border-gray-200 sticky top-0 z-50">
+    <nav className="relative z-50 bg-[#ffffff] border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           
