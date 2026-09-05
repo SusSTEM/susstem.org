@@ -18,10 +18,35 @@ export function MediaAdminPage({ onNavigate }: MediaAdminPageProps) {
 
   const updateSelected = (patch: Partial<MediaAsset>) => {
     if (!selected) return;
-    setAssets((current) => current.map((asset) => asset.id === selected.id ? { ...asset, ...patch } : asset));
+    setAssets((current) => current.map((asset) => {
+      if (asset.id === selected.id) return { ...asset, ...patch };
+      if (patch.placement === "hero" && asset.placement === "hero") return { ...asset, placement: "gallery" };
+      return asset;
+    }));
     setSaved(false);
   };
-  const addAssets = (incoming: MediaAsset[]) => { setAssets((current) => [...incoming, ...current]); if (incoming[0]) setSelectedId(incoming[0].id); setSaved(false); };
+  const addAssets = (incoming: MediaAsset[]) => {
+    if (incoming[0]?.id.startsWith("replace-")) {
+      replaceSelected({ ...incoming[0], id: incoming[0].id.slice("replace-".length) });
+      return;
+    }
+    setAssets((current) => [...incoming, ...current]);
+    if (incoming[0]) setSelectedId(incoming[0].id);
+    setSaved(false);
+  };
+  const replaceSelected = (incoming: MediaAsset) => {
+    if (!selected || incoming.mediaType !== "image") return;
+    setAssets((current) => current.map((asset) => asset.id === selected.id ? {
+      ...asset,
+      url: incoming.url,
+      mediaType: incoming.mediaType,
+      nativeWidth: incoming.nativeWidth,
+      nativeHeight: incoming.nativeHeight,
+      sourceName: incoming.sourceName,
+      createdAt: incoming.createdAt,
+    } : asset));
+    setSaved(false);
+  };
   const save = () => { writeMediaAssets(assets); setSaved(true); window.setTimeout(() => setSaved(false), 2500); };
   const removeSelected = () => { if (!selected) return; const next = assets.filter((asset) => asset.id !== selected.id); setAssets(next); setSelectedId(next[0]?.id ?? null); setSaved(false); };
 

@@ -15,6 +15,9 @@ export interface MediaAsset {
   focalPointY: number;
   objectFit: MediaObjectFit;
   placement: MediaPlacement;
+  brightness?: number;
+  contrast?: number;
+  saturation?: number;
   sourceName?: string;
   createdAt: string;
 }
@@ -23,13 +26,16 @@ export const MEDIA_STORAGE_KEY = "susstem-media-assets-v1";
 
 export const DEFAULT_MEDIA_ASSET: Pick<
   MediaAsset,
-  "zoom" | "focalPointX" | "focalPointY" | "objectFit" | "placement"
+  "zoom" | "focalPointX" | "focalPointY" | "objectFit" | "placement" | "brightness" | "contrast" | "saturation"
 > = {
   zoom: 1,
   focalPointX: 50,
   focalPointY: 50,
   objectFit: "auto",
   placement: "gallery",
+  brightness: 100,
+  contrast: 100,
+  saturation: 100,
 };
 
 export function readMediaAssets(): MediaAsset[] {

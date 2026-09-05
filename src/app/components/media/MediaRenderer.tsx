@@ -23,6 +23,7 @@ export function MediaRenderer({ asset, className = "", eager = false, controls =
     objectFit,
     objectPosition: `${asset.focalPointX}% ${asset.focalPointY}%`,
     transform: `scale(${asset.zoom})`,
+    filter: `brightness(${asset.brightness ?? 100}%) contrast(${asset.contrast ?? 100}%) saturate(${asset.saturation ?? 100}%)`,
   } as const;
 
   useEffect(() => {

@@ -47,59 +47,77 @@
   {
     "id": "local-img-6",
     "type": "image",
-    "url": "/assets/gallery/20260820_155220(1).jpg",
-    "title": "20260820 155220(1)",
+    "url": "/assets/gallery/20260820_125043(1).jpg",
+    "title": "20260820 125043(1)",
     "aspect": "square",
     "nativeWidth": 3000,
-    "nativeHeight": 4000
+    "nativeHeight": 3838
   },
   {
     "id": "local-img-7",
     "type": "image",
-    "url": "/assets/gallery/IMG-20260706-WA0004.jpg",
-    "title": "IMG 20260706 WA0004",
+    "url": "/assets/gallery/20260820_155220(1).jpg",
+    "title": "20260820 155220(1)",
     "aspect": "portrait",
-    "nativeWidth": 1600,
-    "nativeHeight": 1200
+    "nativeWidth": 3000,
+    "nativeHeight": 4000
   },
   {
     "id": "local-img-8",
     "type": "image",
-    "url": "/assets/gallery/IMG_20260817_124250.jpg",
-    "title": "IMG 20260817 124250",
+    "url": "/assets/gallery/IMG-20260706-WA0004.jpg",
+    "title": "IMG 20260706 WA0004",
     "aspect": "square",
-    "nativeWidth": 3560,
-    "nativeHeight": 1844
+    "nativeWidth": 1600,
+    "nativeHeight": 1200
   },
   {
     "id": "local-img-9",
     "type": "image",
-    "url": "/assets/gallery/IMG_20260818_115751.jpg",
-    "title": "IMG 20260818 115751",
+    "url": "/assets/gallery/IMG_20260817_124250.jpg",
+    "title": "IMG 20260817 124250",
     "aspect": "landscape",
-    "nativeWidth": 3942,
+    "nativeWidth": 3560,
     "nativeHeight": 1844
   },
   {
     "id": "local-img-10",
     "type": "image",
-    "url": "/assets/gallery/SusSTEM%20Cohort%201.jpeg",
-    "title": "SusSTEM Cohort 1",
+    "url": "/assets/gallery/IMG_20260818_115751.jpg",
+    "title": "IMG 20260818 115751",
     "aspect": "portrait",
-    "nativeWidth": 1040,
-    "nativeHeight": 585
+    "nativeWidth": 3942,
+    "nativeHeight": 1844
   },
   {
     "id": "local-img-11",
     "type": "image",
+    "url": "/assets/gallery/IMG_20260818_135620.jpg",
+    "title": "IMG 20260818 135620",
+    "aspect": "landscape",
+    "nativeWidth": 3231,
+    "nativeHeight": 1844
+  },
+  {
+    "id": "local-img-12",
+    "type": "image",
+    "url": "/assets/gallery/SusSTEM%20Cohort%201.jpeg",
+    "title": "SusSTEM Cohort 1",
+    "aspect": "square",
+    "nativeWidth": 1040,
+    "nativeHeight": 585
+  },
+  {
+    "id": "local-img-13",
+    "type": "image",
     "url": "/assets/gallery/SusSTEM%20group%20of%20high%20school%20students%20male%20and%20female%20aged%2011%20to%2014%20%2C%20from%20a%20rural%20village%20%20563676.jpg",
     "title": "SusSTEM Group Of High School Students Male And Female Aged 11 To 14 , From A Rural Village  563676",
-    "aspect": "landscape",
+    "aspect": "portrait",
     "nativeWidth": 2304,
     "nativeHeight": 1792
   },
   {
-    "id": "local-img-12",
+    "id": "local-img-14",
     "type": "image",
     "url": "/assets/gallery/SusSTEM%20Online.jpeg",
     "title": "SusSTEM Online",
@@ -108,25 +126,25 @@
     "nativeHeight": 836
   },
   {
-    "id": "local-img-13",
+    "id": "local-img-15",
     "type": "image",
     "url": "/assets/gallery/SusSTEMhigh%20school%20students%20male%20and%20female%20aged%2011%20to%2014%20%2C%20from%20a%20rural%20village%20%20916993.jpg",
     "title": "SusSTEMhigh School Students Male And Female Aged 11 To 14 , From A Rural Village  916993",
-    "aspect": "portrait",
+    "aspect": "landscape",
     "nativeWidth": 2304,
     "nativeHeight": 1792
   },
   {
-    "id": "local-img-14",
+    "id": "local-img-16",
     "type": "image",
     "url": "/assets/gallery/SusSTEM_Banner_Selfie.jpg",
     "title": "SusSTEM Banner Selfie",
-    "aspect": "square",
+    "aspect": "portrait",
     "nativeWidth": 4000,
     "nativeHeight": 3000
   },
   {
-    "id": "local-img-15",
+    "id": "local-img-17",
     "type": "image",
     "url": "/assets/gallery/TN1%20(1).JPG",
     "title": "TN1 (1)",
@@ -135,25 +153,25 @@
     "nativeHeight": 2160
   },
   {
-    "id": "local-img-16",
+    "id": "local-img-18",
     "type": "image",
     "url": "/assets/gallery/WhatsApp%20Image%202026-02-23%20at%2013.34.38.jpeg",
     "title": "WhatsApp Image 2026 02 23 At 13.34.38",
-    "aspect": "portrait",
+    "aspect": "square",
     "nativeWidth": 976,
     "nativeHeight": 545
   },
   {
-    "id": "local-img-17",
+    "id": "local-img-19",
     "type": "image",
     "url": "/assets/gallery/WhatsApp%20Image%202026-06-13%20at%201.01.27%20PM%20(1).jpeg",
     "title": "WhatsApp Image 2026 06 13 At 1.01.27 PM (1)",
-    "aspect": "landscape",
+    "aspect": "portrait",
     "nativeWidth": 1280,
     "nativeHeight": 960
   },
   {
-    "id": "local-img-18",
+    "id": "local-img-20",
     "type": "image",
     "url": "/assets/gallery/WhatsApp%20Image%202026-06-13%20at%201.01.27%20PM.jpeg",
     "title": "WhatsApp Image 2026 06 13 At 1.01.27 PM",
@@ -162,11 +180,11 @@
     "nativeHeight": 960
   },
   {
-    "id": "local-img-19",
+    "id": "local-img-21",
     "type": "image",
     "url": "/assets/gallery/WhatsApp%20Image%202026-07-17%20at%2016.49.07.jpeg",
     "title": "WhatsApp Image 2026 07 17 At 16.49.07",
-    "aspect": "portrait",
+    "aspect": "landscape",
     "nativeWidth": 1209,
     "nativeHeight": 900
   }
