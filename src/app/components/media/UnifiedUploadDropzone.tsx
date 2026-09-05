@@ -4,7 +4,7 @@ import { FileArchive, FileImage, FileVideo, UploadCloud, X } from "lucide-react"
 import type { MediaAsset, MediaType } from "../../media/mediaTypes";
 import { DEFAULT_MEDIA_ASSET } from "../../media/mediaTypes";
 
-interface UnifiedUploadDropzoneProps { onAssetsReady: (assets: MediaAsset[]) => void; onReplaceReady?: (asset: MediaAsset) => void; }
+interface UnifiedUploadDropzoneProps { onAssetsReady: (assets: MediaAsset[]) => void; onReplaceReady?: (asset: MediaAsset) => void; onFilesReady?: (files: File[], drafts: MediaAsset[]) => void | Promise<void>; onReplaceFileReady?: (file: File, draft: MediaAsset) => void | Promise<void>; }
 const ACCEPTED = "image/*,video/*,.zip";
 const isVideo = (file: File) => file.type.startsWith("video/") || /\.(mp4|webm|mov|m4v)$/i.test(file.name);
 const isMedia = (file: File) => file.type.startsWith("image/") || isVideo(file);
@@ -13,7 +13,7 @@ function readAsDataUrl(file: Blob): Promise<string> { return new Promise((resolv
 function getDimensions(file: File, url: string, type: MediaType): Promise<{ width: number; height: number }> { return new Promise((resolve) => { if (type === "image") { const image = new Image(); image.onload = () => resolve({ width: image.naturalWidth, height: image.naturalHeight }); image.onerror = () => resolve({ width: 0, height: 0 }); image.src = url; return; } const video = document.createElement("video"); video.onloadedmetadata = () => resolve({ width: video.videoWidth, height: video.videoHeight }); video.onerror = () => resolve({ width: 0, height: 0 }); video.src = url; }); }
 function titleFromName(name: string) { return name.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase()); }
 
-export function UnifiedUploadDropzone({ onAssetsReady, onReplaceReady }: UnifiedUploadDropzoneProps) {
+export function UnifiedUploadDropzone({ onAssetsReady, onReplaceReady, onFilesReady, onReplaceFileReady }: UnifiedUploadDropzoneProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const replaceInputRef = useRef<HTMLInputElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -31,11 +31,13 @@ export function UnifiedUploadDropzone({ onAssetsReady, onReplaceReady }: Unified
     for (let index = 0; index < expanded.length; index += 1) { const file = expanded[index]; const mediaType: MediaType = isVideo(file) ? "video" : "image"; const url = await readAsDataUrl(file); const dimensions = await getDimensions(file, url, mediaType); assets.push({ id: `upload-${Date.now()}-${index}`, url, mediaType, title: titleFromName(file.name), altText: titleFromName(file.name), nativeWidth: dimensions.width, nativeHeight: dimensions.height, ...DEFAULT_MEDIA_ASSET, sourceName: file.name, createdAt: new Date().toISOString() }); setProgress(Math.round(((index + 1) / expanded.length) * 100)); }
     setPending(assets);
     if (replace) {
-      if (assets[0]) onReplaceReady?.(assets[0]);
+      if (assets[0] && expanded[0] && onReplaceFileReady) await onReplaceFileReady(expanded[0], assets[0]);
+      else if (assets[0]) onReplaceReady?.(assets[0]);
       if (assets[0] && !onReplaceReady) onAssetsReady([{ ...assets[0], id: `replace-${assets[0].id}` }]);
       setMessage(assets[0] ? "Replacement image ready to review" : "No image selected");
     } else {
-      onAssetsReady(assets);
+      if (onFilesReady) await onFilesReady(expanded, assets);
+      else onAssetsReady(assets);
       setMessage(`${assets.length} media item${assets.length === 1 ? "" : "s"} ready to review`);
     }
   };

@@ -24,6 +24,7 @@ import { ChangemakerPage } from "./pages/ChangemakerPage";
 import { ContactPage } from "./pages/ContactPage";
 import { NewsletterPage } from "./pages/NewsletterPage";
 import { MediaAdminPage } from "./pages/MediaAdminPage";
+import { supabase } from "../lib/supabase";
 
 type PageKey =
   | "home"
@@ -185,6 +186,11 @@ export default function App() {
   };
 
   const handleNewsletterSubscribe = (email: string) => {
+    if (supabase) {
+      void supabase.from("newsletter_subscribers").upsert({ email, status: "subscribed" }, { onConflict: "email" }).then(({ error }) => {
+        if (error) console.error("Unable to save newsletter subscription:", error);
+      });
+    }
     window.localStorage.setItem(newsletterStorageKey, "true");
     window.localStorage.setItem(newsletterEmailKey, email);
     window.sessionStorage.setItem(newsletterDismissedKey, "true");

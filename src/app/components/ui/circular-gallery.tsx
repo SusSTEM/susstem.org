@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { mediaAssetToGalleryItem, readMediaAssets } from "../../media/mediaTypes";
+import { fetchPublishedMedia } from "../../media/mediaRepository";
 
 export interface GalleryItem {
   id: string;
@@ -81,9 +82,16 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
     let isMounted = true;
 
     const loadGallery = async () => {
-      const savedAssets = readMediaAssets()
+      const localAssets = readMediaAssets()
         .filter((asset) => asset.placement === "gallery" || asset.placement === "both")
         .map(mediaAssetToGalleryItem);
+      let savedAssets = localAssets;
+      try {
+        const remoteAssets = await fetchPublishedMedia("gallery");
+        if (remoteAssets.length) savedAssets = remoteAssets.map(mediaAssetToGalleryItem);
+      } catch (error) {
+        console.error("Error loading published gallery media:", error);
+      }
 
       try {
         const response = await fetch("/assets/gallery/manifest.json");

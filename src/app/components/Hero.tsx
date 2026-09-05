@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { MediaRenderer } from "./media/MediaRenderer";
 import { readMediaAssets, type MediaAsset } from "../media/mediaTypes";
+import { fetchPublishedMedia } from "../media/mediaRepository";
 
 const slides = [
   {
@@ -48,13 +49,23 @@ export function Hero() {
   const [heroAssets, setHeroAssets] = useState<MediaAsset[]>([]);
 
   useEffect(() => {
-    const loadHeroAssets = () => {
+    const loadHeroAssets = async () => {
+      try {
+        const remoteAssets = await fetchPublishedMedia("hero");
+        if (remoteAssets.length) {
+          setHeroAssets(remoteAssets);
+          return;
+        }
+      } catch (error) {
+        console.error("Error loading published hero media:", error);
+      }
       setHeroAssets(readMediaAssets().filter((asset) => asset.placement === "hero" || asset.placement === "both"));
     };
 
-    loadHeroAssets();
-    window.addEventListener("susstem-media-updated", loadHeroAssets);
-    return () => window.removeEventListener("susstem-media-updated", loadHeroAssets);
+    void loadHeroAssets();
+    const handleMediaUpdate = () => { void loadHeroAssets(); };
+    window.addEventListener("susstem-media-updated", handleMediaUpdate);
+    return () => window.removeEventListener("susstem-media-updated", handleMediaUpdate);
   }, []);
 
   useEffect(() => {

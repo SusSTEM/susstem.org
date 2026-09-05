@@ -15,6 +15,11 @@ export interface MediaAsset {
   focalPointY: number;
   objectFit: MediaObjectFit;
   placement: MediaPlacement;
+  storageBucket?: string;
+  storagePath?: string;
+  isPublished?: boolean;
+  sortOrder?: number;
+  createdBy?: string;
   brightness?: number;
   contrast?: number;
   saturation?: number;
