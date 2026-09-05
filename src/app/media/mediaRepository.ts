@@ -89,7 +89,9 @@ export async function saveMediaAsset(asset: MediaAsset): Promise<MediaAsset> {
 
 export async function uploadMediaFile(file: File, draft: MediaAsset, existingId?: string): Promise<MediaAsset> {
   if (!supabase) throw new Error("Supabase is not configured");
-  const path = `${draft.mediaType}/${crypto.randomUUID()}-${file.name.replace(/[^a-zA-Z0-9._-]/g, "-")}`;
+  const mediaFolder = draft.mediaType === "video" ? "videos" : "images";
+  const placementFolder = draft.placement === "hero" || draft.placement === "both" ? draft.placement : "gallery";
+  const path = `${mediaFolder}/${placementFolder}/${crypto.randomUUID()}-${file.name.replace(/[^a-zA-Z0-9._-]/g, "-")}`;
   const { error: uploadError } = await supabase.storage.from("media").upload(path, file, { contentType: file.type || undefined, upsert: false });
   if (uploadError) throw uploadError;
   const { data } = supabase.storage.from("media").getPublicUrl(path);

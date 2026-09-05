@@ -100,7 +100,7 @@ export function MediaAdminPage({ onNavigate }: MediaAdminPageProps) {
       replaceSelected(draft);
       return;
     }
-    const uploaded = await uploadMediaFile(file, draft, selected.id);
+    const uploaded = await uploadMediaFile(file, { ...draft, placement: selected.placement }, selected.id);
     setAssets((current) => current.map((asset) => asset.id === selected.id ? uploaded : asset));
     setSaved(false);
   };

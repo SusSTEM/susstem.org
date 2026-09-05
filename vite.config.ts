@@ -1,26 +1,29 @@
 import { defineConfig } from 'vite'
-import path from 'path'
+import { type Plugin, type ViteDevServer } from 'vite'
+import path from 'node:path'
 import fs from 'node:fs'
 import { execFileSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
+const rootDirectory = path.dirname(fileURLToPath(import.meta.url))
 
-function figmaAssetResolver() {
+function figmaAssetResolver(): Plugin {
   return {
     name: 'figma-asset-resolver',
-    resolveId(id) {
+    resolveId(id: string) {
       if (id.startsWith('figma:asset/')) {
         const filename = id.replace('figma:asset/', '')
-        return path.resolve(__dirname, 'src/assets', filename)
+        return path.resolve(rootDirectory, 'src/assets', filename)
       }
     },
   }
 }
 
-function galleryManifestPlugin() {
-  const galleryDirectory = path.resolve(__dirname, 'public/assets/gallery')
-  const syncScript = path.resolve(__dirname, 'scripts/unzip-gallery.js')
+function galleryManifestPlugin(): Plugin {
+  const galleryDirectory = path.resolve(rootDirectory, 'public/assets/gallery')
+  const syncScript = path.resolve(rootDirectory, 'scripts/unzip-gallery.js')
   let syncing = false
 
   const syncManifest = () => {
@@ -36,11 +39,13 @@ function galleryManifestPlugin() {
 
   return {
     name: 'gallery-manifest-sync',
-    buildStart: syncManifest,
-    configureServer(server) {
+    buildStart() {
+      syncManifest()
+    },
+    configureServer(server: ViteDevServer) {
       syncManifest()
       server.watcher.add(galleryDirectory)
-      const handleChange = (file) => {
+      const handleChange = (file: string) => {
         if (file.startsWith(galleryDirectory) && !file.endsWith('manifest.json') && syncManifest()) {
           server.ws.send({ type: 'full-reload' })
         }
@@ -63,7 +68,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src/app'),
+      '@': path.resolve(rootDirectory, './src/app'),
     },
   },
 })
