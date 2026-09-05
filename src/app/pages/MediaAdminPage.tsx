@@ -4,7 +4,6 @@ import { AdminFramingControls } from "../components/media/AdminFramingControls";
 import { MediaRenderer } from "../components/media/MediaRenderer";
 import { UnifiedUploadDropzone } from "../components/media/UnifiedUploadDropzone";
 import { DEFAULT_MEDIA_ASSET, readMediaAssets, writeMediaAssets, type MediaAsset, type MediaPlacement } from "../media/mediaTypes";
-import { fetchPublishedMedia, saveMediaAsset } from "../media/mediaRepository";
 import { fetchPublishedMedia, saveMediaAsset, uploadMediaFile } from "../media/mediaRepository";
 import { isSupabaseConfigured } from "../../lib/supabase";
 import { supabase } from "../../lib/supabase";
