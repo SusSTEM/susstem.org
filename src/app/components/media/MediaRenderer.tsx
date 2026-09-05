@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Maximize2, Pause, Play, Volume2, VolumeX } from "lucide-react";
 import type { MediaAsset } from "../../media/mediaTypes";
 import { getMediaAspect } from "../../media/mediaTypes";
@@ -17,14 +17,17 @@ export function MediaRenderer({ asset, className = "", eager = false, controls =
   const [isMuted, setIsMuted] = useState(false);
   const [progress, setProgress] = useState(0);
   const [volume, setVolume] = useState(1);
-  const fit = asset.objectFit === "auto" ? "contain" : asset.objectFit;
-  const objectFit = asset.objectFit === "original" ? "none" : fit;
+  const objectFit: CSSProperties["objectFit"] = asset.objectFit === "original"
+    ? "none"
+    : asset.objectFit === "auto"
+      ? "contain"
+      : asset.objectFit;
   const mediaStyle = {
     objectFit,
     objectPosition: `${asset.focalPointX}% ${asset.focalPointY}%`,
     transform: `scale(${asset.zoom})`,
     filter: `brightness(${asset.brightness ?? 100}%) contrast(${asset.contrast ?? 100}%) saturate(${asset.saturation ?? 100}%)`,
-  } as const;
+  } satisfies CSSProperties;
 
   useEffect(() => {
     const video = videoRef.current;
