@@ -6,7 +6,8 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
-    "unzip": "node scripts/unzip-gallery.js"
+    "unzip": "node scripts/unzip-gallery.js",
+    "migrate-media": "node scripts/migrate-media-to-supabase.js"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",

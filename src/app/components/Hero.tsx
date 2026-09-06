@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { MediaRenderer } from "./media/MediaRenderer";
-import { readMediaAssets, type MediaAsset } from "../media/mediaTypes";
+import { type MediaAsset } from "../media/mediaTypes";
 import { fetchPublishedMedia } from "../media/mediaRepository";
 
 const slides = [
@@ -50,32 +50,12 @@ export function Hero() {
 
   useEffect(() => {
     const loadHeroAssets = async () => {
-      let remoteAssets: MediaAsset[] = [];
       try {
-        remoteAssets = await fetchPublishedMedia("hero");
+        const remoteAssets = await fetchPublishedMedia("hero");
+        setHeroAssets(remoteAssets);
       } catch (error) {
         console.error("Error loading published hero media:", error);
       }
-      const localAssets = readMediaAssets().filter((asset) => asset.placement === "hero" || asset.placement === "both");
-      const fallbackAssets = slides.map((slide, index): MediaAsset => ({
-        id: `default-hero-${slide.id}`,
-        url: slide.image,
-        mediaType: "image",
-        title: slide.title,
-        altText: slide.title,
-        nativeWidth: 0,
-        nativeHeight: 0,
-        zoom: 1,
-        focalPointX: 50,
-        focalPointY: 50,
-        objectFit: "cover",
-        placement: "hero",
-        sortOrder: index,
-        createdAt: "",
-      }));
-      const byOrder = new Map(fallbackAssets.map((asset) => [asset.sortOrder, asset]));
-      [...localAssets, ...remoteAssets].forEach((asset) => byOrder.set(asset.sortOrder ?? 0, asset));
-      setHeroAssets(Array.from(byOrder.values()).sort((left, right) => (left.sortOrder ?? 0) - (right.sortOrder ?? 0)));
     };
 
     void loadHeroAssets();
@@ -86,13 +66,13 @@ export function Hero() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setCurrentSlide((prev) => (prev + 1) % Math.max(heroAssets.length, 1));
     }, 7000);
     return () => clearInterval(timer);
-  }, []);
+  }, [heroAssets.length]);
 
-  const goToPrevious = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  const goToNext = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const goToPrevious = () => setCurrentSlide((prev) => (prev - 1 + heroAssets.length) % heroAssets.length);
+  const goToNext = () => setCurrentSlide((prev) => (prev + 1) % heroAssets.length);
   const goToSlide = (index: number) => setCurrentSlide(index);
 
   const handleCTAClick = (link: string) => {
@@ -102,22 +82,9 @@ export function Hero() {
 
 
   const ultraShadow = "drop-shadow-[0_2px_4px_rgba(0,0,0,1)] drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)] drop-shadow-[0_16px_32px_rgba(0,0,0,0.8)]";
-  const savedHero = heroAssets[currentSlide];
-  const heroAsset: MediaAsset = savedHero ?? {
-    id: `default-hero-${slides[currentSlide].id}`,
-    url: slides[currentSlide].image,
-    mediaType: "image",
-    title: slides[currentSlide].title,
-    altText: slides[currentSlide].title,
-    nativeWidth: 0,
-    nativeHeight: 0,
-    zoom: 1,
-    focalPointX: 50,
-    focalPointY: 50,
-    objectFit: "cover",
-    placement: "hero",
-    createdAt: "",
-  };
+  if (!heroAssets.length) return null;
+  const heroAsset = heroAssets[currentSlide] ?? heroAssets[0];
+  const slideCopy = slides[currentSlide] ?? { title: heroAsset.title, cta: "Explore SusSTEM", link: "#what-is-susstem" };
 
   return (
     <section className="relative isolate w-full min-h-[82svh] overflow-hidden scroll-mt-24">
@@ -140,7 +107,7 @@ export function Hero() {
           {/* Content */}
           <div className="relative z-10 h-full flex items-center justify-center px-4 sm:px-6">
             <div className="max-w-4xl text-center space-y-6 md:space-y-8">
-              {slides[currentSlide].id === 3 ? (
+              {slideCopy.title === "SusSTEM = " ? (
                 <motion.div
                   initial={{ y: 12, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
@@ -148,7 +115,7 @@ export function Hero() {
                   className="flex flex-col items-center space-y-2"
                 >
                   <h1 className={`text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight ${ultraShadow}`} style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
-                    {slides[currentSlide].title}
+                    {slideCopy.title}
                   </h1>
                   <span className={`text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl ${ultraShadow}`} style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}>
                     Sustainability + STEM
@@ -162,7 +129,7 @@ export function Hero() {
                   className={`text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight ${ultraShadow}`}
                   style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
                 >
-                  {slides[currentSlide].title}
+                  {slideCopy.title}
                 </motion.h1>
               )}
               <motion.div
@@ -174,7 +141,7 @@ export function Hero() {
                   className="bg-[#20593A] hover:bg-[#a2bb65] text-white w-full sm:w-auto px-6 sm:px-10 py-4 sm:py-6 rounded-xl transition-colors duration-300 text-base sm:text-lg shadow-xl"
                   onClick={() => handleCTAClick(slides[currentSlide].link)}
                 >
-                  {slides[currentSlide].cta}
+                  {slideCopy.cta}
                 </Button>
               </motion.div>
             </div>
@@ -200,7 +167,7 @@ export function Hero() {
 
       {/* Dot Indicators */}
       <div className="absolute bottom-5 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2.5 sm:gap-3">
-        {slides.map((_, index) => (
+        {heroAssets.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}

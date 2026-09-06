@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight, Play } from "lucide-react";
-import { mediaAssetToGalleryItem, readMediaAssets } from "../../media/mediaTypes";
+import { mediaAssetToGalleryItem } from "../../media/mediaTypes";
 import { fetchPublishedMedia } from "../../media/mediaRepository";
 
 export interface GalleryItem {
@@ -79,30 +79,16 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
     let isMounted = true;
 
     const loadGallery = async () => {
-      const localAssets = readMediaAssets()
-        .filter((asset) => asset.placement === "gallery" || asset.placement === "both")
-        .map(mediaAssetToGalleryItem);
-      let savedAssets = localAssets;
+      let savedAssets: GalleryItem[] = [];
       try {
         const remoteAssets = await fetchPublishedMedia("gallery");
-        if (remoteAssets.length) savedAssets = remoteAssets.map(mediaAssetToGalleryItem);
+        savedAssets = remoteAssets.map(mediaAssetToGalleryItem);
       } catch (error) {
         console.error("Error loading published gallery media:", error);
       }
-
-      try {
-        const response = await fetch("/assets/gallery/manifest.json");
-        if (!response.ok) {
-          throw new Error(`Gallery manifest request failed: ${response.status}`);
-        }
-        const loadedImages = await response.json() as GalleryItem[];
-        const rawYtList = customYouTubeVideos || YOUTUBE_VIDEOS;
-        const validYtList = rawYtList.filter((item) => item.type !== "youtube" || (item.url && item.url.trim() !== ""));
-        if (isMounted) setItems([...savedAssets, ...loadedImages, ...validYtList]);
-      } catch (error) {
-        console.error("Error loading local gallery media:", error);
-        if (isMounted) setItems([...savedAssets, ...(customYouTubeVideos || YOUTUBE_VIDEOS)]);
-      }
+      const rawYtList = customYouTubeVideos || YOUTUBE_VIDEOS;
+      const validYtList = rawYtList.filter((item) => item.type !== "youtube" || (item.url && item.url.trim() !== ""));
+      if (isMounted) setItems([...savedAssets, ...validYtList]);
     };
 
     void loadGallery();

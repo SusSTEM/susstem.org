@@ -95,7 +95,12 @@ export async function uploadMediaFile(file: File, draft: MediaAsset, existingId?
   const { error: uploadError } = await supabase.storage.from("media").upload(path, file, { contentType: file.type || undefined, upsert: false });
   if (uploadError) throw uploadError;
   const { data } = supabase.storage.from("media").getPublicUrl(path);
-  return saveMediaAsset({ ...draft, id: existingId ?? crypto.randomUUID(), url: data.publicUrl, storageBucket: "media", storagePath: path });
+  const savedAsset = await saveMediaAsset({ ...draft, id: existingId ?? crypto.randomUUID(), url: data.publicUrl, storageBucket: "media", storagePath: path });
+  if (existingId && draft.storagePath && draft.storageBucket && draft.storagePath !== path) {
+    const { error: cleanupError } = await supabase.storage.from(draft.storageBucket).remove([draft.storagePath]);
+    if (cleanupError) console.warn("Unable to remove replaced media file:", cleanupError);
+  }
+  return savedAsset;
 }
 
 export async function deleteMediaAsset(asset: MediaAsset): Promise<void> {
