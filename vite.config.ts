@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import { type Plugin, type ViteDevServer } from 'vite'
 import path from 'node:path'
 import fs from 'node:fs'
@@ -57,18 +57,26 @@ function galleryManifestPlugin(): Plugin {
   }
 }
 
-export default defineConfig({
-  plugins: [
-    figmaAssetResolver(),
-    galleryManifestPlugin(),
-    // The React and Tailwind plugins are both required for Make, even if
-    // Tailwind is not being actively used – do not remove them
-    react(),
-    tailwindcss(),
-  ],
-  resolve: {
-    alias: {
-      '@': path.resolve(rootDirectory, './src/app'),
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, rootDirectory, '')
+
+  return {
+    define: {
+      'import.meta.env.VITE_SUPABASE_URL': JSON.stringify(env.VITE_SUPABASE_URL || env.NEXT_PUBLIC_SUPABASE_URL || ''),
+      'import.meta.env.VITE_SUPABASE_ANON_KEY': JSON.stringify(env.VITE_SUPABASE_ANON_KEY || env.NEXT_PUBLIC_SUPABASE_ANON_KEY || env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || ''),
     },
-  },
+    plugins: [
+      figmaAssetResolver(),
+      galleryManifestPlugin(),
+      // The React and Tailwind plugins are both required for Make, even if
+      // Tailwind is not being actively used – do not remove them
+      react(),
+      tailwindcss(),
+    ],
+    resolve: {
+      alias: {
+        '@': path.resolve(rootDirectory, './src/app'),
+      },
+    },
+  }
 })
