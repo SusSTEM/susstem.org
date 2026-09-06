@@ -95,7 +95,7 @@ export async function uploadMediaFile(file: File, draft: MediaAsset, existingId?
   const { error: uploadError } = await supabase.storage.from("media").upload(path, file, { contentType: file.type || undefined, upsert: false });
   if (uploadError) throw uploadError;
   const { data } = supabase.storage.from("media").getPublicUrl(path);
-  return saveMediaAsset({ ...draft, id: existingId ?? draft.id, url: data.publicUrl, storageBucket: "media", storagePath: path });
+  return saveMediaAsset({ ...draft, id: existingId ?? crypto.randomUUID(), url: data.publicUrl, storageBucket: "media", storagePath: path });
 }
 
 export async function deleteMediaAsset(asset: MediaAsset): Promise<void> {

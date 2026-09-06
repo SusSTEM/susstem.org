@@ -195,7 +195,7 @@ export function MediaAdminPage({ onNavigate }: MediaAdminPageProps) {
     if (!selected) return;
     setUploadError("");
     try {
-      const isBundledAsset = selected.id.startsWith("00000000-0000-0000-000");
+      const isBundledAsset = selected.url.startsWith("/");
       if (isSupabaseConfigured && !isBundledAsset) await deleteMediaAsset(selected);
       const next = assets.filter((asset) => asset.id !== selected.id);
       setAssets(next);
