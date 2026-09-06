@@ -18,6 +18,18 @@ function getPlacementLabel(placement: MediaPlacement) {
   return placementOptions.find((option) => option.id === placement)?.label ?? placement;
 }
 
+function getMediaErrorMessage(error: unknown, action: "upload" | "save" | "remove") {
+  const message = error instanceof Error ? error.message : String(error);
+  const normalized = message.toLowerCase();
+  if (normalized.includes("row-level security") || normalized.includes("not authorized") || normalized.includes("forbidden") || normalized.includes("unauthorized")) {
+    return "Supabase denied this action. Your signed-in email must be added to the admin_users table, and the Supabase Storage policies must be applied.";
+  }
+  if (normalized.includes("bucket") || normalized.includes("storage")) {
+    return `Supabase Storage rejected the ${action}. Confirm that the public media bucket exists and its admin upload policy is enabled.`;
+  }
+  return `${action[0].toUpperCase()}${action.slice(1)} failed: ${message}`;
+}
+
 const defaultHeroAssets: MediaAsset[] = [
   { id: "00000000-0000-0000-0000-000000000001", url: "/images/main%20pages/SusSTEM_Banner_Selfie.jpg", mediaType: "image", title: "Inspiring the next generation of sustainable innovators", altText: "Inspiring the next generation of sustainable innovators", nativeWidth: 0, nativeHeight: 0, ...{ zoom: 1, focalPointX: 50, focalPointY: 50, objectFit: "cover" as const, placement: "hero" as const, brightness: 100, contrast: 100, saturation: 100 }, createdAt: "" },
   { id: "00000000-0000-0000-0000-000000000002", url: "/images/main%20pages/cutemelookingatlegosusstem.jpg", mediaType: "image", title: "STEM-powered minds for a sustainable tomorrow", altText: "Child building with STEM materials", nativeWidth: 0, nativeHeight: 0, ...{ zoom: 1, focalPointX: 50, focalPointY: 50, objectFit: "cover" as const, placement: "hero" as const, brightness: 100, contrast: 100, saturation: 100 }, createdAt: "" },
@@ -150,7 +162,7 @@ export function MediaAdminPage({ onNavigate }: MediaAdminPageProps) {
       setSaved(false);
     } catch (error) {
       console.error("Unable to upload media:", error);
-      setUploadError("The upload could not be completed. Check your connection and try again.");
+      setUploadError(getMediaErrorMessage(error, "upload"));
     }
   };
 
@@ -175,7 +187,7 @@ export function MediaAdminPage({ onNavigate }: MediaAdminPageProps) {
       setSaved(false);
     } catch (error) {
       console.error("Unable to replace media:", error);
-      setUploadError("The replacement could not be completed. Check your connection and try again.");
+      setUploadError(getMediaErrorMessage(error, "upload"));
     }
   };
 
@@ -187,7 +199,7 @@ export function MediaAdminPage({ onNavigate }: MediaAdminPageProps) {
       window.setTimeout(() => setSaved(false), 2500);
     } catch (error) {
       console.error("Unable to save media:", error);
-      setUploadError("Changes could not be saved. Check your connection and try again.");
+      setUploadError(getMediaErrorMessage(error, "save"));
     }
   };
 
@@ -204,7 +216,7 @@ export function MediaAdminPage({ onNavigate }: MediaAdminPageProps) {
       setSaved(false);
     } catch (error) {
       console.error("Unable to remove media:", error);
-      setUploadError("This media could not be removed. Check your connection and try again.");
+      setUploadError(getMediaErrorMessage(error, "remove"));
     }
   };
 
