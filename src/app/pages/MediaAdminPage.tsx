@@ -3,7 +3,7 @@ import { ArrowLeft, Check, ImagePlus, Images, Layers3, LayoutTemplate, LogOut, S
 import { AdminFramingControls } from "../components/media/AdminFramingControls";
 import { UnifiedUploadDropzone } from "../components/media/UnifiedUploadDropzone";
 import { type MediaAsset, type MediaPlacement } from "../media/mediaTypes";
-import { deleteMediaAsset, fetchPublishedMedia, saveMediaAsset, uploadMediaFile } from "../media/mediaRepository";
+import { deleteMediaAsset, fetchAllMedia, saveMediaAsset, uploadMediaFile } from "../media/mediaRepository";
 import { isSupabaseConfigured, supabase } from "../../lib/supabase";
 
 interface MediaAdminPageProps { onNavigate?: (page: string) => void; }
@@ -55,13 +55,17 @@ export function MediaAdminPage({ onNavigate }: MediaAdminPageProps) {
   );
   const selected = placementAssets.find((asset) => asset.id === selectedId) ?? placementAssets[0] ?? null;
 
+  const currentIndex = selected ? placementAssets.findIndex((a) => a.id === selected.id) : -1;
+  const canMoveUp = selected !== null && currentIndex > 0;
+  const canMoveDown = selected !== null && currentIndex !== -1 && currentIndex < placementAssets.length - 1;
+
   useEffect(() => {
     if (selected?.id !== selectedId) setSelectedId(selected?.id ?? null);
   }, [selected, selectedId]);
 
   useEffect(() => {
     let active = true;
-    void fetchPublishedMedia().then((remoteAssets) => {
+    void fetchAllMedia().then((remoteAssets) => {
       if (active) setAssets(remoteAssets);
     }).catch((error) => console.error("Unable to load media from Supabase:", error));
     return () => { active = false; };
@@ -104,7 +108,12 @@ export function MediaAdminPage({ onNavigate }: MediaAdminPageProps) {
 
   const addAssets = async (incoming: MediaAsset[]) => {
     setUploadError("");
-    const drafts = incoming.map((asset) => ({ ...asset, placement: activePlacement }));
+    const maxSortOrder = assets.reduce((max, asset) => Math.max(max, asset.sortOrder ?? 0), 0);
+    const drafts = incoming.map((asset, index) => ({
+      ...asset,
+      placement: activePlacement,
+      sortOrder: maxSortOrder + (index + 1) * 10,
+    }));
     try {
       if (isSupabaseConfigured) {
         const uploaded = await Promise.all(drafts.map(async (asset) => uploadMediaFile(await dataUrlToFile(asset), asset)));
@@ -123,7 +132,6 @@ export function MediaAdminPage({ onNavigate }: MediaAdminPageProps) {
     setUploadError("");
     try {
       if (isSupabaseConfigured) {
-        const isRemoteAsset = Boolean(selected.storagePath && selected.storageBucket);
         const uploaded = await uploadMediaFile(file, {
           ...draft,
           id: selected.id,
@@ -140,7 +148,8 @@ export function MediaAdminPage({ onNavigate }: MediaAdminPageProps) {
           sortOrder: selected.sortOrder,
           storageBucket: selected.storageBucket,
           storagePath: selected.storagePath,
-        }, isRemoteAsset ? selected.id : undefined);
+          isPublished: selected.isPublished,
+        }, selected.id);
         setAssets((current) => current.map((asset) => asset.id === selected.id ? uploaded : asset));
       }
       setSaved(false);
@@ -150,11 +159,55 @@ export function MediaAdminPage({ onNavigate }: MediaAdminPageProps) {
     }
   };
 
+  const moveAsset = (direction: "up" | "down") => {
+    if (!selected) return;
+    const currentIndex = placementAssets.findIndex((a) => a.id === selected.id);
+    if (currentIndex === -1) return;
+
+    const targetIndex = direction === "up" ? currentIndex - 1 : currentIndex + 1;
+    if (targetIndex < 0 || targetIndex >= placementAssets.length) return;
+
+    const targetAsset = placementAssets[targetIndex];
+
+    const currentOrder = selected.sortOrder ?? 0;
+    const targetOrder = targetAsset.sortOrder ?? 0;
+
+    if (currentOrder === targetOrder) {
+      const updatedAssets = assets.map((asset) => {
+        const idx = placementAssets.findIndex((pa) => pa.id === asset.id);
+        if (idx !== -1) {
+          let newOrder = idx * 10;
+          if (asset.id === selected.id) {
+            newOrder = targetIndex * 10;
+          } else if (asset.id === targetAsset.id) {
+            newOrder = currentIndex * 10;
+          }
+          return { ...asset, sortOrder: newOrder };
+        }
+        return asset;
+      });
+      setAssets(updatedAssets);
+    } else {
+      const updatedAssets = assets.map((asset) => {
+        if (asset.id === selected.id) {
+          return { ...asset, sortOrder: targetOrder };
+        }
+        if (asset.id === targetAsset.id) {
+          return { ...asset, sortOrder: currentOrder };
+        }
+        return asset;
+      });
+      setAssets(updatedAssets);
+    }
+    setSaved(false);
+  };
+
   const save = async () => {
     try {
       if (isSupabaseConfigured) await Promise.all(assets.map((asset) => saveMediaAsset(asset)));
       if (!isSupabaseConfigured) throw new Error("Supabase is not configured");
       setSaved(true);
+      window.dispatchEvent(new CustomEvent("susstem-media-updated"));
       window.setTimeout(() => setSaved(false), 2500);
     } catch (error) {
       console.error("Unable to save media:", error);
@@ -204,7 +257,7 @@ export function MediaAdminPage({ onNavigate }: MediaAdminPageProps) {
             <div className="rounded-2xl border border-[#dce8e5] bg-white p-5 shadow-sm sm:p-6"><div className="mb-5 flex items-end justify-between gap-4"><div><p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#6b8983]">Library</p><h2 className="mt-1 text-xl font-semibold">{getPlacementLabel(activePlacement)} visuals</h2></div><span className="rounded-full bg-[#eaf3f1] px-3 py-1 text-xs font-semibold text-[#20593a]">{placementAssets.length} {placementAssets.length === 1 ? "item" : "items"}</span></div>{placementAssets.length ? <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">{placementAssets.map((asset) => <button key={asset.id} type="button" onClick={() => setSelectedId(asset.id)} className={`group relative overflow-hidden rounded-xl border-2 bg-[#eaf3f1] text-left ${activePlacement === "hero" ? "aspect-[16/9]" : activePlacement === "gallery" ? "aspect-[4/5]" : "aspect-[4/3]"} ${selected?.id === asset.id ? "border-[#20593a] ring-2 ring-[#b9d5ca]" : "border-transparent"}`}>{asset.mediaType === "video" ? <video src={asset.url} muted className="h-full w-full object-cover" /> : <img src={asset.url} alt={asset.altText} className="h-full w-full object-cover" />}{selected?.id === asset.id ? <span className="absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full bg-[#20593a] text-white"><Check className="h-4 w-4" /></span> : null}<span className="absolute inset-x-0 bottom-0 truncate bg-gradient-to-t from-black/70 px-3 pb-2 pt-7 text-xs font-medium text-white">{asset.title || asset.sourceName || "Untitled media"}</span></button>)}</div> : <div className="rounded-xl border border-dashed border-[#cbded9] bg-[#fbfdfc] px-6 py-14 text-center"><UploadCloud className="mx-auto h-8 w-8 text-[#7da79e]" /><p className="mt-3 text-sm font-semibold">No {getPlacementLabel(activePlacement).toLowerCase()} media yet</p><p className="mt-1 text-sm text-[#607975]">Use the upload area above to add the first item.</p></div>}</div>
           </section>
 
-          <aside className="space-y-6 xl:sticky xl:top-6">{selected ? <><div className="rounded-2xl border border-[#dce8e5] bg-white p-5 shadow-sm sm:p-6"><div className="mb-5 flex items-start justify-between"><div><p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#6b8983]">Selected visual</p><h2 className="mt-1 text-xl font-semibold">Edit details</h2></div>{selected.mediaType === "video" ? <Video className="h-5 w-5 text-[#7da79e]" /> : <ImagePlus className="h-5 w-5 text-[#7da79e]" />}</div><div className="space-y-4"><label className="block text-sm font-semibold">Title<input value={selected.title} onChange={(event) => updateSelected({ title: event.target.value })} className="mt-2 w-full rounded-xl border border-[#dce8e5] px-3 py-2.5 font-normal outline-none focus:border-[#20593a]" /></label><label className="block text-sm font-semibold">Alt text<span className="ml-1 font-normal text-[#607975]">for accessibility</span><textarea value={selected.altText} onChange={(event) => updateSelected({ altText: event.target.value })} rows={2} className="mt-2 w-full resize-none rounded-xl border border-[#dce8e5] px-3 py-2.5 font-normal outline-none focus:border-[#20593a]" /></label><div><p className="mb-2 text-sm font-semibold">Use this in</p><div className="grid grid-cols-3 gap-2">{placementOptions.map(({ id, label }) => <button key={id} type="button" onClick={() => { updateSelected({ placement: id }); setActivePlacement(id); }} className={`rounded-xl px-2 py-2.5 text-sm font-semibold transition ${selected.placement === id ? "bg-[#20593a] text-white" : "bg-[#f2f7f5] text-[#35514e] hover:bg-[#eaf3f1]"}`}>{label}</button>)}</div><p className="mt-2 text-xs text-[#607975]">Hero allows one primary visual. Choosing a new hero moves the previous one to Gallery.</p></div></div></div><AdminFramingControls asset={selected} onChange={(next) => updateSelected(next)} /><button type="button" onClick={() => void removeSelected()} className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-[#f0c9c5] bg-white px-4 py-3 text-sm font-semibold text-[#b42318] hover:bg-[#fff5f4]"><Trash2 className="h-4 w-4" /> Remove this visual</button></> : <div className="rounded-2xl border border-[#dce8e5] bg-white p-7 text-center shadow-sm"><ImagePlus className="mx-auto h-9 w-9 text-[#9cbdb4]" /><h2 className="mt-3 text-lg font-semibold">Select a visual to edit</h2><p className="mt-1 text-sm text-[#607975]">Your {getPlacementLabel(activePlacement).toLowerCase()} library will appear here.</p></div>}</aside>
+          <aside className="space-y-6 xl:sticky xl:top-6">{selected ? <><div className="rounded-2xl border border-[#dce8e5] bg-white p-5 shadow-sm sm:p-6"><div className="mb-5 flex items-start justify-between"><div><p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#6b8983]">Selected visual</p><h2 className="mt-1 text-xl font-semibold">Edit details</h2></div>{selected.mediaType === "video" ? <Video className="h-5 w-5 text-[#7da79e]" /> : <ImagePlus className="h-5 w-5 text-[#7da79e]" />}</div><div className="space-y-4"><label className="block text-sm font-semibold">Title<input value={selected.title} onChange={(event) => updateSelected({ title: event.target.value })} className="mt-2 w-full rounded-xl border border-[#dce8e5] px-3 py-2.5 font-normal outline-none focus:border-[#20593a]" /></label><label className="block text-sm font-semibold">Alt text<span className="ml-1 font-normal text-[#607975]">for accessibility</span><textarea value={selected.altText} onChange={(event) => updateSelected({ altText: event.target.value })} rows={2} className="mt-2 w-full resize-none rounded-xl border border-[#dce8e5] px-3 py-2.5 font-normal outline-none focus:border-[#20593a]" /></label><label className="flex items-center gap-2 text-sm font-semibold select-none cursor-pointer pt-2"><input type="checkbox" checked={selected.isPublished ?? true} onChange={(event) => updateSelected({ isPublished: event.target.checked })} className="h-4 w-4 rounded border-[#dce8e5] text-[#20593a] focus:ring-[#20593a] accent-[#20593a]" /><span>Publish on public site</span></label><div><p className="mb-2 text-sm font-semibold">Use this in</p><div className="grid grid-cols-3 gap-2">{placementOptions.map(({ id, label }) => <button key={id} type="button" onClick={() => { updateSelected({ placement: id }); setActivePlacement(id); }} className={`rounded-xl px-2 py-2.5 text-sm font-semibold transition ${selected.placement === id ? "bg-[#20593a] text-white" : "bg-[#f2f7f5] text-[#35514e] hover:bg-[#eaf3f1]"}`}>{label}</button>)}</div><p className="mt-2 text-xs text-[#607975]">Hero allows one primary visual. Choosing a new hero moves the previous one to Gallery.</p></div></div></div><AdminFramingControls asset={selected} onChange={(next) => updateSelected(next)} onMoveUp={() => moveAsset("up")} onMoveDown={() => moveAsset("down")} canMoveUp={canMoveUp} canMoveDown={canMoveDown} /><button type="button" onClick={() => void removeSelected()} className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-[#f0c9c5] bg-white px-4 py-3 text-sm font-semibold text-[#b42318] hover:bg-[#fff5f4]"><Trash2 className="h-4 w-4" /> Remove this visual</button></> : <div className="rounded-2xl border border-[#dce8e5] bg-white p-7 text-center shadow-sm"><ImagePlus className="mx-auto h-9 w-9 text-[#9cbdb4]" /><h2 className="mt-3 text-lg font-semibold">Select a visual to edit</h2><p className="mt-1 text-sm text-[#607975]">Your {getPlacementLabel(activePlacement).toLowerCase()} library will appear here.</p></div>}</aside>
         </div>
       </main>
     </div>
