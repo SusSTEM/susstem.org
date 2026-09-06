@@ -19,15 +19,20 @@ function getPlacementLabel(placement: MediaPlacement) {
 }
 
 function getMediaErrorMessage(error: unknown, action: "upload" | "save" | "remove") {
-  const message = error instanceof Error ? error.message : String(error);
-  const normalized = message.toLowerCase();
+  const details = typeof error === "object" && error !== null
+    ? error as { message?: string; error?: string; details?: string; hint?: string }
+    : null;
+  const message = details?.message || details?.error || (error instanceof Error ? error.message : String(error));
+  const extra = [details?.details, details?.hint].filter(Boolean).join(" ");
+  const fullMessage = `${message}${extra ? ` ${extra}` : ""}`;
+  const normalized = fullMessage.toLowerCase();
   if (normalized.includes("row-level security") || normalized.includes("not authorized") || normalized.includes("forbidden") || normalized.includes("unauthorized")) {
     return "Supabase denied this action. Your signed-in email must be added to the admin_users table, and the Supabase Storage policies must be applied.";
   }
   if (normalized.includes("bucket") || normalized.includes("storage")) {
     return `Supabase Storage rejected the ${action}. Confirm that the public media bucket exists and its admin upload policy is enabled.`;
   }
-  return `${action[0].toUpperCase()}${action.slice(1)} failed: ${message}`;
+  return `${action[0].toUpperCase()}${action.slice(1)} failed: ${fullMessage}`;
 }
 
 const defaultHeroAssets: MediaAsset[] = [
