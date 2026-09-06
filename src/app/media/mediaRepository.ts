@@ -60,6 +60,16 @@ export async function fetchPublishedMedia(placement?: MediaPlacement): Promise<M
   return (data as MediaRow[]).map(mediaRowToAsset);
 }
 
+export async function fetchAllMedia(): Promise<MediaAsset[]> {
+  if (!supabase) return [];
+  const { data, error } = await supabase
+    .from("media_assets")
+    .select("*")
+    .order("sort_order", { ascending: true });
+  if (error) throw error;
+  return (data as MediaRow[]).map(mediaRowToAsset);
+}
+
 export async function saveMediaAsset(asset: MediaAsset): Promise<MediaAsset> {
   if (!supabase) throw new Error("Supabase is not configured");
   const { data, error } = await supabase.from("media_assets").upsert({
@@ -89,26 +99,57 @@ export async function saveMediaAsset(asset: MediaAsset): Promise<MediaAsset> {
 
 export async function uploadMediaFile(file: File, draft: MediaAsset, existingId?: string): Promise<MediaAsset> {
   if (!supabase) throw new Error("Supabase is not configured");
+  
   const mediaFolder = draft.mediaType === "video" ? "videos" : "images";
   const placementFolder = draft.placement === "hero" || draft.placement === "both" ? draft.placement : "gallery";
-  const path = `${mediaFolder}/${placementFolder}/${crypto.randomUUID()}-${file.name.replace(/[^a-zA-Z0-9._-]/g, "-")}`;
-  const { error: uploadError } = await supabase.storage.from("media").upload(path, file, { contentType: file.type || undefined, upsert: false });
+  
+  // Reuse the existing storage path if available to preserve the public URL
+  const path = draft.storagePath || `${mediaFolder}/${placementFolder}/${crypto.randomUUID()}-${file.name.replace(/[^a-zA-Z0-9._-]/g, "-")}`;
+  
+  // Use upsert: true so that if we are reusing the path, it overwrites the existing file
+  const { error: uploadError } = await supabase.storage
+    .from("media")
+    .upload(path, file, { contentType: file.type || undefined, upsert: true });
+    
   if (uploadError) throw uploadError;
+  
   const { data } = supabase.storage.from("media").getPublicUrl(path);
-  const savedAsset = await saveMediaAsset({ ...draft, id: existingId ?? crypto.randomUUID(), url: data.publicUrl, storageBucket: "media", storagePath: path });
+  
+  const savedAsset = await saveMediaAsset({
+    ...draft,
+    id: existingId ?? crypto.randomUUID(),
+    url: data.publicUrl,
+    storageBucket: "media",
+    storagePath: path,
+  });
+  
+  // If we had a previous storage path and it was different from the new path, clean it up
   if (existingId && draft.storagePath && draft.storageBucket && draft.storagePath !== path) {
-    const { error: cleanupError } = await supabase.storage.from(draft.storageBucket).remove([draft.storagePath]);
-    if (cleanupError) console.warn("Unable to remove replaced media file:", cleanupError);
+    try {
+      await supabase.storage.from(draft.storageBucket).remove([draft.storagePath]);
+    } catch (cleanupError) {
+      console.warn("Unable to remove replaced media file from storage:", cleanupError);
+    }
   }
+  
   return savedAsset;
 }
 
 export async function deleteMediaAsset(asset: MediaAsset): Promise<void> {
   if (!supabase) throw new Error("Supabase is not configured");
+  
+  // Attempt to delete from storage first, but don't block DB deletion if it fails (e.g., file already deleted)
   if (asset.storagePath && asset.storageBucket) {
-    const { error: storageError } = await supabase.storage.from(asset.storageBucket).remove([asset.storagePath]);
-    if (storageError) throw storageError;
+    try {
+      const { error: storageError } = await supabase.storage.from(asset.storageBucket).remove([asset.storagePath]);
+      if (storageError) {
+        console.warn("Storage deletion warning (continuing to DB deletion):", storageError);
+      }
+    } catch (storageError) {
+      console.warn("Storage deletion failed (continuing to DB deletion):", storageError);
+    }
   }
+  
   const { error } = await supabase.from("media_assets").delete().eq("id", asset.id);
   if (error) throw error;
 }
