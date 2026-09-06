@@ -45,7 +45,7 @@ create table if not exists public.media_assets (
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
-create unique index if not exists one_published_hero on public.media_assets (placement) where placement = 'hero' and is_published = true;
+drop index if exists one_published_hero;
 create index if not exists media_gallery_order on public.media_assets (is_published, placement, sort_order);
 
 create table if not exists public.newsletters (

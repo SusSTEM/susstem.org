@@ -50,16 +50,32 @@ export function Hero() {
 
   useEffect(() => {
     const loadHeroAssets = async () => {
+      let remoteAssets: MediaAsset[] = [];
       try {
-        const remoteAssets = await fetchPublishedMedia("hero");
-        if (remoteAssets.length) {
-          setHeroAssets(remoteAssets);
-          return;
-        }
+        remoteAssets = await fetchPublishedMedia("hero");
       } catch (error) {
         console.error("Error loading published hero media:", error);
       }
-      setHeroAssets(readMediaAssets().filter((asset) => asset.placement === "hero" || asset.placement === "both"));
+      const localAssets = readMediaAssets().filter((asset) => asset.placement === "hero" || asset.placement === "both");
+      const fallbackAssets = slides.map((slide, index): MediaAsset => ({
+        id: `default-hero-${slide.id}`,
+        url: slide.image,
+        mediaType: "image",
+        title: slide.title,
+        altText: slide.title,
+        nativeWidth: 0,
+        nativeHeight: 0,
+        zoom: 1,
+        focalPointX: 50,
+        focalPointY: 50,
+        objectFit: "cover",
+        placement: "hero",
+        sortOrder: index,
+        createdAt: "",
+      }));
+      const byOrder = new Map(fallbackAssets.map((asset) => [asset.sortOrder, asset]));
+      [...localAssets, ...remoteAssets].forEach((asset) => byOrder.set(asset.sortOrder ?? 0, asset));
+      setHeroAssets(Array.from(byOrder.values()).sort((left, right) => (left.sortOrder ?? 0) - (right.sortOrder ?? 0)));
     };
 
     void loadHeroAssets();

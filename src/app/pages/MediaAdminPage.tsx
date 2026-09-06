@@ -43,6 +43,8 @@ const defaultHeroAssets: MediaAsset[] = [
   { id: "00000000-0000-0000-0000-000000000005", url: "/images/main%20pages/floodforherosusstem.jpg", mediaType: "image", title: "Solving global sustainability challenges with STEM", altText: "STEM project focused on sustainability", nativeWidth: 0, nativeHeight: 0, ...{ zoom: 1, focalPointX: 50, focalPointY: 50, objectFit: "cover" as const, placement: "hero" as const, brightness: 100, contrast: 100, saturation: 100 }, createdAt: "" },
 ];
 
+const orderedDefaultHeroAssets = defaultHeroAssets.map((asset, index) => ({ ...asset, sortOrder: index }));
+
 function bundledGalleryAssets(items: Array<{ id?: string; url?: string; title?: string; nativeWidth?: number; nativeHeight?: number; type?: string }>): MediaAsset[] {
   return items.filter((item) => item.url && (item.type === "image" || item.type === "video" || !item.type)).map((item, index) => ({
     id: item.id?.match(/^[0-9a-f-]{36}$/i) ? item.id : `00000000-0000-0000-0001-${String(index + 1).padStart(12, "0")}`,
@@ -77,7 +79,9 @@ export function MediaAdminPage({ onNavigate }: MediaAdminPageProps) {
   const [authError, setAuthError] = useState("");
 
   const placementAssets = useMemo(
-    () => assets.filter((asset) => activePlacement === "both" ? asset.placement === "both" : asset.placement === activePlacement || asset.placement === "both"),
+    () => assets
+      .filter((asset) => activePlacement === "both" ? asset.placement === "both" : asset.placement === activePlacement || asset.placement === "both")
+      .sort((left, right) => (left.sortOrder ?? 0) - (right.sortOrder ?? 0)),
     [activePlacement, assets],
   );
   const selected = placementAssets.find((asset) => asset.id === selectedId) ?? placementAssets[0] ?? null;
@@ -105,7 +109,7 @@ export function MediaAdminPage({ onNavigate }: MediaAdminPageProps) {
       } catch (error) {
         console.error("Unable to load bundled gallery media:", error);
       }
-      const available = [...remoteAssets, ...(isSupabaseConfigured ? [] : localAssets), ...defaultHeroAssets, ...galleryAssets];
+      const available = [...remoteAssets, ...(isSupabaseConfigured ? [] : localAssets), ...orderedDefaultHeroAssets, ...galleryAssets];
       const uniqueAssets = Array.from(new Map(available.map((asset) => [asset.url, asset])).values());
       if (active) setAssets(uniqueAssets);
     };
@@ -176,11 +180,28 @@ export function MediaAdminPage({ onNavigate }: MediaAdminPageProps) {
     setUploadError("");
     try {
       if (isSupabaseConfigured) {
-        const uploaded = await uploadMediaFile(file, { ...draft, placement: selected.placement }, selected.id);
+        const isRemoteAsset = Boolean(selected.storagePath && selected.storageBucket);
+        const uploaded = await uploadMediaFile(file, {
+          ...draft,
+          id: selected.id,
+          title: selected.title,
+          altText: selected.altText,
+          placement: selected.placement,
+          zoom: selected.zoom,
+          focalPointX: selected.focalPointX,
+          focalPointY: selected.focalPointY,
+          objectFit: selected.objectFit,
+          brightness: selected.brightness,
+          contrast: selected.contrast,
+          saturation: selected.saturation,
+          sortOrder: selected.sortOrder,
+        }, isRemoteAsset ? selected.id : undefined);
         setAssets((current) => current.map((asset) => asset.id === selected.id ? uploaded : asset));
       } else {
         setAssets((current) => current.map((asset) => asset.id === selected.id ? {
           ...asset,
+          title: selected.title,
+          altText: selected.altText,
           url: draft.url,
           mediaType: draft.mediaType,
           nativeWidth: draft.nativeWidth,
