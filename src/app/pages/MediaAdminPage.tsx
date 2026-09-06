@@ -262,6 +262,7 @@ export function MediaAdminPage({ onNavigate }: MediaAdminPageProps) {
       </header>
 
       <main className="mx-auto max-w-[1440px] px-5 py-7 sm:px-8">
+        <style>{`@media (min-width: 1024px) { .grid.grid-cols-2.gap-3.sm\\:grid-cols-3.lg\\:grid-cols-4 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; } }`}</style>
         <section className="mb-7"><p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-[#6b8983]">What are you working on?</p><div className="grid gap-3 md:grid-cols-3">{placementOptions.map(({ id, label, description, icon: Icon }) => <button key={id} type="button" onClick={() => setActivePlacement(id)} className={`flex items-center gap-4 rounded-2xl border p-4 text-left transition ${activePlacement === id ? "border-[#20593a] bg-[#eaf3f1] shadow-[0_0_0_2px_#20593a]" : "border-[#dce8e5] bg-white hover:border-[#7da79e]"}`}><span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${activePlacement === id ? "bg-[#20593a] text-white" : "bg-[#edf5f2] text-[#20593a]"}`}><Icon className="h-5 w-5" /></span><span><strong className="block text-base">{label}</strong><span className="mt-0.5 block text-sm text-[#607975]">{description}</span></span>{activePlacement === id ? <Check className="ml-auto h-5 w-5 text-[#20593a]" /> : null}</button>)}</div></section>
 
         <div className="grid items-start gap-6 xl:grid-cols-[minmax(0,1fr)_420px]">
