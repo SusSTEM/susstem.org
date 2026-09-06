@@ -84,7 +84,12 @@ export function Hero() {
   const ultraShadow = "drop-shadow-[0_2px_4px_rgba(0,0,0,1)] drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)] drop-shadow-[0_16px_32px_rgba(0,0,0,0.8)]";
   if (!heroAssets.length) return null;
   const heroAsset = heroAssets[currentSlide] ?? heroAssets[0];
-  const slideCopy = slides[currentSlide] ?? { title: heroAsset.title, cta: "Explore SusSTEM", link: "#what-is-susstem" };
+  const staticSlide = slides[currentSlide] ?? slides[0] ?? { title: "", cta: "Learn More", link: "#what-is-susstem" };
+  const slideCopy = {
+    title: heroAsset.title?.trim() ? heroAsset.title : staticSlide.title,
+    cta: staticSlide.cta,
+    link: staticSlide.link
+  };
 
   return (
     <section className="relative isolate w-full min-h-[82svh] overflow-hidden scroll-mt-24">
