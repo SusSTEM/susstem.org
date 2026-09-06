@@ -14,11 +14,14 @@ export interface GalleryItem {
   alt?: string;
   nativeWidth?: number;
   nativeHeight?: number;
-  nativeWidth?: number;
-  nativeHeight?: number;
+  zoom?: number;
+  focalPointX?: number;
+  focalPointY?: number;
+  brightness?: number;
+  contrast?: number;
+  saturation?: number;
 }
 
-// 📌 ADD YOUR YOUTUBE LINKS HERE (Shorts or Widescreen)
 const YOUTUBE_VIDEOS: GalleryItem[] = [
   { 
     id: "yt-1", 
@@ -32,12 +35,6 @@ const YOUTUBE_VIDEOS: GalleryItem[] = [
     url: "https://youtu.be/ECIQ7b9lE6A?si=mgB9u32EKdomPVOw", 
     aspect: "landscape" 
   },
-  //{ 
-    //id: "yt-2", 
-    //type: "youtube", 
-    //url: "https://youtube.com/shorts/CXtS_mLkh_U", 
-    //aspect: "short" 
-  //},
 ];
 
 function extractYouTubeId(urlOrId: string): string {
@@ -163,6 +160,14 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
     const aspectRatio = getItemAspectRatio(item);
     const itemTitle = getItemTitle(item);
 
+    const imageStyle: React.CSSProperties = {
+      objectPosition: item.focalPointX !== undefined && item.focalPointY !== undefined
+        ? `${item.focalPointX}% ${item.focalPointY}%`
+        : "50% 50%",
+      transform: item.zoom ? `scale(${item.zoom})` : "scale(1)",
+      filter: `brightness(${item.brightness ?? 100}%) contrast(${item.contrast ?? 100}%) saturate(${item.saturation ?? 100}%)`
+    };
+
     return (
       <div
         key={item.id}
@@ -179,6 +184,7 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
               muted
               playsInline
               preload="metadata"
+              style={imageStyle}
               className="h-full w-full object-cover transition-transform duration-500"
             />
           ) : (
@@ -186,6 +192,7 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
               src={thumbnailUrl}
               alt={item.alt || itemTitle}
               loading="lazy"
+              style={imageStyle}
               className="h-full w-full object-cover transition-transform duration-500"
             />
           )}
@@ -204,8 +211,8 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
       <style>{`
         @keyframes slowScrollDown { 0% { transform: translateY(-50%); } 100% { transform: translateY(0%); } }
         @keyframes slowScrollUp { 0% { transform: translateY(0%); } 100% { transform: translateY(-50%); } }
-        .animate-slow-down { animation: slowScrollDown 18s linear infinite; }
-        .animate-slow-up { animation: slowScrollUp 18s linear infinite; }
+        .animate-slow-down { animation: slowScrollDown 24s linear infinite; }
+        .animate-slow-up { animation: slowScrollUp 24s linear infinite; }
       `}</style>
 
       {/* MOBILE VIEW */}
@@ -221,6 +228,7 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
                 className="relative overflow-hidden h-full"
                 onTouchStart={() => setHoveredCol(col.id)}
                 onTouchEnd={() => setHoveredCol(null)}
+                onTouchCancel={() => setHoveredCol(null)}
               >
                 <div
                   className={`flex flex-col gap-3 ${col.direction === "down" ? "animate-slow-down" : "animate-slow-up"}`}
