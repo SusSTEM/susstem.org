@@ -97,3 +97,13 @@ export async function uploadMediaFile(file: File, draft: MediaAsset, existingId?
   const { data } = supabase.storage.from("media").getPublicUrl(path);
   return saveMediaAsset({ ...draft, id: existingId ?? draft.id, url: data.publicUrl, storageBucket: "media", storagePath: path });
 }
+
+export async function deleteMediaAsset(asset: MediaAsset): Promise<void> {
+  if (!supabase) throw new Error("Supabase is not configured");
+  if (asset.storagePath && asset.storageBucket) {
+    const { error: storageError } = await supabase.storage.from(asset.storageBucket).remove([asset.storagePath]);
+    if (storageError) throw storageError;
+  }
+  const { error } = await supabase.from("media_assets").delete().eq("id", asset.id);
+  if (error) throw error;
+}
