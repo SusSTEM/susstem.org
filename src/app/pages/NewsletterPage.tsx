@@ -13,7 +13,7 @@ interface Publication {
 interface NewsletterPageProps {
   onNavigate?: (page: string) => void;
   isSubscribed?: boolean;
-  onSubscribe: (email: string) => void;
+  onSubscribe: (fullName: string, email: string) => void;
 }
 
 export function NewsletterPage({ onNavigate, isSubscribed, onSubscribe }: NewsletterPageProps) {
@@ -127,8 +127,8 @@ export function NewsletterPage({ onNavigate, isSubscribed, onSubscribe }: Newsle
             PDFs, video recaps, and event roundups once they are ready to publish.
           </p>
 
-          {/* Full-width landscape cover image (16:9) */}
-          <div className="relative mt-6 aspect-[16/9] w-full overflow-hidden rounded-[1.25rem] border border-[#cdd7c9] bg-[#f8faf5]">
+          {}
+          <div className="relative mx-auto mt-6 aspect-[16/9] w-full max-w-3xl overflow-hidden rounded-[1.25rem] border border-[#cdd7c9] bg-[#f8faf5]">
             {activePublication.image ? (
               <img
                 src={activePublication.image}
@@ -137,10 +137,10 @@ export function NewsletterPage({ onNavigate, isSubscribed, onSubscribe }: Newsle
                 loading="lazy"
               />
             ) : (
-              <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-center text-[#8a938c]">
+              <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-center text-[#072d2d]">
                 <Newspaper className="h-9 w-9" />
-                <p className="text-sm font-semibold">Publication cover</p>
-                <p className="text-xs">Landscape image · 16:9 (e.g. 1600 × 900)</p>
+                <p className="text-base font-semibold">Publication cover</p>
+                <p className="text-sm">Landscape image · 16:9 (e.g. 1600 × 900)</p>
               </div>
             )}
           </div>

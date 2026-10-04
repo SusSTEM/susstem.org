@@ -4,7 +4,7 @@ import { NewsletterSignupForm } from "./NewsletterSignupForm";
 interface NewsletterPopupProps {
   open: boolean;
   onClose: () => void;
-  onSubscribe: (email: string) => void;
+  onSubscribe: (fullName: string, email: string) => void;
 }
 
 export function NewsletterPopup({ open, onClose, onSubscribe }: NewsletterPopupProps) {

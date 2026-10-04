@@ -6,18 +6,24 @@ import { Label } from "./ui/label";
 import { ShieldCheck } from "lucide-react";
 
 interface NewsletterSignupFormProps {
-  onSubscribe: (email: string) => void;
+  onSubscribe: (fullName: string, email: string) => void;
   submitLabel?: string;
   compact?: boolean;
 }
 
 export function NewsletterSignupForm({ onSubscribe, submitLabel = "Sign up", compact = false }: NewsletterSignupFormProps) {
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [receiveUpdates, setReceiveUpdates] = useState(true);
   const [isPartner, setIsPartner] = useState(false);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
+
+    if (!fullName.trim()) {
+      alert("Please enter your full name.");
+      return;
+    }
 
     if (!email.trim()) {
       alert("Please enter your email address.");
@@ -29,13 +35,30 @@ export function NewsletterSignupForm({ onSubscribe, submitLabel = "Sign up", com
       return;
     }
 
-    onSubscribe(email.trim());
+    onSubscribe(fullName.trim(), email.trim());
+    setFullName("");
     setEmail("");
     setIsPartner(false);
   };
 
   return (
     <form onSubmit={handleSubmit} className={compact ? "space-y-5" : "space-y-6"}>
+      <div className="space-y-2">
+        <Label htmlFor="newsletter-full-name" className="text-[#072d2d] text-base font-medium">
+          Full name
+        </Label>
+        <Input
+          id="newsletter-full-name"
+          name="full-name"
+          type="text"
+          value={fullName}
+          onChange={(event) => setFullName(event.target.value)}
+          placeholder="Your full name"
+          autoComplete="name"
+          className="h-14 border-0 border-b border-[#d6ddd3] bg-transparent px-0 text-[#072d2d] shadow-none focus-visible:ring-0 focus-visible:border-[#20593A]"
+        />
+      </div>
+
       <div className="space-y-2">
         <Label htmlFor="newsletter-email" className="text-[#072d2d] text-base font-medium">
           Email Address

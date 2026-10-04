@@ -185,9 +185,9 @@ export default function App() {
     window.history.pushState({}, "", nextPath);
   };
 
-  const handleNewsletterSubscribe = (email: string) => {
+  const handleNewsletterSubscribe = (fullName: string, email: string) => {
     if (supabase) {
-      void supabase.from("newsletter_subscribers").upsert({ email, status: "subscribed" }, { onConflict: "email" }).then(({ error }) => {
+      void supabase.from("newsletter_subscribers").upsert({ full_name: fullName, email, status: "subscribed" }, { onConflict: "email" }).then(({ error }) => {
         if (error) console.error("Unable to save newsletter subscription:", error);
       });
     }
