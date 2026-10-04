@@ -197,12 +197,12 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
       <style>{`
         @keyframes slowScrollDown { 0% { transform: translateY(-50%); } 100% { transform: translateY(0%); } }
         @keyframes slowScrollUp { 0% { transform: translateY(0%); } 100% { transform: translateY(-50%); } }
-        .animate-slow-down { animation: slowScrollDown 24s linear infinite; }
-        .animate-slow-up { animation: slowScrollUp 24s linear infinite; }
+        .animate-slow-down { animation: slowScrollDown 40s linear infinite; }
+        .animate-slow-up { animation: slowScrollUp 40s linear infinite; }
       `}</style>
 
       {/* MOBILE VIEW */}
-      <div className="md:hidden relative h-[600px] w-full overflow-hidden">
+      <div className="md:hidden relative h-[700px] w-full overflow-hidden">
         <div className="grid grid-cols-2 gap-3 h-full">
           {mobileColumns.map((col) => {
             const duplicatedItems = [...col.items, ...col.items];
@@ -232,7 +232,7 @@ export function CircularGallery({ customYouTubeVideos }: { customYouTubeVideos?:
       </div>
 
       {/* DESKTOP VIEW */}
-      <div className="hidden md:block relative h-[700px] w-full overflow-hidden">
+      <div className="hidden md:block relative h-[850px] w-full overflow-hidden">
         <div className="grid grid-cols-3 gap-4 h-full">
           {desktopColumns.map((col) => {
             const duplicatedItems = [...col.items, ...col.items];
