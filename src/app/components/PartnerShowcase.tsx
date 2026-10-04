@@ -77,7 +77,7 @@ export function PartnerShowcase() {
                 </span>
                 <span className="text-white/90">
                   {" "}
-                  — making career-focused, hands-on learning accessible to every child in India.
+                  to make career-focused, hands-on learning accessible to every child in India.
                 </span>
               </p>
             </div>
