@@ -95,7 +95,7 @@ export function NewsletterSignupForm({ onSubscribe, submitLabel = "Sign up", com
         className={`w-full rounded-full px-8 py-6 text-lg font-semibold shadow-none transition-colors ${
           compact
             ? "bg-[#20593A] text-white hover:bg-[#072d2d]"
-            : "bg-[#ffd459] text-[#072d2d] hover:bg-[#f2c94c]"
+            : "bg-[#20593a] text-white hover:bg-[#072d2d] focus-visible:ring-2 focus-visible:ring-[#20593A] focus-visible:ring-offset-2"
         }`}
       >
         {submitLabel}
