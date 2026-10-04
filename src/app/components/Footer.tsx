@@ -118,7 +118,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li>
                 <button
                   type="button"
-                  onClick={() => navigateTo("air-alert")}
+                  onClick={() => navigateTo("explorer")}
                   className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
                   For Educators

@@ -20,7 +20,7 @@ export function FeaturedProjects({ onNavigate }: FeaturedProjectsProps) {
       description:
         "Introduction to SusSTEM and our approach to integrating STEM with sustainability and science. Students will learn the fundamentals of electronics using Arduino, CAD Design along with Python programming, ML(Machine Learning) and effectively using AI models, to apply their knowledge to real-world sustainability challenges.",
       image: "/images/main%20pages/arduinouno.jpeg",
-      link: "air-alert",
+      link: "explorer",
     },
     ...(SHOW_INNOVATOR
       ? [

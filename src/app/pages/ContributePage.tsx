@@ -12,8 +12,8 @@ export function ContributePage() {
   const [infoModalKit, setInfoModalKit] = useState<"explorer" | "changemaker" | null>(null);
 
   const kitPrices = {
-    explorer: 250,
-    changemaker: 350,
+    explorer: 265,
+    changemaker: 495,
   };
 
   const checkoutUrls = {
@@ -441,7 +441,7 @@ export function ContributePage() {
             </button>
             
             <h3 className="text-xl font-bold text-[#072d2d] mb-4 pr-8 shrink-0" style={{ fontFamily: "Poppins, sans-serif" }}>
-              {infoModalKit === "explorer" ? "Explorer Kit BOM (100 AED)" : "Changemaker Kit BOM (250 AED)"}
+              {infoModalKit === "explorer" ? "Explorer Kit BOM (265 AED)" : "Changemaker Kit BOM (495 AED)"}
             </h3>
 
             <div className="overflow-y-auto pr-1">

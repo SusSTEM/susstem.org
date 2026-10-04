@@ -16,7 +16,7 @@ import { NewsletterPopup } from "./components/NewsletterPopup";
 import { VolunteerPage } from "./pages/VolunteerPage";
 import { ContributePage } from "./pages/ContributePage";
 import { PartnerPage } from "./pages/PartnerPage";
-import { AirAlertPage } from "./pages/AirAlertPage";
+import { ExplorerPage } from "./pages/ExplorerPage";
 import { CircularGalleryPage } from "./pages/CircularGalleryPage";
 // INNOVATOR_REMOVED: restore this import and the route block below if Level 2 Innovator returns.
 // import { InnovatorPage } from "./pages/InnovatorPage";
@@ -31,7 +31,7 @@ type PageKey =
   | "volunteer"
   | "contribute"
   | "partner"
-  | "air-alert"
+  | "explorer"
   | "gallery"
   | "contact"
   | "changemaker"
@@ -47,7 +47,7 @@ const pagePaths: Record<PageKey, string> = {
   volunteer: "/volunteer",
   contribute: "/contribute",
   partner: "/partner",
-  "air-alert": "/air-alert",
+  explorer: "/explorer",
   gallery: "/gallery",
   contact: "/contact",
   changemaker: "/changemaker",
@@ -65,8 +65,8 @@ function getPageFromPath(pathname: string): PageKey {
       return "contribute";
     case "/partner":
       return "partner";
-    case "/air-alert":
-      return "air-alert";
+    case "/explorer":
+      return "explorer";
     case "/gallery":
       return "gallery";
     case "/contact":
@@ -233,11 +233,11 @@ export default function App() {
     );
   }
 
-  if (currentPage === "air-alert") {
+  if (currentPage === "explorer") {
     return (
       <div className="min-h-screen bg-white">
         <Navbar onNavigate={handleNavigate} />
-        <AirAlertPage onNavigate={handleNavigate} />
+        <ExplorerPage onNavigate={handleNavigate} />
         <Footer onNavigate={handleNavigate} />
       </div>
     );

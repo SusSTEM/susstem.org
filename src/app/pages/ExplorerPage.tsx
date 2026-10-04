@@ -11,11 +11,11 @@ import { Badge } from "../components/ui/badge";
 import { Info, Zap, Sprout, Microscope, Lightbulb, Code2, Leaf, Check, AlertTriangle, X } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
-interface AirAlertPageProps {
+interface ExplorerPageProps {
   onNavigate?: (page: string) => void;
 }
 
-export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
+export function ExplorerPage({ onNavigate }: ExplorerPageProps) {
   const handleNavigate = (page: string) => { if (onNavigate) onNavigate(page); };
   const openInquiry = (subject: string) => {
     window.location.href = `mailto:hello@susstem.org?subject=${encodeURIComponent(subject)}`;
@@ -147,7 +147,7 @@ export function AirAlertPage({ onNavigate }: AirAlertPageProps) {
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <ImageWithFallback src="/images/main%20pages/peopleinruralschoolsusstem.jpg" className="w-full h-92 object-cover" />
+              <ImageWithFallback src="/images/main%20pages/20260819_114354 (1).jpg" className="w-full h-92 object-cover" />
             </div>
           </div>
         </div>

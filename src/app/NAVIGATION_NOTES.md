@@ -49,7 +49,7 @@ All internal navigation stays in the same tab through either:
 | Hero Slide 4 | "Explore Impact" | Scroll to section | #impact | Same Tab |
 | Hero Slide 5 | "Partner With Us" | Scroll to section | #get-involved | Same Tab |
 | **Featured Projects (The Programme)** |
-| Level 1 Card | "Learn More" | Navigate to project | Air Alert Page | Same Tab |
+| Level 1 Card | "Learn More" | Navigate to project | Explorer Page | Same Tab |
 | Level 2 Card | "Learn More" | Navigate to project | Innovator Page | Same Tab |
 | Level 3 Card | "Learn More" | Navigate to project | Changemaker Page | Same Tab |
 | **Get Involved Section** |
