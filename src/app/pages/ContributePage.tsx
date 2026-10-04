@@ -16,6 +16,11 @@ export function ContributePage() {
     changemaker: 350,
   };
 
+  const checkoutUrls = {
+    explorer: "https://www.zenstores.shop/products/susstem-starter-kit/3962353000000125024",
+    changemaker: "https://www.zenstores.shop/products/susstem-explorer-kit/3962353000000125061",
+  };
+
   const updateKitQuantity = (
     setter: React.Dispatch<React.SetStateAction<number>>,
     currentValue: number,
@@ -51,8 +56,13 @@ export function ContributePage() {
       return;
     }
 
-    const checkoutUrl = "https://www.zenstores.shop/products/bluetooth-controlled-car/2064485000004265149";
-    window.open(checkoutUrl, "_blank", "noopener,noreferrer");
+    if (explorerKitQty > 0) {
+      window.open(checkoutUrls.explorer, "_blank", "noopener,noreferrer");
+    }
+
+    if (changemakerKitQty > 0) {
+      window.open(checkoutUrls.changemaker, "_blank", "noopener,noreferrer");
+    }
   };
 
   return (
