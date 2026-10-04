@@ -34,7 +34,7 @@ const partnerNetwork = [
   "Propeller Technologies",
   "WASTEless",
   "Arduino",
-  "Code.org",
+  "KYRA",
 ];
 
 export function PartnerShowcase() {
@@ -45,7 +45,10 @@ export function PartnerShowcase() {
           
           {/* Main Section Header */}
           <div className="text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-[#072d2d]" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <h2
+              className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-[#072d2d]"
+              style={{ fontFamily: "Poppins, sans-serif" }}
+            >
               Our Partners
             </h2>
           </div>
@@ -65,17 +68,19 @@ export function PartnerShowcase() {
             />
           </div>
 
-          {/* Full-width Banner Pill */}
-          <div className="w-full flex justify-center">
-            <div className="w-full flex items-center justify-center rounded-3xl sm:rounded-full bg-[#d2042d] px-5 py-3.5 sm:px-8 sm:py-4 shadow-[0_10px_22px_rgba(210,4,45,0.16)] text-center">
+          {/* Full-width Banner Pill + Mission Text */}
+          <div className="w-full flex flex-col items-center justify-center gap-3 sm:gap-4">
+            <div
+              className="w-full flex items-center justify-center rounded-3xl sm:rounded-full bg-[#ffffff] px-5 py-3.5 sm:px-8 sm:py-4 text-center border-2 border-[#D2042D]"
+            >
               <p
-                className="text-xs sm:text-sm md:text-base lg:text-lg text-white font-medium leading-normal sm:whitespace-nowrap"
+                className="text-xs sm:text-sm md:text-base lg:text-lg text-black font-medium leading-normal sm:whitespace-nowrap"
                 style={{ fontFamily: "Poppins, sans-serif" }}
               >
                 <span className="font-semibold tracking-[0.02em]">
                   Two platforms united by one mission
                 </span>
-                <span className="text-white/90">
+                <span className="text-black/90">
                   {" "}
                   to make career-focused, hands-on learning accessible to every child in India.
                 </span>
@@ -93,7 +98,7 @@ export function PartnerShowcase() {
               {partnerNetwork.map((partner) => (
                 <div
                   key={partner}
-                  className="group flex h-16 sm:h-20 w-[calc(50%-0.5rem)] sm:w-44 lg:w-48 cursor-pointer items-center justify-center rounded-2xl border border-[#072d2d]/10 bg-white px-3 py-3 text-center shadow-[0_8px_18px_rgba(7,45,45,0.06)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#d2042d] hover:border-transparent hover:shadow-[0_10px_22px_rgba(210,4,45,0.25)]"
+                  className="group flex h-16 sm:h-20 w-[calc(50%-0.5rem)] sm:w-44 lg:w-48 cursor-pointer items-center justify-center rounded-2xl border border-[#072d2d]/30 bg-white px-3 py-3 text-center shadow-[0_8px_18px_rgba(7,45,45,0.06)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#20593A] hover:border-transparent hover:shadow-[0_10px_22px_rgba(7,45,45,0.06)]"
                 >
                   <span
                     className="text-xs sm:text-sm md:text-base font-semibold text-[#072d2d] group-hover:text-white transition-colors duration-300 leading-tight"
