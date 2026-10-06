@@ -23,6 +23,7 @@ import { CircularGalleryPage } from "./pages/CircularGalleryPage";
 import { ChangemakerPage } from "./pages/ChangemakerPage";
 import { ContactPage } from "./pages/ContactPage";
 import { NewsletterPage } from "./pages/NewsletterPage";
+import { FAQPage } from "./pages/FAQPage";
 import { MediaAdminPage } from "./pages/MediaAdminPage";
 import { supabase } from "../lib/supabase";
 
@@ -36,6 +37,7 @@ type PageKey =
   | "contact"
   | "changemaker"
   | "newsletter"
+  | "faq"
   | "media-admin";
 
 const newsletterStorageKey = "susstem-newsletter-subscribed";
@@ -52,6 +54,7 @@ const pagePaths: Record<PageKey, string> = {
   contact: "/contact",
   changemaker: "/changemaker",
   newsletter: "/newsletter",
+  faq: "/faq",
   "media-admin": "/media-admin",
 };
 
@@ -73,6 +76,8 @@ function getPageFromPath(pathname: string): PageKey {
       return "contact";
     case "/newsletter":
       return "newsletter";
+    case "/faq":
+      return "faq";
     case "/media-admin":
       return "media-admin";
     case "/updates":
@@ -261,6 +266,16 @@ export default function App() {
           onSubscribe={handleNewsletterSubscribe}
         />
         <Footer onNavigate={handleNavigate} isNewsletterSubscribed={isNewsletterSubscribed} />
+      </div>
+    );
+  }
+
+  if (currentPage === "faq") {
+    return (
+      <div className="min-h-screen bg-[#eff2e7]">
+        <Navbar onNavigate={handleNavigate} />
+        <FAQPage onNavigate={handleNavigate} />
+        <Footer onNavigate={handleNavigate} />
       </div>
     );
   }

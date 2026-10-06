@@ -76,6 +76,15 @@ export function Footer({ onNavigate }: FooterProps) {
                   Insider Updates
                 </button>
               </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => navigateTo("faq")}
+                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
+                >
+                  FAQs
+                </button>
+              </li>
             </ul>
           </div>
 
