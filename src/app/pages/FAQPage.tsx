@@ -166,19 +166,9 @@ export function FAQPage({ onNavigate }: FAQPageProps) {
       <section className="bg-[#072d2d] text-white">
         <div className="mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#eff2e7] text-[#20593a]">
-              <MessageCircleQuestion className="h-7 w-7" aria-hidden="true" />
-            </div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#a4ff7b]">
-              SusSTEM FAQs
-            </p>
-            <h1 className="mt-4 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
-              Questions? Start here.
+            <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
+              Frequently Asked Questions
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/80 sm:text-lg">
-              Learn more about SusSTEM, our community, and the ways you can be part of practical
-              sustainability-focused STEM learning.
-            </p>
           </div>
         </div>
       </section>

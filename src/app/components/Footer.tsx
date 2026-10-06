@@ -43,15 +43,6 @@ export function Footer({ onNavigate }: FooterProps) {
               <li>
                 <button
                   type="button"
-                  onClick={() => navigateTo("home#what-is-susstem")}
-                  className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
-                >
-                  SusSTEM
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
                   onClick={() => navigateTo("home#impact")}
                   className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
@@ -82,7 +73,7 @@ export function Footer({ onNavigate }: FooterProps) {
                   onClick={() => navigateTo("faq")}
                   className="text-white/80 hover:text-[#a4ff7b] transition-colors text-left"
                 >
-                  FAQs
+                  SusSTEM FAQs
                 </button>
               </li>
             </ul>
